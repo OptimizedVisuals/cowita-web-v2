@@ -4,1651 +4,1349 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Participant Stories | CoWiTa</title>
   <meta
     name="description"
-    content="Featured CoWiTa stories — emerging creative journeys, community experiences and the people behind the work."
+    content="Meet the young people behind CoWiTa's work. Participant stories will document journeys of discovering talent, developing skills, creating, and finding opportunity."
   >
 
-  <meta name="theme-color" content="#0d4b4b">
-
-  <title>Featured Stories — CoWiTa</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Shared CoWiTa design system -->
   <link rel="stylesheet" href="/css/styles.css">
 
   <style>
+    /* =========================================
+       PARTICIPANT STORIES PAGE
+    ========================================= */
 
-    /* =========================================================
-       FEATURED STORIES
-       Page-specific styles only.
-       ========================================================= */
-
-    .stories-hero {
-      position: relative;
-      min-height: 72vh;
-
+    .participant-hero {
+      min-height: 78vh;
       display: flex;
-      align-items: flex-end;
-
-      overflow: hidden;
-
+      align-items: center;
       background: var(--deep-teal);
       color: #fff;
-
-      padding: 150px 0 80px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .stories-hero::before {
+    .participant-hero::after {
       content: "";
-
       position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 78% 18%,
-          rgba(229,165,26,.22),
-          transparent 30%
-        ),
-        linear-gradient(
-          120deg,
-          rgba(7,35,40,.97),
-          rgba(13,75,75,.72)
-        );
-    }
-
-    .stories-hero-grid {
-      position: relative;
-      z-index: 1;
-
-      display: grid;
-      grid-template-columns: 1fr .9fr;
-
-      gap: 70px;
-
-      align-items: end;
-    }
-
-    .stories-hero-copy {
-      max-width: 800px;
-    }
-
-    .stories-hero h1 {
-      margin: 0;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: clamp(3.6rem, 7vw, 7rem);
-
-      font-weight: 500;
-
-      line-height: .92;
-
-      letter-spacing: -.06em;
-    }
-
-    .stories-hero h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    .stories-hero-text {
-      max-width: 600px;
-
-      margin-top: 28px;
-
-      color: rgba(255,255,255,.76);
-
-      font-size: 1.05rem;
-
-      line-height: 1.7;
-    }
-
-    .stories-hero-visual {
-      position: relative;
-
-      min-height: 430px;
-    }
-
-    .stories-hero-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 430px;
-
-      object-fit: cover;
-
-      border-radius: 34px 34px 110px 34px;
-    }
-
-    .stories-hero-badge {
-      position: absolute;
-
-      left: -35px;
-      bottom: 30px;
-
-      max-width: 230px;
-
-      padding: 20px;
-
-      background: var(--gold);
-
-      color: #1b1a16;
-
-      border-radius: 18px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .stories-hero-badge strong {
-      display: block;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: 1.4rem;
-
-      line-height: 1.05;
-    }
-
-    .stories-hero-badge span {
-      display: block;
-
-      margin-top: 8px;
-
-      font-size: .72rem;
-
-      line-height: 1.5;
-    }
-
-
-    /* =========================================================
-       INTRO
-       ========================================================= */
-
-    .stories-intro {
-      display: grid;
-
-      grid-template-columns: .75fr 1.25fr;
-
-      gap: 90px;
-
-      align-items: start;
-    }
-
-    .stories-intro-copy {
-      max-width: 760px;
-    }
-
-    .stories-intro-copy p {
-      margin: 0 0 22px;
-
-      color: var(--muted);
-
-      font-size: 1rem;
-
-      line-height: 1.75;
-    }
-
-    .stories-intro-copy p:first-child {
-      color: var(--ink);
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: 1.65rem;
-
-      line-height: 1.25;
-
-      letter-spacing: -.025em;
-    }
-
-
-    /* =========================================================
-       FEATURED STORY
-       ========================================================= */
-
-    .featured-story-section {
-      background: var(--cream);
-    }
-
-    .featured-story {
-      display: grid;
-
-      grid-template-columns: 1.05fr .95fr;
-
-      min-height: 600px;
-
-      overflow: hidden;
-
-      border-radius: 32px;
-
-      background: #fff;
-
-      box-shadow: var(--shadow);
-    }
-
-    .featured-story-image {
-      position: relative;
-
-      min-height: 600px;
-
-      overflow: hidden;
-    }
-
-    .featured-story-image img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      transition: transform .6s var(--ease);
-    }
-
-    .featured-story:hover .featured-story-image img {
-      transform: scale(1.035);
-    }
-
-    .featured-story-overlay {
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.5),
-          transparent 45%
-        );
-    }
-
-    .featured-story-tag {
-      position: absolute;
-
-      top: 28px;
-      left: 28px;
-
-      padding: 9px 13px;
-
-      background: var(--gold);
-
-      color: #1b1a16;
-
-      border-radius: 999px;
-
-      font-size: .65rem;
-
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: .1em;
-    }
-
-    .featured-story-content {
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      padding: 60px;
-    }
-
-    .featured-story-content h2 {
-      margin: 18px 0 22px;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: clamp(2.4rem, 4vw, 4.5rem);
-
-      line-height: .98;
-
-      letter-spacing: -.05em;
-    }
-
-    .featured-story-content p {
-      max-width: 560px;
-
-      color: var(--muted);
-
-      line-height: 1.7;
-    }
-
-    .featured-story-meta {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 10px;
-
-      margin-top: 30px;
-    }
-
-    .story-meta-item {
-      padding: 8px 12px;
-
-      border: 1px solid var(--line);
-
-      border-radius: 999px;
-
-      color: var(--muted);
-
-      font-size: .68rem;
-    }
-
-    .featured-story-content .btn {
-      align-self: flex-start;
-
-      margin-top: 35px;
-    }
-
-
-    /* =========================================================
-       STORY GRID
-       ========================================================= */
-
-    .stories-header {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: flex-end;
-
-      gap: 40px;
-
-      margin-bottom: 45px;
-    }
-
-    .stories-header-copy {
-      max-width: 700px;
-    }
-
-    .stories-header-copy p {
-      margin-top: 18px;
-
-      color: var(--muted);
-
-      line-height: 1.7;
-    }
-
-    .stories-grid {
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 18px;
-    }
-
-    .story-card {
-      overflow: hidden;
-
-      border: 1px solid var(--line);
-
-      border-radius: 24px;
-
-      background: #fff;
-
-      transition:
-        transform .3s var(--ease),
-        box-shadow .3s var(--ease),
-        border-color .3s var(--ease);
-    }
-
-    .story-card:hover {
-      transform: translateY(-7px);
-
-      border-color: rgba(229,165,26,.65);
-
-      box-shadow: var(--shadow);
-    }
-
-    .story-card-image {
-      position: relative;
-
-      aspect-ratio: 4 / 3;
-
-      overflow: hidden;
-
-      background: #dfe7e5;
-    }
-
-    .story-card-image img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      transition: transform .5s var(--ease);
-    }
-
-    .story-card:hover .story-card-image img {
-      transform: scale(1.04);
-    }
-
-    .story-card-tag {
-      position: absolute;
-
-      left: 18px;
-      top: 18px;
-
-      padding: 7px 10px;
-
-      background: rgba(255,255,255,.92);
-
-      color: var(--teal);
-
-      border-radius: 999px;
-
-      font-size: .62rem;
-
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: .08em;
-    }
-
-    .story-card-content {
-      padding: 28px;
-    }
-
-    .story-card-content h3 {
-      margin: 0 0 12px;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: 1.55rem;
-
-      line-height: 1.05;
-    }
-
-    .story-card-content p {
-      margin: 0;
-
-      color: var(--muted);
-
-      font-size: .82rem;
-
-      line-height: 1.65;
-    }
-
-    .story-card-link {
-      display: inline-flex;
-
-      margin-top: 22px;
-
-      color: var(--teal);
-
-      font-size: .72rem;
-
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: .08em;
-    }
-
-
-    /* =========================================================
-       COMING SOON
-       ========================================================= */
-
-    .coming-soon-section {
-      background: var(--paper);
-    }
-
-    .coming-soon-panel {
-      position: relative;
-
-      overflow: hidden;
-
-      padding: 70px;
-
-      border-radius: 32px;
-
-      background: var(--deep-teal);
-
-      color: #fff;
-    }
-
-    .coming-soon-panel::after {
-      content: "";
-
-      position: absolute;
-
-      width: 300px;
-      height: 300px;
-
-      right: -100px;
-      top: -100px;
-
-      border: 1px solid rgba(229,165,26,.3);
-
+      width: 42vw;
+      height: 42vw;
+      right: -14vw;
+      bottom: -20vw;
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 50%;
     }
 
-    .coming-soon-panel h2 {
-      max-width: 700px;
-
-      margin: 18px 0;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: clamp(2.5rem, 5vw, 5rem);
-
-      line-height: .98;
-
-      letter-spacing: -.05em;
-    }
-
-    .coming-soon-panel p {
-      max-width: 650px;
-
-      color: rgba(255,255,255,.7);
-
-      line-height: 1.7;
-    }
-
-    .coming-soon-label {
-      color: var(--gold);
-
-      font-size: .68rem;
-
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: .14em;
-    }
-
-
-    /* =========================================================
-       CTA
-       ========================================================= */
-
-    .stories-cta {
-      background: var(--gold);
-
-      color: #1b1a16;
-    }
-
-    .stories-cta-inner {
+    .participant-hero-inner {
+      width: 100%;
       display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
 
-      grid-template-columns: 1fr auto;
+    .participant-hero-copy {
+      max-width: 720px;
+    }
 
-      gap: 50px;
+    .participant-hero .eyebrow {
+      color: var(--gold);
+    }
 
+    .participant-hero h1 {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: .94;
+      letter-spacing: -.055em;
+      margin: 1rem 0 1.5rem;
+      max-width: 760px;
+    }
+
+    .participant-hero p {
+      color: rgba(255,255,255,.78);
+      font-size: 1.12rem;
+      line-height: 1.75;
+      max-width: 650px;
+    }
+
+    .participant-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 2rem;
+    }
+
+    .participant-hero-actions .btn-dark {
+      background: var(--gold);
+      color: var(--deep-teal);
+    }
+
+    .participant-hero-actions .btn-dark:hover {
+      background: #fff;
+      color: var(--deep-teal);
+    }
+
+    .participant-hero-visual {
+      position: relative;
+    }
+
+    .participant-hero-image {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      max-width: 520px;
+      margin-left: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .hero-note {
+      position: absolute;
+      left: -2rem;
+      bottom: 2rem;
+      background: var(--gold);
+      color: var(--deep-teal);
+      padding: 1rem 1.2rem;
+      max-width: 210px;
+      font-size: .78rem;
+      font-weight: 700;
+      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* Intro */
+
+    .story-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .story-intro h2 {
+      font-size: clamp(2.4rem, 4vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    .story-intro-copy {
+      max-width: 720px;
+    }
+
+    .story-intro-copy p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0 0 1.2rem;
+    }
+
+    .story-intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Story cards */
+
+    .participant-stories-section {
+      background: var(--cream);
+    }
+
+    .section-heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-heading-row h2 {
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin: .6rem 0 0;
+      max-width: 750px;
+    }
+
+    .section-heading-row p {
+      max-width: 360px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .story-card {
+      background: var(--paper);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      border: 1px solid var(--line);
+    }
+
+    .story-card-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: block;
+      object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+
+    .story-card:hover .story-card-image {
+      transform: scale(1.035);
+    }
+
+    .story-status {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      background: var(--gold);
+      color: var(--deep-teal);
+      padding: .45rem .65rem;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .story-card-content {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .story-card-category {
+      color: var(--teal);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+
+    .story-card h3 {
+      font-size: 1.7rem;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      margin: 0 0 .9rem;
+    }
+
+    .story-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 1.5rem;
+    }
+
+    .story-card-link {
+      margin-top: auto;
+      color: var(--deep-teal);
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .story-card-link span {
+      transition: transform .25s ease;
+    }
+
+    .story-card-link:hover span {
+      transform: translateX(5px);
+    }
+
+    /* Story types */
+
+    .story-types {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .story-type {
+      background: var(--paper);
+      padding: 2rem;
+      min-height: 220px;
+    }
+
+    .story-type-number {
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    .story-type h3 {
+      font-size: 1.65rem;
+      margin: 0 0 .7rem;
+      letter-spacing: -.025em;
+    }
+
+    .story-type p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0;
+    }
+
+    /* Journey */
+
+    .journey-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .journey-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 5rem;
+      margin-bottom: 4rem;
+    }
+
+    .journey-intro h2 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin: 0;
+    }
+
+    .journey-intro p {
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    .journey-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+
+    .journey-step {
+      padding: 1.5rem 1.2rem 0 0;
+      border-right: 1px solid rgba(255,255,255,.15);
+      margin-right: 1.2rem;
+      min-height: 180px;
+    }
+
+    .journey-step:last-child {
+      border-right: none;
+    }
+
+    .journey-step-number {
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 800;
+      margin-bottom: 2.2rem;
+    }
+
+    .journey-step h3 {
+      font-size: 1.25rem;
+      margin: 0 0 .5rem;
+    }
+
+    .journey-step p {
+      color: rgba(255,255,255,.58);
+      font-size: .9rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .journey-disclaimer {
+      margin-top: 2rem;
+      color: rgba(255,255,255,.5);
+      font-size: .82rem;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    /* Story promise */
+
+    .story-promise {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
       align-items: center;
     }
 
-    .stories-cta h2 {
-      max-width: 850px;
-
-      margin: 0;
-
-      font-family: "Lora", Georgia, serif;
-
-      font-size: clamp(2.5rem, 5vw, 5rem);
-
+    .story-promise h2 {
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
       line-height: .98;
-
-      letter-spacing: -.05em;
-    }
-
-    .stories-cta p {
-      max-width: 270px;
-
+      letter-spacing: -.045em;
       margin: 0;
-
-      font-size: .78rem;
-
-      line-height: 1.6;
     }
 
-
-    /* =========================================================
-       TABLET
-       ========================================================= */
-
-    @media (max-width: 900px) {
-
-      .stories-hero-grid,
-      .stories-intro,
-      .featured-story {
-        grid-template-columns: 1fr;
-      }
-
-      .stories-hero {
-        padding-top: 125px;
-      }
-
-      .stories-hero-visual {
-        min-height: 400px;
-      }
-
-      .stories-hero-visual img {
-        min-height: 400px;
-      }
-
-      .stories-hero-badge {
-        left: 15px;
-      }
-
-      .featured-story-image {
-        min-height: 480px;
-      }
-
-      .stories-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stories-cta-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .stories-cta p {
-        max-width: 500px;
-      }
-
+    .promise-list {
+      display: grid;
+      gap: 1.2rem;
     }
 
+    .promise-item {
+      border-top: 1px solid var(--line);
+      padding-top: 1.2rem;
+    }
 
-    /* =========================================================
-       MOBILE
-       ========================================================= */
+    .promise-item:last-child {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.2rem;
+    }
 
-    @media (max-width: 650px) {
+    .promise-item h3 {
+      margin: 0 0 .45rem;
+      font-size: 1.15rem;
+    }
 
-      .stories-hero {
+    .promise-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: .95rem;
+    }
+
+    /* CTA */
+
+    .participant-cta {
+      background: var(--gold);
+    }
+
+    .participant-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .participant-cta h2 {
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin: 0 0 1rem;
+      color: var(--deep-teal);
+    }
+
+    .participant-cta p {
+      color: rgba(10,55,56,.75);
+      max-width: 650px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .participant-cta .btn {
+      white-space: nowrap;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 980px) {
+      .participant-hero-inner,
+      .story-intro,
+      .journey-intro,
+      .story-promise {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .participant-hero {
         min-height: auto;
-
-        padding-bottom: 45px;
+        padding: 7rem 0 5rem;
       }
 
-      .stories-hero h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
+      .participant-hero h1 {
+        max-width: 700px;
       }
 
-      .stories-hero-visual {
-        min-height: 330px;
+      .participant-hero-image {
+        margin-left: 0;
+        max-width: 620px;
       }
 
-      .stories-hero-visual img {
-        min-height: 330px;
-
-        border-radius: 24px 24px 80px 24px;
+      .hero-note {
+        left: 1rem;
       }
 
-      .stories-intro-copy p:first-child {
-        font-size: 1.4rem;
+      .story-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .featured-story-image {
-        min-height: 350px;
+      .journey-track {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .featured-story-content {
-        padding: 35px 28px;
+      .journey-step:nth-child(3) {
+        border-right: none;
       }
 
-      .featured-story-content h2 {
-        font-size: 2.5rem;
+      .participant-cta-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .participant-hero {
+        padding: 6rem 0 4rem;
       }
 
-      .stories-header {
+      .participant-hero h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+
+      .participant-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .story-grid,
+      .story-types {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading-row {
         display: block;
       }
 
-      .stories-grid {
-        grid-template-columns: 1fr;
+      .section-heading-row p {
+        margin-top: 1.5rem;
       }
 
-      .coming-soon-panel {
-        padding: 40px 28px;
+      .journey-track {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .stories-cta-inner {
-        gap: 30px;
+      .journey-step:nth-child(3) {
+        border-right: 1px solid rgba(255,255,255,.15);
       }
 
+      .journey-step:nth-child(even) {
+        border-right: none;
+      }
+
+      .participant-cta-inner {
+        gap: 2rem;
+      }
     }
-
   </style>
 </head>
 
-
 <body>
 
-<a class="skip-link" href="#main-content">
-  Skip to content
-</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <!-- =========================================
+       HEADER
+  ========================================== -->
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
+  <header class="site-header">
+    <div class="container nav">
 
-<header class="site-header">
-
-  <div class="container nav">
-
-    <!-- LOGO -->
-    <a
-      class="brand"
-      href="/"
-      aria-label="CoWiTa home"
-    >
-      <img
-        src="/assets/images/brand/cowita-logo-primary.svg"
-        alt="CoWiTa"
-      >
-    </a>
-
-
-    <!-- MOBILE MENU TOGGLE -->
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-navigation"
-      aria-label="Open navigation"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-
-    <!-- PRIMARY NAVIGATION -->
-    <nav
-      id="primary-navigation"
-      class="nav-links"
-      aria-label="Primary navigation"
-    >
-
-      <!-- DISCOVER -->
-      <details class="nav-group">
-
-        <summary>Discover</summary>
-
-        <div class="dropdown">
-
-          <a href="/about/">
-            About CoWiTa
-          </a>
-
-          <a href="/about/why-cowita.html">
-            Why CoWiTa
-          </a>
-
-          <a href="/about/our-story.html">
-            Our Story
-          </a>
-
-          <a href="/about/our-approach.html">
-            Our Approach
-          </a>
-
-          <a href="/about/who-we-work-with.html">
-            Who We Work With
-          </a>
-
-          <a href="/about/our-values.html">
-            Our Values
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- OUR WORK -->
-      <details class="nav-group">
-
-        <summary>Our Work</summary>
-
-        <div class="dropdown">
-
-          <a href="/work/">
-            Overview
-          </a>
-
-          <a href="/work/dance.html">
-            Dance
-          </a>
-
-          <a href="/work/music.html">
-            Music
-          </a>
-
-          <a href="/work/drawing.html">
-            Drawing
-          </a>
-
-          <a href="/work/writing.html">
-            Writing
-          </a>
-
-          <a href="/work/acting.html">
-            Acting
-          </a>
-
-          <a href="/work/skills-development.html">
-            Skills Development
-          </a>
-
-          <a href="/work/mentorship.html">
-            Mentorship
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- STORIES -->
-      <details class="nav-group">
-
-        <summary>Stories</summary>
-
-        <div class="dropdown">
-
-          <a href="/stories/featured.html">
-            Featured Stories
-          </a>
-
-          <a href="/stories/participant-stories.html">
-            Participant Stories
-          </a>
-
-          <a href="/stories/journeys.html">
-            Creative Journeys
-          </a>
-
-          <a href="/stories/news.html">
-            News &amp; Updates
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- IMPACT -->
-      <details class="nav-group">
-
-        <summary>Impact</summary>
-
-        <div class="dropdown">
-
-          <a href="/impact/">
-            Our Impact
-          </a>
-
-          <a href="/impact/change-we-seek.html">
-            The Change We Seek
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- GET INVOLVED -->
-      <details class="nav-group">
-
-        <summary>Get Involved</summary>
-
-        <div class="dropdown">
-
-          <a href="/get-involved/">
-            All Opportunities
-          </a>
-
-          <a href="/get-involved/have-talent.html">
-            I Have Talent
-          </a>
-
-          <a href="/get-involved/want-to-learn.html">
-            I Want to Learn
-          </a>
-
-          <a href="/get-involved/mentor.html">
-            I Want to Mentor
-          </a>
-
-          <a href="/get-involved/collaborate.html">
-            I Want to Collaborate
-          </a>
-
-          <a href="/get-involved/partner.html">
-            I Want to Partner
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- SUPPORT -->
-      <details class="nav-group">
-
-        <summary>Support</summary>
-
-        <div class="dropdown">
-
-          <a href="/support/">
-            Support CoWiTa
-          </a>
-
-          <a href="/support/financial-support.html">
-            Financial Support
-          </a>
-
-          <a href="/support/partnership-support.html">
-            Partnership Support
-          </a>
-
-        </div>
-
-      </details>
-
-
-      <!-- DIRECT LINKS -->
-      <a href="/opportunity/">
-        Opportunity
+      <a class="brand" href="/" aria-label="CoWiTa home">
+        <img src="/assets/images/cowita-logo.png" alt="CoWiTa">
       </a>
 
-      <a href="/utility/contact/">
-        Contact
-      </a>
-
-    </nav>
-
-
-    <!-- PRIMARY CTA -->
-    <a
-      class="btn btn-primary header-cta"
-      href="/get-involved/have-talent.html"
-    >
-      I Have Talent
-    </a>
-
-  </div>
-
-</header>
-
-
-<main id="main-content">
-
-
-<!-- =========================================================
-     1. HERO
-     ========================================================= -->
-
-<section class="stories-hero">
-
-  <div class="container stories-hero-grid">
-
-    <div class="stories-hero-copy reveal">
-
-      <div class="eyebrow">
-        Featured Stories
-      </div>
-
-      <h1>
-        The people
-        behind the
-        <em>potential.</em>
-      </h1>
-
-      <p class="stories-hero-text">
-        CoWiTa is ultimately about people — young creatives
-        discovering what they can do, developing their abilities,
-        finding opportunities and creating work that matters.
-      </p>
-
-    </div>
-
-
-    <div class="stories-hero-visual reveal">
-
-      <!-- IMAGE PLACEHOLDER:
-           stories-featured-hero.jpg -->
-
-      <img
-        src="/assets/images/stories-featured-hero.jpg"
-        alt="Young creatives participating in a creative activity"
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation"
       >
-
-      <div class="stories-hero-badge">
-
-        <strong>
-          Stories in progress.
-        </strong>
-
-        <span>
-          As CoWiTa's programmes grow, this space will document
-          the people, journeys and moments behind the work.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     2. INTRO
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container stories-intro">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Why stories matter
-      </div>
-
-      <h2>
-        Impact is more than a number.
-      </h2>
-
-    </div>
-
-
-    <div class="stories-intro-copy reveal">
-
-      <p>
-        Behind every programme is a person with a different
-        starting point, a different ability and a different
-        possibility.
-      </p>
-
-      <p>
-        CoWiTa's stories will make those journeys visible.
-        They will show what happens when talent is recognised,
-        when someone receives the right guidance, and when
-        creative ability is given room to develop.
-      </p>
-
-      <p>
-        This section will eventually become a living record of
-        the people and communities connected to CoWiTa.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     3. FEATURED STORY
-     ========================================================= -->
-
-<section class="section featured-story-section">
-
-  <div class="container">
-
-    <article class="featured-story">
-
-      <div class="featured-story-image">
-
-        <!-- IMAGE PLACEHOLDER:
-             story-featured-placeholder.jpg -->
-
-        <img
-          src="/assets/images/story-featured-placeholder.jpg"
-          alt="Placeholder for a future CoWiTa participant story"
-        >
-
-        <div class="featured-story-overlay"></div>
-
-        <div class="featured-story-tag">
-          Coming Soon
-        </div>
-
-      </div>
-
-
-      <div class="featured-story-content">
-
-        <div class="section-label">
-          Featured story
-        </div>
-
-        <h2>
-          A creative journey
-          worth following.
-        </h2>
-
-        <p>
-          This space will feature a deeper story about a
-          young person connected to CoWiTa — their starting
-          point, their talent, the challenges they encountered,
-          the development they experienced and the opportunities
-          that followed.
-        </p>
-
-        <div class="featured-story-meta">
-
-          <span class="story-meta-item">
-            Participant story
-          </span>
-
-          <span class="story-meta-item">
-            Creative development
-          </span>
-
-          <span class="story-meta-item">
-            Coming soon
-          </span>
-
-        </div>
-
-        <a
-          href="/stories/participant-stories.html"
-          class="btn btn-dark"
-        >
-          Explore participant stories →
-        </a>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     4. STORY CATEGORIES
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="stories-header">
-
-      <div class="stories-header-copy reveal">
-
-        <div class="section-label">
-          More to come
-        </div>
-
-        <h2>
-          Different journeys.
-          One bigger picture.
-        </h2>
-
-        <p>
-          Future CoWiTa stories will follow people, creative
-          disciplines and moments of change across the organisation.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="stories-grid">
-
-
-      <!-- PARTICIPANT STORIES -->
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-participant.jpg -->
-
-          <img
-            src="/assets/images/story-participant.jpg"
-            alt="Young person developing a creative skill"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        ☰
+      </button>
+
+      <nav id="primary-navigation" class="nav-links" aria-label="Primary navigation">
+
+        <details class="nav-group">
+          <summary>Discover</summary>
+          <div class="dropdown">
+            <a href="/about/">About CoWiTa</a>
+            <a href="/about/why-cowita.html">Why CoWiTa</a>
+            <a href="/about/our-story.html">Our Story</a>
+            <a href="/about/our-approach.html">Our Approach</a>
+            <a href="/about/who-we-work-with.html">Who We Work With</a>
+            <a href="/about/our-values.html">Our Values</a>
           </div>
+        </details>
 
-        </div>
-
-
-        <div class="story-card-content">
-
-          <h3>
-            Participant Stories
-          </h3>
-
-          <p>
-            First-hand stories from young people whose creative
-            journeys are being supported through CoWiTa.
-          </p>
-
-          <a
-            href="/stories/participant-stories.html"
-            class="story-card-link"
-          >
-            Explore →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CREATIVE JOURNEYS -->
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-creative-journey.jpg -->
-
-          <img
-            src="/assets/images/story-creative-journey.jpg"
-            alt="Creative work being developed by a young artist"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        <details class="nav-group">
+          <summary>Our Work</summary>
+          <div class="dropdown">
+            <a href="/work/">Overview</a>
+            <a href="/work/dance.html">Dance</a>
+            <a href="/work/music.html">Music</a>
+            <a href="/work/drawing.html">Drawing</a>
+            <a href="/work/writing.html">Writing</a>
+            <a href="/work/acting.html">Acting</a>
+            <a href="/work/skills-development.html">Skills Development</a>
+            <a href="/work/mentorship.html">Mentorship</a>
           </div>
+        </details>
 
-        </div>
-
-
-        <div class="story-card-content">
-
-          <h3>
-            Creative Journeys
-          </h3>
-
-          <p>
-            Follow the development of a creative ability from
-            early experimentation to more structured work and
-            opportunity.
-          </p>
-
-          <a
-            href="/stories/creative-journeys.html"
-            class="story-card-link"
-          >
-            Explore →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- COMMUNITY -->
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-community.jpg -->
-
-          <img
-            src="/assets/images/story-community.jpg"
-            alt="Young people collaborating during a community activity"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        <details class="nav-group" open>
+          <summary>Stories</summary>
+          <div class="dropdown">
+            <a href="/stories/">Stories</a>
+            <a href="/stories/featured.html">Featured Stories</a>
+            <a href="/stories/participant-stories.html" aria-current="page">
+              Participant Stories
+            </a>
+            <a href="/stories/creative-journeys.html">Creative Journeys</a>
+            <a href="/stories/news.html">News &amp; Updates</a>
           </div>
+        </details>
 
-        </div>
-
-
-        <div class="story-card-content">
-
-          <h3>
-            Community Stories
-          </h3>
-
-          <p>
-            Stories showing how creative activity can connect
-            people, create collaboration and contribute to
-            stronger communities.
-          </p>
-
-          <a
-            href="/stories/news.html"
-            class="story-card-link"
-          >
-            Explore →
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     5. STORY PRINCIPLE
-     ========================================================= -->
-
-<section class="section coming-soon-section">
-
-  <div class="container">
-
-    <div class="coming-soon-panel reveal">
-
-      <div class="coming-soon-label">
-        How we tell stories
-      </div>
-
-      <h2>
-        We will document
-        the journey,
-        not just the outcome.
-      </h2>
-
-      <p>
-        A finished performance or published piece is only one
-        part of a creative journey. CoWiTa's stories will also
-        show the learning, experimentation, mentorship,
-        setbacks, collaboration and growth that happen along
-        the way.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     6. FUTURE STORY SYSTEM
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Future story library
-      </div>
-
-      <h2>
-        A growing archive of CoWiTa's work.
-      </h2>
-
-    </div>
-
-
-    <div class="stories-grid">
-
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-dance.jpg -->
-
-          <img
-            src="/assets/images/story-dance.jpg"
-            alt="Dance creative story placeholder"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        <details class="nav-group">
+          <summary>Impact</summary>
+          <div class="dropdown">
+            <a href="/impact/">Our Impact</a>
+            <a href="/impact/change-we-seek.html">The Change We Seek</a>
           </div>
+        </details>
 
-        </div>
-
-        <div class="story-card-content">
-
-          <h3>
-            Dance
-          </h3>
-
-          <p>
-            Stories from young dancers developing movement,
-            performance and creative confidence.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-music.jpg -->
-
-          <img
-            src="/assets/images/story-music.jpg"
-            alt="Music creative story placeholder"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        <details class="nav-group">
+          <summary>Get Involved</summary>
+          <div class="dropdown">
+            <a href="/get-involved/">All Opportunities</a>
+            <a href="/get-involved/have-talent.html">I Have Talent</a>
+            <a href="/get-involved/want-to-learn.html">I Want to Learn</a>
+            <a href="/get-involved/mentor.html">I Want to Mentor</a>
+            <a href="/get-involved/collaborate.html">I Want to Collaborate</a>
+            <a href="/get-involved/partner.html">I Want to Partner</a>
           </div>
+        </details>
 
-        </div>
-
-        <div class="story-card-content">
-
-          <h3>
-            Music
-          </h3>
-
-          <p>
-            Stories from emerging musicians, singers and
-            creators developing their sound.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="story-card reveal">
-
-        <div class="story-card-image">
-
-          <!-- IMAGE:
-               story-visual-art.jpg -->
-
-          <img
-            src="/assets/images/story-visual-art.jpg"
-            alt="Visual artist developing creative work"
-          >
-
-          <div class="story-card-tag">
-            Coming Soon
+        <details class="nav-group">
+          <summary>Support</summary>
+          <div class="dropdown">
+            <a href="/support/">Support CoWiTa</a>
+            <a href="/support/financial-support.html">Financial Support</a>
+            <a href="/support/partnership-support.html">Partnership Support</a>
           </div>
+        </details>
 
-        </div>
-
-        <div class="story-card-content">
-
-          <h3>
-            Visual Arts
-          </h3>
-
-          <p>
-            Stories from young artists exploring drawing,
-            illustration and visual expression.
-          </p>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     7. CTA
-     ========================================================= -->
-
-<section class="section stories-cta">
-
-  <div class="container stories-cta-inner reveal">
-
-    <h2>
-      Your journey could be
-      the next story.
-    </h2>
-
-    <div>
-
-      <p>
-        If you have a creative talent and want to develop it,
-        CoWiTa is building pathways for people like you.
-      </p>
-
-      <a
-        href="/get-involved/have-talent.html"
-        class="btn btn-dark"
-        style="margin-top:24px;"
-      >
-        I Have Talent →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
-<footer class="site-footer">
-
-  <div class="container">
-
-    <!-- FOOTER MAIN -->
-    <div class="footer-main">
-
-      <div class="footer-brand">
-
-        <a
-          class="brand"
-          href="/"
-          aria-label="CoWiTa home"
-        >
-          <img
-            src="/assets/images/brand/cowita-logo-white.svg"
-            alt="CoWiTa"
-          >
-        </a>
-
-        <p class="footer-tagline">
-          We believe talent can become a future.
-        </p>
-
-      </div>
-
-
-      <!-- FOOTER NAVIGATION -->
-      <nav
-        class="footer-nav"
-        aria-label="Footer navigation"
-      >
-
-        <a href="/about/">
-          About
-        </a>
-
-        <a href="/work/">
-          Our Work
-        </a>
-
-        <a href="/stories/featured.html">
-          Stories
-        </a>
-
-        <a href="/impact/">
-          Impact
-        </a>
-
-        <a href="/get-involved/">
-          Get Involved
-        </a>
-
-        <a href="/support/">
-          Support
-        </a>
-
-        <a href="/opportunity/">
-          Opportunity
-        </a>
-
-        <a href="/utility/contact/">
-          Contact
-        </a>
+        <a href="/contact/">Contact</a>
 
       </nav>
 
-    </div>
-
-
-    <!-- FOOTER BOTTOM -->
-    <div class="footer-bottom">
-
-      <span>
-        © <span data-current-year></span> CoWiTa. All rights reserved.
-      </span>
-
-      <span class="footer-mission">
-        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
-      </span>
-
-      <a href="/utility/faq.html">
-        FAQ
+      <a class="btn btn-primary header-cta" href="/get-involved/have-talent.html">
+        I Have Talent
       </a>
 
     </div>
-
-  </div>
-
-</footer>
+  </header>
 
 
-<script src="/js/main.js" defer></script>
+  <main id="main-content">
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="participant-hero">
+      <div class="container participant-hero-inner">
+
+        <div class="participant-hero-copy reveal">
+
+          <span class="eyebrow">Participant Stories</span>
+
+          <h1>
+            The people behind the potential.
+          </h1>
+
+          <p>
+            CoWiTa begins with people. These stories will follow young
+            people as they discover what they can do, develop their skills,
+            create with purpose, and begin finding opportunities to take
+            their abilities further.
+          </p>
+
+          <div class="participant-hero-actions">
+            <a class="btn btn-dark" href="/get-involved/have-talent.html">
+              I Have Talent
+            </a>
+
+            <a class="btn btn-outline-light" href="#stories">
+              Explore the stories
+            </a>
+          </div>
+
+        </div>
+
+        <div class="participant-hero-visual reveal">
+
+          <img
+            class="participant-hero-image"
+            src="/assets/images/stories-participants-hero.jpg"
+            alt="Young creatives working together during a creative activity"
+            loading="eager"
+          >
+
+          <div class="hero-note">
+            Real voices.<br>
+            Real journeys.<br>
+            Coming soon.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         INTRO
+    ========================================== -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="story-intro">
+
+          <div class="reveal">
+            <span class="section-label">Why these stories matter</span>
+
+            <h2>
+              A participant is more than a success story.
+            </h2>
+          </div>
+
+          <div class="story-intro-copy reveal">
+
+            <p>
+              At CoWiTa, the young people we work with are not simply
+              examples of what an organisation has achieved. They are
+              people with their own abilities, ambitions, decisions,
+              challenges and voices.
+            </p>
+
+            <p>
+              Participant stories will help show what happens when talent
+              is given room to grow — from the first moment someone
+              recognises an ability in themselves to the moments when
+              that ability begins creating new possibilities.
+            </p>
+
+            <p>
+              This page will grow alongside CoWiTa's programmes. For now,
+              the stories below represent the kinds of journeys we intend
+              to document as the work develops.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         STORIES
+    ========================================== -->
+
+    <section class="section participant-stories-section" id="stories">
+
+      <div class="container">
+
+        <div class="section-heading-row reveal">
+
+          <div>
+            <span class="section-label">Stories in the making</span>
+
+            <h2>
+              Every journey starts somewhere.
+            </h2>
+          </div>
+
+          <p>
+            These are story spaces waiting for the people who will make
+            them real. Verified participant stories will appear here as
+            CoWiTa's programmes grow.
+          </p>
+
+        </div>
+
+
+        <div class="story-grid">
+
+          <!-- Story 01 -->
+
+          <article class="story-card reveal">
+
+            <div class="story-card-image-wrap">
+
+              <img
+                class="story-card-image"
+                src="/assets/images/story-participant-01.jpg"
+                alt="Young person developing a creative skill"
+                loading="lazy"
+              >
+
+              <span class="story-status">Coming soon</span>
+
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-card-category">
+                Discovering Talent
+              </span>
+
+              <h3>
+                “Maybe I can actually do this.”
+              </h3>
+
+              <p>
+                A story about the moment a young person begins to take
+                an ability seriously — and what happens when someone
+                else recognises that potential too.
+              </p>
+
+              <a
+                class="story-card-link"
+                href="/stories/featured.html"
+              >
+                Featured stories
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Story 02 -->
+
+          <article class="story-card reveal">
+
+            <div class="story-card-image-wrap">
+
+              <img
+                class="story-card-image"
+                src="/assets/images/story-participant-02.jpg"
+                alt="Young creative learning alongside a mentor"
+                loading="lazy"
+              >
+
+              <span class="story-status">Coming soon</span>
+
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-card-category">
+                Developing Skills
+              </span>
+
+              <h3>
+                Learning to take the craft seriously.
+              </h3>
+
+              <p>
+                Talent may start the journey, but development gives it
+                direction. This story space will explore practice,
+                discipline, mentorship and growth.
+              </p>
+
+              <a
+                class="story-card-link"
+                href="/work/skills-development.html"
+              >
+                Skills development
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Story 03 -->
+
+          <article class="story-card reveal">
+
+            <div class="story-card-image-wrap">
+
+              <img
+                class="story-card-image"
+                src="/assets/images/story-participant-03.jpg"
+                alt="Young creatives presenting or sharing their work"
+                loading="lazy"
+              >
+
+              <span class="story-status">Coming soon</span>
+
+            </div>
+
+            <div class="story-card-content">
+
+              <span class="story-card-category">
+                Finding Opportunity
+              </span>
+
+              <h3>
+                When your work finally gets a chance.
+              </h3>
+
+              <p>
+                A creative journey becomes more meaningful when the
+                work reaches people, opens a door or creates a new
+                possibility.
+              </p>
+
+              <a
+                class="story-card-link"
+                href="/stories/creative-journeys.html"
+              >
+                Creative journeys
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         STORY TYPES
+    ========================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-heading-row reveal">
+
+          <div>
+            <span class="section-label">What we will document</span>
+
+            <h2>
+              Not just where someone ends up.
+            </h2>
+          </div>
+
+          <p>
+            Growth is rarely one dramatic moment. We want to document
+            the smaller decisions, relationships and milestones that
+            make a creative journey meaningful.
+          </p>
+
+        </div>
+
+
+        <div class="story-types">
+
+          <article class="story-type reveal">
+            <div class="story-type-number">01 / THE BEGINNING</div>
+
+            <h3>
+              The first spark
+            </h3>
+
+            <p>
+              What did they discover about themselves? What made them
+              realise that a talent they enjoyed might be something
+              worth developing?
+            </p>
+          </article>
+
+
+          <article class="story-type reveal">
+            <div class="story-type-number">02 / THE WORK</div>
+
+            <h3>
+              The process of getting better
+            </h3>
+
+            <p>
+              Practice, feedback, discipline, experimentation and the
+              people who help turn natural ability into a stronger skill.
+            </p>
+          </article>
+
+
+          <article class="story-type reveal">
+            <div class="story-type-number">03 / THE CREATION</div>
+
+            <h3>
+              Making something real
+            </h3>
+
+            <p>
+              The work itself — a performance, song, drawing, written
+              piece, production, project or another expression of the
+              participant's ability.
+            </p>
+          </article>
+
+
+          <article class="story-type reveal">
+            <div class="story-type-number">04 / THE OPPORTUNITY</div>
+
+            <h3>
+              What happens next
+            </h3>
+
+            <p>
+              New experiences, collaborations, platforms, income
+              possibilities or other opportunities that emerge as
+              participants continue developing their abilities.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         JOURNEY
+    ========================================== -->
+
+    <section class="section journey-section">
+
+      <div class="container">
+
+        <div class="journey-intro">
+
+          <div class="reveal">
+            <span class="section-label">The CoWiTa journey</span>
+
+            <h2>
+              From potential to possibility.
+            </h2>
+          </div>
+
+          <div class="reveal">
+            <p>
+              CoWiTa's model connects talent development with the wider
+              journey around it. Participant stories will help make that
+              journey visible — while recognising that every person's
+              path will be different.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="journey-track">
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">01</div>
+            <h3>Identify</h3>
+            <p>
+              Recognising an ability, interest or creative potential.
+            </p>
+          </div>
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">02</div>
+            <h3>Develop</h3>
+            <p>
+              Building skill through practice, learning and mentorship.
+            </p>
+          </div>
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">03</div>
+            <h3>Create</h3>
+            <p>
+              Turning developing skills into real creative work.
+            </p>
+          </div>
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">04</div>
+            <h3>Platform</h3>
+            <p>
+              Creating spaces where young people can share their work.
+            </p>
+          </div>
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">05</div>
+            <h3>Opportunity</h3>
+            <p>
+              Connecting ability and creative work with possibilities.
+            </p>
+          </div>
+
+          <div class="journey-step reveal">
+            <div class="journey-step-number">06</div>
+            <h3>Sustain</h3>
+            <p>
+              Supporting pathways toward continued growth and impact.
+            </p>
+          </div>
+
+        </div>
+
+        <p class="journey-disclaimer">
+          This is CoWiTa's intended development model, not a promise that
+          every participant will move through every stage in the same way.
+          Individual journeys will remain personal and different.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         STORYTELLING PROMISE
+    ========================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="story-promise">
+
+          <div class="reveal">
+
+            <span class="section-label">Our storytelling promise</span>
+
+            <h2>
+              Their story should still feel like theirs.
+            </h2>
+
+          </div>
+
+
+          <div class="promise-list">
+
+            <div class="promise-item reveal">
+
+              <h3>
+                People before promotion.
+              </h3>
+
+              <p>
+                Stories should help people understand the person,
+                not turn a participant into a marketing statistic.
+              </p>
+
+            </div>
+
+
+            <div class="promise-item reveal">
+
+              <h3>
+                Voice matters.
+              </h3>
+
+              <p>
+                Wherever possible, participants should have a meaningful
+                role in how their experiences are represented.
+              </p>
+
+            </div>
+
+
+            <div class="promise-item reveal">
+
+              <h3>
+                Strength, not spectacle.
+              </h3>
+
+              <p>
+                We will focus on ability, agency, growth and possibility
+                rather than using hardship as the centre of someone's story.
+              </p>
+
+            </div>
+
+
+            <div class="promise-item reveal">
+
+              <h3>
+                Consent is part of the story.
+              </h3>
+
+              <p>
+                Personal stories, images and experiences should only be
+                shared through an appropriate, respectful process.
+              </p>
+
+            </div>
+
+
+            <div class="promise-item reveal">
+
+              <h3>
+                Evidence over exaggeration.
+              </h3>
+
+              <p>
+                When a story includes an outcome, CoWiTa will distinguish
+                what is known, what is experienced and what is still being
+                developed.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================== -->
+
+    <section class="section participant-cta">
+
+      <div class="container participant-cta-inner">
+
+        <div class="reveal">
+
+          <span class="section-label">Your story could be next</span>
+
+          <h2>
+            You don't have to wait until you're “good enough.”
+          </h2>
+
+          <p>
+            If you have something you're good at, something you love
+            creating, or simply something you want to learn, CoWiTa is
+            designed to help you take the next step.
+          </p>
+
+        </div>
+
+        <div class="reveal">
+          <a
+            class="btn btn-dark"
+            href="/get-involved/have-talent.html"
+          >
+            I Have Talent
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <a class="brand" href="/" aria-label="CoWiTa home">
+          <img src="/assets/images/cowita-logo.png" alt="CoWiTa">
+        </a>
+
+        <p>
+          Helping children and young people discover, develop and turn
+          their talents into practical skills, opportunities and impact.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Discover</h3>
+
+        <a href="/about/">About CoWiTa</a>
+        <a href="/about/why-cowita.html">Why CoWiTa</a>
+        <a href="/about/our-approach.html">Our Approach</a>
+        <a href="/about/our-values.html">Our Values</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Our Work</h3>
+
+        <a href="/work/">Overview</a>
+        <a href="/work/dance.html">Dance</a>
+        <a href="/work/music.html">Music</a>
+        <a href="/work/drawing.html">Drawing</a>
+        <a href="/work/skills-development.html">Skills Development</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Stories</h3>
+
+        <a href="/stories/">Stories</a>
+        <a href="/stories/featured.html">Featured Stories</a>
+        <a href="/stories/participant-stories.html">Participant Stories</a>
+        <a href="/stories/creative-journeys.html">Creative Journeys</a>
+        <a href="/stories/news.html">News &amp; Updates</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Get involved</h3>
+
+        <a href="/get-involved/have-talent.html">I Have Talent</a>
+        <a href="/get-involved/want-to-learn.html">I Want to Learn</a>
+        <a href="/get-involved/mentor.html">I Want to Mentor</a>
+        <a href="/get-involved/partner.html">I Want to Partner</a>
+        <a href="/support/">Support CoWiTa</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <span>
+        © CoWiTa. V2 prototype.
+      </span>
+
+      <a href="/contact/">Contact CoWiTa</a>
+
+    </div>
+
+  </footer>
+
+
+  <script src="/js/main.js"></script>
 
 </body>
 </html>
