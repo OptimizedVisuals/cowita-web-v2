@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Collaborate with CoWiTa on creative projects, workshops, events and initiatives that help children and youth turn talent into practical opportunity."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Collaborate With CoWiTa — CoWiTa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       COLLABORATE PAGE
+       Page-specific styles only.
+       ========================================================= */
+
+    .collab-hero {
+      position: relative;
+      min-height: 76vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--deep-teal);
+      color: #fff;
+      padding: 140px 0 80px;
+    }
+
+    .collab-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 78% 22%,
+          rgba(229,165,26,.22),
+          transparent 28%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(7,35,40,.96),
+          rgba(13,75,75,.78)
+        );
+    }
+
+    .collab-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .collab-hero h1 {
+      max-width: 760px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.4rem, 7vw, 6.5rem);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .collab-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .collab-hero-copy {
+      max-width: 590px;
+      margin: 28px 0 0;
+
+      color: rgba(255,255,255,.76);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .collab-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .collab-hero-visual {
+      position: relative;
+      min-height: 500px;
+    }
+
+    .collab-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .collab-hero-note {
+      position: absolute;
+      left: -35px;
+      bottom: 30px;
+
+      max-width: 245px;
+      padding: 20px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .collab-hero-note strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .collab-hero-note span {
+      display: block;
+      margin-top: 9px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .collab-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .collab-intro h2 {
+      max-width: 520px;
+    }
+
+    .collab-intro-copy {
+      max-width: 700px;
+    }
+
+    .collab-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .collab-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       COLLABORATION TYPES
+       ========================================================= */
+
+    .collab-types {
+      background: var(--cream);
+    }
+
+    .collab-types-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .collab-types-header p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .collab-type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .collab-type-card {
+      min-height: 280px;
+      padding: 30px;
+
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .collab-type-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .collab-type-number {
+      display: block;
+
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .collab-type-card h3 {
+      margin: 45px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .collab-type-card p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       PROJECTS
+       ========================================================= */
+
+    .collab-project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .collab-project {
+      position: relative;
+      min-height: 360px;
+
+      padding: 35px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      overflow: hidden;
+      border-radius: 26px;
+
+      color: #fff;
+      background: var(--deep-teal);
+    }
+
+    .collab-project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(5,25,29,.95),
+          rgba(5,25,29,.15)
+        );
+    }
+
+    .collab-project-content {
+      position: relative;
+      z-index: 1;
+
+      max-width: 560px;
+    }
+
+    .collab-project-label {
+      color: var(--gold);
+
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .collab-project h3 {
+      margin: 12px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .collab-project p {
+      margin: 0;
+
+      color: rgba(255,255,255,.72);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       HOW COLLABORATION WORKS
+       ========================================================= */
+
+    .collab-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .collab-process-step {
+      padding: 30px;
+
+      border-top: 2px solid var(--ink);
+      background: var(--paper);
+    }
+
+    .collab-process-step > span {
+      display: block;
+
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .collab-process-step h3 {
+      margin: 42px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.55rem;
+    }
+
+    .collab-process-step p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       COLLABORATION PRINCIPLES
+       ========================================================= */
+
+    .collab-principles {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .collab-principles-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .collab-principles h2 {
+      max-width: 600px;
+    }
+
+    .collab-principles-copy {
+      color: rgba(255,255,255,.72);
+    }
+
+    .collab-principles-copy p {
+      margin: 0 0 25px;
+      line-height: 1.7;
+    }
+
+    .principle-list {
+      margin-top: 35px;
+
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .principle-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+
+      padding: 20px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .principle-item > span {
+      color: var(--gold);
+
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .principle-item strong {
+      display: block;
+      margin-bottom: 5px;
+
+      color: #fff;
+      font-size: .9rem;
+    }
+
+    .principle-item p {
+      margin: 0;
+
+      color: rgba(255,255,255,.58);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       COMING SOON
+       ========================================================= */
+
+    .collab-coming-soon {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+
+      padding: 45px;
+
+      border: 1px solid var(--line);
+      border-radius: 28px;
+
+      background: var(--cream);
+    }
+
+    .collab-coming-soon h2 {
+      margin-bottom: 15px;
+    }
+
+    .collab-coming-soon p {
+      max-width: 720px;
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .coming-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 130px;
+      padding: 12px 18px;
+
+      border-radius: 999px;
+      background: var(--gold);
+
+      color: #1b1a16;
+
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .collab-cta {
+      background: var(--gold);
+      color: #1b1a16;
+    }
+
+    .collab-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .collab-cta h2 {
+      max-width: 850px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .collab-cta p {
+      max-width: 620px;
+      margin: 20px 0 0;
+
+      font-size: .85rem;
+      line-height: 1.6;
+    }
+
+    .collab-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .collab-hero-grid,
+      .collab-intro,
+      .collab-principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collab-hero {
+        padding-top: 125px;
+      }
+
+      .collab-hero-visual {
+        min-height: 420px;
+      }
+
+      .collab-hero-visual img {
+        min-height: 420px;
+      }
+
+      .collab-hero-note {
+        left: 15px;
+      }
+
+      .collab-type-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .collab-process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .collab-cta-inner,
+      .collab-coming-soon {
+        grid-template-columns: 1fr;
+      }
+
+      .collab-cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .collab-hero {
+        min-height: auto;
+        padding-bottom: 50px;
+      }
+
+      .collab-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .collab-hero-visual,
+      .collab-hero-visual img {
+        min-height: 340px;
+      }
+
+      .collab-hero-visual img {
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .collab-intro-copy p:first-child {
+        font-size: 1.4rem;
+      }
+
+      .collab-type-grid,
+      .collab-project-grid,
+      .collab-process {
+        grid-template-columns: 1fr;
+      }
+
+      .collab-project {
+        min-height: 300px;
+      }
+
+      .collab-coming-soon {
+        padding: 30px;
+      }
+
+      .collab-cta-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="collab-hero">
+
+  <div class="container collab-hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        I Want to Collaborate
+      </div>
+
+      <h1>
+        Have an idea?
+        Let's <em>build</em> it together.
+      </h1>
+
+      <p class="collab-hero-copy">
+        CoWiTa welcomes people, creatives, organisations and
+        communities who want to turn ideas into meaningful
+        projects, experiences and opportunities for young people.
+      </p>
+
+      <div class="collab-hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="#collaboration"
+        >
+          Explore Collaboration
+        </a>
+
+        <a
+          class="btn btn-light"
+          href="/contact/"
+        >
+          Start a Conversation
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="collab-hero-visual reveal">
+
+      <img
+        src="/assets/images/get-involved-collaboration-hero.jpg"
+        alt="Young creatives working together on a collaborative project"
+      >
+
+      <div class="collab-hero-note">
+
+        <strong>
+          Ideas become stronger together.
+        </strong>
+
+        <span>
+          Collaboration allows different skills,
+          perspectives and resources to create something
+          that none of us could build alone.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container collab-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Collaboration at CoWiTa
+      </div>
+
+      <h2>
+        Not every idea needs a programme.
+        Sometimes it needs a partner.
+      </h2>
+
+    </div>
+
+
+    <div class="collab-intro-copy reveal">
+
+      <p>
+        We believe some of the most meaningful opportunities
+        begin with a simple idea and the willingness to build
+        it together.
+      </p>
+
+      <p>
+        You might have an idea for a workshop, creative project,
+        performance, campaign, community event, production or
+        learning experience. You may have a skill or resource
+        that could make an existing idea stronger.
+      </p>
+
+      <p>
+        Collaboration is about bringing those possibilities
+        together around a clear purpose: creating meaningful
+        experiences and opportunities for children and young people.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. WHAT CAN WE COLLABORATE ON?
+     ========================================================= -->
+
+<section
+  class="section collab-types"
+  id="collaboration"
+>
+
+  <div class="container">
+
+    <div class="collab-types-header reveal">
+
+      <div class="section-label">
+        What we can build
+      </div>
+
+      <h2>
+        Collaboration can start almost anywhere.
+      </h2>
+
+      <p>
+        These are examples of the kinds of ideas that could
+        connect with CoWiTa's work. They are possibilities,
+        not existing programmes or promises of delivery.
+      </p>
+
+    </div>
+
+
+    <div class="collab-type-grid">
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          01
+        </span>
+
+        <h3>
+          Creative projects
+        </h3>
+
+        <p>
+          Develop a creative project where young people can
+          learn, create, participate and produce work together.
+        </p>
+
+      </article>
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          02
+        </span>
+
+        <h3>
+          Workshops
+        </h3>
+
+        <p>
+          Design practical sessions around dance, music,
+          drawing, writing, acting, production or other
+          creative and professional skills.
+        </p>
+
+      </article>
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          03
+        </span>
+
+        <h3>
+          Events
+        </h3>
+
+        <p>
+          Create showcases, community events, exhibitions,
+          performances or experiences that give young people
+          a platform.
+        </p>
+
+      </article>
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          04
+        </span>
+
+        <h3>
+          Content & media
+        </h3>
+
+        <p>
+          Produce stories, films, campaigns, interviews,
+          digital content and other creative work that
+          amplifies young voices.
+        </p>
+
+      </article>
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          05
+        </span>
+
+        <h3>
+          Community initiatives
+        </h3>
+
+        <p>
+          Work with communities to create creative activities
+          that bring young people together around talent,
+          learning and participation.
+        </p>
+
+      </article>
+
+
+      <article class="collab-type-card reveal">
+
+        <span class="collab-type-number">
+          06
+        </span>
+
+        <h3>
+          New ideas
+        </h3>
+
+        <p>
+          If your idea does not fit a category, that is fine.
+          We are interested in exploring thoughtful ideas that
+          align with CoWiTa's purpose.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. EXAMPLE COLLABORATION DIRECTIONS
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Imagine the possibilities
+      </div>
+
+      <h2>
+        Collaboration should create something useful.
+      </h2>
+
+    </div>
+
+
+    <div class="collab-project-grid">
+
+
+      <article class="collab-project reveal">
+
+        <div class="collab-project-content">
+
+          <div class="collab-project-label">
+            Creative development
+          </div>
+
+          <h3>
+            A young dance crew creates its first production.
+          </h3>
+
+          <p>
+            A choreographer, videographer and community partner
+            could work with emerging dancers to develop,
+            document and showcase an original performance.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="collab-project reveal">
+
+        <div class="collab-project-content">
+
+          <div class="collab-project-label">
+            Skills & opportunity
+          </div>
+
+          <h3>
+            Young creatives learn how to turn skill into work.
+          </h3>
+
+          <p>
+            Creative professionals could collaborate with CoWiTa
+            to design a practical workshop connecting talent,
+            production skills, professional practice and
+            real-world opportunities.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="collab-project reveal">
+
+        <div class="collab-project-content">
+
+          <div class="collab-project-label">
+            Community
+          </div>
+
+          <h3>
+            A local creative space becomes a place to grow.
+          </h3>
+
+          <p>
+            A community organisation with space could work with
+            CoWiTa to create recurring creative activities for
+            children and young people.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="collab-project reveal">
+
+        <div class="collab-project-content">
+
+          <div class="collab-project-label">
+            Storytelling
+          </div>
+
+          <h3>
+            Young voices tell their own stories.
+          </h3>
+
+          <p>
+            Creatives, media professionals and young participants
+            could collaborate on documentary, photography,
+            writing or digital storytelling projects.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. HOW COLLABORATION WORKS
+     ========================================================= -->
+
+<section class="section section-cream">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        A simple process
+      </div>
+
+      <h2>
+        Start with the idea.
+        Build from there.
+      </h2>
+
+      <p>
+        As CoWiTa's collaboration system develops, the process
+        will remain intentionally simple.
+      </p>
+
+    </div>
+
+
+    <div class="collab-process">
+
+
+      <div class="collab-process-step reveal">
+
+        <span>
+          01 — Share
+        </span>
+
+        <h3>
+          Bring the idea.
+        </h3>
+
+        <p>
+          Tell us what you are thinking, who it is for and
+          what you would like to create.
+        </p>
+
+      </div>
+
+
+      <div class="collab-process-step reveal">
+
+        <span>
+          02 — Explore
+        </span>
+
+        <h3>
+          Find the connection.
+        </h3>
+
+        <p>
+          We explore how the idea connects with CoWiTa's
+          purpose, creative work and young people.
+        </p>
+
+      </div>
+
+
+      <div class="collab-process-step reveal">
+
+        <span>
+          03 — Build
+        </span>
+
+        <h3>
+          Shape the project.
+        </h3>
+
+        <p>
+          Define the people, resources, responsibilities,
+          timeline and outcomes needed to make the idea work.
+        </p>
+
+      </div>
+
+
+      <div class="collab-process-step reveal">
+
+        <span>
+          04 — Create
+        </span>
+
+        <h3>
+          Make it happen.
+        </h3>
+
+        <p>
+          Work together to deliver the project, learn from
+          the process and create something meaningful.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. PRINCIPLES
+     ========================================================= -->
+
+<section class="section collab-principles">
+
+  <div class="container collab-principles-grid">
+
+    <div class="reveal">
+
+      <div class="section-label light">
+        What makes a good collaboration
+      </div>
+
+      <h2>
+        The project matters.
+        So does the way we build it.
+      </h2>
+
+    </div>
+
+
+    <div class="collab-principles-copy reveal">
+
+      <p>
+        CoWiTa is interested in collaborations that put
+        meaningful participation and development at the centre.
+      </p>
+
+      <p>
+        A strong collaboration should create value for the
+        young people involved, the communities around them
+        and the people bringing their expertise to the project.
+      </p>
+
+
+      <div class="principle-list">
+
+
+        <div class="principle-item">
+
+          <span>
+            01
+          </span>
+
+          <div>
+
+            <strong>
+              Purpose first
+            </strong>
+
+            <p>
+              The project should have a clear reason for existing
+              and a meaningful outcome.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="principle-item">
+
+          <span>
+            02
+          </span>
+
+          <div>
+
+            <strong>
+              Young people at the centre
+            </strong>
+
+            <p>
+              Young participants should be active contributors,
+              not simply an audience for the project.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="principle-item">
+
+          <span>
+            03
+          </span>
+
+          <div>
+
+            <strong>
+              Learn while creating
+            </strong>
+
+            <p>
+              Wherever possible, collaboration should build
+              practical skills alongside the creative output.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="principle-item">
+
+          <span>
+            04
+          </span>
+
+          <div>
+
+            <strong>
+              Shared responsibility
+            </strong>
+
+            <p>
+              Everyone should understand what they are bringing
+              and what they are responsible for.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. COMING SOON
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="collab-coming-soon reveal">
+
+      <div>
+
+        <div class="section-label">
+          Collaboration system
+        </div>
+
+        <h2>
+          A dedicated collaboration portal is coming.
+        </h2>
+
+        <p>
+          Future versions of CoWiTa will make it easier to
+          submit project ideas, discover collaboration
+          opportunities, find creative contributors and track
+          collaborative initiatives.
+        </p>
+
+      </div>
+
+
+      <div class="coming-badge">
+        Coming Soon
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. CTA
+     ========================================================= -->
+
+<section class="section collab-cta">
+
+  <div class="container collab-cta-inner reveal">
+
+    <div>
+
+      <h2>
+        Have something worth building together?
+      </h2>
+
+      <p>
+        We are open to conversations around creative projects,
+        learning experiences, community initiatives and ideas
+        that can create meaningful opportunities for young people.
+      </p>
+
+    </div>
+
+
+    <div class="collab-cta-actions">
+
+      <a
+        class="btn btn-dark"
+        href="/contact/"
+      >
+        Start a Conversation
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="/get-involved/"
+      >
+        See All Ways to Get Involved
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

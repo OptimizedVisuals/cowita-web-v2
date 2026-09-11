@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ | CoWiTa</title>
+
+  <meta
+    name="description"
+    content="Find answers to common questions about CoWiTa, our work, opportunities, creative development, mentorship and ways to get involved."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       FAQ PAGE
+       ========================================================= */
+
+    .faq-hero {
+      padding: 115px 0 100px;
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .faq-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 90px;
+      align-items: end;
+    }
+
+    .faq-hero .eyebrow {
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .faq-hero h1 {
+      max-width: 800px;
+      margin: 0 0 25px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      line-height: 0.94;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+    }
+
+    .faq-hero-copy p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .faq-hero-note {
+      padding-left: 28px;
+      border-left: 1px solid rgba(255,255,255,0.28);
+    }
+
+    .faq-hero-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .faq-hero-note p {
+      margin: 0;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
+    }
+
+
+    /* ---------------------------------------------------------
+       QUICK LINKS
+       --------------------------------------------------------- */
+
+    .faq-navigation {
+      padding: 28px 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-navigation-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-navigation-label {
+      margin-right: 10px;
+      color: var(--deep-teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .faq-nav-link {
+      display: inline-flex;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--deep-teal);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .faq-nav-link:hover {
+      background: var(--paper);
+      border-color: rgba(8, 37, 37, 0.25);
+    }
+
+
+    /* ---------------------------------------------------------
+       FAQ CONTENT
+       --------------------------------------------------------- */
+
+    .faq-content {
+      padding: 105px 0;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 0.62fr 1.38fr;
+      gap: 95px;
+      align-items: start;
+    }
+
+    .faq-sidebar {
+      position: sticky;
+      top: 110px;
+    }
+
+    .faq-sidebar h2 {
+      margin: 0 0 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .faq-sidebar p {
+      max-width: 380px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .faq-sidebar-links {
+      display: grid;
+      gap: 8px;
+    }
+
+    .faq-sidebar-links a {
+      color: var(--deep-teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .faq-sidebar-links a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* ---------------------------------------------------------
+       FAQ GROUPS
+       --------------------------------------------------------- */
+
+    .faq-group {
+      margin-bottom: 75px;
+    }
+
+    .faq-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-group-header {
+      margin-bottom: 22px;
+    }
+
+    .faq-group-header .section-label {
+      margin-bottom: 8px;
+    }
+
+    .faq-group-header h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.15rem;
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      padding: 25px 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .faq-question:hover {
+      color: var(--deep-teal);
+    }
+
+    .faq-question-icon {
+      position: relative;
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--deep-teal);
+      border-radius: 50%;
+    }
+
+    .faq-question-icon::before,
+    .faq-question-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 1px;
+      background: var(--deep-teal);
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-question-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-question-icon::after {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-answer-content {
+      max-width: 760px;
+      padding: 0 55px 25px 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .faq-answer-content p {
+      margin: 0 0 14px;
+    }
+
+    .faq-answer-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-answer-content a {
+      color: var(--deep-teal);
+      font-weight: 700;
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+
+    /* ---------------------------------------------------------
+       STILL HAVE A QUESTION
+       --------------------------------------------------------- */
+
+    .faq-contact {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .faq-contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .faq-contact h2 {
+      max-width: 800px;
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .faq-contact p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .faq-contact-action {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+
+    /* ---------------------------------------------------------
+       CLOSING
+       --------------------------------------------------------- */
+
+    .faq-closing {
+      padding: 100px 0;
+      background: var(--gold);
+    }
+
+    .faq-closing-inner {
+      max-width: 900px;
+    }
+
+    .faq-closing h2 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .faq-closing p {
+      max-width: 700px;
+      margin: 0;
+      color: rgba(20, 38, 38, 0.72);
+      line-height: 1.8;
+    }
+
+
+    /* ---------------------------------------------------------
+       RESPONSIVE
+       --------------------------------------------------------- */
+
+    @media (max-width: 1000px) {
+      .faq-hero-grid,
+      .faq-layout,
+      .faq-contact-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .faq-sidebar {
+        position: static;
+      }
+
+      .faq-contact-action {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .faq-hero {
+        padding: 85px 0 70px;
+      }
+
+      .faq-content,
+      .faq-contact,
+      .faq-closing {
+        padding: 75px 0;
+      }
+
+      .faq-navigation {
+        padding: 20px 0;
+      }
+
+      .faq-navigation-inner {
+        align-items: flex-start;
+      }
+
+      .faq-navigation-label {
+        width: 100%;
+        margin-bottom: 3px;
+      }
+
+      .faq-question {
+        padding: 21px 0;
+        font-size: 0.98rem;
+      }
+
+      .faq-answer-content {
+        padding-right: 35px;
+      }
+
+      .faq-group {
+        margin-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section class="faq-hero">
+
+      <div class="container">
+
+        <div class="faq-hero-grid">
+
+          <div class="faq-hero-copy">
+
+            <div class="eyebrow">
+              FREQUENTLY ASKED QUESTIONS
+            </div>
+
+            <h1>
+              You ask. We answer.
+            </h1>
+
+            <p>
+              A quick guide to what CoWiTa is, who it is for, how you can get
+              involved, and what is still being built.
+            </p>
+
+          </div>
+
+
+          <div class="faq-hero-note">
+
+            <strong>
+              Something not here?
+            </strong>
+
+            <p>
+              CoWiTa is growing, so some pathways are still taking shape. If
+              you cannot find the answer you need, contact us directly.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         QUICK NAVIGATION
+         ======================================================= -->
+
+    <section class="faq-navigation">
+
+      <div class="container">
+
+        <div class="faq-navigation-inner">
+
+          <span class="faq-navigation-label">
+            Jump to
+          </span>
+
+          <a class="faq-nav-link" href="#about">
+            About CoWiTa
+          </a>
+
+          <a class="faq-nav-link" href="#young-people">
+            Young People
+          </a>
+
+          <a class="faq-nav-link" href="#getting-involved">
+            Getting Involved
+          </a>
+
+          <a class="faq-nav-link" href="#opportunities">
+            Opportunities
+          </a>
+
+          <a class="faq-nav-link" href="#support">
+            Support &amp; Partnerships
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FAQ CONTENT
+         ======================================================= -->
+
+    <section class="faq-content">
+
+      <div class="container">
+
+        <div class="faq-layout">
+
+          <!-- SIDEBAR -->
+
+          <aside class="faq-sidebar">
+
+            <div class="section-label">
+              NEED TO KNOW
+            </div>
+
+            <h2>
+              The basics, without the jargon.
+            </h2>
+
+            <p>
+              These answers cover the questions someone is most likely to have
+              before taking their first step with CoWiTa.
+            </p>
+
+            <div class="faq-sidebar-links">
+
+              <a href="#about">
+                About CoWiTa
+              </a>
+
+              <a href="#young-people">
+                Young People
+              </a>
+
+              <a href="#getting-involved">
+                Getting Involved
+              </a>
+
+              <a href="#opportunities">
+                Opportunities
+              </a>
+
+              <a href="#support">
+                Support &amp; Partnerships
+              </a>
+
+            </div>
+
+          </aside>
+
+
+          <!-- QUESTIONS -->
+
+          <div class="faq-groups">
+
+
+            <!-- =================================================
+                 ABOUT COWITA
+                 ================================================= -->
+
+            <section class="faq-group" id="about">
+
+              <div class="faq-group-header">
+
+                <div class="section-label">
+                  ABOUT COWITA
+                </div>
+
+                <h2>
+                  Understanding what we do
+                </h2>
+
+              </div>
+
+
+              <div class="faq-list">
+
+                <div class="faq-item open">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="true"
+                  >
+                    <span>
+                      What is CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          CoWiTa is a youth-focused initiative that helps
+                          children and young people identify, develop and
+                          strengthen their talents into practical skills,
+                          opportunities and pathways for growth.
+                        </p>
+
+                        <p>
+                          Our work connects creative development, skills,
+                          mentorship, platforms and opportunity.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What does the name CoWiTa mean?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          CoWiTa is the name of the initiative and its
+                          community. The identity is built around collaboration,
+                          creativity, development and turning talent into
+                          meaningful opportunity.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What makes CoWiTa different?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          CoWiTa starts with the person rather than a
+                          predefined path. We look at what a young person is
+                          already good at, interested in or capable of
+                          developing, then work toward the skills, experience
+                          and opportunities that can help that potential grow.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Is CoWiTa a school?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          No. CoWiTa is not intended to replace formal
+                          education. It is designed to complement learning by
+                          creating additional pathways for creativity, skills,
+                          mentorship, experience and opportunity.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 YOUNG PEOPLE
+                 ================================================= -->
+
+            <section class="faq-group" id="young-people">
+
+              <div class="faq-group-header">
+
+                <div class="section-label">
+                  YOUNG PEOPLE
+                </div>
+
+                <h2>
+                  For young people and families
+                </h2>
+
+              </div>
+
+
+              <div class="faq-list">
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Who can get involved with CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          CoWiTa is focused on children and young people, while
+                          also working with mentors, educators, creatives,
+                          organisations, families, communities and partners who
+                          can contribute to their development.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Do I need to already be talented to join?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          No. You do not need to be an expert. You might already
+                          have a clear talent, be discovering an interest, or
+                          simply want to learn. CoWiTa is interested in potential
+                          as well as developed ability.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What kinds of talent does CoWiTa support?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Current creative pathways include dance, music,
+                          drawing, writing and acting. CoWiTa also supports
+                          practical skills development and mentorship around
+                          those creative and personal growth pathways.
+                        </p>
+
+                        <p>
+                          More areas can be added as the programme and network
+                          grow.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Do I have to pay to tell CoWiTa about my talent?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Simply expressing your interest does not require a
+                          payment. Specific programmes or activities may have
+                          their own arrangements when they are introduced, and
+                          those details will be communicated clearly.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 GETTING INVOLVED
+                 ================================================= -->
+
+            <section class="faq-group" id="getting-involved">
+
+              <div class="faq-group-header">
+
+                <div class="section-label">
+                  GETTING INVOLVED
+                </div>
+
+                <h2>
+                  Ways to become part of CoWiTa
+                </h2>
+
+              </div>
+
+
+              <div class="faq-list">
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      How can I get involved with CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          There are several pathways: you can bring your talent,
+                          learn a skill, become a mentor, collaborate on a
+                          project, partner with CoWiTa, or support the work.
+                        </p>
+
+                        <p>
+                          Visit the
+                          <a href="/get-involved/">
+                            Get Involved
+                          </a>
+                          page to find the route that fits you.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Can I become a mentor?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Yes. People with useful experience, knowledge,
+                          professional skills or life perspective can express
+                          interest in mentoring.
+                        </p>
+
+                        <p>
+                          Mentorship structures are still being developed, so
+                          participation will depend on the needs and programmes
+                          available at the time.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Can an organisation collaborate with CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Yes. CoWiTa welcomes conversations with schools,
+                          creative organisations, businesses, community
+                          organisations, development organisations and other
+                          groups interested in creating meaningful experiences
+                          and opportunities for young people.
+                        </p>
+
+                        <p>
+                          See
+                          <a href="/get-involved/collaborate.html">
+                            Collaborate
+                          </a>
+                          or
+                          <a href="/get-involved/partner.html">
+                            Partner
+                          </a>
+                          to explore the difference.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What is the difference between collaborating and partnering?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Collaboration is generally about working together on
+                          a project, programme, workshop, production or
+                          experience. Partnership is broader and can involve
+                          longer-term strategic, financial, institutional,
+                          network or resource commitments.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 OPPORTUNITIES
+                 ================================================= -->
+
+            <section class="faq-group" id="opportunities">
+
+              <div class="faq-group-header">
+
+                <div class="section-label">
+                  FIND OPPORTUNITY
+                </div>
+
+                <h2>
+                  Understanding the opportunity directory
+                </h2>
+
+              </div>
+
+
+              <div class="faq-list">
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What is the CoWiTa Opportunity Directory?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          It is CoWiTa's growing space for discovering pathways
+                          to learn, gain experience, create, connect and
+                          eventually access work and other opportunities.
+                        </p>
+
+                        <p>
+                          Visit
+                          <a href="/opportunities/">
+                            Find Opportunity
+                          </a>
+                          to see what is currently available and what is being
+                          developed.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Are all opportunities currently open?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          No. The directory distinguishes between pathways that
+                          are currently available and opportunities marked
+                          "Coming Soon." We do not want to present an
+                          opportunity as open until the relevant details and
+                          pathway are actually ready.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      What kinds of opportunities will eventually be listed?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          The long-term directory may include creative
+                          opportunities, internships and work experience,
+                          training programmes, jobs and gigs, grants and
+                          funding, and opportunities created through CoWiTa's
+                          partner network.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Can an organisation submit an opportunity?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          The directory is being developed, so a full
+                          opportunity submission system is not available yet.
+                          Organisations interested in creating or sharing
+                          opportunities can start by contacting CoWiTa.
+                        </p>
+
+                        <p>
+                          <a href="/contact/">
+                            Start a conversation →
+                          </a>
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUPPORT
+                 ================================================= -->
+
+            <section class="faq-group" id="support">
+
+              <div class="faq-group-header">
+
+                <div class="section-label">
+                  SUPPORT &amp; PARTNERSHIPS
+                </div>
+
+                <h2>
+                  Supporting what CoWiTa is building
+                </h2>
+
+              </div>
+
+
+              <div class="faq-list">
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      How can I support CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Support can take different forms. You can contribute
+                          financially, provide useful resources or expertise,
+                          create opportunities, make introductions, or build a
+                          longer-term partnership with CoWiTa.
+                        </p>
+
+                        <p>
+                          Visit
+                          <a href="/support/">
+                            Support CoWiTa
+                          </a>
+                          to explore the available pathways.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Can I support CoWiTa without giving money?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Absolutely. Expertise, equipment, spaces, networks,
+                          platforms, mentorship and access to opportunities can
+                          all contribute to the work.
+                        </p>
+
+                        <p>
+                          In many cases, the right connection or resource can
+                          be just as valuable as a financial contribution.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Is CoWiTa currently accepting financial support?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          CoWiTa is developing its support and contribution
+                          structures. If you are interested in supporting the
+                          work financially, please use the
+                          <a href="/support/financial-support.html">
+                            Financial Support
+                          </a>
+                          page or contact us so we can discuss the appropriate
+                          next step.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                  <button
+                    class="faq-question"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      Can businesses and organisations partner with CoWiTa?
+                    </span>
+
+                    <span class="faq-question-icon"></span>
+                  </button>
+
+                  <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                      <div class="faq-answer-content">
+
+                        <p>
+                          Yes. CoWiTa is interested in relationships that can
+                          create meaningful value for young people and for the
+                          organisations involved.
+                        </p>
+
+                        <p>
+                          Partnership conversations can cover resources,
+                          expertise, networks, funding, access, programmes and
+                          long-term collaboration.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CONTACT CTA
+         ======================================================= -->
+
+    <section class="faq-contact">
+
+      <div class="container">
+
+        <div class="faq-contact-inner">
+
+          <div>
+
+            <div class="section-label">
+              STILL HAVE A QUESTION?
+            </div>
+
+            <h2>
+              Ask us directly.
+            </h2>
+
+            <p>
+              If your question is not answered here, do not guess. Tell us what
+              you need to know and we will help you find the right starting
+              point.
+            </p>
+
+          </div>
+
+
+          <div class="faq-contact-action">
+
+            <a
+              class="btn btn-dark"
+              href="/contact/"
+            >
+              Contact CoWiTa
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CLOSING
+         ======================================================= -->
+
+    <section class="faq-closing">
+
+      <div class="container">
+
+        <div class="faq-closing-inner">
+
+          <div class="section-label">
+            STILL BUILDING
+          </div>
+
+          <h2>
+            Not everything is ready yet. That is part of the story.
+          </h2>
+
+          <p>
+            CoWiTa is growing its programmes, partnerships and opportunity
+            network over time. Where something is still being developed, we
+            would rather tell you that clearly than make promises before the
+            work is ready.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+  <script>
+    /* =========================================================
+       FAQ ACCORDION
+       ========================================================= */
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+
+      button.addEventListener("click", function () {
+
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+
+        document.querySelectorAll(".faq-item.open").forEach(function (openItem) {
+
+          if (openItem !== item) {
+
+            openItem.classList.remove("open");
+
+            const openButton = openItem.querySelector(".faq-question");
+
+            if (openButton) {
+              openButton.setAttribute("aria-expanded", "false");
+            }
+
+          }
+
+        });
+
+        item.classList.toggle("open", !isOpen);
+
+        button.setAttribute(
+          "aria-expanded",
+          String(!isOpen)
+        );
+
+      });
+
+    });
+  </script>
+
+</body>
+</html>

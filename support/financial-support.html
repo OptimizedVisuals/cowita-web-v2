@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Financial Support | CoWiTa</title>
+
+  <meta
+    name="description"
+    content="Support CoWiTa's work to identify, nurture and develop the talents of children and young people into skills, opportunities and meaningful impact."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       FINANCIAL SUPPORT PAGE
+    ========================================================= */
+
+    .giving-hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 47, 47, 0.96) 0%,
+          rgba(7, 47, 47, 0.82) 48%,
+          rgba(7, 47, 47, 0.30) 100%
+        ),
+        url('/assets/images/support-financial-hero.jpg')
+        center / cover no-repeat;
+    }
+
+    .giving-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(7, 47, 47, 0.45),
+          transparent 55%
+        );
+
+      pointer-events: none;
+    }
+
+    .giving-hero .container {
+      position: relative;
+      z-index: 2;
+
+      padding-top: 9rem;
+      padding-bottom: 6rem;
+    }
+
+    .giving-hero-content {
+      max-width: 780px;
+      color: #fff;
+    }
+
+    .giving-hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .giving-hero h1 {
+      max-width: 760px;
+      margin: 0 0 1.5rem;
+
+      color: #fff;
+
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .giving-hero p {
+      max-width: 650px;
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.86);
+
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .giving-intro {
+      background: var(--paper);
+    }
+
+    .giving-intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .giving-intro h2 {
+      max-width: 570px;
+    }
+
+    .giving-intro-copy {
+      max-width: 680px;
+    }
+
+    .giving-intro-copy p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .giving-intro-copy p + p {
+      margin-top: 1.25rem;
+    }
+
+
+    /* =========================================================
+       GIVING EXPERIENCE
+    ========================================================= */
+
+    .giving-section {
+      background: var(--cream);
+    }
+
+    .giving-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .giving-context {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .giving-context h2 {
+      max-width: 560px;
+    }
+
+    .giving-context > p {
+      max-width: 560px;
+      margin-top: 1.3rem;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .giving-note {
+      margin-top: 2rem;
+      padding: 1.4rem 1.5rem;
+
+      border-left: 3px solid var(--gold);
+      background: var(--paper);
+    }
+
+    .giving-note strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .giving-note span {
+      display: block;
+
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       DONATION CARD
+    ========================================================= */
+
+    .giving-card {
+      padding: 2.5rem;
+
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .giving-card-header {
+      padding-bottom: 1.7rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .giving-card-header h3 {
+      margin: 0 0 0.65rem;
+
+      font-size: 1.7rem;
+    }
+
+    .giving-card-header p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* Frequency */
+
+    .giving-label {
+      display: block;
+      margin-bottom: 0.75rem;
+
+      color: var(--ink);
+
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .giving-frequency {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+
+      margin-top: 1.8rem;
+    }
+
+    .frequency-option {
+      position: relative;
+    }
+
+    .frequency-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .frequency-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+      padding: 0.8rem 1rem;
+
+      border: 1px solid var(--line);
+
+      color: var(--ink);
+
+      cursor: pointer;
+
+      font-weight: 700;
+
+      transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .frequency-option input:checked + label {
+      border-color: var(--deep-teal);
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+
+    /* Amounts */
+
+    .giving-amounts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+
+      margin-top: 1.8rem;
+    }
+
+    .amount-option {
+      position: relative;
+    }
+
+    .amount-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .amount-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 56px;
+      padding: 0.8rem;
+
+      border: 1px solid var(--line);
+
+      background: var(--paper);
+
+      color: var(--ink);
+
+      cursor: pointer;
+
+      font-weight: 700;
+
+      transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .amount-option input:checked + label {
+      border-color: var(--deep-teal);
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+
+    /* Custom amount */
+
+    .custom-amount {
+      margin-top: 1rem;
+    }
+
+    .custom-amount label {
+      display: block;
+      margin-bottom: 0.5rem;
+
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .custom-amount-input {
+      position: relative;
+    }
+
+    .custom-amount-input span {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+
+      transform: translateY(-50%);
+
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .custom-amount input {
+      width: 100%;
+      min-height: 54px;
+
+      padding: 0.8rem 1rem 0.8rem 3.2rem;
+
+      border: 1px solid var(--line);
+      background: #fff;
+
+      color: var(--ink);
+
+      font: inherit;
+      outline: none;
+    }
+
+    .custom-amount input:focus {
+      border-color: var(--deep-teal);
+    }
+
+
+    /* Purpose */
+
+    .giving-purpose {
+      margin-top: 1.8rem;
+    }
+
+    .giving-purpose select {
+      width: 100%;
+      min-height: 54px;
+
+      padding: 0.8rem 1rem;
+
+      border: 1px solid var(--line);
+      background: #fff;
+
+      color: var(--ink);
+
+      font: inherit;
+      outline: none;
+    }
+
+    .giving-purpose select:focus {
+      border-color: var(--deep-teal);
+    }
+
+
+    /* Donate action */
+
+    .giving-action {
+      margin-top: 2rem;
+      padding-top: 1.8rem;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .giving-action .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .giving-action-note {
+      margin: 0.9rem 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       WHY GIVE
+    ========================================================= */
+
+    .why-give {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .why-give .section-label {
+      color: var(--gold);
+    }
+
+    .why-give h2 {
+      max-width: 780px;
+      color: #fff;
+    }
+
+    .why-give-intro {
+      max-width: 700px;
+      margin-top: 1.3rem;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      line-height: 1.8;
+    }
+
+    .give-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      margin-top: 4rem;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .give-principle {
+      min-height: 260px;
+      padding: 2rem;
+
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .give-principle:last-child {
+      border-right: none;
+    }
+
+    .give-principle-number {
+      display: block;
+      margin-bottom: 4rem;
+
+      color: var(--gold);
+
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .give-principle h3 {
+      margin: 0 0 0.7rem;
+
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    .give-principle p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.67);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       WHERE SUPPORT GOES
+    ========================================================= */
+
+    .giving-use {
+      background: var(--paper);
+    }
+
+    .giving-use-header {
+      max-width: 760px;
+    }
+
+    .giving-use-header p {
+      margin-top: 1rem;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .giving-use-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      margin-top: 3rem;
+    }
+
+    .giving-use-card {
+      padding: 2rem;
+
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .giving-use-card h3 {
+      margin: 0 0 0.7rem;
+
+      font-size: 1.35rem;
+    }
+
+    .giving-use-card p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       TRANSPARENCY
+    ========================================================= */
+
+    .giving-transparency {
+      background: var(--cream);
+    }
+
+    .transparency-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 4rem;
+      align-items: center;
+
+      padding: 3.5rem;
+
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .transparency-box h2 {
+      max-width: 480px;
+    }
+
+    .transparency-copy p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .transparency-copy p + p {
+      margin-top: 1rem;
+    }
+
+    .transparency-list {
+      display: grid;
+      gap: 0.9rem;
+
+      margin-top: 1.7rem;
+    }
+
+    .transparency-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .transparency-item-mark {
+      flex: 0 0 auto;
+
+      width: 24px;
+      height: 24px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      color: var(--ink);
+
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .transparency-item span {
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       PAYMENT STATUS
+    ========================================================= */
+
+    .giving-status {
+      background: var(--paper);
+    }
+
+    .giving-status-inner {
+      max-width: 850px;
+      margin: 0 auto;
+
+      padding: 3rem;
+
+      border: 1px solid var(--line);
+
+      text-align: center;
+    }
+
+    .status-label {
+      display: inline-flex;
+
+      margin-bottom: 1.2rem;
+      padding: 0.45rem 0.75rem;
+
+      border: 1px solid rgba(218, 173, 75, 0.5);
+
+      background: rgba(218, 173, 75, 0.1);
+
+      color: var(--deep-teal);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .giving-status-inner h2 {
+      margin-bottom: 1rem;
+    }
+
+    .giving-status-inner p {
+      max-width: 680px;
+      margin: 0 auto;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .giving-cta {
+      background: var(--gold);
+    }
+
+    .giving-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 3rem;
+    }
+
+    .giving-cta h2 {
+      max-width: 680px;
+      margin: 0;
+    }
+
+    .giving-cta p {
+      max-width: 620px;
+      margin: 1rem 0 0;
+
+      color: rgba(20, 28, 27, 0.72);
+
+      line-height: 1.7;
+    }
+
+    .giving-cta .btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .giving-intro-grid,
+      .giving-layout,
+      .transparency-box {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .giving-context {
+        position: static;
+      }
+
+      .give-principles {
+        grid-template-columns: 1fr;
+      }
+
+      .give-principle {
+        min-height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .give-principle:last-child {
+        border-bottom: none;
+      }
+
+      .give-principle-number {
+        margin-bottom: 2rem;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .giving-hero {
+        min-height: 70vh;
+      }
+
+      .giving-hero .container {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+      }
+
+      .giving-hero h1 {
+        font-size: clamp(2.7rem, 14vw, 4.4rem);
+      }
+
+      .giving-card {
+        padding: 1.5rem;
+      }
+
+      .giving-amounts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .giving-use-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .transparency-box {
+        padding: 2rem;
+      }
+
+      .giving-status-inner {
+        padding: 2rem 1.5rem;
+      }
+
+      .giving-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .giving-cta .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section class="giving-hero">
+
+      <div class="container">
+
+        <div class="giving-hero-content">
+
+          <div class="eyebrow reveal">
+            Financial Support
+          </div>
+
+          <h1 class="reveal">
+            Give talent room to grow.
+          </h1>
+
+          <p class="reveal">
+            If you believe that a young person's talent deserves the chance
+            to become something more, you can help make that possibility
+            real.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+    ======================================================== -->
+
+    <section class="section giving-intro">
+
+      <div class="container">
+
+        <div class="giving-intro-grid">
+
+          <div>
+
+            <div class="section-label reveal">
+              A contribution to the journey
+            </div>
+
+            <h2 class="reveal">
+              You are not funding a moment. You are helping build a pathway.
+            </h2>
+
+          </div>
+
+
+          <div class="giving-intro-copy">
+
+            <p>
+              CoWiTa exists because talent alone is not always enough.
+              Young people also need access to learning, mentorship,
+              creative spaces, platforms, tools and opportunities to put
+              their abilities into practice.
+            </p>
+
+            <p>
+              Financial support helps us create and strengthen those
+              conditions. It gives CoWiTa room to develop programmes,
+              support creative work and build the systems that allow talent
+              to move toward opportunity.
+            </p>
+
+            <p>
+              There is no pressure to give a particular amount. Give what
+              feels right to you, when it feels right, and know that your
+              support is part of building something designed to last.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         GIVING AREA
+    ======================================================== -->
+
+    <section class="section giving-section">
+
+      <div class="container">
+
+        <div class="giving-layout">
+
+
+          <!-- Context -->
+
+          <div class="giving-context">
+
+            <div class="section-label reveal">
+              Your contribution
+            </div>
+
+            <h2 class="reveal">
+              Choose how you would like to support the work.
+            </h2>
+
+            <p class="reveal">
+              Every supporter comes to CoWiTa with a different capacity.
+              Some may give once. Others may prefer to contribute regularly.
+              Both matter.
+            </p>
+
+            <div class="giving-note reveal">
+
+              <strong>
+                Give freely.
+              </strong>
+
+              <span>
+                The amount you choose should reflect what you are
+                comfortable contributing. There is no minimum contribution
+                displayed here because the value of your support is not
+                defined by a single number.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Giving card -->
+
+          <div class="giving-card reveal">
+
+            <div class="giving-card-header">
+
+              <h3>
+                Support CoWiTa
+              </h3>
+
+              <p>
+                Choose a frequency and contribution amount that works for you.
+              </p>
+
+            </div>
+
+
+            <!-- Frequency -->
+
+            <div class="giving-frequency">
+
+              <div class="frequency-option">
+
+                <input
+                  type="radio"
+                  id="give-once"
+                  name="frequency"
+                  value="once"
+                  checked
+                >
+
+                <label for="give-once">
+                  Give once
+                </label>
+
+              </div>
+
+
+              <div class="frequency-option">
+
+                <input
+                  type="radio"
+                  id="give-monthly"
+                  name="frequency"
+                  value="monthly"
+                >
+
+                <label for="give-monthly">
+                  Give monthly
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <!-- Suggested amounts -->
+
+            <div style="margin-top: 1.8rem;">
+
+              <span class="giving-label">
+                Choose an amount
+              </span>
+
+
+              <div class="giving-amounts">
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-500"
+                    name="amount"
+                    value="500"
+                    checked
+                  >
+
+                  <label for="amount-500">
+                    KES 500
+                  </label>
+
+                </div>
+
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-1000"
+                    name="amount"
+                    value="1000"
+                  >
+
+                  <label for="amount-1000">
+                    KES 1,000
+                  </label>
+
+                </div>
+
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-2500"
+                    name="amount"
+                    value="2500"
+                  >
+
+                  <label for="amount-2500">
+                    KES 2,500
+                  </label>
+
+                </div>
+
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-5000"
+                    name="amount"
+                    value="5000"
+                  >
+
+                  <label for="amount-5000">
+                    KES 5,000
+                  </label>
+
+                </div>
+
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-10000"
+                    name="amount"
+                    value="10000"
+                  >
+
+                  <label for="amount-10000">
+                    KES 10,000
+                  </label>
+
+                </div>
+
+
+                <div class="amount-option">
+
+                  <input
+                    type="radio"
+                    id="amount-other"
+                    name="amount"
+                    value="other"
+                  >
+
+                  <label for="amount-other">
+                    Other
+                  </label>
+
+                </div>
+
+              </div>
+
+
+              <div class="custom-amount">
+
+                <label for="custom-amount">
+                  Enter another amount
+                </label>
+
+                <div class="custom-amount-input">
+
+                  <span>
+                    KES
+                  </span>
+
+                  <input
+                    id="custom-amount"
+                    type="number"
+                    min="1"
+                    placeholder="Your amount"
+                    inputmode="numeric"
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Purpose -->
+
+            <div class="giving-purpose">
+
+              <label
+                class="giving-label"
+                for="giving-purpose"
+              >
+                Where would you like your support to go?
+              </label>
+
+              <select id="giving-purpose">
+
+                <option value="general">
+                  Where it is needed most
+                </option>
+
+                <option value="creative">
+                  Creative development
+                </option>
+
+                <option value="learning">
+                  Skills and learning
+                </option>
+
+                <option value="mentorship">
+                  Mentorship
+                </option>
+
+                <option value="opportunity">
+                  Opportunities and platforms
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Action -->
+
+            <div class="giving-action">
+
+              <a
+                href="/contact/"
+                class="btn btn-primary"
+              >
+                Continue to Give
+              </a>
+
+              <p class="giving-action-note">
+                Our secure giving channels are currently being finalized.
+                We will guide you through the available payment options.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHY GIVE
+    ======================================================== -->
+
+    <section class="section why-give">
+
+      <div class="container">
+
+        <div class="section-label reveal">
+          Why people give
+        </div>
+
+        <h2 class="reveal">
+          Because potential deserves somewhere to go.
+        </h2>
+
+        <p class="why-give-intro reveal">
+          Supporting CoWiTa is an opportunity to contribute to a different
+          kind of development journey: one that starts with what a young
+          person already carries and works toward what that talent could
+          become.
+        </p>
+
+
+        <div class="give-principles">
+
+          <article class="give-principle reveal">
+
+            <span class="give-principle-number">
+              01
+            </span>
+
+            <h3>
+              Invest in potential
+            </h3>
+
+            <p>
+              Help create the conditions where ability can be discovered,
+              developed and taken seriously.
+            </p>
+
+          </article>
+
+
+          <article class="give-principle reveal">
+
+            <span class="give-principle-number">
+              02
+            </span>
+
+            <h3>
+              Create access
+            </h3>
+
+            <p>
+              Help reduce the gap between having talent and having access
+              to the experiences and resources needed to develop it.
+            </p>
+
+          </article>
+
+
+          <article class="give-principle reveal">
+
+            <span class="give-principle-number">
+              03
+            </span>
+
+            <h3>
+              Help build what lasts
+            </h3>
+
+            <p>
+              Support the systems, relationships and platforms that can
+              continue creating opportunities beyond one activity.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHERE SUPPORT GOES
+    ======================================================== -->
+
+    <section class="section giving-use">
+
+      <div class="container">
+
+        <div class="giving-use-header">
+
+          <div class="section-label reveal">
+            Where support can go
+          </div>
+
+          <h2 class="reveal">
+            Building the things talent needs.
+          </h2>
+
+          <p class="reveal">
+            Financial support can strengthen different parts of CoWiTa's
+            development pathway. As the organisation grows, we will continue
+            to communicate clearly about how resources are being used.
+          </p>
+
+        </div>
+
+
+        <div class="giving-use-grid">
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Creative Development
+            </h3>
+
+            <p>
+              Supporting opportunities for young people to practise,
+              experiment and develop their creative abilities across
+              dance, music, drawing, writing and acting.
+            </p>
+
+          </article>
+
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Skills Development
+            </h3>
+
+            <p>
+              Helping connect creative interests with practical skills
+              that can strengthen confidence, capability and future
+              opportunities.
+            </p>
+
+          </article>
+
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Mentorship
+            </h3>
+
+            <p>
+              Supporting the relationships and experiences through which
+              young people can learn from people with knowledge,
+              experience and perspective.
+            </p>
+
+          </article>
+
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Platforms &amp; Opportunities
+            </h3>
+
+            <p>
+              Helping create spaces where young people can share their
+              work, connect with others and encounter opportunities to
+              take their next step.
+            </p>
+
+          </article>
+
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Tools &amp; Resources
+            </h3>
+
+            <p>
+              Supporting access to the practical resources required to
+              learn, create, practise and participate meaningfully.
+            </p>
+
+          </article>
+
+
+          <article class="giving-use-card reveal">
+
+            <h3>
+              Building CoWiTa
+            </h3>
+
+            <p>
+              Helping develop the systems, coordination and infrastructure
+              required for the work to grow responsibly and sustainably.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         TRANSPARENCY
+    ======================================================== -->
+
+    <section class="section giving-transparency">
+
+      <div class="container">
+
+        <div class="transparency-box reveal">
+
+          <div>
+
+            <div class="section-label">
+              Our commitment
+            </div>
+
+            <h2>
+              Giving should come with confidence.
+            </h2>
+
+          </div>
+
+
+          <div class="transparency-copy">
+
+            <p>
+              We want people who support CoWiTa to understand what they are
+              contributing to and why it matters.
+            </p>
+
+            <p>
+              As our financial systems and programmes develop, we will use
+              this space to share clearer information about our funding,
+              expenditure and the work that support makes possible.
+            </p>
+
+
+            <div class="transparency-list">
+
+              <div class="transparency-item">
+
+                <div class="transparency-item-mark">
+                  ✓
+                </div>
+
+                <span>
+                  Clear communication about how support is used
+                </span>
+
+              </div>
+
+
+              <div class="transparency-item">
+
+                <div class="transparency-item-mark">
+                  ✓
+                </div>
+
+                <span>
+                  Responsible stewardship of contributed resources
+                </span>
+
+              </div>
+
+
+              <div class="transparency-item">
+
+                <div class="transparency-item-mark">
+                  ✓
+                </div>
+
+                <span>
+                  Respect for donor privacy and preferences
+                </span>
+
+              </div>
+
+
+              <div class="transparency-item">
+
+                <div class="transparency-item-mark">
+                  ✓
+                </div>
+
+                <span>
+                  Honest communication about what is and is not yet possible
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PAYMENT STATUS
+    ======================================================== -->
+
+    <section class="section giving-status">
+
+      <div class="container">
+
+        <div class="giving-status-inner reveal">
+
+          <span class="status-label">
+            Giving channels
+          </span>
+
+          <h2>
+            We are preparing the giving experience.
+          </h2>
+
+          <p>
+            CoWiTa is currently putting the appropriate financial and payment
+            systems in place. Until those channels are officially available,
+            you can contact us directly and we will explain the current
+            options for supporting the work.
+          </p>
+
+          <div style="margin-top: 1.8rem;">
+
+            <a
+              href="/contact/"
+              class="btn btn-dark"
+            >
+              Contact CoWiTa
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+    ======================================================== -->
+
+    <section class="section giving-cta">
+
+      <div class="container">
+
+        <div class="giving-cta-inner">
+
+          <div>
+
+            <h2 class="reveal">
+              You do not have to do everything. You can simply help move it forward.
+            </h2>
+
+            <p class="reveal">
+              If CoWiTa's work resonates with you, your support can become
+              part of the foundation we are building.
+            </p>
+
+          </div>
+
+
+          <a
+            href="/contact/"
+            class="btn btn-dark reveal"
+          >
+            Talk to CoWiTa
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

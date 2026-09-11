@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Support CoWiTa | CoWiTa</title>
+  <meta
+    name="description"
+    content="Support CoWiTa in creating pathways for children and young people to develop their talents into skills, opportunities and meaningful impact."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       SUPPORT PAGE
+    ========================================================= */
+
+    .support-hero {
+      min-height: 76vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 47, 47, 0.94) 0%,
+          rgba(7, 47, 47, 0.78) 48%,
+          rgba(7, 47, 47, 0.30) 100%
+        ),
+        url('/assets/images/support-hero.jpg') center / cover no-repeat;
+    }
+
+    .support-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(7, 47, 47, 0.45),
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+
+    .support-hero .container {
+      position: relative;
+      z-index: 2;
+      padding-top: 9rem;
+      padding-bottom: 6rem;
+    }
+
+    .support-hero-content {
+      max-width: 760px;
+      color: #fff;
+    }
+
+    .support-hero h1 {
+      max-width: 760px;
+      margin: 0 0 1.5rem;
+      color: #fff;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .support-hero p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .support-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .support-hero-actions .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .support-hero-actions .btn-dark {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+
+    /* Intro */
+
+    .support-intro {
+      background: var(--paper);
+    }
+
+    .support-intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .support-intro h2 {
+      max-width: 560px;
+    }
+
+    .support-intro-copy {
+      max-width: 680px;
+    }
+
+    .support-intro-copy p {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .support-intro-copy p + p {
+      margin-top: 1.25rem;
+    }
+
+    /* Support pathways */
+
+    .support-pathways {
+      background: var(--cream);
+    }
+
+    .support-pathways-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .support-card {
+      position: relative;
+      min-height: 360px;
+      padding: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .support-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      top: -90px;
+      right: -70px;
+      border-radius: 50%;
+      background: rgba(218, 173, 75, 0.11);
+    }
+
+    .support-card-number {
+      position: relative;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--deep-teal);
+    }
+
+    .support-card-body {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+    }
+
+    .support-card h3 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.08;
+    }
+
+    .support-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .support-card-link {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      color: var(--deep-teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .support-card-link span {
+      transition: transform 180ms ease;
+    }
+
+    .support-card-link:hover span {
+      transform: translateX(4px);
+    }
+
+    /* What support makes possible */
+
+    .support-makes-possible {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .support-makes-possible .section-label {
+      color: var(--gold);
+    }
+
+    .support-makes-possible h2 {
+      max-width: 760px;
+      color: #fff;
+    }
+
+    .support-makes-possible-intro {
+      max-width: 680px;
+      margin-top: 1.5rem;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .support-use-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 4rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .support-use-item {
+      min-height: 240px;
+      padding: 2rem;
+      background: var(--deep-teal);
+    }
+
+    .support-use-item h3 {
+      margin: 0 0 0.8rem;
+      color: #fff;
+      font-size: 1.35rem;
+    }
+
+    .support-use-item p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.7;
+    }
+
+    .support-use-icon {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 2.5rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Philosophy */
+
+    .support-philosophy {
+      background: var(--paper);
+    }
+
+    .support-philosophy-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .support-philosophy-image {
+      min-height: 520px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(7, 47, 47, 0.04),
+          rgba(7, 47, 47, 0.22)
+        ),
+        url('/assets/images/support-young-creative.jpg') center / cover no-repeat;
+    }
+
+    .support-philosophy-copy {
+      max-width: 600px;
+    }
+
+    .support-philosophy-copy h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .support-philosophy-copy p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.05rem;
+    }
+
+    .support-principles {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .support-principle {
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .support-principle strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .support-principle span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Coming soon */
+
+    .support-coming-soon {
+      background: var(--cream);
+    }
+
+    .support-coming-soon-inner {
+      max-width: 860px;
+      padding: 4rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .support-coming-soon-inner h2 {
+      margin-bottom: 1rem;
+    }
+
+    .support-coming-soon-inner p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .coming-soon-tag {
+      display: inline-flex;
+      margin-bottom: 1.5rem;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid rgba(218, 173, 75, 0.5);
+      color: var(--deep-teal);
+      background: rgba(218, 173, 75, 0.1);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* CTA */
+
+    .support-cta {
+      background: var(--gold);
+    }
+
+    .support-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .support-cta h2 {
+      max-width: 700px;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .support-cta p {
+      max-width: 580px;
+      margin: 1rem 0 0;
+      color: rgba(20, 28, 27, 0.72);
+      line-height: 1.7;
+    }
+
+    .support-cta .btn-dark {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .support-intro-grid,
+      .support-philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .support-pathways-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .support-use-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .support-philosophy-image {
+        min-height: 400px;
+      }
+
+      .support-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .support-hero {
+        min-height: 72vh;
+      }
+
+      .support-hero .container {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+      }
+
+      .support-hero h1 {
+        font-size: clamp(2.7rem, 14vw, 4.3rem);
+      }
+
+      .support-card {
+        min-height: 320px;
+        padding: 1.7rem;
+      }
+
+      .support-use-item {
+        min-height: auto;
+      }
+
+      .support-philosophy-image {
+        min-height: 320px;
+      }
+
+      .support-coming-soon-inner {
+        padding: 2rem;
+      }
+
+      .support-cta .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section class="support-hero">
+      <div class="container">
+
+        <div class="support-hero-content">
+          <div class="eyebrow reveal">
+            Support CoWiTa
+          </div>
+
+          <h1 class="reveal">
+            Help talent become a future.
+          </h1>
+
+          <p class="reveal">
+            A young person can have the talent, the ideas and the determination.
+            What can be missing is the opportunity to develop them, be seen,
+            connect with others and take the next step.
+          </p>
+
+          <div class="support-hero-actions reveal">
+            <a
+              class="btn btn-primary"
+              href="/support/financial-support.html"
+            >
+              Support Financially
+            </a>
+
+            <a
+              class="btn btn-dark"
+              href="/support/partnership-support.html"
+            >
+              Explore Partnership
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+    ======================================================== -->
+
+    <section class="section support-intro">
+      <div class="container">
+
+        <div class="support-intro-grid">
+
+          <div>
+            <div class="section-label reveal">
+              Why support matters
+            </div>
+
+            <h2 class="reveal">
+              Talent needs more than encouragement.
+            </h2>
+          </div>
+
+          <div class="support-intro-copy">
+
+            <p>
+              Telling a young person that they are talented is important.
+              But talent develops through practice, guidance, access,
+              resources, platforms and real opportunities to use what they
+              are learning.
+            </p>
+
+            <p>
+              CoWiTa is being built around that journey. We want young people
+              to move from what they already do well toward practical skills,
+              creative confidence, meaningful opportunities and sustainable
+              pathways.
+            </p>
+
+            <p>
+              Supporting CoWiTa means helping create the conditions in which
+              that journey can happen.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         SUPPORT PATHWAYS
+    ======================================================== -->
+
+    <section class="section support-pathways">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div>
+            <div class="section-label">
+              Ways to support
+            </div>
+
+            <h2>
+              There is more than one way to move the work forward.
+            </h2>
+          </div>
+
+          <p>
+            Support can come through financial resources, relationships,
+            expertise, platforms, equipment or long-term collaboration.
+          </p>
+        </div>
+
+
+        <div class="support-pathways-grid">
+
+          <article class="support-card reveal">
+
+            <div class="support-card-number">
+              01
+            </div>
+
+            <div class="support-card-body">
+              <h3>
+                Financial Support
+              </h3>
+
+              <p>
+                Help provide the resources needed to develop programmes,
+                create learning opportunities, support creative work and
+                build the infrastructure around young people's growth.
+              </p>
+
+              <a
+                class="support-card-link"
+                href="/support/financial-support.html"
+              >
+                Explore financial support
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <article class="support-card reveal">
+
+            <div class="support-card-number">
+              02
+            </div>
+
+            <div class="support-card-body">
+              <h3>
+                Partnership Support
+              </h3>
+
+              <p>
+                Bring an organisation, institution, business, creative
+                platform or network into the work through resources,
+                expertise, opportunities and long-term collaboration.
+              </p>
+
+              <a
+                class="support-card-link"
+                href="/support/partnership-support.html"
+              >
+                Explore partnership support
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         WHAT SUPPORT MAKES POSSIBLE
+    ======================================================== -->
+
+    <section class="section support-makes-possible">
+      <div class="container">
+
+        <div class="section-label reveal">
+          What support can enable
+        </div>
+
+        <h2 class="reveal">
+          Building the environment around talent.
+        </h2>
+
+        <p class="support-makes-possible-intro reveal">
+          CoWiTa's work is not only about the moment a young person performs,
+          exhibits, publishes or demonstrates a skill. It is about building
+          the development pathway around that talent.
+        </p>
+
+
+        <div class="support-use-grid">
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              01
+            </div>
+
+            <h3>
+              Learning
+            </h3>
+
+            <p>
+              Training, workshops, mentorship and practical experiences that
+              help young people move from interest toward stronger skills.
+            </p>
+
+          </article>
+
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              02
+            </div>
+
+            <h3>
+              Creative Practice
+            </h3>
+
+            <p>
+              The space, tools, guidance and opportunities young creatives
+              need to practise, experiment and produce meaningful work.
+            </p>
+
+          </article>
+
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              03
+            </div>
+
+            <h3>
+              Opportunity
+            </h3>
+
+            <p>
+              Platforms, connections and experiences that can help talent
+              move beyond development and toward real-world possibilities.
+            </p>
+
+          </article>
+
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              04
+            </div>
+
+            <h3>
+              Mentorship
+            </h3>
+
+            <p>
+              Relationships that give young people access to guidance,
+              perspective, encouragement and practical knowledge.
+            </p>
+
+          </article>
+
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              05
+            </div>
+
+            <h3>
+              Platforms
+            </h3>
+
+            <p>
+              Opportunities for young people to share their work, connect
+              with audiences and begin building confidence and visibility.
+            </p>
+
+          </article>
+
+
+          <article class="support-use-item reveal">
+
+            <div class="support-use-icon">
+              06
+            </div>
+
+            <h3>
+              Sustainable Pathways
+            </h3>
+
+            <p>
+              The longer-term systems and connections that can help turn
+              developed talent into purposeful opportunities and livelihoods.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         SUPPORT PHILOSOPHY
+    ======================================================== -->
+
+    <section class="section support-philosophy">
+      <div class="container">
+
+        <div class="support-philosophy-grid">
+
+          <div class="support-philosophy-image reveal">
+            <span class="sr-only">
+              Young creative developing their talent through practical work.
+            </span>
+          </div>
+
+          <div class="support-philosophy-copy">
+
+            <div class="section-label reveal">
+              Our approach to support
+            </div>
+
+            <h2 class="reveal">
+              Support should strengthen the pathway, not just the moment.
+            </h2>
+
+            <p class="reveal">
+              We believe meaningful support should contribute to something
+              that can keep growing. That means thinking beyond one event,
+              one workshop or one contribution and looking at the wider
+              journey a young person is taking.
+            </p>
+
+            <div class="support-principles">
+
+              <div class="support-principle reveal">
+                <strong>Young-person centred</strong>
+                <span>
+                  Support should ultimately make the experience and
+                  opportunities of young people stronger.
+                </span>
+              </div>
+
+              <div class="support-principle reveal">
+                <strong>Practical</strong>
+                <span>
+                  Resources should help create real experiences, skills,
+                  connections and opportunities.
+                </span>
+              </div>
+
+              <div class="support-principle reveal">
+                <strong>Long-term</strong>
+                <span>
+                  The goal is not only immediate activity, but stronger
+                  pathways that can continue to develop.
+                </span>
+              </div>
+
+              <div class="support-principle reveal">
+                <strong>Responsible</strong>
+                <span>
+                  As CoWiTa grows, accountability, safeguarding and
+                  responsible stewardship will remain central to the work.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CURRENT SUPPORT SYSTEMS
+    ======================================================== -->
+
+    <section class="section support-coming-soon">
+      <div class="container">
+
+        <div class="support-coming-soon-inner reveal">
+
+          <span class="coming-soon-tag">
+            Current stage
+          </span>
+
+          <h2>
+            Our support systems are being built.
+          </h2>
+
+          <p>
+            CoWiTa is currently developing the structures needed to receive,
+            manage and communicate different forms of support responsibly.
+            Dedicated financial support channels, partnership processes and
+            supporting resources will be added as they become ready.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+    ======================================================== -->
+
+    <section class="section support-cta">
+      <div class="container">
+
+        <div class="support-cta-inner">
+
+          <div>
+            <h2 class="reveal">
+              Want to help build what comes next?
+            </h2>
+
+            <p class="reveal">
+              Whether you want to contribute resources, explore a partnership
+              or simply understand the work better, start a conversation with us.
+            </p>
+          </div>
+
+          <a
+            class="btn btn-dark reveal"
+            href="/contact/"
+          >
+            Start a Conversation
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

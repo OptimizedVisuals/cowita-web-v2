@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>News & Updates | CoWiTa</title>
+
+    <meta
+        name="description"
+        content="News, updates, announcements and ideas from CoWiTa as we work to identify, develop and create opportunities around the talents of children and youth."
+    >
+
+    <meta name="theme-color" content="#073f3d">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <style>
+        /* =========================================================
+           NEWS PAGE
+        ========================================================= */
+
+        .news-hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--deep-teal);
+            color: var(--cream);
+        }
+
+        .news-hero::before {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.10);
+            top: -260px;
+            right: -100px;
+        }
+
+        .news-hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.07);
+            bottom: -180px;
+            left: -100px;
+        }
+
+        .news-hero-inner {
+            position: relative;
+            z-index: 1;
+            min-height: 520px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 70px;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .news-hero-copy {
+            max-width: 700px;
+        }
+
+        .news-hero-copy .eyebrow {
+            color: var(--gold);
+        }
+
+        .news-hero-copy h1 {
+            max-width: 720px;
+            margin: 16px 0 22px;
+            color: var(--cream);
+        }
+
+        .news-hero-copy p {
+            max-width: 620px;
+            color: rgba(255,255,255,0.78);
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .news-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .news-hero-visual {
+            position: relative;
+        }
+
+        .news-hero-image {
+            position: relative;
+            min-height: 390px;
+            overflow: hidden;
+            border-radius: 22px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.02)
+                );
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .news-hero-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 35%,
+                    rgba(0,0,0,0.45)
+                );
+            z-index: 1;
+        }
+
+        .news-hero-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 390px;
+            object-fit: cover;
+            opacity: 0.82;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .news-hero-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .news-hero-caption {
+            position: absolute;
+            z-index: 2;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            color: white;
+        }
+
+        .news-hero-caption span {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .news-hero-caption strong {
+            display: block;
+            font-family: "Lora", serif;
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+
+
+        /* =========================================================
+           NEWS INTRO
+        ========================================================= */
+
+        .news-intro {
+            padding-bottom: 20px;
+        }
+
+        .news-intro-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .news-intro-heading h2 {
+            margin-top: 14px;
+            max-width: 520px;
+        }
+
+        .news-intro-copy {
+            max-width: 680px;
+        }
+
+        .news-intro-copy p {
+            margin-bottom: 18px;
+            line-height: 1.85;
+        }
+
+
+        /* =========================================================
+           FEATURED UPDATE
+        ========================================================= */
+
+        .featured-news {
+            padding-top: 70px;
+        }
+
+        .featured-news-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 470px;
+            overflow: hidden;
+            border-radius: 24px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .featured-news-image {
+            position: relative;
+            overflow: hidden;
+            min-height: 470px;
+            background: var(--cream);
+        }
+
+        .featured-news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .featured-news-card:hover .featured-news-image img {
+            transform: scale(1.04);
+        }
+
+        .featured-news-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .news-meta .category {
+            color: var(--deep-teal);
+            font-weight: 700;
+        }
+
+        .news-meta .dot {
+            opacity: 0.45;
+        }
+
+        .featured-news-content h2 {
+            max-width: 580px;
+            margin-bottom: 18px;
+        }
+
+        .featured-news-content p {
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .featured-news-content .btn {
+            align-self: flex-start;
+            margin-top: 24px;
+        }
+
+
+        /* =========================================================
+           NEWS CATEGORIES
+        ========================================================= */
+
+        .news-categories {
+            padding-top: 100px;
+        }
+
+        .news-category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .news-category {
+            position: relative;
+            padding: 32px;
+            min-height: 230px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--paper);
+            transition:
+                transform 0.3s var(--ease),
+                box-shadow 0.3s var(--ease),
+                border-color 0.3s var(--ease);
+        }
+
+        .news-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(7,63,61,0.22);
+            box-shadow: var(--shadow);
+        }
+
+        .news-category-number {
+            display: block;
+            margin-bottom: 28px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+        }
+
+        .news-category h3 {
+            margin-bottom: 12px;
+        }
+
+        .news-category p {
+            margin: 0;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           UPDATE GRID
+        ========================================================= */
+
+        .updates-section {
+            padding-top: 110px;
+        }
+
+        .updates-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        .updates-header h2 {
+            margin-top: 12px;
+        }
+
+        .updates-header p {
+            max-width: 500px;
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .update-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--paper);
+            transition:
+                transform 0.3s var(--ease),
+                box-shadow 0.3s var(--ease);
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .update-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .update-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .update-card:hover .update-image img {
+            transform: scale(1.05);
+        }
+
+        .update-content {
+            padding: 28px;
+        }
+
+        .update-content .news-meta {
+            margin-bottom: 14px;
+        }
+
+        .update-content h3 {
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+        }
+
+        .update-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--deep-teal);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .text-link span {
+            transition: transform 0.25s var(--ease);
+        }
+
+        .text-link:hover span {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================================================
+           COMING SOON
+        ========================================================= */
+
+        .news-coming-soon {
+            padding-top: 110px;
+        }
+
+        .coming-soon-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 70px;
+            border-radius: 24px;
+            background: var(--deep-teal);
+            color: var(--cream);
+        }
+
+        .coming-soon-panel::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.08);
+            right: -120px;
+            top: -160px;
+        }
+
+        .coming-soon-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .coming-soon-content .section-label {
+            color: var(--gold);
+        }
+
+        .coming-soon-content h2 {
+            color: var(--cream);
+            margin: 12px 0 18px;
+        }
+
+        .coming-soon-content p {
+            color: rgba(255,255,255,0.76);
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .coming-soon-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        .coming-soon-point {
+            padding: 9px 14px;
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 999px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .news-cta {
+            padding-top: 110px;
+            padding-bottom: 120px;
+        }
+
+        .news-cta-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 50px;
+            padding: 55px 60px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: var(--cream);
+        }
+
+        .news-cta-inner h2 {
+            margin: 10px 0 14px;
+            max-width: 650px;
+        }
+
+        .news-cta-inner p {
+            max-width: 650px;
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .news-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .news-hero-inner {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .news-hero-visual {
+                max-width: 680px;
+            }
+
+            .news-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .featured-news-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-news-image {
+                min-height: 360px;
+            }
+
+            .news-category-grid,
+            .updates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .news-cta-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .news-hero-inner {
+                min-height: auto;
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            .news-hero-copy h1 {
+                font-size: clamp(2.5rem, 11vw, 4rem);
+            }
+
+            .news-hero-image,
+            .news-hero-image img {
+                min-height: 300px;
+            }
+
+            .featured-news-content {
+                padding: 35px 28px;
+            }
+
+            .featured-news-image {
+                min-height: 280px;
+            }
+
+            .news-category-grid,
+            .updates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .updates-header {
+                display: block;
+            }
+
+            .updates-header p {
+                margin-top: 15px;
+            }
+
+            .coming-soon-panel {
+                padding: 45px 30px;
+            }
+
+            .news-cta-inner {
+                padding: 40px 30px;
+            }
+
+            .news-cta-actions {
+                width: 100%;
+            }
+
+            .news-cta-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+    <main id="main-content">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="news-hero">
+
+            <div class="container">
+
+                <div class="news-hero-inner">
+
+                    <div class="news-hero-copy">
+
+                        <span class="eyebrow">
+                            News &amp; Updates
+                        </span>
+
+                        <h1>
+                            What is happening at CoWiTa.
+                        </h1>
+
+                        <p>
+                            Follow the ideas, activities, announcements and
+                            conversations shaping CoWiTa as we build pathways
+                            for young people to develop their talents and turn
+                            them into opportunity.
+                        </p>
+
+                        <div class="news-hero-actions">
+
+                            <a
+                                href="/stories/"
+                                class="btn btn-primary"
+                            >
+                                Explore all stories
+                            </a>
+
+                            <a
+                                href="/get-involved/partner.html"
+                                class="btn btn-dark"
+                            >
+                                Work with us
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="news-hero-visual">
+
+                        <div class="news-hero-image">
+
+                            <img
+                                src="/assets/images/stories-news-hero.jpg"
+                                alt="Young creatives working together"
+                            >
+
+                            <div class="news-hero-caption">
+
+                                <span>
+                                    CoWiTa newsroom
+                                </span>
+
+                                <strong>
+                                    Following the work behind the talent.
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             INTRO
+        ====================================================== -->
+
+        <section class="section news-intro">
+
+            <div class="container">
+
+                <div class="news-intro-grid">
+
+                    <div class="news-intro-heading">
+
+                        <span class="section-label">
+                            Why this space exists
+                        </span>
+
+                        <h2>
+                            The work is a journey too.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="news-intro-copy">
+
+                        <p>
+                            CoWiTa is being built around a simple belief:
+                            talent grows when people have the opportunity,
+                            guidance and space to develop it.
+                        </p>
+
+                        <p>
+                            Our news and updates section will document what
+                            that looks like in practice — from programme
+                            developments and creative activities to
+                            partnerships, opportunities, community moments
+                            and lessons from the work.
+                        </p>
+
+                        <p>
+                            We will also use this space to share ideas and
+                            conversations relevant to young creatives,
+                            mentors, partners and communities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FEATURED UPDATE
+        ====================================================== -->
+
+        <section class="section featured-news">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Latest
+                    </span>
+
+                    <h2>
+                        The latest from CoWiTa.
+                    </h2>
+
+                </div>
+
+
+                <div class="featured-news-card">
+
+                    <div class="featured-news-image">
+
+                        <img
+                            src="/assets/images/stories-news-featured.jpg"
+                            alt="Creative development session"
+                        >
+
+                    </div>
+
+
+                    <div class="featured-news-content">
+
+                        <div class="news-meta">
+
+                            <span class="category">
+                                CoWiTa Update
+                            </span>
+
+                            <span class="dot">•</span>
+
+                            <span>
+                                Coming Soon
+                            </span>
+
+                        </div>
+
+                        <h2>
+                            Our first updates are on the way.
+                        </h2>
+
+                        <p>
+                            As CoWiTa moves from building the foundation to
+                            documenting the work, this space will become the
+                            home for programme updates, announcements and
+                            reflections from across the CoWiTa journey.
+                        </p>
+
+                        <a
+                            href="/about/our-story.html"
+                            class="btn btn-dark"
+                        >
+                            Read our story
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NEWS CATEGORIES
+        ====================================================== -->
+
+        <section class="section news-categories">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        What we will share
+                    </span>
+
+                    <h2>
+                        More than announcements.
+                    </h2>
+
+                    <p>
+                        A useful newsroom should help people understand not
+                        only what happened, but why it matters.
+                    </p>
+
+                </div>
+
+
+                <div class="news-category-grid">
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Programme Updates
+                        </h3>
+
+                        <p>
+                            New activities, programme milestones, creative
+                            development sessions and important updates from
+                            the work.
+                        </p>
+
+                    </article>
+
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Opportunities
+                        </h3>
+
+                        <p>
+                            Relevant calls, events, collaborations and
+                            opportunities that can help young creatives move
+                            forward.
+                        </p>
+
+                    </article>
+
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Ideas &amp; Insights
+                        </h3>
+
+                        <p>
+                            Reflections on creativity, talent development,
+                            mentorship, opportunity and the realities young
+                            people face while building their paths.
+                        </p>
+
+                    </article>
+
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Community
+                        </h3>
+
+                        <p>
+                            Moments that bring young people, mentors,
+                            creatives, organisations and communities together.
+                        </p>
+
+                    </article>
+
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Partnerships
+                        </h3>
+
+                        <p>
+                            Stories about the people and organisations helping
+                            create stronger pathways around talent and
+                            opportunity.
+                        </p>
+
+                    </article>
+
+
+                    <article class="news-category">
+
+                        <span class="news-category-number">
+                            06
+                        </span>
+
+                        <h3>
+                            CoWiTa Behind the Scenes
+                        </h3>
+
+                        <p>
+                            Honest updates about building the organisation,
+                            learning from the work and turning an idea into a
+                            functioning platform for young people.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             UPDATES GRID
+        ====================================================== -->
+
+        <section class="section updates-section">
+
+            <div class="container">
+
+                <div class="updates-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            Updates
+                        </span>
+
+                        <h2>
+                            Stories from the work.
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        This collection will grow as CoWiTa begins documenting
+                        its activities, partnerships and the people behind the
+                        work.
+                    </p>
+
+                </div>
+
+
+                <div class="updates-grid">
+
+                    <article class="update-card">
+
+                        <div class="update-image">
+
+                            <img
+                                src="/assets/images/stories-news-update-01.jpg"
+                                alt="Young person developing a creative skill"
+                            >
+
+                        </div>
+
+                        <div class="update-content">
+
+                            <div class="news-meta">
+
+                                <span class="category">
+                                    Programme
+                                </span>
+
+                                <span class="dot">•</span>
+
+                                <span>
+                                    Coming Soon
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Building the first creative development pathways
+                            </h3>
+
+                            <p>
+                                An inside look at how CoWiTa is shaping its
+                                approach to identifying and developing talent.
+                            </p>
+
+                            <a
+                                href="/about/our-approach.html"
+                                class="text-link"
+                            >
+                                Explore our approach
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="update-card">
+
+                        <div class="update-image">
+
+                            <img
+                                src="/assets/images/stories-news-update-02.jpg"
+                                alt="Creative mentors working with young people"
+                            >
+
+                        </div>
+
+                        <div class="update-content">
+
+                            <div class="news-meta">
+
+                                <span class="category">
+                                    Mentorship
+                                </span>
+
+                                <span class="dot">•</span>
+
+                                <span>
+                                    Coming Soon
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Why mentorship matters in a creative journey
+                            </h3>
+
+                            <p>
+                                A closer look at the role of guidance, feedback
+                                and relationships in helping talent grow.
+                            </p>
+
+                            <a
+                                href="/work/mentorship.html"
+                                class="text-link"
+                            >
+                                Explore mentorship
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="update-card">
+
+                        <div class="update-image">
+
+                            <img
+                                src="/assets/images/stories-news-update-03.jpg"
+                                alt="Young creatives presenting their work"
+                            >
+
+                        </div>
+
+                        <div class="update-content">
+
+                            <div class="news-meta">
+
+                                <span class="category">
+                                    Opportunity
+                                </span>
+
+                                <span class="dot">•</span>
+
+                                <span>
+                                    Coming Soon
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                From creative skill to real opportunity
+                            </h3>
+
+                            <p>
+                                Exploring the important step between developing
+                                a skill and finding a place where that skill can
+                                create value.
+                            </p>
+
+                            <a
+                                href="/about/why-cowita.html"
+                                class="text-link"
+                            >
+                                Why this matters
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMING SOON
+        ====================================================== -->
+
+        <section class="section news-coming-soon">
+
+            <div class="container">
+
+                <div class="coming-soon-panel">
+
+                    <div class="coming-soon-content">
+
+                        <span class="section-label">
+                            Building the newsroom
+                        </span>
+
+                        <h2>
+                            Real updates. Real stories. No made-up numbers.
+                        </h2>
+
+                        <p>
+                            CoWiTa is still building its programmes and
+                            documentation systems. When this newsroom goes
+                            live, we want every story to represent something
+                            that actually happened — not manufactured impact
+                            statistics or placeholder success stories.
+                        </p>
+
+                        <div class="coming-soon-points">
+
+                            <span class="coming-soon-point">
+                                Programme announcements
+                            </span>
+
+                            <span class="coming-soon-point">
+                                Creative activities
+                            </span>
+
+                            <span class="coming-soon-point">
+                                Partnerships
+                            </span>
+
+                            <span class="coming-soon-point">
+                                Opportunities
+                            </span>
+
+                            <span class="coming-soon-point">
+                                Community updates
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section class="section news-cta">
+
+            <div class="container">
+
+                <div class="news-cta-inner">
+
+                    <div>
+
+                        <span class="section-label">
+                            Be part of the story
+                        </span>
+
+                        <h2>
+                            Talent grows through people, opportunities and
+                            relationships.
+                        </h2>
+
+                        <p>
+                            Whether you are a young creative, mentor,
+                            organisation or potential partner, there is a way
+                            to contribute to the journey.
+                        </p>
+
+                    </div>
+
+
+                    <div class="news-cta-actions">
+
+                        <a
+                            href="/get-involved/have-talent.html"
+                            class="btn btn-primary"
+                        >
+                            I Have Talent
+                        </a>
+
+                        <a
+                            href="/get-involved/partner.html"
+                            class="btn btn-dark"
+                        >
+                            Partner with CoWiTa
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</body>
+</html>

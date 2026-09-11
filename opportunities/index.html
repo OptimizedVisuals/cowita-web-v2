@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Find Opportunity | CoWiTa</title>
+
+  <meta
+    name="description"
+    content="Find opportunities to learn, create, gain experience, connect and grow with CoWiTa."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       FIND OPPORTUNITY
+       ========================================================= */
+
+    .opportunity-hero {
+      position: relative;
+      min-height: 76vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 37, 37, 0.92) 0%,
+          rgba(8, 37, 37, 0.74) 48%,
+          rgba(8, 37, 37, 0.30) 100%
+        ),
+        url("/assets/images/opportunity-hero.jpg") center / cover no-repeat;
+    }
+
+    .opportunity-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 45%,
+          rgba(8, 37, 37, 0.78) 100%
+        );
+      pointer-events: none;
+    }
+
+    .opportunity-hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 110px 0 90px;
+    }
+
+    .opportunity-hero-copy {
+      max-width: 760px;
+      color: #fff;
+    }
+
+    .opportunity-hero-copy .eyebrow {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .opportunity-hero h1 {
+      max-width: 760px;
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      font-weight: 400;
+    }
+
+    .opportunity-hero p {
+      max-width: 650px;
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .opportunity-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .opportunity-intro {
+      padding: 105px 0 85px;
+    }
+
+    .opportunity-intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .opportunity-intro-label {
+      color: var(--deep-teal);
+    }
+
+    .opportunity-intro h2 {
+      max-width: 720px;
+      margin: 0 0 25px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .opportunity-intro p {
+      max-width: 720px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.8;
+    }
+
+    /* ---------------------------------------------------------
+       CURRENT OPPORTUNITIES
+       --------------------------------------------------------- */
+
+    .opportunity-section {
+      background: var(--cream);
+      padding: 100px 0;
+    }
+
+    .opportunity-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .opportunity-section-header h2 {
+      max-width: 700px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .opportunity-section-header p {
+      max-width: 390px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .opportunity-card {
+      position: relative;
+      min-height: 430px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--line);
+      transition:
+        transform 0.35s var(--ease),
+        box-shadow 0.35s var(--ease),
+        border-color 0.35s var(--ease);
+    }
+
+    .opportunity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(8, 37, 37, 0.18);
+    }
+
+    .opportunity-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 20px;
+      margin-bottom: 65px;
+    }
+
+    .opportunity-number {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .opportunity-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(8, 37, 37, 0.07);
+      color: var(--deep-teal);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .opportunity-status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .opportunity-card h3 {
+      margin: 0 0 15px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      line-height: 1.08;
+      font-weight: 400;
+    }
+
+    .opportunity-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .opportunity-card-footer {
+      margin-top: auto;
+      padding-top: 30px;
+    }
+
+    .opportunity-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--deep-teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .opportunity-link span {
+      transition: transform 0.25s ease;
+    }
+
+    .opportunity-link:hover span {
+      transform: translateX(4px);
+    }
+
+    /* ---------------------------------------------------------
+       HOW TO USE
+       --------------------------------------------------------- */
+
+    .opportunity-how {
+      padding: 105px 0;
+    }
+
+    .opportunity-how-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.4fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .opportunity-how h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .opportunity-steps {
+      border-top: 1px solid var(--line);
+    }
+
+    .opportunity-step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 25px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .opportunity-step-number {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      color: var(--deep-teal);
+    }
+
+    .opportunity-step h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .opportunity-step p {
+      max-width: 600px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ---------------------------------------------------------
+       COMING SOON
+       --------------------------------------------------------- */
+
+    .opportunity-coming {
+      padding: 105px 0;
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .opportunity-coming-header {
+      max-width: 780px;
+      margin-bottom: 55px;
+    }
+
+    .opportunity-coming-header .section-label {
+      color: var(--gold);
+    }
+
+    .opportunity-coming-header h2 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .opportunity-coming-header p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+    }
+
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .coming-card {
+      min-height: 250px;
+      padding: 32px;
+      background: var(--deep-teal);
+    }
+
+    .coming-card-number {
+      margin-bottom: 55px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .coming-card h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    .coming-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.65;
+    }
+
+    /* ---------------------------------------------------------
+       OPPORTUNITY NETWORK
+       --------------------------------------------------------- */
+
+    .opportunity-network {
+      padding: 100px 0;
+      background: var(--paper);
+    }
+
+    .opportunity-network-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .opportunity-network-copy h2 {
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .opportunity-network-copy p {
+      max-width: 650px;
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .opportunity-network-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .network-item {
+      padding: 22px 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .network-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--deep-teal);
+    }
+
+    .network-item span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    /* ---------------------------------------------------------
+       CTA
+       --------------------------------------------------------- */
+
+    .opportunity-cta {
+      padding: 105px 0;
+      background: var(--gold);
+    }
+
+    .opportunity-cta-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 60px;
+      align-items: end;
+    }
+
+    .opportunity-cta h2 {
+      max-width: 800px;
+      margin: 0 0 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .opportunity-cta p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(20, 38, 38, 0.72);
+      line-height: 1.75;
+    }
+
+    .opportunity-cta-action {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* ---------------------------------------------------------
+       RESPONSIVE
+       --------------------------------------------------------- */
+
+    @media (max-width: 1000px) {
+      .opportunity-grid,
+      .coming-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .opportunity-intro-grid,
+      .opportunity-how-grid,
+      .opportunity-network-grid,
+      .opportunity-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .opportunity-cta-action {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .opportunity-hero {
+        min-height: 72vh;
+      }
+
+      .opportunity-hero-inner {
+        padding: 90px 0 60px;
+      }
+
+      .opportunity-intro,
+      .opportunity-section,
+      .opportunity-how,
+      .opportunity-coming,
+      .opportunity-network,
+      .opportunity-cta {
+        padding: 75px 0;
+      }
+
+      .opportunity-section-header {
+        display: block;
+      }
+
+      .opportunity-section-header p {
+        margin-top: 20px;
+      }
+
+      .opportunity-grid,
+      .coming-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .opportunity-card {
+        min-height: 380px;
+      }
+
+      .opportunity-card-top {
+        margin-bottom: 45px;
+      }
+
+      .opportunity-step {
+        grid-template-columns: 45px 1fr;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section class="opportunity-hero">
+
+      <div class="opportunity-hero-inner">
+        <div class="container">
+
+          <div class="opportunity-hero-copy">
+
+            <div class="eyebrow">
+              FIND OPPORTUNITY
+            </div>
+
+            <h1>
+              Your next opportunity could start here.
+            </h1>
+
+            <p>
+              Talent is only the beginning. CoWiTa is building a space where
+              young people can discover places to learn, create, gain
+              experience, meet people, and take the next step.
+            </p>
+
+            <div class="opportunity-hero-actions">
+              <a
+                class="btn btn-primary"
+                href="#current-opportunities"
+              >
+                Explore opportunities
+              </a>
+
+              <a
+                class="btn btn-dark"
+                href="/get-involved/have-talent.html"
+              >
+                Start with your talent
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+         ======================================================= -->
+
+    <section class="opportunity-intro">
+
+      <div class="container">
+
+        <div class="opportunity-intro-grid">
+
+          <div>
+            <div class="section-label opportunity-intro-label">
+              THE IDEA
+            </div>
+          </div>
+
+          <div>
+            <h2>
+              Opportunity should meet people where they are.
+            </h2>
+
+            <p>
+              A young person may have the talent, the ambition, or the
+              willingness to learn, but still not know where the next door is.
+            </p>
+
+            <p>
+              CoWiTa's opportunity platform is being built to make those doors
+              easier to see. That can mean a creative programme, a learning
+              opportunity, mentorship, an internship, a project, a platform,
+              or eventually a route into work.
+            </p>
+
+            <p>
+              We are starting with the opportunities we can genuinely connect
+              people to today, while building a wider opportunity network for
+              the future.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CURRENT OPPORTUNITIES
+         ======================================================= -->
+
+    <section
+      class="opportunity-section"
+      id="current-opportunities"
+    >
+
+      <div class="container">
+
+        <div class="opportunity-section-header">
+
+          <div>
+            <div class="section-label">
+              AVAILABLE NOW
+            </div>
+
+            <h2>
+              Start with what is already open to you.
+            </h2>
+          </div>
+
+          <p>
+            These are the pathways CoWiTa can currently connect you with.
+            Some begin with participation, while others begin with simply
+            putting your name forward.
+          </p>
+
+        </div>
+
+
+        <div class="opportunity-grid">
+
+          <!-- Opportunity 01 -->
+
+          <article class="opportunity-card">
+
+            <div class="opportunity-card-top">
+
+              <span class="opportunity-number">
+                01
+              </span>
+
+              <span class="opportunity-status">
+                Available
+              </span>
+
+            </div>
+
+            <div>
+
+              <h3>
+                Creative Development
+              </h3>
+
+              <p>
+                Develop the creative ability you already have through CoWiTa's
+                creative pathways in dance, music, drawing, writing and acting.
+                The goal is not simply to practise. It is to grow confidence,
+                discipline, expression and the ability to turn creative
+                potential into something tangible.
+              </p>
+
+            </div>
+
+            <div class="opportunity-card-footer">
+
+              <a
+                class="opportunity-link"
+                href="/work/"
+              >
+                Explore creative development
+                <span>→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Opportunity 02 -->
+
+          <article class="opportunity-card">
+
+            <div class="opportunity-card-top">
+
+              <span class="opportunity-number">
+                02
+              </span>
+
+              <span class="opportunity-status">
+                Available
+              </span>
+
+            </div>
+
+            <div>
+
+              <h3>
+                Skills Development
+              </h3>
+
+              <p>
+                Build practical skills that complement your talent and help you
+                become more prepared for real opportunities. Skills
+                development sits alongside creativity because talent becomes
+                more powerful when it can be applied.
+              </p>
+
+            </div>
+
+            <div class="opportunity-card-footer">
+
+              <a
+                class="opportunity-link"
+                href="/work/skills-development.html"
+              >
+                Explore skills development
+                <span>→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Opportunity 03 -->
+
+          <article class="opportunity-card">
+
+            <div class="opportunity-card-top">
+
+              <span class="opportunity-number">
+                03
+              </span>
+
+              <span class="opportunity-status">
+                Available
+              </span>
+
+            </div>
+
+            <div>
+
+              <h3>
+                Mentorship
+              </h3>
+
+              <p>
+                Get closer to people, experiences and perspectives that can
+                help you make better decisions about your growth. CoWiTa is
+                developing mentorship as a pathway for guidance, accountability
+                and long-term development.
+              </p>
+
+            </div>
+
+            <div class="opportunity-card-footer">
+
+              <a
+                class="opportunity-link"
+                href="/work/mentorship.html"
+              >
+                Explore mentorship
+                <span>→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         HOW IT WORKS
+         ======================================================= -->
+
+    <section class="opportunity-how">
+
+      <div class="container">
+
+        <div class="opportunity-how-grid">
+
+          <div>
+            <div class="section-label">
+              HOW TO USE THIS SPACE
+            </div>
+
+            <h2>
+              Find the opportunity that fits your next step.
+            </h2>
+          </div>
+
+
+          <div class="opportunity-steps">
+
+            <div class="opportunity-step">
+
+              <div class="opportunity-step-number">
+                01
+              </div>
+
+              <div>
+
+                <h3>
+                  Know what you are looking for
+                </h3>
+
+                <p>
+                  Start with your current goal. Are you trying to develop a
+                  talent, learn a skill, gain experience, meet a mentor or find
+                  a pathway into work?
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="opportunity-step">
+
+              <div class="opportunity-step-number">
+                02
+              </div>
+
+              <div>
+
+                <h3>
+                  Explore what is available
+                </h3>
+
+                <p>
+                  Browse opportunities by the kind of growth they offer rather
+                  than simply by job title. Not every opportunity begins with a
+                  job.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="opportunity-step">
+
+              <div class="opportunity-step-number">
+                03
+              </div>
+
+              <div>
+
+                <h3>
+                  Take the next step
+                </h3>
+
+                <p>
+                  Follow the opportunity details, express your interest, or
+                  connect with CoWiTa where a pathway is being developed.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="opportunity-step">
+
+              <div class="opportunity-step-number">
+                04
+              </div>
+
+              <div>
+
+                <h3>
+                  Keep moving
+                </h3>
+
+                <p>
+                  Opportunities change. New programmes, partners, projects and
+                  openings will continue to be added as the CoWiTa network
+                  grows.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         COMING SOON
+         ======================================================= -->
+
+    <section class="opportunity-coming">
+
+      <div class="container">
+
+        <div class="opportunity-coming-header">
+
+          <div class="section-label">
+            COMING SOON
+          </div>
+
+          <h2>
+            The directory is only the beginning.
+          </h2>
+
+          <p>
+            CoWiTa is building toward a wider opportunity network. These
+            pathways will be introduced as partnerships, programmes and
+            opportunities become ready and verified.
+          </p>
+
+        </div>
+
+
+        <div class="coming-grid">
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              01
+            </div>
+
+            <h3>
+              Internships &amp; Work Experience
+            </h3>
+
+            <p>
+              Connections to organisations and projects where young people can
+              gain practical experience and understand what real work looks
+              like.
+            </p>
+
+          </article>
+
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              02
+            </div>
+
+            <h3>
+              Creative Opportunities
+            </h3>
+
+            <p>
+              Auditions, showcases, creative projects, productions,
+              competitions and platforms where talent can be seen and developed.
+            </p>
+
+          </article>
+
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              03
+            </div>
+
+            <h3>
+              Training &amp; Learning
+            </h3>
+
+            <p>
+              Verified workshops, courses, bootcamps and learning programmes
+              that help young people build useful skills.
+            </p>
+
+          </article>
+
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              04
+            </div>
+
+            <h3>
+              Jobs &amp; Gigs
+            </h3>
+
+            <p>
+              A future space for verified work, freelance projects, creative
+              gigs and other ways to turn skills into experience and income.
+            </p>
+
+          </article>
+
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              05
+            </div>
+
+            <h3>
+              Grants &amp; Funding
+            </h3>
+
+            <p>
+              Relevant funding opportunities, competitions, fellowships and
+              support programmes for young people and emerging creatives.
+            </p>
+
+          </article>
+
+
+          <article class="coming-card">
+
+            <div class="coming-card-number">
+              06
+            </div>
+
+            <h3>
+              Partner Opportunities
+            </h3>
+
+            <p>
+              Opportunities created through CoWiTa's growing network of
+              organisations, institutions, businesses and creative partners.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         OPPORTUNITY NETWORK
+         ======================================================= -->
+
+    <section class="opportunity-network">
+
+      <div class="container">
+
+        <div class="opportunity-network-grid">
+
+          <div class="opportunity-network-copy">
+
+            <div class="section-label">
+              BUILDING THE NETWORK
+            </div>
+
+            <h2>
+              Good opportunities need good connections.
+            </h2>
+
+            <p>
+              CoWiTa does not want to become another page full of links that
+              young people have to figure out on their own.
+            </p>
+
+            <p>
+              The long-term goal is a trusted network where opportunities are
+              easier to discover, understand and act on, while organisations
+              have a meaningful way to reach emerging talent.
+            </p>
+
+            <a
+              class="btn btn-dark"
+              href="/get-involved/partner.html"
+            >
+              Become an opportunity partner
+            </a>
+
+          </div>
+
+
+          <div class="opportunity-network-list">
+
+            <div class="network-item">
+
+              <strong>
+                For young people
+              </strong>
+
+              <span>
+                Discover pathways that match your interests, skills and next
+                stage of growth.
+              </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+              <strong>
+                For organisations
+              </strong>
+
+              <span>
+                Share meaningful opportunities with young people who are ready
+                to learn, contribute and grow.
+              </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+              <strong>
+                For partners
+              </strong>
+
+              <span>
+                Help create stronger bridges between talent, learning,
+                experience and opportunity.
+              </span>
+
+            </div>
+
+
+            <div class="network-item">
+
+              <strong>
+                For CoWiTa
+              </strong>
+
+              <span>
+                Build a growing ecosystem where potential has more places to
+                go.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+         ======================================================= -->
+
+    <section class="opportunity-cta">
+
+      <div class="container">
+
+        <div class="opportunity-cta-inner">
+
+          <div>
+
+            <div class="section-label">
+              NOT SURE WHERE TO START?
+            </div>
+
+            <h2>
+              Start with what you already have.
+            </h2>
+
+            <p>
+              You do not need to have everything figured out before taking the
+              next step. If you have a talent, an interest, a skill you want to
+              build, or simply a desire to learn, CoWiTa can be your starting
+              point.
+            </p>
+
+          </div>
+
+
+          <div class="opportunity-cta-action">
+
+            <a
+              class="btn btn-dark"
+              href="/get-involved/have-talent.html"
+            >
+              I Have Talent
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Learn with CoWiTa through creative development, practical skills, mentorship and future opportunities for children and young people."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>I Want to Learn — CoWiTa</title>
+
+  <!-- Shared CoWiTa design system -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       WANT TO LEARN PAGE
+       Page-specific styles only.
+       ========================================================= */
+
+    .learn-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 80px;
+    }
+
+    .learn-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 78% 20%,
+          rgba(229, 165, 26, .20),
+          transparent 30%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(7, 35, 40, .96),
+          rgba(13, 75, 75, .76)
+        );
+    }
+
+    .learn-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .learn-hero h1 {
+      max-width: 850px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.5rem, 7vw, 6.8rem);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .learn-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .learn-hero-copy {
+      max-width: 590px;
+      margin-top: 25px;
+
+      color: rgba(255, 255, 255, .76);
+
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .learn-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .learn-hero-visual {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .learn-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .learn-hero-note {
+      position: absolute;
+      left: -35px;
+      bottom: 28px;
+
+      max-width: 235px;
+      padding: 19px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .learn-hero-note strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.3rem;
+      line-height: 1.05;
+    }
+
+    .learn-hero-note span {
+      display: block;
+      margin-top: 8px;
+
+      font-size: .7rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .learn-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .learn-intro-copy {
+      max-width: 720px;
+    }
+
+    .learn-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .learn-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       LEARNING AREAS
+       ========================================================= */
+
+    .learning-areas-section {
+      background: var(--cream);
+    }
+
+    .learning-areas-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .learning-areas-header p {
+      max-width: 650px;
+      margin-top: 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .learning-card {
+      position: relative;
+
+      min-height: 300px;
+      padding: 32px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .learning-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .learning-card-number {
+      color: var(--teal);
+
+      font-size: .68rem;
+      font-weight: 800;
+
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .learning-card h3 {
+      margin: 55px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+
+    .learning-card p {
+      max-width: 500px;
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .84rem;
+      line-height: 1.65;
+    }
+
+    .learning-card-status {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+
+      padding: 7px 10px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      color: var(--muted);
+
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       HOW LEARNING WORKS
+       ========================================================= */
+
+    .learning-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .process-card {
+      padding: 28px;
+
+      border-top: 2px solid var(--gold);
+      background: #fff;
+
+      border-radius: 0 0 20px 20px;
+    }
+
+    .process-number {
+      color: var(--gold);
+
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .process-card h3 {
+      margin: 30px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.45rem;
+    }
+
+    .process-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       MENTORSHIP CONNECTION
+       ========================================================= */
+
+    .mentor-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .mentor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .mentor-copy {
+      max-width: 650px;
+    }
+
+    .mentor-copy h2 {
+      margin-bottom: 25px;
+    }
+
+    .mentor-copy p {
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.7;
+    }
+
+    .mentor-list {
+      margin-top: 35px;
+
+      border-top: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .mentor-list-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 15px;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .mentor-list-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .mentor-list-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .mentor-list-item span {
+      color: rgba(255, 255, 255, .56);
+
+      font-size: .76rem;
+      line-height: 1.5;
+    }
+
+    .mentor-visual {
+      min-height: 450px;
+    }
+
+    .mentor-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+
+      object-fit: cover;
+
+      border-radius: 30px 30px 100px 30px;
+    }
+
+
+    /* =========================================================
+       COMING SOON
+       ========================================================= */
+
+    .coming-soon-section {
+      background: var(--paper);
+    }
+
+    .coming-soon-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+
+      padding: 45px;
+
+      background: var(--cream);
+
+      border: 1px solid var(--line);
+      border-radius: 28px;
+    }
+
+    .coming-soon-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .coming-soon-box p {
+      max-width: 680px;
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+       ========================================================= */
+
+    .learn-final-cta {
+      background: var(--gold);
+      color: #1b1a16;
+    }
+
+    .learn-final-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .learn-final-inner h2 {
+      max-width: 820px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .learn-final-inner p {
+      max-width: 280px;
+      margin: 0;
+
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .learn-hero-grid,
+      .learn-intro,
+      .mentor-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .learn-hero {
+        padding-top: 125px;
+      }
+
+      .learn-hero-visual,
+      .mentor-visual {
+        min-height: 400px;
+      }
+
+      .learn-hero-visual img,
+      .mentor-visual img {
+        min-height: 400px;
+      }
+
+      .learn-hero-note {
+        left: 15px;
+      }
+
+      .learning-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .learning-process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .coming-soon-box,
+      .learn-final-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .learn-hero {
+        min-height: auto;
+        padding-bottom: 45px;
+      }
+
+      .learn-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .learn-hero-visual,
+      .mentor-visual {
+        min-height: 340px;
+      }
+
+      .learn-hero-visual img,
+      .mentor-visual img {
+        min-height: 340px;
+      }
+
+      .learn-intro-copy p:first-child {
+        font-size: 1.4rem;
+      }
+
+      .learning-grid,
+      .learning-process {
+        grid-template-columns: 1fr;
+      }
+
+      .learning-card {
+        min-height: 260px;
+      }
+
+      .coming-soon-box {
+        padding: 30px;
+      }
+
+      .learn-final-inner h2 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="learn-hero">
+
+  <div class="container learn-hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        I Want to Learn
+      </div>
+
+      <h1>
+        Turn curiosity into
+        <em>capability.</em>
+      </h1>
+
+      <p class="learn-hero-copy">
+        CoWiTa is being built to help children and young people
+        strengthen what they already know, discover new abilities
+        and develop practical skills they can carry into school,
+        work, creative practice and life.
+      </p>
+
+      <div class="learn-hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="#learning-areas"
+        >
+          Explore learning areas
+        </a>
+
+        <a
+          class="btn btn-light"
+          href="/get-involved/"
+        >
+          Other ways to get involved
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="learn-hero-visual reveal">
+
+      <img
+        src="/assets/images/get-involved-want-to-learn-hero.jpg"
+        alt="Young people participating in a collaborative learning activity"
+      >
+
+      <div class="learn-hero-note">
+
+        <strong>
+          Learn by doing.
+        </strong>
+
+        <span>
+          CoWiTa's future learning model will connect
+          creativity, practical skills, mentorship and
+          real-world experience.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container learn-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Learning at CoWiTa
+      </div>
+
+      <h2>
+        You don't have to start with everything figured out.
+      </h2>
+
+    </div>
+
+
+    <div class="learn-intro-copy reveal">
+
+      <p>
+        Sometimes the first step is simply having someone
+        recognise what you can do and help you develop it.
+      </p>
+
+      <p>
+        CoWiTa is designed around that idea. Learning should
+        not only mean collecting information. It should help
+        a young person become better at something, understand
+        how that ability can be used and gain the confidence
+        to keep developing it.
+      </p>
+
+      <p>
+        Through creative development, practical skills,
+        mentorship and opportunities to create, CoWiTa aims
+        to build pathways where learning can lead somewhere.
+      </p>
+
+      <p>
+        Some of these programmes are still being developed.
+        As CoWiTa grows, this page will become the entry point
+        for learners to discover available programmes,
+        workshops and learning opportunities.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. LEARNING AREAS
+     ========================================================= -->
+
+<section
+  class="section learning-areas-section"
+  id="learning-areas"
+>
+
+  <div class="container">
+
+    <div class="learning-areas-header reveal">
+
+      <div class="section-label">
+        What you can learn
+      </div>
+
+      <h2>
+        Learning that connects creativity with real capability.
+      </h2>
+
+      <p>
+        CoWiTa's learning ecosystem will combine creative
+        disciplines with practical skills that help young
+        people develop, communicate and eventually create
+        opportunities from what they know.
+      </p>
+
+    </div>
+
+
+    <div class="learning-grid">
+
+
+      <!-- DANCE -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          01 · Creative Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Dance
+        </h3>
+
+        <p>
+          Develop movement, performance, discipline and
+          creative expression through structured practice,
+          coaching and performance opportunities.
+        </p>
+
+      </article>
+
+
+      <!-- MUSIC -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          02 · Creative Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Music
+        </h3>
+
+        <p>
+          Explore performance, songwriting, musical
+          development and the practical skills required
+          to grow as a young musician.
+        </p>
+
+      </article>
+
+
+      <!-- DRAWING -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          03 · Creative Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Drawing &amp; Visual Art
+        </h3>
+
+        <p>
+          Strengthen visual expression through drawing,
+          illustration and creative practice while building
+          a body of work that demonstrates progression.
+        </p>
+
+      </article>
+
+
+      <!-- WRITING -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          04 · Creative Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Writing &amp; Storytelling
+        </h3>
+
+        <p>
+          Develop the ability to communicate ideas,
+          experiences and stories through writing,
+          spoken word and other forms of creative expression.
+        </p>
+
+      </article>
+
+
+      <!-- ACTING -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          05 · Creative Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Acting &amp; Performance
+        </h3>
+
+        <p>
+          Build confidence, character development,
+          stage presence and performance skills through
+          guided creative practice.
+        </p>
+
+      </article>
+
+
+      <!-- SKILLS -->
+
+      <article class="learning-card reveal">
+
+        <div class="learning-card-number">
+          06 · Skills Development
+        </div>
+
+        <div class="learning-card-status">
+          Coming Soon
+        </div>
+
+        <h3>
+          Practical Skills
+        </h3>
+
+        <p>
+          Learn complementary skills that can help turn
+          creative ability into useful work, projects,
+          collaborations and future opportunities.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. HOW LEARNING WORKS
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Our learning philosophy
+      </div>
+
+      <h2>
+        Learning should move with you.
+      </h2>
+
+    </div>
+
+
+    <div class="learning-process">
+
+
+      <article class="process-card reveal">
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Discover
+        </h3>
+
+        <p>
+          Identify interests, natural strengths and areas
+          where the learner wants to grow.
+        </p>
+
+      </article>
+
+
+      <article class="process-card reveal">
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          Practise
+        </h3>
+
+        <p>
+          Build ability through repetition, experimentation,
+          feedback and practical exercises.
+        </p>
+
+      </article>
+
+
+      <article class="process-card reveal">
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Create
+        </h3>
+
+        <p>
+          Apply learning by making something real,
+          performing, publishing or contributing to a project.
+        </p>
+
+      </article>
+
+
+      <article class="process-card reveal">
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Progress
+        </h3>
+
+        <p>
+          Continue developing through mentorship,
+          new challenges and future opportunities.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. MENTORSHIP CONNECTION
+     ========================================================= -->
+
+<section class="section mentor-section">
+
+  <div class="container mentor-layout">
+
+    <div class="mentor-copy reveal">
+
+      <div class="section-label">
+        More than a classroom
+      </div>
+
+      <h2>
+        Learning becomes stronger when someone walks with you.
+      </h2>
+
+      <p>
+        CoWiTa sees mentorship as an important part of
+        development. A learner should be able to receive
+        guidance from people who have experience in the
+        creative or professional area they are exploring.
+      </p>
+
+      <p>
+        The future CoWiTa platform will make it easier to
+        connect learners with mentors, practitioners and
+        other people who can contribute to their growth.
+      </p>
+
+
+      <div class="mentor-list">
+
+        <div class="mentor-list-item">
+
+          <div class="mentor-list-number">
+            01
+          </div>
+
+          <div>
+
+            <strong>
+              Guidance
+            </strong>
+
+            <span>
+              Learn from people with relevant experience.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="mentor-list-item">
+
+          <div class="mentor-list-number">
+            02
+          </div>
+
+          <div>
+
+            <strong>
+              Feedback
+            </strong>
+
+            <span>
+              Understand what is working and where to improve.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="mentor-list-item">
+
+          <div class="mentor-list-number">
+            03
+          </div>
+
+          <div>
+
+            <strong>
+              Exposure
+            </strong>
+
+            <span>
+              Connect learning with real people, projects
+              and creative environments.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="mentor-visual reveal">
+
+      <img
+        src="/assets/images/get-involved-want-to-learn-mentorship.jpg"
+        alt="Mentor guiding young people during a practical learning session"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. COMING SOON
+     ========================================================= -->
+
+<section class="section coming-soon-section">
+
+  <div class="container">
+
+    <div class="coming-soon-box reveal">
+
+      <div>
+
+        <div class="section-label">
+          Programme availability
+        </div>
+
+        <h2>
+          Learning programmes are coming.
+        </h2>
+
+        <p>
+          CoWiTa is currently developing the programme
+          structure, learning pathways, mentor network and
+          registration process. Specific courses, workshops,
+          schedules and application requirements will be
+          published here as they become available.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <a
+          class="btn btn-dark"
+          href="/contact/"
+        >
+          Stay Connected
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. FINAL CTA
+     ========================================================= -->
+
+<section class="section learn-final-cta">
+
+  <div class="container learn-final-inner reveal">
+
+    <div>
+
+      <h2>
+        You don't need to know exactly where you're going.
+        Start by developing what you already have.
+      </h2>
+
+    </div>
+
+
+    <div>
+
+      <p>
+        If you have a talent, interest or skill you want
+        to develop, CoWiTa is building a pathway for you.
+      </p>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/have-talent.html"
+        style="margin-top: 20px;"
+      >
+        I Have Talent →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

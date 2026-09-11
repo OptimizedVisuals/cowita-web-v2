@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Discover the people, communities and partners CoWiTa works with to help children and young people turn creative potential into skills, opportunities and impact."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Who We Work With — CoWiTa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Shared CoWiTa design system -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+
+    /* =========================================================
+       WHO WE WORK WITH
+       Page-specific styles only.
+       Global styles remain in /css/styles.css
+       ========================================================= */
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .partners-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 80px;
+    }
+
+    .partners-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 78% 18%,
+          rgba(229,165,26,.24),
+          transparent 27%
+        ),
+        linear-gradient(
+          125deg,
+          rgba(5,30,34,.96),
+          rgba(13,75,75,.78)
+        );
+    }
+
+    .partners-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+
+      gap: 70px;
+      align-items: end;
+    }
+
+    .partners-hero-copy {
+      max-width: 780px;
+    }
+
+    .partners-hero h1 {
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(
+        3.5rem,
+        7vw,
+        7rem
+      );
+
+      font-weight: 500;
+      line-height: .92;
+
+      letter-spacing: -.055em;
+    }
+
+    .partners-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .partners-hero-text {
+      max-width: 620px;
+
+      margin-top: 28px;
+
+      color: rgba(255,255,255,.74);
+
+      font-size: 1.06rem;
+      line-height: 1.7;
+    }
+
+    .partners-hero-visual {
+      position: relative;
+
+      min-height: 460px;
+    }
+
+    .partners-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+
+      object-fit: cover;
+
+      border-radius:
+        34px
+        34px
+        110px
+        34px;
+    }
+
+    .partners-hero-card {
+      position: absolute;
+
+      left: -35px;
+      bottom: 30px;
+
+      max-width: 245px;
+
+      padding: 22px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .partners-hero-card strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.4rem;
+      line-height: 1.05;
+    }
+
+    .partners-hero-card span {
+      display: block;
+
+      margin-top: 9px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .ecosystem-intro {
+      display: grid;
+
+      grid-template-columns: .75fr 1.25fr;
+
+      gap: 90px;
+
+      align-items: start;
+    }
+
+    .ecosystem-intro-copy {
+      max-width: 720px;
+    }
+
+    .ecosystem-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .ecosystem-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.75rem;
+      line-height: 1.2;
+
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       ECOSYSTEM MAP
+       ========================================================= */
+
+    .ecosystem-section {
+      background: var(--cream);
+
+      overflow: hidden;
+    }
+
+    .ecosystem-header {
+      max-width: 760px;
+
+      margin-bottom: 55px;
+    }
+
+    .ecosystem-header p {
+      max-width: 650px;
+
+      margin-top: 18px;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .ecosystem-card {
+      position: relative;
+
+      min-height: 340px;
+
+      padding: 32px;
+
+      background: #fff;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease),
+        box-shadow .3s var(--ease);
+    }
+
+    .ecosystem-card:hover {
+      transform: translateY(-7px);
+
+      border-color: var(--gold);
+
+      box-shadow:
+        0 18px 45px
+        rgba(13,75,75,.09);
+    }
+
+    .ecosystem-number {
+      font-size: 4.5rem;
+
+      line-height: .8;
+
+      font-weight: 800;
+
+      color: var(--teal);
+
+      opacity: .07;
+    }
+
+    .ecosystem-icon {
+      width: 54px;
+      height: 54px;
+
+      margin-top: 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--cream);
+
+      color: var(--teal);
+
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .ecosystem-card h3 {
+      margin: 25px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.65rem;
+
+      line-height: 1.05;
+    }
+
+    .ecosystem-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .82rem;
+
+      line-height: 1.65;
+    }
+
+    .ecosystem-card-link {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      color: var(--teal);
+
+      font-size: .72rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+
+    /* =========================================================
+       TALENT JOURNEY
+       ========================================================= */
+
+    .journey-section {
+      background: var(--paper);
+    }
+
+    .journey-header {
+      max-width: 700px;
+
+      margin-bottom: 55px;
+    }
+
+    .journey-header p {
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .journey {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 0;
+    }
+
+    .journey::before {
+      content: "";
+
+      position: absolute;
+
+      top: 25px;
+      left: 10%;
+
+      width: 80%;
+      height: 1px;
+
+      background: var(--line);
+    }
+
+    .journey-step {
+      position: relative;
+
+      padding-right: 25px;
+    }
+
+    .journey-dot {
+      position: relative;
+      z-index: 1;
+
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 28px;
+
+      border:
+        1px solid
+        var(--gold);
+
+      border-radius: 50%;
+
+      background: var(--paper);
+
+      color: var(--teal);
+
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .journey-step h3 {
+      margin: 0 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.35rem;
+    }
+
+    .journey-step p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .78rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RELATIONSHIP SECTION
+       ========================================================= */
+
+    .relationship-section {
+      background: var(--deep-teal);
+
+      color: #fff;
+
+      overflow: hidden;
+    }
+
+    .relationship-layout {
+      display: grid;
+
+      grid-template-columns:
+        .9fr
+        1.1fr;
+
+      gap: 90px;
+
+      align-items: center;
+    }
+
+    .relationship-statement {
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(
+        2.8rem,
+        5vw,
+        5.2rem
+      );
+
+      line-height: .97;
+
+      letter-spacing: -.05em;
+    }
+
+    .relationship-statement span {
+      color: var(--gold);
+    }
+
+    .relationship-copy {
+      color: rgba(255,255,255,.72);
+    }
+
+    .relationship-copy p {
+      margin: 0 0 24px;
+
+      line-height: 1.75;
+    }
+
+    .relationship-list {
+      margin-top: 35px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.15);
+    }
+
+    .relationship-item {
+      display: grid;
+
+      grid-template-columns: 42px 1fr;
+
+      gap: 15px;
+
+      padding: 20px 0;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
+    }
+
+    .relationship-item-number {
+      color: var(--gold);
+
+      font-size: .72rem;
+
+      font-weight: 800;
+    }
+
+    .relationship-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #fff;
+
+      font-size: .9rem;
+    }
+
+    .relationship-item span {
+      color: rgba(255,255,255,.55);
+
+      font-size: .78rem;
+
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       PARTNERSHIPS
+       ========================================================= */
+
+    .partner-section {
+      background: var(--cream);
+    }
+
+    .partner-layout {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .partner-image {
+      position: relative;
+    }
+
+    .partner-image img {
+      width: 100%;
+
+      aspect-ratio: 4 / 3;
+
+      object-fit: cover;
+
+      border-radius:
+        30px
+        30px
+        100px
+        30px;
+    }
+
+    .partner-image::after {
+      content: "";
+
+      position: absolute;
+
+      width: 95px;
+      height: 95px;
+
+      right: -25px;
+      bottom: -25px;
+
+      border:
+        1px solid
+        var(--gold);
+
+      border-radius: 50%;
+    }
+
+    .partner-copy {
+      max-width: 650px;
+    }
+
+    .partner-copy p {
+      color: var(--muted);
+
+      line-height: 1.75;
+    }
+
+    .partner-types {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 10px;
+
+      margin-top: 30px;
+    }
+
+    .partner-type {
+      padding: 18px;
+
+      background: #fff;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 15px;
+    }
+
+    .partner-type strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      font-size: .82rem;
+    }
+
+    .partner-type span {
+      color: var(--muted);
+
+      font-size: .72rem;
+
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       COMING SOON / DATA
+       ========================================================= */
+
+    .future-section {
+      background: var(--paper);
+    }
+
+    .future-box {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        auto;
+
+      gap: 50px;
+
+      align-items: center;
+
+      padding: 45px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 28px;
+
+      background: #fff;
+    }
+
+    .future-box h2 {
+      margin: 0 0 15px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 2.6rem;
+
+      line-height: 1;
+    }
+
+    .future-box p {
+      max-width: 650px;
+
+      margin: 0;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .future-status {
+      min-width: 145px;
+
+      padding: 18px;
+
+      border-radius: 18px;
+
+      background: var(--cream);
+
+      text-align: center;
+    }
+
+    .future-status strong {
+      display: block;
+
+      color: var(--teal);
+
+      font-size: .75rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+    .future-status span {
+      display: block;
+
+      margin-top: 7px;
+
+      color: var(--muted);
+
+      font-size: .68rem;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .partners-cta {
+      background: var(--gold);
+
+      color: #1b1a16;
+    }
+
+    .partners-cta-inner {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        auto;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .partners-cta h2 {
+      max-width: 800px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(
+        2.5rem,
+        5vw,
+        5rem
+      );
+
+      line-height: .98;
+
+      letter-spacing: -.05em;
+    }
+
+    .partners-cta p {
+      max-width: 280px;
+
+      margin: 0;
+
+      font-size: .8rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .partners-hero-grid,
+      .ecosystem-intro,
+      .relationship-layout,
+      .partner-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .partners-hero {
+        padding-top: 125px;
+      }
+
+      .partners-hero-visual {
+        min-height: 420px;
+      }
+
+      .partners-hero-visual img {
+        min-height: 420px;
+      }
+
+      .partners-hero-card {
+        left: 15px;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .journey {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 40px;
+      }
+
+      .journey::before {
+        display: none;
+      }
+
+      .future-box {
+        grid-template-columns: 1fr;
+      }
+
+      .partners-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .partners-cta p {
+        max-width: 550px;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 650px) {
+
+      .partners-hero {
+        min-height: auto;
+
+        padding-bottom: 45px;
+      }
+
+      .partners-hero h1 {
+        font-size:
+          clamp(
+            3rem,
+            15vw,
+            5rem
+          );
+      }
+
+      .partners-hero-visual {
+        min-height: 340px;
+      }
+
+      .partners-hero-visual img {
+        min-height: 340px;
+
+        border-radius:
+          24px
+          24px
+          80px
+          24px;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+      }
+
+      .journey-step {
+        padding-right: 0;
+      }
+
+      .journey-dot {
+        margin-bottom: 15px;
+      }
+
+      .partner-types {
+        grid-template-columns: 1fr;
+      }
+
+      .future-box {
+        padding: 30px;
+      }
+
+      .future-box h2 {
+        font-size: 2.2rem;
+      }
+
+      .partners-cta h2 {
+        font-size: 3rem;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<a
+  class="skip-link"
+  href="#main-content"
+>
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="partners-hero">
+
+  <div class="container partners-hero-grid">
+
+    <div class="partners-hero-copy reveal">
+
+      <div class="eyebrow">
+        Who We Work With
+      </div>
+
+      <h1>
+        Talent grows
+        <em>through people.</em>
+      </h1>
+
+      <p class="partners-hero-text">
+        CoWiTa is not built around young people working
+        alone. We bring together the people, communities,
+        mentors and partners who can help creative potential
+        move from ability to development, opportunity and
+        impact.
+      </p>
+
+    </div>
+
+
+    <div class="partners-hero-visual reveal">
+
+      <img
+        src="/assets/images/people-cowita-community-workshop.jpg"
+        alt="Young people participating in a collaborative creative activity"
+      >
+
+      <div class="partners-hero-card">
+
+        <strong>
+          An ecosystem,
+          not a programme.
+        </strong>
+
+        <span>
+          Every relationship should help create a stronger
+          pathway for talent.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container ecosystem-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        The CoWiTa ecosystem
+      </div>
+
+      <h2>
+        Different people.
+        One shared purpose.
+      </h2>
+
+    </div>
+
+
+    <div class="ecosystem-intro-copy reveal">
+
+      <p>
+        No young person develops their potential in isolation.
+      </p>
+
+      <p>
+        A talented dancer may need a mentor to sharpen their
+        technique, a platform to perform, a producer to create
+        with, an audience to reach and a partner willing to
+        invest in the journey.
+      </p>
+
+      <p>
+        A young writer may need feedback, confidence,
+        opportunities to publish and people who can help turn
+        creative ability into professional skill.
+      </p>
+
+      <p>
+        That is why CoWiTa thinks beyond the participant alone.
+        We are building relationships around talent so that
+        development can continue beyond a single workshop,
+        event or training session.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. WHO WE WORK WITH
+     ========================================================= -->
+
+<section class="section ecosystem-section">
+
+  <div class="container">
+
+    <div class="ecosystem-header reveal">
+
+      <div class="section-label">
+        Our community
+      </div>
+
+      <h2>
+        Who makes the journey possible?
+      </h2>
+
+      <p>
+        CoWiTa's work brings together several groups, each
+        contributing something different to the development
+        of young creative talent.
+      </p>
+
+    </div>
+
+
+    <div class="ecosystem-grid">
+
+
+      <!-- 01 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          01
+        </div>
+
+        <div class="ecosystem-icon">
+          01
+        </div>
+
+        <h3>
+          Children & Youth
+        </h3>
+
+        <p>
+          The young people at the centre of the CoWiTa model.
+          We work with emerging talent across creative
+          disciplines and support the journey from discovery
+          and practice toward stronger skills and opportunity.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/get-involved/have-talent.html"
+        >
+          I Have Talent →
+        </a>
+
+      </article>
+
+
+      <!-- 02 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          02
+        </div>
+
+        <div class="ecosystem-icon">
+          02
+        </div>
+
+        <h3>
+          Parents & Caregivers
+        </h3>
+
+        <p>
+          Families can play an important role in helping young
+          people sustain their creative development. CoWiTa
+          seeks to create pathways that families can understand,
+          support and participate in.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/contact/"
+        >
+          Connect With Us →
+        </a>
+
+      </article>
+
+
+      <!-- 03 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          03
+        </div>
+
+        <div class="ecosystem-icon">
+          03
+        </div>
+
+        <h3>
+          Schools & Community Organisations
+        </h3>
+
+        <p>
+          Schools, youth groups and community organisations can
+          help identify talent and create spaces where young
+          people can learn, practise and be seen.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/get-involved/collaborate.html"
+        >
+          Collaborate →
+        </a>
+
+      </article>
+
+
+      <!-- 04 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          04
+        </div>
+
+        <div class="ecosystem-icon">
+          04
+        </div>
+
+        <h3>
+          Mentors & Creative Professionals
+        </h3>
+
+        <p>
+          Experienced creatives, practitioners and mentors can
+          provide the guidance, technical knowledge and lived
+          experience that emerging talent needs to grow.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/get-involved/mentor.html"
+        >
+          Become a Mentor →
+        </a>
+
+      </article>
+
+
+      <!-- 05 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          05
+        </div>
+
+        <div class="ecosystem-icon">
+          05
+        </div>
+
+        <h3>
+          Organisations & Partners
+        </h3>
+
+        <p>
+          Organisations can contribute through collaboration,
+          resources, technical expertise, programme support,
+          platforms and access to wider opportunities.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/get-involved/partner.html"
+        >
+          Partner With Us →
+        </a>
+
+      </article>
+
+
+      <!-- 06 -->
+
+      <article class="ecosystem-card reveal">
+
+        <div class="ecosystem-number">
+          06
+        </div>
+
+        <div class="ecosystem-icon">
+          06
+        </div>
+
+        <h3>
+          Audiences & Communities
+        </h3>
+
+        <p>
+          Creative work becomes more meaningful when it reaches
+          people. Audiences provide visibility, encouragement,
+          feedback and the demand that helps creative work grow.
+        </p>
+
+        <a
+          class="ecosystem-card-link"
+          href="/work/"
+        >
+          Explore Our Work →
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. THE TALENT JOURNEY
+     ========================================================= -->
+
+<section class="section journey-section">
+
+  <div class="container">
+
+    <div class="journey-header reveal">
+
+      <div class="section-label">
+        How the relationships connect
+      </div>
+
+      <h2>
+        One talent.
+        Many points of support.
+      </h2>
+
+      <p>
+        CoWiTa's ecosystem is designed so that different
+        relationships can contribute at different stages of
+        a young person's development.
+      </p>
+
+    </div>
+
+
+    <div class="journey">
+
+
+      <div class="journey-step reveal">
+
+        <div class="journey-dot">
+          01
+        </div>
+
+        <h3>
+          Discover
+        </h3>
+
+        <p>
+          Communities, schools, families and young people help
+          identify creative potential.
+        </p>
+
+      </div>
+
+
+      <div class="journey-step reveal">
+
+        <div class="journey-dot">
+          02
+        </div>
+
+        <h3>
+          Develop
+        </h3>
+
+        <p>
+          Mentors and practitioners help strengthen the ability
+          through learning and practice.
+        </p>
+
+      </div>
+
+
+      <div class="journey-step reveal">
+
+        <div class="journey-dot">
+          03
+        </div>
+
+        <h3>
+          Create
+        </h3>
+
+        <p>
+          Young creatives apply their skills through real
+          creative work and projects.
+        </p>
+
+      </div>
+
+
+      <div class="journey-step reveal">
+
+        <div class="journey-dot">
+          04
+        </div>
+
+        <h3>
+          Connect
+        </h3>
+
+        <p>
+          Platforms, audiences and partners help creative work
+          reach wider spaces and opportunities.
+        </p>
+
+      </div>
+
+
+      <div class="journey-step reveal">
+
+        <div class="journey-dot">
+          05
+        </div>
+
+        <h3>
+          Grow
+        </h3>
+
+        <p>
+          Continued mentorship, opportunity and experience
+          support the next stage of the journey.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. RELATIONSHIP PHILOSOPHY
+     ========================================================= -->
+
+<section class="section relationship-section">
+
+  <div class="container relationship-layout">
+
+    <div class="relationship-statement reveal">
+
+      We don't just
+      develop talent.
+
+      We build the
+      <span>environment</span>
+      around it.
+
+    </div>
+
+
+    <div class="relationship-copy reveal">
+
+      <p>
+        Talent development is stronger when the people
+        surrounding a young creative understand their role in
+        the journey.
+      </p>
+
+      <p>
+        CoWiTa therefore seeks relationships that do more than
+        provide one-off assistance. The goal is to create
+        connections that can contribute to learning,
+        visibility, production, opportunity and long-term
+        growth.
+      </p>
+
+
+      <div class="relationship-list">
+
+
+        <div class="relationship-item">
+
+          <div class="relationship-item-number">
+            01
+          </div>
+
+          <div>
+
+            <strong>
+              Knowledge
+            </strong>
+
+            <span>
+              People with experience can pass on practical
+              knowledge that cannot always be learned from a
+              classroom.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="relationship-item">
+
+          <div class="relationship-item-number">
+            02
+          </div>
+
+          <div>
+
+            <strong>
+              Access
+            </strong>
+
+            <span>
+              Partnerships can open doors to spaces, platforms,
+              networks and opportunities.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="relationship-item">
+
+          <div class="relationship-item-number">
+            03
+          </div>
+
+          <div>
+
+            <strong>
+              Resources
+            </strong>
+
+            <span>
+              Support can provide the tools, environments and
+              resources required for creative development.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="relationship-item">
+
+          <div class="relationship-item-number">
+            04
+          </div>
+
+          <div>
+
+            <strong>
+              Opportunity
+            </strong>
+
+            <span>
+              Real opportunities allow young people to test
+              their skills beyond training environments.
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. PARTNERSHIPS
+     ========================================================= -->
+
+<section class="section partner-section">
+
+  <div class="container partner-layout">
+
+    <div class="partner-image reveal">
+
+      <img
+        src="/assets/images/cowita-creative-collaboration.jpg"
+        alt="Creative practitioners and young people collaborating"
+      >
+
+    </div>
+
+
+    <div class="partner-copy reveal">
+
+      <div class="section-label">
+        Working together
+      </div>
+
+      <h2>
+        Partnerships should create
+        something bigger than either
+        organisation alone.
+      </h2>
+
+      <p>
+        CoWiTa is open to relationships with organisations,
+        creative practitioners, institutions, community groups,
+        businesses and individuals who share an interest in
+        developing young people's potential.
+      </p>
+
+      <p>
+        The exact partnership models will continue to develop
+        as CoWiTa's programmes grow. For now, we are interested
+        in conversations that can lead to meaningful
+        collaboration.
+      </p>
+
+
+      <div class="partner-types">
+
+
+        <div class="partner-type">
+
+          <strong>
+            Programme Partners
+          </strong>
+
+          <span>
+            Organisations interested in developing or hosting
+            creative development activities.
+          </span>
+
+        </div>
+
+
+        <div class="partner-type">
+
+          <strong>
+            Creative Partners
+          </strong>
+
+          <span>
+            Artists, practitioners and professionals who can
+            contribute expertise or mentorship.
+          </span>
+
+        </div>
+
+
+        <div class="partner-type">
+
+          <strong>
+            Resource Partners
+          </strong>
+
+          <span>
+            Organisations or individuals able to contribute
+            equipment, spaces, funding or technical support.
+          </span>
+
+        </div>
+
+
+        <div class="partner-type">
+
+          <strong>
+            Opportunity Partners
+          </strong>
+
+          <span>
+            Networks and organisations able to create exposure,
+            commissions, platforms or other opportunities.
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. CURRENT STATUS
+     ========================================================= -->
+
+<section class="section future-section">
+
+  <div class="container">
+
+    <div class="future-box reveal">
+
+      <div>
+
+        <div class="section-label">
+          Building the network
+        </div>
+
+        <h2>
+          Our partner network is growing.
+        </h2>
+
+        <p>
+          CoWiTa is currently developing its programme model,
+          community relationships and partnership network.
+          Verified partner profiles, programme locations,
+          participation figures and impact data will be added
+          as the organisation's work develops.
+        </p>
+
+      </div>
+
+
+      <div class="future-status">
+
+        <strong>
+          Coming Soon
+        </strong>
+
+        <span>
+          Verified network data
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. CTA
+     ========================================================= -->
+
+<section class="section partners-cta">
+
+  <div class="container partners-cta-inner">
+
+    <div class="reveal">
+
+      <h2>
+        You don't have to be a creative to help creativity grow.
+      </h2>
+
+    </div>
+
+
+    <div class="reveal">
+
+      <p>
+        Whether you want to mentor, collaborate, provide
+        resources, create opportunities or support CoWiTa's
+        work, there is a place for you in the ecosystem.
+      </p>
+
+      <br>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/"
+      >
+        Explore Ways to Get Involved →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

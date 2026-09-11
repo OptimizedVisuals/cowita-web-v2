@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="CoWiTa Acting — developing confidence, expression, storytelling and performance skills in children and young people."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Acting — CoWiTa</title>
+
+  <!-- Shared CoWiTa design system -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+
+    /* =========================================================
+       ACTING PAGE
+       Page-specific styles only.
+       Global styles remain in /css/styles.css
+       ========================================================= */
+
+    .discipline-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 85px;
+    }
+
+    .discipline-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 28, 31, .97) 0%,
+          rgba(5, 28, 31, .78) 45%,
+          rgba(5, 28, 31, .25) 100%
+        );
+    }
+
+    .discipline-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+
+      gap: 70px;
+      align-items: end;
+    }
+
+    .discipline-hero-copy {
+      max-width: 780px;
+    }
+
+    .discipline-hero h1 {
+      margin: 20px 0 25px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+      font-weight: 500;
+    }
+
+    .discipline-hero h1 span {
+      color: var(--gold);
+    }
+
+    .discipline-hero-text {
+      max-width: 620px;
+
+      margin: 0;
+
+      color: rgba(255,255,255,.76);
+
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .discipline-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .discipline-hero-visual {
+      position: relative;
+
+      min-height: 500px;
+    }
+
+    .discipline-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+
+      object-fit: cover;
+
+      border-radius: 30px 30px 120px 30px;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+
+      left: -35px;
+      bottom: 30px;
+
+      max-width: 240px;
+
+      padding: 22px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 20px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .hero-floating-card strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .hero-floating-card span {
+      display: block;
+
+      margin-top: 9px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .discipline-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+
+      gap: 90px;
+      align-items: start;
+    }
+
+    .discipline-intro-copy {
+      max-width: 720px;
+    }
+
+    .discipline-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .discipline-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1.25;
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       WHY ACTING
+       ========================================================= */
+
+    .acting-belief {
+      background: var(--cream);
+    }
+
+    .acting-belief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 90px;
+      align-items: center;
+    }
+
+    .acting-belief-statement {
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.8rem, 5vw, 5.2rem);
+      line-height: .96;
+
+      letter-spacing: -.05em;
+    }
+
+    .acting-belief-statement span {
+      color: var(--teal);
+    }
+
+    .acting-belief-copy {
+      max-width: 620px;
+    }
+
+    .acting-belief-copy p {
+      color: var(--muted);
+
+      line-height: 1.75;
+
+      margin: 0 0 24px;
+    }
+
+
+    /* =========================================================
+       SKILL AREAS
+       ========================================================= */
+
+    .skill-header {
+      max-width: 750px;
+
+      margin-bottom: 55px;
+    }
+
+    .skill-header p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .skill-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .skill-card {
+      min-height: 260px;
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
+      background: #fff;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .skill-number {
+      color: var(--gold);
+
+      font-size: .72rem;
+      font-weight: 800;
+
+      letter-spacing: .12em;
+    }
+
+    .skill-card h3 {
+      margin: 45px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.65rem;
+      line-height: 1.05;
+    }
+
+    .skill-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .8rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       PATHWAY
+       ========================================================= */
+
+    .pathway-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .pathway-header {
+      max-width: 760px;
+
+      margin-bottom: 55px;
+    }
+
+    .pathway-header h2 {
+      color: #fff;
+    }
+
+    .pathway-header p {
+      color: rgba(255,255,255,.68);
+
+      line-height: 1.7;
+    }
+
+    .pathway {
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .pathway-step {
+      min-height: 250px;
+
+      padding: 28px 22px;
+
+      border-right: 1px solid rgba(255,255,255,.16);
+    }
+
+    .pathway-step:last-child {
+      border-right: 0;
+    }
+
+    .pathway-step-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .pathway-step h3 {
+      margin: 55px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.45rem;
+    }
+
+    .pathway-step p {
+      margin: 0;
+
+      color: rgba(255,255,255,.58);
+
+      font-size: .76rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       CREATIVE OUTPUT
+       ========================================================= */
+
+    .outputs-section {
+      background: var(--paper);
+    }
+
+    .outputs-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .output-card {
+      position: relative;
+
+      min-height: 340px;
+
+      overflow: hidden;
+
+      border-radius: 25px;
+
+      background: #172e30;
+      color: #fff;
+    }
+
+    .output-card img {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      opacity: .68;
+
+      transition:
+        transform .6s var(--ease),
+        opacity .4s var(--ease);
+    }
+
+    .output-card:hover img {
+      transform: scale(1.05);
+      opacity: .8;
+    }
+
+    .output-card::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(4,20,22,.94),
+          rgba(4,20,22,.15)
+        );
+    }
+
+    .output-card-content {
+      position: absolute;
+
+      z-index: 2;
+
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+    }
+
+    .output-card-content span {
+      color: var(--gold);
+
+      font-size: .68rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .output-card-content h3 {
+      margin: 8px 0 7px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 2rem;
+    }
+
+    .output-card-content p {
+      max-width: 500px;
+
+      margin: 0;
+
+      color: rgba(255,255,255,.68);
+
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       COMING SOON
+       ========================================================= */
+
+    .coming-soon-section {
+      background: var(--cream);
+    }
+
+    .coming-soon-box {
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 50px;
+      align-items: center;
+
+      padding: 55px;
+
+      border: 1px solid var(--line);
+      border-radius: 28px;
+
+      background: #fff;
+    }
+
+    .coming-soon-box h2 {
+      margin: 0 0 15px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: .98;
+    }
+
+    .coming-soon-box p {
+      max-width: 650px;
+
+      margin: 0;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .coming-soon-label {
+      display: inline-block;
+
+      margin-bottom: 18px;
+
+      padding: 7px 12px;
+
+      border-radius: 100px;
+
+      background: rgba(229,165,26,.15);
+
+      color: #8b650b;
+
+      font-size: .65rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .discipline-cta {
+      background: var(--gold);
+      color: #1b1a16;
+    }
+
+    .discipline-cta-inner {
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 50px;
+      align-items: center;
+    }
+
+    .discipline-cta h2 {
+      max-width: 850px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: .95;
+
+      letter-spacing: -.05em;
+    }
+
+    .discipline-cta p {
+      max-width: 260px;
+
+      margin: 0;
+
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .discipline-hero-grid,
+      .discipline-intro,
+      .acting-belief-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .discipline-hero-visual {
+        min-height: 420px;
+      }
+
+      .discipline-hero-visual img {
+        min-height: 420px;
+      }
+
+      .hero-floating-card {
+        left: 20px;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pathway {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pathway-step {
+        border-bottom: 1px solid rgba(255,255,255,.16);
+      }
+
+      .outputs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .discipline-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .discipline-cta p {
+        max-width: 500px;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .discipline-hero {
+        min-height: auto;
+
+        padding-top: 125px;
+        padding-bottom: 45px;
+      }
+
+      .discipline-hero h1 {
+        font-size: clamp(3.3rem, 17vw, 5rem);
+      }
+
+      .discipline-hero-visual {
+        min-height: 350px;
+      }
+
+      .discipline-hero-visual img {
+        min-height: 350px;
+
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .discipline-intro-copy p:first-child {
+        font-size: 1.4rem;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway-step {
+        border-right: 0;
+      }
+
+      .output-card {
+        min-height: 300px;
+      }
+
+      .coming-soon-box {
+        grid-template-columns: 1fr;
+
+        padding: 35px;
+      }
+
+      .discipline-cta-inner {
+        gap: 30px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="discipline-hero">
+
+  <div class="container discipline-hero-grid">
+
+    <div class="discipline-hero-copy reveal">
+
+      <div class="eyebrow">
+        CoWiTa Creative Development
+      </div>
+
+      <h1>
+        Find your
+        <span>voice.</span>
+      </h1>
+
+      <p class="discipline-hero-text">
+        Acting gives young people a space to express themselves,
+        understand stories, build confidence and develop the
+        discipline required to perform with purpose.
+      </p>
+
+
+      <div class="discipline-hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/get-involved/have-talent.html"
+        >
+          I Have Talent
+        </a>
+
+        <a
+          class="btn btn-light"
+          href="#acting-pathway"
+        >
+          Explore the pathway
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="discipline-hero-visual reveal">
+
+      <!-- IMAGE PLACEHOLDER
+           Save as:
+           /assets/images/work/acting/acting-hero.jpg
+      -->
+
+      <img
+        src="/assets/images/work/acting/acting-hero.jpg"
+        alt="Young people participating in an acting or theatre activity"
+      >
+
+
+      <div class="hero-floating-card">
+
+        <strong>
+          Stories matter.
+        </strong>
+
+        <span>
+          Acting helps young people turn imagination,
+          experience and observation into expression.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container discipline-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Acting at CoWiTa
+      </div>
+
+      <h2>
+        More than performing.
+      </h2>
+
+    </div>
+
+
+    <div class="discipline-intro-copy reveal">
+
+      <p>
+        Acting can become a place where a young person discovers
+        confidence, discipline, empathy and the courage to be heard.
+      </p>
+
+      <p>
+        At CoWiTa, acting is part of a wider creative-development
+        pathway. We are interested not only in the final performance,
+        but in the person developing behind it.
+      </p>
+
+      <p>
+        Through acting, young people can explore character,
+        storytelling, movement, voice and collaboration while
+        learning how to communicate ideas to an audience.
+      </p>
+
+      <p>
+        As CoWiTa's acting programme develops, training,
+        mentorship and performance opportunities will be introduced
+        progressively.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. WHY ACTING
+     ========================================================= -->
+
+<section class="section acting-belief">
+
+  <div class="container acting-belief-grid">
+
+    <div class="acting-belief-statement reveal">
+
+      A stage can become
+      <span>a place to grow.</span>
+
+    </div>
+
+
+    <div class="acting-belief-copy reveal">
+
+      <p>
+        Acting requires more than memorising lines. It asks a
+        performer to listen, observe, understand another
+        perspective and communicate honestly.
+      </p>
+
+      <p>
+        Those abilities can extend beyond the stage. Confidence,
+        teamwork, communication, empathy and leadership are part
+        of the wider development CoWiTa seeks to encourage.
+      </p>
+
+      <p>
+        Theatre and performance can also create spaces where
+        young people tell stories that reflect their communities,
+        experiences and aspirations.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. SKILLS
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="skill-header reveal">
+
+      <div class="section-label">
+        What can be developed
+      </div>
+
+      <h2>
+        The performer is developed from the inside out.
+      </h2>
+
+      <p>
+        CoWiTa's acting pathway is designed around practical
+        creative development rather than simply preparing someone
+        for a single performance.
+      </p>
+
+    </div>
+
+
+    <div class="skill-grid">
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          01 / VOICE
+        </div>
+
+        <h3>
+          Voice & speech
+        </h3>
+
+        <p>
+          Developing vocal clarity, projection, expression,
+          listening and confident communication.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          02 / MOVEMENT
+        </div>
+
+        <h3>
+          Movement
+        </h3>
+
+        <p>
+          Exploring physical expression, body awareness,
+          stage presence and purposeful movement.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          03 / CHARACTER
+        </div>
+
+        <h3>
+          Character development
+        </h3>
+
+        <p>
+          Learning how observation, imagination and empathy
+          can be used to understand and portray characters.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          04 / STORY
+        </div>
+
+        <h3>
+          Storytelling
+        </h3>
+
+        <p>
+          Understanding how performers use emotion, timing,
+          dialogue and action to communicate a story.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          05 / COLLABORATION
+        </div>
+
+        <h3>
+          Ensemble work
+        </h3>
+
+        <p>
+          Building the ability to listen, respond, cooperate
+          and create with other performers.
+        </p>
+
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-number">
+          06 / CONFIDENCE
+        </div>
+
+        <h3>
+          Confidence & presence
+        </h3>
+
+        <p>
+          Creating supportive environments where young people
+          can become more comfortable expressing themselves.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. ACTING PATHWAY
+     ========================================================= -->
+
+<section
+  class="section pathway-section"
+  id="acting-pathway"
+>
+
+  <div class="container">
+
+    <div class="pathway-header reveal">
+
+      <div class="section-label">
+        The development pathway
+      </div>
+
+      <h2>
+        From first expression to real opportunity.
+      </h2>
+
+      <p>
+        Acting is one part of the wider CoWiTa model:
+        identify potential, develop ability, create work,
+        provide platforms and connect creative growth to
+        opportunity.
+      </p>
+
+    </div>
+
+
+    <div class="pathway">
+
+
+      <article class="pathway-step reveal">
+
+        <div class="pathway-step-number">
+          01
+        </div>
+
+        <h3>
+          Discover
+        </h3>
+
+        <p>
+          A young person discovers an interest in acting,
+          storytelling or performance.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-step reveal">
+
+        <div class="pathway-step-number">
+          02
+        </div>
+
+        <h3>
+          Develop
+        </h3>
+
+        <p>
+          Skills are strengthened through practice,
+          workshops, mentorship and feedback.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-step reveal">
+
+        <div class="pathway-step-number">
+          03
+        </div>
+
+        <h3>
+          Create
+        </h3>
+
+        <p>
+          Participants work together to develop scenes,
+          characters, stories and performances.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-step reveal">
+
+        <div class="pathway-step-number">
+          04
+        </div>
+
+        <h3>
+          Perform
+        </h3>
+
+        <p>
+          Creative work can eventually reach audiences
+          through appropriate platforms and productions.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-step reveal">
+
+        <div class="pathway-step-number">
+          05
+        </div>
+
+        <h3>
+          Progress
+        </h3>
+
+        <p>
+          Experience can open pathways towards further
+          learning, collaboration and creative opportunity.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. WHAT ACTING CAN PRODUCE
+     ========================================================= -->
+
+<section class="section outputs-section">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Creative outputs
+      </div>
+
+      <h2>
+        Give the work somewhere to go.
+      </h2>
+
+    </div>
+
+
+    <div class="outputs-grid">
+
+
+      <article class="output-card reveal">
+
+        <img
+          src="/assets/images/work/acting/acting-performance.jpg"
+          alt="Young performers presenting a stage performance"
+          loading="lazy"
+        >
+
+        <div class="output-card-content">
+
+          <span>
+            Performance
+          </span>
+
+          <h3>
+            Stage productions
+          </h3>
+
+          <p>
+            Opportunities to turn developed skills into
+            rehearsed and audience-facing performances.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="output-card reveal">
+
+        <img
+          src="/assets/images/work/acting/acting-storytelling.jpg"
+          alt="Young person participating in a storytelling activity"
+          loading="lazy"
+        >
+
+        <div class="output-card-content">
+
+          <span>
+            Storytelling
+          </span>
+
+          <h3>
+            Stories for screen & digital spaces
+          </h3>
+
+          <p>
+            Exploring how performance and storytelling can
+            move beyond the traditional stage.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. PROGRAMME STATUS
+     ========================================================= -->
+
+<section class="section coming-soon-section">
+
+  <div class="container">
+
+    <div class="coming-soon-box reveal">
+
+      <div>
+
+        <div class="coming-soon-label">
+          Programme development
+        </div>
+
+        <h2>
+          Acting opportunities are coming.
+        </h2>
+
+        <p>
+          CoWiTa is currently developing the structure,
+          partnerships, training pathways and opportunities
+          that will support its acting programme. Specific
+          workshops, auditions, productions and programme dates
+          will be published here as they become available.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn btn-dark"
+        href="/contact/"
+      >
+        Stay Connected →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. CTA
+     ========================================================= -->
+
+<section class="section discipline-cta">
+
+  <div class="container discipline-cta-inner reveal">
+
+    <h2>
+      Your story deserves a space to be heard.
+    </h2>
+
+    <div>
+
+      <p>
+        Whether you already perform or simply believe there
+        is something inside you worth developing, CoWiTa is
+        building pathways for creative growth.
+      </p>
+
+      <br>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/have-talent.html"
+      >
+        I Have Talent →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

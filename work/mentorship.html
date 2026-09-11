@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="CoWiTa mentorship connects children and young people with guidance, experience and encouragement to help turn creative potential into practical growth and opportunity."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Mentorship — CoWiTa</title>
+
+  <!-- Shared CoWiTa design system -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       MENTORSHIP PAGE
+       Page-specific styles only.
+       ========================================================= */
+
+    .mentorship-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 80px;
+    }
+
+    .mentorship-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 75% 25%,
+          rgba(229,165,26,.22),
+          transparent 30%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(7,35,40,.96),
+          rgba(13,75,75,.72)
+        );
+    }
+
+    .mentorship-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+
+      gap: 70px;
+      align-items: end;
+    }
+
+    .mentorship-hero h1 {
+      max-width: 850px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .mentorship-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .mentorship-hero-text {
+      max-width: 600px;
+
+      margin-top: 28px;
+
+      color: rgba(255,255,255,.76);
+
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .mentorship-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .mentorship-hero-visual {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .mentorship-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .mentorship-note {
+      position: absolute;
+
+      left: -35px;
+      bottom: 28px;
+
+      max-width: 240px;
+
+      padding: 20px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .mentorship-note strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .mentorship-note span {
+      display: block;
+
+      margin-top: 8px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRODUCTION
+       ========================================================= */
+
+    .mentor-intro {
+      display: grid;
+
+      grid-template-columns: .75fr 1.25fr;
+
+      gap: 90px;
+
+      align-items: start;
+    }
+
+    .mentor-intro-copy {
+      max-width: 760px;
+    }
+
+    .mentor-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .mentor-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.8rem;
+      line-height: 1.2;
+
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       WHY MENTORSHIP
+       ========================================================= */
+
+    .mentor-belief {
+      background: var(--cream);
+    }
+
+    .mentor-belief-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .mentor-belief-statement {
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.7rem, 5vw, 5rem);
+
+      line-height: .98;
+
+      letter-spacing: -.05em;
+    }
+
+    .mentor-belief-statement span {
+      color: var(--teal);
+    }
+
+    .mentor-belief-copy {
+      max-width: 620px;
+    }
+
+    .mentor-belief-copy p {
+      color: var(--muted);
+
+      line-height: 1.75;
+
+      margin: 0 0 22px;
+    }
+
+
+    /* =========================================================
+       WHAT MENTORSHIP PROVIDES
+       ========================================================= */
+
+    .mentor-pillars-header {
+      max-width: 760px;
+
+      margin-bottom: 55px;
+    }
+
+    .mentor-pillars-header p {
+      max-width: 650px;
+
+      margin-top: 20px;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .mentor-pillars {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .mentor-pillar {
+      position: relative;
+
+      min-height: 270px;
+
+      padding: 32px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .mentor-pillar:hover {
+      transform: translateY(-6px);
+
+      border-color: var(--gold);
+    }
+
+    .mentor-pillar-number {
+      font-size: 4rem;
+
+      line-height: .8;
+
+      font-weight: 800;
+
+      opacity: .07;
+    }
+
+    .mentor-pillar h3 {
+      margin: 35px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.65rem;
+
+      line-height: 1.05;
+    }
+
+    .mentor-pillar p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .82rem;
+
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       HOW IT WORKS
+       ========================================================= */
+
+    .mentor-process {
+      background: var(--deep-teal);
+
+      color: #fff;
+    }
+
+    .mentor-process-header {
+      max-width: 720px;
+
+      margin-bottom: 55px;
+    }
+
+    .mentor-process-header p {
+      margin-top: 20px;
+
+      color: rgba(255,255,255,.68);
+
+      line-height: 1.7;
+    }
+
+    .mentor-process-list {
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .mentor-process-item {
+      display: grid;
+
+      grid-template-columns: 90px 1fr 1fr;
+
+      gap: 30px;
+
+      align-items: start;
+
+      padding: 30px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .mentor-process-number {
+      color: var(--gold);
+
+      font-size: .72rem;
+
+      font-weight: 800;
+
+      letter-spacing: .1em;
+    }
+
+    .mentor-process-item h3 {
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.8rem;
+    }
+
+    .mentor-process-item p {
+      margin: 0;
+
+      color: rgba(255,255,255,.64);
+
+      line-height: 1.65;
+
+      font-size: .86rem;
+    }
+
+
+    /* =========================================================
+       WHO MENTORSHIP IS FOR
+       ========================================================= */
+
+    .mentor-audience {
+      display: grid;
+
+      grid-template-columns: .9fr 1.1fr;
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .mentor-audience-copy {
+      max-width: 650px;
+    }
+
+    .mentor-audience-copy p {
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .mentor-audience-list {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .mentor-audience-item {
+      padding: 22px;
+
+      background: var(--cream);
+
+      border-radius: 18px;
+
+      border: 1px solid var(--line);
+    }
+
+    .mentor-audience-item strong {
+      display: block;
+
+      margin-bottom: 6px;
+    }
+
+    .mentor-audience-item span {
+      color: var(--muted);
+
+      font-size: .78rem;
+
+      line-height: 1.5;
+    }
+
+    .mentor-audience-visual {
+      position: relative;
+    }
+
+    .mentor-audience-visual img {
+      width: 100%;
+
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+
+      border-radius: 30px 30px 110px 30px;
+    }
+
+
+    /* =========================================================
+       BECOME A MENTOR
+       ========================================================= */
+
+    .mentor-join {
+      background: var(--gold);
+
+      color: #1b1a16;
+    }
+
+    .mentor-join-inner {
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .mentor-join-inner h2 {
+      max-width: 850px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.5rem, 5vw, 5rem);
+
+      line-height: .98;
+
+      letter-spacing: -.05em;
+    }
+
+    .mentor-join-inner p {
+      max-width: 270px;
+
+      margin: 0;
+
+      font-size: .82rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       COMING SOON
+       ========================================================= */
+
+    .mentor-coming {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .mentor-coming-card {
+      min-height: 230px;
+
+      padding: 32px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+
+      border-radius: 24px;
+    }
+
+    .mentor-coming-card:nth-child(2) {
+      background: var(--cream);
+    }
+
+    .mentor-coming-card span {
+      display: inline-block;
+
+      padding: 6px 10px;
+
+      margin-bottom: 25px;
+
+      border-radius: 999px;
+
+      background: rgba(229,165,26,.14);
+
+      color: #87630b;
+
+      font-size: .65rem;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: .12em;
+    }
+
+    .mentor-coming-card h3 {
+      margin: 0 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+
+      font-size: 1.8rem;
+    }
+
+    .mentor-coming-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .82rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .mentorship-hero-grid,
+      .mentor-intro,
+      .mentor-belief-grid,
+      .mentor-audience {
+        grid-template-columns: 1fr;
+      }
+
+      .mentorship-hero {
+        padding-top: 125px;
+      }
+
+      .mentorship-hero-visual {
+        min-height: 420px;
+      }
+
+      .mentorship-hero-visual img {
+        min-height: 420px;
+      }
+
+      .mentorship-note {
+        left: 15px;
+      }
+
+      .mentor-pillars {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mentor-process-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .mentor-process-item p {
+        grid-column: 2;
+      }
+
+      .mentor-join-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-join-inner p {
+        max-width: 500px;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .mentorship-hero {
+        min-height: auto;
+
+        padding-bottom: 45px;
+      }
+
+      .mentorship-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .mentorship-hero-visual {
+        min-height: 340px;
+      }
+
+      .mentorship-hero-visual img {
+        min-height: 340px;
+
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .mentor-intro-copy p:first-child {
+        font-size: 1.45rem;
+      }
+
+      .mentor-pillars,
+      .mentor-coming {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-belief-statement {
+        font-size: 3rem;
+      }
+
+      .mentor-process-item {
+        grid-template-columns: 50px 1fr;
+      }
+
+      .mentor-process-item h3 {
+        font-size: 1.45rem;
+      }
+
+      .mentor-audience-list {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-audience-visual img {
+        aspect-ratio: 1 / 1;
+
+        border-radius: 24px 24px 80px 24px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="mentorship-hero">
+
+  <div class="container mentorship-hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Mentorship
+      </div>
+
+      <h1>
+        Talent grows
+        when someone
+        <em>walks with you.</em>
+      </h1>
+
+      <p class="mentorship-hero-text">
+        CoWiTa connects young people with guidance, experience
+        and encouragement that can help turn creative potential
+        into stronger skills, confidence and opportunity.
+      </p>
+
+
+      <div class="mentorship-hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/get-involved/mentor.html"
+        >
+          Become a Mentor
+        </a>
+
+        <a
+          class="btn btn-outline-light"
+          href="#how-it-works"
+        >
+          How mentorship works
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="mentorship-hero-visual reveal">
+
+      <!-- IMAGE PLACEHOLDER
+           Suggested file:
+           mentorship-hero.jpg
+
+           Visual direction:
+           A Kenyan young person receiving guidance from
+           an older creative professional / mentor.
+           Prefer an authentic interaction over a staged
+           corporate handshake.
+      -->
+
+      <img
+        src="/assets/images/work/mentorship-hero.jpg"
+        alt="A young creative receiving guidance during a mentorship session"
+      >
+
+
+      <div class="mentorship-note">
+
+        <strong>
+          Experience can open doors.
+        </strong>
+
+        <span>
+          Mentorship gives young people access to perspective,
+          feedback, encouragement and connections they may not
+          otherwise have.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container mentor-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Why mentorship matters
+      </div>
+
+      <h2>
+        Talent development is not only about learning a skill.
+      </h2>
+
+    </div>
+
+
+    <div class="mentor-intro-copy">
+
+      <p>
+        Young people also need people who can help them understand
+        what their skills can become.
+      </p>
+
+      <p>
+        A young dancer may know how to perform but not know how to
+        build a professional practice. A musician may have the
+        ability but lack someone who can provide honest feedback.
+        A young writer may have ideas but need guidance on how to
+        develop them into work that can reach an audience.
+      </p>
+
+      <p>
+        Mentorship creates space for that relationship to develop.
+        It allows experience to be shared, questions to be asked,
+        mistakes to become learning opportunities and ambition to
+        become more practical.
+      </p>
+
+      <p>
+        At CoWiTa, mentorship is therefore part of the pathway
+        rather than an activity that exists separately from
+        talent development.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. BELIEF
+     ========================================================= -->
+
+<section class="section mentor-belief">
+
+  <div class="container mentor-belief-grid">
+
+    <div class="mentor-belief-statement reveal">
+
+      Young people
+      should not have to
+      <span>figure everything out alone.</span>
+
+    </div>
+
+
+    <div class="mentor-belief-copy reveal">
+
+      <p>
+        Access to someone with relevant experience can change how
+        a young person sees their own potential.
+      </p>
+
+      <p>
+        The role of a mentor is not to decide a young person's
+        future for them. It is to help them think more clearly,
+        develop their ability, understand possibilities and make
+        better decisions.
+      </p>
+
+      <p>
+        CoWiTa seeks to build mentorship relationships around
+        trust, learning, accountability and practical growth.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. WHAT MENTORSHIP PROVIDES
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="mentor-pillars-header reveal">
+
+      <div class="section-label">
+        What mentorship provides
+      </div>
+
+      <h2>
+        More than advice.
+      </h2>
+
+      <p>
+        Effective mentorship can give a young person access to
+        perspective, constructive feedback and a clearer view
+        of what comes next.
+      </p>
+
+    </div>
+
+
+    <div class="mentor-pillars">
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          01
+        </div>
+
+        <h3>
+          Perspective
+        </h3>
+
+        <p>
+          Help young people understand their strengths,
+          challenges and possibilities from a wider perspective.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          02
+        </div>
+
+        <h3>
+          Feedback
+        </h3>
+
+        <p>
+          Provide constructive guidance that helps creative
+          work and practical skills improve over time.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          03
+        </div>
+
+        <h3>
+          Confidence
+        </h3>
+
+        <p>
+          Create a supportive relationship where young people
+          can ask questions, experiment and learn from mistakes.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          04
+        </div>
+
+        <h3>
+          Direction
+        </h3>
+
+        <p>
+          Help participants think about realistic next steps
+          for developing their creative journey.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          05
+        </div>
+
+        <h3>
+          Exposure
+        </h3>
+
+        <p>
+          Where appropriate, mentors can introduce participants
+          to new perspectives, environments and professional
+          possibilities.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-pillar reveal">
+
+        <div class="mentor-pillar-number">
+          06
+        </div>
+
+        <h3>
+          Accountability
+        </h3>
+
+        <p>
+          Encourage participants to keep learning, practising
+          and following through on the goals they set.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. HOW IT WORKS
+     ========================================================= -->
+
+<section
+  class="section mentor-process"
+  id="how-it-works"
+>
+
+  <div class="container">
+
+    <div class="mentor-process-header reveal">
+
+      <div class="section-label">
+        The mentorship pathway
+      </div>
+
+      <h2>
+        A relationship built around growth.
+      </h2>
+
+      <p>
+        CoWiTa's mentorship model is being developed to connect
+        the right people around the needs and goals of each
+        participant.
+      </p>
+
+    </div>
+
+
+    <div class="mentor-process-list">
+
+      <div class="mentor-process-item reveal">
+
+        <div class="mentor-process-number">
+          01
+        </div>
+
+        <h3>
+          Understand
+        </h3>
+
+        <p>
+          Begin by understanding the participant's talent,
+          interests, goals and current level of development.
+        </p>
+
+      </div>
+
+
+      <div class="mentor-process-item reveal">
+
+        <div class="mentor-process-number">
+          02
+        </div>
+
+        <h3>
+          Match
+        </h3>
+
+        <p>
+          Where appropriate, connect the participant with a
+          mentor whose experience and strengths are relevant
+          to their development.
+        </p>
+
+      </div>
+
+
+      <div class="mentor-process-item reveal">
+
+        <div class="mentor-process-number">
+          03
+        </div>
+
+        <h3>
+          Develop
+        </h3>
+
+        <p>
+          Create a relationship around learning, practice,
+          feedback and practical development.
+        </p>
+
+      </div>
+
+
+      <div class="mentor-process-item reveal">
+
+        <div class="mentor-process-number">
+          04
+        </div>
+
+        <h3>
+          Connect
+        </h3>
+
+        <p>
+          Where opportunities are available, mentorship can
+          help participants understand and access wider
+          creative and professional networks.
+        </p>
+
+      </div>
+
+
+      <div class="mentor-process-item reveal">
+
+        <div class="mentor-process-number">
+          05
+        </div>
+
+        <h3>
+          Continue
+        </h3>
+
+        <p>
+          Growth does not end with one conversation. CoWiTa's
+          longer-term goal is to build relationships that
+          encourage continued development.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. WHO CAN BENEFIT
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container mentor-audience">
+
+    <div class="mentor-audience-copy reveal">
+
+      <div class="section-label">
+        Who mentorship serves
+      </div>
+
+      <h2>
+        Different stages. Different needs.
+      </h2>
+
+      <p>
+        Mentorship can take different forms depending on where
+        a young person is in their journey.
+      </p>
+
+
+      <div class="mentor-audience-list">
+
+        <div class="mentor-audience-item">
+
+          <strong>
+            Emerging talent
+          </strong>
+
+          <span>
+            Young people discovering what they can do and
+            looking for direction.
+          </span>
+
+        </div>
+
+
+        <div class="mentor-audience-item">
+
+          <strong>
+            Developing creatives
+          </strong>
+
+          <span>
+            Participants who already have a skill and want
+            to strengthen it.
+          </span>
+
+        </div>
+
+
+        <div class="mentor-audience-item">
+
+          <strong>
+            Young creators
+          </strong>
+
+          <span>
+            Creatives beginning to produce work and build
+            confidence in their practice.
+          </span>
+
+        </div>
+
+
+        <div class="mentor-audience-item">
+
+          <strong>
+            Aspiring professionals
+          </strong>
+
+          <span>
+            Young people exploring how their creative skills
+            can connect to real opportunities.
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="mentor-audience-visual reveal">
+
+      <!-- IMAGE PLACEHOLDER
+           Suggested file:
+           mentorship-session.jpg
+
+           Visual direction:
+           Small-group or one-to-one learning environment,
+           preferably showing genuine interaction.
+      -->
+
+      <img
+        src="/assets/images/work/mentorship-session.jpg"
+        alt="Young creatives learning and receiving guidance in a mentorship setting"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. MENTORS
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        The people behind the guidance
+      </div>
+
+      <h2>
+        Mentors bring experience into the room.
+      </h2>
+
+    </div>
+
+
+    <div class="mentor-coming">
+
+      <article class="mentor-coming-card reveal">
+
+        <span>
+          Coming soon
+        </span>
+
+        <h3>
+          Our mentor network
+        </h3>
+
+        <p>
+          CoWiTa will introduce the creatives, professionals,
+          educators and practitioners contributing their
+          experience to the mentorship ecosystem.
+        </p>
+
+      </article>
+
+
+      <article class="mentor-coming-card reveal">
+
+        <span>
+          Coming soon
+        </span>
+
+        <h3>
+          Mentor opportunities
+        </h3>
+
+        <p>
+          Information about mentor onboarding, areas of
+          expertise, expectations and participation will be
+          published as the programme develops.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. BECOME A MENTOR CTA
+     ========================================================= -->
+
+<section class="section mentor-join">
+
+  <div class="container mentor-join-inner reveal">
+
+    <h2>
+      Have experience worth passing on?
+      Someone may be waiting to learn from it.
+    </h2>
+
+    <div>
+
+      <p>
+        If you are a creative, practitioner, professional,
+        educator or experienced community member interested
+        in helping young people grow, explore mentorship
+        opportunities with CoWiTa.
+      </p>
+
+      <br>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/mentor.html"
+      >
+        I Want to Mentor →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     9. NEXT STEP
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container about-next">
+
+    <div class="about-next-copy reveal">
+
+      <div class="section-label">
+        Continue exploring
+      </div>
+
+      <h2>
+        Mentorship is one part of the pathway.
+      </h2>
+
+      <p>
+        Explore how CoWiTa combines creative development,
+        skills development and mentorship to help young people
+        move from potential toward opportunity.
+      </p>
+
+    </div>
+
+
+    <div class="reveal">
+
+      <a
+        class="btn btn-dark"
+        href="/work/skills-development.html"
+      >
+        Skills Development →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

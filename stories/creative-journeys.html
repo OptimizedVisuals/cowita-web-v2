@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore the creative journeys CoWiTa is building with children and young people — from discovering talent to developing skills, creating work and finding opportunity."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Creative Journeys — CoWiTa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       CREATIVE JOURNEYS
+       Page-specific styles
+       ========================================================= */
+
+    .journeys-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--deep-teal);
+      color: #fff;
+      padding: 150px 0 80px;
+    }
+
+    .journeys-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(5, 28, 32, .96),
+          rgba(13, 75, 75, .70)
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(229, 165, 26, .24),
+          transparent 30%
+        );
+    }
+
+    .journeys-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .journeys-hero h1 {
+      max-width: 850px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 500;
+      line-height: .93;
+      letter-spacing: -.055em;
+    }
+
+    .journeys-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .journeys-hero-copy {
+      max-width: 570px;
+      margin-top: 28px;
+
+      color: rgba(255,255,255,.76);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .journeys-hero-visual {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .journeys-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .journeys-hero-note {
+      position: absolute;
+      left: -30px;
+      bottom: 25px;
+
+      max-width: 245px;
+      padding: 20px;
+
+      background: var(--gold);
+      color: #1c1a15;
+
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .journeys-hero-note strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.05;
+    }
+
+    .journeys-hero-note span {
+      display: block;
+      margin-top: 9px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRODUCTION
+       ========================================================= */
+
+    .journeys-intro {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .journeys-intro-copy {
+      max-width: 760px;
+    }
+
+    .journeys-intro-copy .lead {
+      margin: 0 0 25px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+
+      color: var(--ink);
+    }
+
+    .journeys-intro-copy p {
+      margin: 0 0 20px;
+
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       JOURNEY MODEL
+       ========================================================= */
+
+    .journey-model {
+      background: var(--cream);
+    }
+
+    .journey-model-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .journey-model-header h2 {
+      margin-bottom: 20px;
+    }
+
+    .journey-model-header p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .journey-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      background: var(--line);
+    }
+
+    .journey-stage {
+      position: relative;
+
+      min-height: 310px;
+      padding: 30px;
+
+      background: #fff;
+    }
+
+    .journey-stage:nth-child(even) {
+      background: #faf7ef;
+    }
+
+    .journey-stage-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .journey-stage h3 {
+      margin: 65px 0 14px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .journey-stage p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.65;
+    }
+
+    .journey-stage::after {
+      content: "→";
+
+      position: absolute;
+      right: 20px;
+      top: 25px;
+
+      color: rgba(13,75,75,.25);
+      font-size: 1.5rem;
+    }
+
+    .journey-stage:last-child::after {
+      content: "";
+    }
+
+
+    /* =========================================================
+       FEATURED JOURNEY
+       ========================================================= */
+
+    .featured-journey {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .featured-journey-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .featured-journey-image {
+      position: relative;
+    }
+
+    .featured-journey-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+
+      border-radius: 30px 30px 110px 30px;
+    }
+
+    .coming-soon-badge {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+
+      padding: 9px 13px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 999px;
+
+      font-size: .65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .featured-journey-copy {
+      max-width: 650px;
+    }
+
+    .featured-journey-copy .section-label {
+      color: var(--gold);
+    }
+
+    .featured-journey-copy h2 {
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .featured-journey-copy p {
+      color: rgba(255,255,255,.7);
+      line-height: 1.75;
+    }
+
+    .journey-placeholder {
+      margin-top: 35px;
+
+      padding: 25px;
+
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+
+      background: rgba(255,255,255,.04);
+    }
+
+    .journey-placeholder strong {
+      display: block;
+      margin-bottom: 8px;
+
+      color: #fff;
+    }
+
+    .journey-placeholder span {
+      color: rgba(255,255,255,.55);
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       JOURNEY STORIES
+       ========================================================= */
+
+    .journey-stories-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .journey-stories-header-copy {
+      max-width: 700px;
+    }
+
+    .journey-stories-header-copy p {
+      margin-top: 15px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .journey-card {
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      background: #fff;
+
+      transition:
+        transform .3s var(--ease),
+        box-shadow .3s var(--ease);
+    }
+
+    .journey-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .journey-card-image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .journey-card-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .5s var(--ease);
+    }
+
+    .journey-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .journey-card-content {
+      padding: 25px;
+    }
+
+    .journey-card-label {
+      color: var(--teal);
+
+      font-size: .65rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .journey-card h3 {
+      margin: 12px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.6rem;
+      line-height: 1.05;
+    }
+
+    .journey-card p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       WHAT STORIES WILL SHOW
+       ========================================================= */
+
+    .journey-details {
+      background: var(--paper);
+    }
+
+    .journey-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .journey-detail {
+      padding: 35px;
+
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
+      background: #fff;
+    }
+
+    .journey-detail-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .journey-detail h3 {
+      margin: 28px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.7rem;
+    }
+
+    .journey-detail p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .journeys-cta {
+      background: var(--gold);
+      color: #1c1a15;
+    }
+
+    .journeys-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .journeys-cta h2 {
+      max-width: 800px;
+
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .journeys-cta p {
+      max-width: 270px;
+      margin: 0;
+
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .journeys-hero-grid,
+      .journeys-intro,
+      .featured-journey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-track {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .journeys-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .journeys-cta p {
+        max-width: 500px;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .journeys-hero {
+        min-height: auto;
+        padding: 125px 0 50px;
+      }
+
+      .journeys-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .journeys-hero-visual {
+        min-height: 340px;
+      }
+
+      .journeys-hero-visual img {
+        min-height: 340px;
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .journeys-hero-note {
+        left: 15px;
+      }
+
+      .journey-track,
+      .journey-grid,
+      .journey-details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-stage {
+        min-height: 240px;
+      }
+
+      .journey-stage h3 {
+        margin-top: 45px;
+      }
+
+      .journey-stage::after {
+        content: "";
+      }
+
+      .journey-stories-header {
+        display: block;
+      }
+
+      .featured-journey-image img {
+        aspect-ratio: 1 / 1;
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .journeys-cta h2 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="journeys-hero">
+
+  <div class="container journeys-hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Creative Journeys
+      </div>
+
+      <h1>
+        Talent has
+        <em>a journey.</em>
+      </h1>
+
+      <p class="journeys-hero-copy">
+        A creative journey is more than the moment someone
+        discovers they can sing, dance, draw, write or perform.
+        It is what happens when that ability is developed,
+        tested, shared and connected to opportunity.
+      </p>
+
+    </div>
+
+
+    <div class="journeys-hero-visual reveal">
+
+      <img
+        src="/assets/images/stories/creative-journeys-hero.jpg"
+        alt="Young creative developing their artistic skills"
+      >
+
+      <div class="journeys-hero-note">
+
+        <strong>
+          From potential to possibility.
+        </strong>
+
+        <span>
+          CoWiTa is building pathways that help young people
+          move from natural ability toward meaningful creative
+          opportunity.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRO
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container journeys-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Why journeys matter
+      </div>
+
+      <h2>
+        Development is a process, not a single opportunity.
+      </h2>
+
+    </div>
+
+
+    <div class="journeys-intro-copy reveal">
+
+      <p class="lead">
+        A young person's talent can be visible long before
+        the pathway around it exists.
+      </p>
+
+      <p>
+        Someone may already know how to dance at a remarkable
+        level, write powerful poetry, draw, act or create music.
+        What may be missing is not ability, but access to the
+        right people, practice, guidance, platforms and
+        opportunities.
+      </p>
+
+      <p>
+        CoWiTa's creative journeys are designed to document
+        what happens when those pieces begin connecting.
+      </p>
+
+      <p>
+        Over time, these stories will show how participants
+        develop their craft, build confidence, create work,
+        connect with others and begin exploring sustainable
+        opportunities.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. THE JOURNEY MODEL
+     ========================================================= -->
+
+<section class="section journey-model">
+
+  <div class="container">
+
+    <div class="journey-model-header reveal">
+
+      <div class="section-label">
+        The CoWiTa pathway
+      </div>
+
+      <h2>
+        What a creative journey can look like.
+      </h2>
+
+      <p>
+        The pathway is not necessarily linear. A participant may
+        move back and forth between stages as their ability,
+        confidence and opportunities develop.
+      </p>
+
+    </div>
+
+
+    <div class="journey-track">
+
+      <article class="journey-stage reveal">
+
+        <div class="journey-stage-number">
+          01 — DISCOVER
+        </div>
+
+        <h3>
+          Find the talent.
+        </h3>
+
+        <p>
+          Identify ability, curiosity and creative potential
+          within children and young people.
+        </p>
+
+      </article>
+
+
+      <article class="journey-stage reveal">
+
+        <div class="journey-stage-number">
+          02 — DEVELOP
+        </div>
+
+        <h3>
+          Build the craft.
+        </h3>
+
+        <p>
+          Strengthen technique, discipline, confidence and
+          knowledge through training and mentorship.
+        </p>
+
+      </article>
+
+
+      <article class="journey-stage reveal">
+
+        <div class="journey-stage-number">
+          03 — CREATE
+        </div>
+
+        <h3>
+          Make something real.
+        </h3>
+
+        <p>
+          Turn learning into performances, projects,
+          productions, artwork and other creative outputs.
+        </p>
+
+      </article>
+
+
+      <article class="journey-stage reveal">
+
+        <div class="journey-stage-number">
+          04 — CONNECT
+        </div>
+
+        <h3>
+          Find the audience.
+        </h3>
+
+        <p>
+          Create platforms and relationships that allow
+          creative work to be experienced and recognised.
+        </p>
+
+      </article>
+
+
+      <article class="journey-stage reveal">
+
+        <div class="journey-stage-number">
+          05 — OPPORTUNITY
+        </div>
+
+        <h3>
+          Open the next door.
+        </h3>
+
+        <p>
+          Connect developing creatives with opportunities,
+          collaborations, commissions and further growth.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. FEATURED JOURNEY
+     ========================================================= -->
+
+<section class="section featured-journey">
+
+  <div class="container featured-journey-grid">
+
+    <div class="featured-journey-image reveal">
+
+      <img
+        src="/assets/images/stories/creative-journey-featured.jpg"
+        alt="CoWiTa participant creative journey placeholder"
+      >
+
+      <div class="coming-soon-badge">
+        Coming soon
+      </div>
+
+    </div>
+
+
+    <div class="featured-journey-copy reveal">
+
+      <div class="section-label">
+        Featured journey
+      </div>
+
+      <h2>
+        The first journeys are still being documented.
+      </h2>
+
+      <p>
+        CoWiTa is currently developing the programmes,
+        partnerships and documentation systems that will allow
+        participant journeys to be followed responsibly and
+        accurately.
+      </p>
+
+      <p>
+        When published, each journey will focus on the person
+        behind the talent — where they started, what they
+        developed, what they created and what opportunities
+        opened along the way.
+      </p>
+
+
+      <div class="journey-placeholder">
+
+        <strong>
+          Participant journey stories — coming soon.
+        </strong>
+
+        <span>
+          Future stories will be published with appropriate
+          participant consent and will focus on genuine
+          development rather than manufactured success claims.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. JOURNEY TYPES
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="journey-stories-header">
+
+      <div class="journey-stories-header-copy reveal">
+
+        <div class="section-label">
+          Journey stories
+        </div>
+
+        <h2>
+          Different talents. Different paths.
+        </h2>
+
+        <p>
+          Not every creative journey will look the same.
+          CoWiTa will document different forms of growth across
+          its creative disciplines.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="journey-grid">
+
+      <article class="journey-card reveal">
+
+        <div class="journey-card-image">
+
+          <img
+            src="/assets/images/stories/journey-dance.jpg"
+            alt="Dance journey placeholder"
+          >
+
+        </div>
+
+        <div class="journey-card-content">
+
+          <div class="journey-card-label">
+            Dance
+          </div>
+
+          <h3>
+            From movement to mastery.
+          </h3>
+
+          <p>
+            Follow how a dancer develops technique, confidence,
+            performance ability and new opportunities.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="journey-card reveal">
+
+        <div class="journey-card-image">
+
+          <img
+            src="/assets/images/stories/journey-music.jpg"
+            alt="Music journey placeholder"
+          >
+
+        </div>
+
+        <div class="journey-card-content">
+
+          <div class="journey-card-label">
+            Music
+          </div>
+
+          <h3>
+            From sound to expression.
+          </h3>
+
+          <p>
+            Explore the development of musicians, singers and
+            emerging creators.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="journey-card reveal">
+
+        <div class="journey-card-image">
+
+          <img
+            src="/assets/images/stories/journey-visual-art.jpg"
+            alt="Visual art journey placeholder"
+          >
+
+        </div>
+
+        <div class="journey-card-content">
+
+          <div class="journey-card-label">
+            Visual art
+          </div>
+
+          <h3>
+            From idea to creation.
+          </h3>
+
+          <p>
+            Document how young artists turn ideas, observation
+            and experimentation into creative work.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. WHAT EACH JOURNEY WILL DOCUMENT
+     ========================================================= -->
+
+<section class="section journey-details">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Beyond the final result
+      </div>
+
+      <h2>
+        We want to show the process.
+      </h2>
+
+    </div>
+
+
+    <div class="journey-details-grid">
+
+      <article class="journey-detail reveal">
+
+        <div class="journey-detail-number">
+          01
+        </div>
+
+        <h3>
+          Where they started
+        </h3>
+
+        <p>
+          The talent, interests, circumstances and aspirations
+          that brought the participant into the journey.
+        </p>
+
+      </article>
+
+
+      <article class="journey-detail reveal">
+
+        <div class="journey-detail-number">
+          02
+        </div>
+
+        <h3>
+          What they developed
+        </h3>
+
+        <p>
+          Skills, discipline, confidence and knowledge gained
+          through training, practice and mentorship.
+        </p>
+
+      </article>
+
+
+      <article class="journey-detail reveal">
+
+        <div class="journey-detail-number">
+          03
+        </div>
+
+        <h3>
+          What they created
+        </h3>
+
+        <p>
+          The performances, projects, artwork, content or
+          productions that demonstrate the development.
+        </p>
+
+      </article>
+
+
+      <article class="journey-detail reveal">
+
+        <div class="journey-detail-number">
+          04
+        </div>
+
+        <h3>
+          What came next
+        </h3>
+
+        <p>
+          New opportunities, collaborations, commissions,
+          further learning or other meaningful next steps.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. CTA
+     ========================================================= -->
+
+<section class="section journeys-cta">
+
+  <div class="container journeys-cta-inner reveal">
+
+    <h2>
+      Your journey could be the next story.
+    </h2>
+
+    <div>
+
+      <p>
+        If you have a creative talent and want to develop it,
+        CoWiTa is building pathways for young people to learn,
+        create and grow.
+      </p>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/have-talent.html"
+        style="margin-top:20px;"
+      >
+        I Have Talent →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

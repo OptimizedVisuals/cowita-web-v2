@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Approach — CoWiTa</title>
+
+  <meta
+    name="description"
+    content="Discover how CoWiTa transforms creative talent into practical skills, opportunities, purpose and sustainable impact."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       OUR APPROACH — PAGE-SPECIFIC STYLES
+       ========================================================= */
+
+    .approach-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(198, 164, 92, 0.14), transparent 28%),
+        linear-gradient(135deg, var(--deep-teal) 0%, #073f40 58%, #062f30 100%);
+      color: #fff;
+    }
+
+    .approach-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% 45%;
+      height: 70%;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 50%;
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+
+    .approach-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .approach-hero-copy {
+      max-width: 720px;
+    }
+
+    .approach-hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .approach-hero h1 {
+      max-width: 850px;
+      margin: 1rem 0 1.5rem;
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+    }
+
+    .approach-hero-lead {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      line-height: 1.75;
+    }
+
+    .approach-hero-visual {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .approach-hero-card {
+      position: relative;
+      width: min(100%, 500px);
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.045);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.22);
+    }
+
+    .approach-hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.68;
+    }
+
+    .approach-hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0,52,53,0.35), rgba(0,52,53,0.04)),
+        linear-gradient(to top, rgba(0,0,0,0.45), transparent 60%);
+    }
+
+    .hero-process-label {
+      position: absolute;
+      left: 2rem;
+      bottom: 2rem;
+      z-index: 2;
+      max-width: 270px;
+    }
+
+    .hero-process-label span {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-process-label strong {
+      display: block;
+      color: #fff;
+      font-size: 1.45rem;
+      line-height: 1.15;
+    }
+
+    /* Intro */
+
+    .approach-intro {
+      padding-bottom: 3rem;
+    }
+
+    .approach-intro-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .approach-intro-heading {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .approach-intro-heading h2 {
+      margin-top: 0.8rem;
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .approach-copy {
+      max-width: 760px;
+    }
+
+    .approach-copy p {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.85;
+    }
+
+    .approach-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .approach-highlight {
+      margin-top: 2.5rem;
+      padding: 1.8rem 2rem;
+      border-left: 3px solid var(--gold);
+      background: var(--paper);
+    }
+
+    .approach-highlight p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.3rem;
+      line-height: 1.55;
+    }
+
+    /* Core model */
+
+    .approach-model-section {
+      background: var(--deep-teal);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .approach-model-header {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .approach-model-header h2 {
+      margin: 0;
+      max-width: 600px;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .approach-model-header p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .approach-model {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .approach-step {
+      position: relative;
+      min-height: 310px;
+      padding: 2rem 1.5rem;
+      background: var(--deep-teal);
+      transition:
+        background var(--ease),
+        transform var(--ease);
+    }
+
+    .approach-step:hover {
+      background: rgba(255,255,255,0.055);
+      transform: translateY(-5px);
+    }
+
+    .approach-step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 4rem;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .approach-step h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    .approach-step p {
+      margin: 0;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .approach-step::after {
+      content: "→";
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      color: rgba(255,255,255,0.18);
+      font-size: 1.2rem;
+    }
+
+    .approach-step:last-child::after {
+      content: "✓";
+    }
+
+    /* Development principles */
+
+    .approach-principles {
+      padding-bottom: 4rem;
+    }
+
+    .principles-header {
+      max-width: 780px;
+      margin-bottom: 3.5rem;
+    }
+
+    .principles-header h2 {
+      margin: 0.7rem 0 1rem;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .principles-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .principle-card {
+      min-height: 290px;
+      padding: 2.3rem;
+      background: var(--paper);
+    }
+
+    .principle-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 3.5rem;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--deep-teal);
+      font-weight: 700;
+    }
+
+    .principle-card h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    .principle-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* From talent to opportunity */
+
+    .approach-transition {
+      background: var(--cream);
+    }
+
+    .transition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .transition-media {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .transition-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .transition-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0,52,53,0.18),
+        rgba(0,52,53,0.02)
+      );
+    }
+
+    .transition-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem clamp(2rem, 6vw, 6rem);
+    }
+
+    .transition-copy h2 {
+      margin: 0.7rem 0 1.4rem;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .transition-copy p {
+      max-width: 620px;
+      margin: 0 0 1.2rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .transition-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .transition-list li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .transition-list li::before {
+      content: "→";
+      flex: 0 0 auto;
+      color: var(--gold);
+    }
+
+    /* Who this approach serves */
+
+    .approach-audience-header {
+      max-width: 760px;
+      margin-bottom: 3rem;
+    }
+
+    .approach-audience-header h2 {
+      margin: 0.7rem 0 1rem;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .approach-audience-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .audience-card {
+      position: relative;
+      min-height: 250px;
+      padding: 2.2rem;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .audience-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--ease);
+    }
+
+    .audience-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .audience-card span {
+      display: block;
+      margin-bottom: 3rem;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .audience-card h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.35rem;
+    }
+
+    .audience-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Measurement */
+
+    .approach-evidence {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .evidence-header h2 {
+      margin: 0.7rem 0 0;
+      max-width: 600px;
+      font-size: clamp(2.3rem, 4.5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .evidence-header p {
+      max-width: 450px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .evidence-item {
+      padding: 2rem;
+      min-height: 190px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-value {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--deep-teal);
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .evidence-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Future */
+
+    .approach-future {
+      position: relative;
+      overflow: hidden;
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .approach-future::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      right: -200px;
+      top: -250px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .future-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .future-inner h2 {
+      margin: 0.7rem 0 0;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .future-copy p {
+      max-width: 700px;
+      margin: 0 0 1.3rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    .future-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .future-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .future-list-item {
+      min-height: 150px;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .future-list-item strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .future-list-item span {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+
+    .approach-cta {
+      text-align: center;
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+
+    .approach-cta h2 {
+      max-width: 850px;
+      margin: 0.7rem auto 1.2rem;
+      font-size: clamp(2.6rem, 6vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .approach-cta p {
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .approach-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* Accessibility / reveal safety */
+
+    .approach-copy,
+    .approach-intro-heading,
+    .principles-header,
+    .approach-audience-header,
+    .evidence-header,
+    .future-copy,
+    .approach-cta {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1100px) {
+      .approach-model {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .approach-step {
+        min-height: 260px;
+      }
+
+      .approach-model-header,
+      .future-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .evidence-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .approach-hero-grid,
+      .approach-intro-grid,
+      .approach-model-header,
+      .transition-grid,
+      .future-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-hero {
+        min-height: auto;
+        padding: 7rem 0 5rem;
+      }
+
+      .approach-hero-visual {
+        min-height: auto;
+      }
+
+      .approach-hero-card {
+        max-width: 540px;
+      }
+
+      .approach-intro-heading {
+        position: static;
+      }
+
+      .approach-model {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .principles-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .transition-copy {
+        padding: 4rem 2rem;
+      }
+
+      .transition-media {
+        min-height: 420px;
+      }
+
+      .future-inner {
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .approach-hero h1 {
+        font-size: clamp(2.9rem, 14vw, 4.2rem);
+      }
+
+      .approach-model {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-step {
+        min-height: 230px;
+      }
+
+      .approach-step-number {
+        margin-bottom: 2.5rem;
+      }
+
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .future-list {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-header {
+        display: block;
+      }
+
+      .evidence-header p {
+        margin-top: 1.5rem;
+      }
+
+      .approach-cta {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .approach-step,
+      .audience-card::before {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Skip navigation -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <!-- =======================================================
+       MAIN CONTENT
+       ======================================================= -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="approach-hero">
+      <div class="container">
+        <div class="approach-hero-grid">
+
+          <div class="approach-hero-copy">
+            <span class="eyebrow">OUR APPROACH</span>
+
+            <h1>
+              Talent is the beginning.
+            </h1>
+
+            <p class="approach-hero-lead">
+              CoWiTa is designed to move young people from what they can
+              already do toward the skills, confidence, opportunities and
+              pathways that can help that ability become sustainable.
+            </p>
+          </div>
+
+          <div class="approach-hero-visual">
+            <div class="approach-hero-card">
+              <img
+                src="/assets/images/our-approach-hero.jpg"
+                alt="Young creatives developing their skills together"
+                loading="eager"
+              >
+
+              <div class="hero-process-label">
+                <span>The CoWiTa principle</span>
+                <strong>
+                  Don't stop at discovering talent.
+                  Build the pathway around it.
+                </strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="section approach-intro">
+      <div class="container">
+
+        <div class="approach-intro-grid">
+
+          <div class="approach-intro-heading">
+            <span class="section-label">01 / THE IDEA</span>
+            <h2>
+              A talent-first approach.
+            </h2>
+          </div>
+
+          <div class="approach-copy">
+
+            <p>
+              A young person may already know how to dance, sing, draw,
+              write, act or create. That ability matters. But talent on its
+              own does not automatically create opportunity.
+            </p>
+
+            <p>
+              CoWiTa starts with the ability that already exists and asks
+              what needs to happen next: What skills need to be developed?
+              Who can provide guidance? Where can the young person create
+              real work? Who needs to see it? And how can that work become
+              an opportunity that can be sustained?
+            </p>
+
+            <p>
+              This means CoWiTa is not built around talent discovery alone.
+              Discovery is the starting point of a longer development
+              pathway.
+            </p>
+
+            <div class="approach-highlight">
+              <p>
+                <strong>
+                  We do not want talent to be the end of the conversation.
+                  We want it to be the beginning of one.
+                </strong>
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CORE MODEL -->
+    <section class="section approach-model-section">
+      <div class="container">
+
+        <div class="approach-model-header">
+
+          <div>
+            <span class="section-label">02 / THE MODEL</span>
+
+            <h2>
+              From ability to sustainability.
+            </h2>
+          </div>
+
+          <p>
+            CoWiTa's model connects the stages that are often treated
+            separately. The goal is to create a clearer progression from
+            natural ability to practical capability, visibility,
+            opportunity and long-term sustainability.
+          </p>
+
+        </div>
+
+        <div class="approach-model">
+
+          <article class="approach-step">
+            <div class="approach-step-number">01</div>
+
+            <h3>Identify</h3>
+
+            <p>
+              Recognise creative ability and understand where a young
+              person's potential, interests and strengths lie.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">02</div>
+
+            <h3>Develop</h3>
+
+            <p>
+              Turn raw ability into practical skills through learning,
+              practice, guidance and mentorship.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">03</div>
+
+            <h3>Create</h3>
+
+            <p>
+              Give young creatives opportunities to make real work,
+              experiment, build portfolios and learn through doing.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">04</div>
+
+            <h3>Platform</h3>
+
+            <p>
+              Help creative work become visible by connecting talent with
+              audiences, communities, collaborators and relevant platforms.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">05</div>
+
+            <h3>Monetize</h3>
+
+            <p>
+              Connect developed skills and creative work to practical
+              opportunities for income, work and entrepreneurship.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">06</div>
+
+            <h3>Sustain</h3>
+
+            <p>
+              Build the confidence, networks, habits and continued learning
+              needed to keep growing beyond a single programme or opportunity.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRINCIPLES -->
+    <section class="section approach-principles">
+      <div class="container">
+
+        <div class="principles-header">
+          <span class="section-label">03 / HOW WE WORK</span>
+
+          <h2>
+            Development, not just exposure.
+          </h2>
+
+          <p>
+            The CoWiTa approach is built around the idea that meaningful
+            development requires more than putting young people on a stage
+            or giving them a single opportunity.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+
+          <article class="principle-card">
+            <div class="principle-icon">01</div>
+
+            <h3>Start with the person</h3>
+
+            <p>
+              Talent development begins by understanding the young person:
+              their ability, interests, ambitions, current skills and the
+              direction they want to explore.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-icon">02</div>
+
+            <h3>Learn by doing</h3>
+
+            <p>
+              Practical creation matters. Young people should have
+              opportunities to apply what they learn through real creative
+              work, projects and experiences.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-icon">03</div>
+
+            <h3>Build with others</h3>
+
+            <p>
+              Mentors, peers, practitioners, communities and partners can
+              expand what a young person can access, learn and achieve.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-icon">04</div>
+
+            <h3>Create pathways</h3>
+
+            <p>
+              Development should lead somewhere. Skills need pathways into
+              visibility, collaboration, opportunity, work and continued
+              growth.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-icon">05</div>
+
+            <h3>Respect creative identity</h3>
+
+            <p>
+              Creativity is not something to erase in order to make someone
+              employable. The aim is to strengthen creative identity while
+              building practical capability around it.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-icon">06</div>
+
+            <h3>Think beyond one outcome</h3>
+
+            <p>
+              A successful journey should leave a young person with more
+              than one moment of exposure. It should create knowledge,
+              confidence, relationships and possibilities for what comes next.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TALENT TO OPPORTUNITY -->
+    <section class="section approach-transition">
+      <div class="transition-grid">
+
+        <div class="transition-media">
+          <img
+            src="/assets/images/our-approach-pathway.jpg"
+            alt="Young creative working on a practical project"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="transition-copy">
+
+          <span class="section-label">04 / THE PATHWAY</span>
+
+          <h2>
+            The distance between talent and opportunity.
+          </h2>
+
+          <p>
+            Talent can exist long before opportunity does. A young person
+            may have ability but lack equipment, mentorship, confidence,
+            networks, exposure, business knowledge or access to people who
+            can open the next door.
+          </p>
+
+          <p>
+            CoWiTa is designed to work across that distance rather than
+            treating any one intervention as the whole solution.
+          </p>
+
+          <ul class="transition-list">
+            <li>Ability becomes developed skill.</li>
+            <li>Skill becomes real creative work.</li>
+            <li>Creative work becomes visible.</li>
+            <li>Visibility creates connections and opportunities.</li>
+            <li>Opportunities can become income and sustainable pathways.</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WHO THE APPROACH SERVES -->
+    <section class="section">
+      <div class="container">
+
+        <div class="approach-audience-header">
+          <span class="section-label">05 / WHO IT SERVES</span>
+
+          <h2>
+            A pathway built around people.
+          </h2>
+
+          <p>
+            CoWiTa's work is intended to connect different people around the
+            development of young talent. Each group plays a different role
+            in the pathway.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+
+          <article class="audience-card">
+            <span>01 / Young people</span>
+
+            <h3>Talent & potential</h3>
+
+            <p>
+              Children and young people with creative interests or abilities
+              who want to learn, develop, create and explore where their
+              talent can take them.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <span>02 / Mentors</span>
+
+            <h3>Knowledge & guidance</h3>
+
+            <p>
+              Practitioners and experienced individuals who can share
+              knowledge, feedback, perspective, technical skills and
+              industry experience.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <span>03 / Partners</span>
+
+            <h3>Access & opportunity</h3>
+
+            <p>
+              Organisations, businesses, institutions and collaborators that
+              can help create platforms, resources, networks and pathways
+              for young talent.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EVIDENCE / DATA -->
+    <section class="section approach-evidence">
+      <div class="container">
+
+        <div class="evidence-header">
+
+          <div>
+            <span class="section-label">06 / MEASURING THE JOURNEY</span>
+
+            <h2>
+              We will measure what changes.
+            </h2>
+          </div>
+
+          <p>
+            CoWiTa's impact reporting will develop alongside the work.
+            Verified programme data, participant outcomes and organisational
+            milestones will be published as they become available.
+          </p>
+
+        </div>
+
+        <div class="evidence-grid">
+
+          <div class="evidence-item">
+            <span class="evidence-value">Coming Soon</span>
+            <span class="evidence-label">
+              Young people engaged
+            </span>
+          </div>
+
+          <div class="evidence-item">
+            <span class="evidence-value">Coming Soon</span>
+            <span class="evidence-label">
+              Creative disciplines supported
+            </span>
+          </div>
+
+          <div class="evidence-item">
+            <span class="evidence-value">Coming Soon</span>
+            <span class="evidence-label">
+              Mentors and practitioners involved
+            </span>
+          </div>
+
+          <div class="evidence-item">
+            <span class="evidence-value">Coming Soon</span>
+            <span class="evidence-label">
+              Opportunities and partnerships created
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FUTURE -->
+    <section class="section approach-future">
+      <div class="container">
+
+        <div class="future-inner">
+
+          <div>
+            <span class="section-label">07 / WHAT WE ARE BUILDING</span>
+
+            <h2>
+              A system around the talent.
+            </h2>
+          </div>
+
+          <div class="future-copy">
+
+            <p>
+              The long-term ambition is bigger than individual workshops,
+              performances or training sessions.
+            </p>
+
+            <p>
+              CoWiTa is building toward a connected ecosystem where a young
+              person's talent can lead to development, practical experience,
+              networks, platforms and sustainable opportunity.
+            </p>
+
+            <div class="future-list">
+
+              <div class="future-list-item">
+                <strong>Learning</strong>
+                <span>
+                  Skills and knowledge that make talent stronger.
+                </span>
+              </div>
+
+              <div class="future-list-item">
+                <strong>Mentorship</strong>
+                <span>
+                  Guidance from people with relevant experience.
+                </span>
+              </div>
+
+              <div class="future-list-item">
+                <strong>Platforms</strong>
+                <span>
+                  Places where creative work can be seen and experienced.
+                </span>
+              </div>
+
+              <div class="future-list-item">
+                <strong>Opportunity</strong>
+                <span>
+                  Pathways toward collaboration, work and income.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="section approach-cta">
+      <div class="container">
+
+        <span class="section-label">YOUR NEXT STEP</span>
+
+        <h2>
+          Talent has a starting point. The pathway starts here.
+        </h2>
+
+        <p>
+          Whether you have a talent, want to learn, want to mentor or want
+          to help create opportunities for young people, there is a place
+          for you in the CoWiTa ecosystem.
+        </p>
+
+        <div class="approach-cta-actions">
+
+          <a
+            class="btn btn-primary"
+            href="/get-involved/have-talent.html"
+          >
+            I Have Talent
+          </a>
+
+          <a
+            class="btn btn-dark"
+            href="/get-involved/"
+          >
+            Get Involved
+          </a>
+
+          <a
+            class="btn btn-dark"
+            href="/work/"
+          >
+            Explore Our Work
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>

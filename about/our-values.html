@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Discover the values that guide CoWiTa in identifying, developing and creating opportunities for children and young people through talent, creativity, mentorship and community."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Our Values — CoWiTa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <!-- Shared CoWiTa design system -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+
+    /* =========================================================
+       OUR VALUES PAGE
+       Page-specific styles only.
+       Global design system remains in /css/styles.css
+       ========================================================= */
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .values-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 80px;
+    }
+
+    .values-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 78% 18%,
+          rgba(229,165,26,.24),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(255,255,255,.06),
+          transparent 30%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(7,35,40,.97),
+          rgba(13,75,75,.78)
+        );
+    }
+
+    .values-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 80px;
+
+      align-items: end;
+    }
+
+    .values-hero-copy {
+      max-width: 800px;
+    }
+
+    .values-hero h1 {
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 500;
+      line-height: .92;
+      letter-spacing: -.055em;
+    }
+
+    .values-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .values-hero-text {
+      max-width: 650px;
+      margin-top: 28px;
+
+      color: rgba(255,255,255,.74);
+
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .values-hero-visual {
+      position: relative;
+      min-height: 440px;
+    }
+
+    .values-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .values-hero-badge {
+      position: absolute;
+
+      left: -30px;
+      bottom: 25px;
+
+      width: 190px;
+      padding: 20px;
+
+      background: var(--gold);
+      color: #1b1a16;
+
+      border-radius: 20px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .values-hero-badge strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .values-hero-badge span {
+      display: block;
+      margin-top: 8px;
+
+      font-size: .7rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .values-intro {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 90px;
+
+      align-items: start;
+    }
+
+    .values-intro-heading {
+      max-width: 480px;
+    }
+
+    .values-intro-copy {
+      max-width: 720px;
+    }
+
+    .values-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .values-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1.25;
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       VALUES GRID
+       ========================================================= */
+
+    .values-section {
+      background: var(--paper);
+    }
+
+    .values-header {
+      max-width: 750px;
+      margin-bottom: 60px;
+    }
+
+    .values-header p {
+      margin-top: 20px;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .value-card {
+      position: relative;
+
+      min-height: 330px;
+      padding: 36px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+      border-radius: 26px;
+
+      overflow: hidden;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease),
+        box-shadow .3s var(--ease);
+    }
+
+    .value-card:hover {
+      transform: translateY(-7px);
+
+      border-color: var(--gold);
+
+      box-shadow: 0 20px 50px rgba(7,35,40,.08);
+    }
+
+    .value-number {
+      position: absolute;
+
+      top: 25px;
+      right: 30px;
+
+      font-size: 4.5rem;
+      font-weight: 800;
+
+      line-height: .8;
+
+      color: var(--deep-teal);
+
+      opacity: .055;
+    }
+
+    .value-symbol {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      background: var(--cream);
+      color: var(--teal);
+
+      font-weight: 800;
+      font-size: .8rem;
+    }
+
+    .value-card h3 {
+      margin: 45px 0 14px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+
+      letter-spacing: -.035em;
+    }
+
+    .value-card p {
+      max-width: 500px;
+
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .value-card-accent {
+      position: absolute;
+
+      left: 36px;
+      bottom: 0;
+
+      width: 55px;
+      height: 3px;
+
+      background: var(--gold);
+    }
+
+
+    /* =========================================================
+       VALUES IN PRACTICE
+       ========================================================= */
+
+    .practice-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .practice-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+
+      gap: 90px;
+
+      align-items: center;
+    }
+
+    .practice-heading {
+      font-family: "Lora", Georgia, serif;
+
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      line-height: .95;
+
+      letter-spacing: -.05em;
+    }
+
+    .practice-heading span {
+      color: var(--gold);
+    }
+
+    .practice-copy {
+      color: rgba(255,255,255,.72);
+    }
+
+    .practice-copy > p {
+      margin: 0 0 30px;
+
+      line-height: 1.7;
+    }
+
+    .practice-list {
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .practice-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+
+      gap: 18px;
+
+      padding: 22px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .practice-item-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .practice-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #fff;
+
+      font-size: .92rem;
+    }
+
+    .practice-item span {
+      color: rgba(255,255,255,.57);
+
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       QUOTE
+       ========================================================= */
+
+    .values-quote {
+      background: var(--gold);
+      color: #1b1a16;
+    }
+
+    .values-quote-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .values-quote-inner blockquote {
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .values-quote-inner cite {
+      display: block;
+
+      margin-top: 28px;
+
+      font-style: normal;
+
+      font-size: .72rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .values-next {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 40px;
+    }
+
+    .values-next-copy {
+      max-width: 650px;
+    }
+
+    .values-next-copy p {
+      margin: 15px 0 0;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .values-hero-grid,
+      .values-intro,
+      .practice-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .values-hero {
+        padding-top: 125px;
+      }
+
+      .values-hero-visual {
+        min-height: 400px;
+      }
+
+      .values-hero-visual img {
+        min-height: 400px;
+      }
+
+      .values-hero-badge {
+        left: 15px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 650px) {
+
+      .values-hero {
+        min-height: auto;
+        padding-bottom: 45px;
+      }
+
+      .values-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .values-hero-visual {
+        min-height: 340px;
+      }
+
+      .values-hero-visual img {
+        min-height: 340px;
+
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .values-intro-copy p:first-child {
+        font-size: 1.4rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        min-height: 290px;
+      }
+
+      .practice-heading {
+        font-size: 3rem;
+      }
+
+      .values-quote-inner blockquote {
+        font-size: 2.5rem;
+      }
+
+      .values-next {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="values-hero">
+
+  <div class="container values-hero-grid">
+
+    <div class="values-hero-copy reveal">
+
+      <div class="eyebrow">
+        Our values
+      </div>
+
+      <h1>
+        How we choose
+        to <em>show up.</em>
+      </h1>
+
+      <p class="values-hero-text">
+        CoWiTa is not only defined by what we do.
+        It is also defined by how we work with young people,
+        communities, mentors and partners along the way.
+      </p>
+
+    </div>
+
+
+    <div class="values-hero-visual reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85"
+        alt="Young people spending time together as a community"
+      >
+
+      <div class="values-hero-badge">
+
+        <strong>
+          People first.
+        </strong>
+
+        <span>
+          Talent, dignity, growth and opportunity remain
+          at the centre of the CoWiTa approach.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container values-intro">
+
+    <div class="section-header values-intro-heading reveal">
+
+      <div class="section-label">
+        What matters to us
+      </div>
+
+      <h2>
+        Our values shape the pathway.
+      </h2>
+
+    </div>
+
+
+    <div class="values-intro-copy reveal">
+
+      <p>
+        We want the journey from talent to opportunity
+        to be as meaningful as the outcome.
+      </p>
+
+      <p>
+        That means creating spaces where young people
+        are respected, listened to and encouraged to grow.
+        It means treating creative ability seriously while
+        recognising that every person's journey will look
+        different.
+      </p>
+
+      <p>
+        Our values therefore guide the decisions we make,
+        the programmes we develop, the relationships we build
+        and the opportunities we create.
+      </p>
+
+      <p>
+        They are not simply words on a page. They are the
+        standard we want CoWiTa to hold itself to.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. CORE VALUES
+     ========================================================= -->
+
+<section class="section values-section">
+
+  <div class="container">
+
+    <div class="values-header reveal">
+
+      <div class="section-label">
+        The principles behind CoWiTa
+      </div>
+
+      <h2>
+        Six principles guide the work.
+      </h2>
+
+      <p>
+        Together, these values describe the kind of organisation
+        CoWiTa is trying to become—and the kind of environment
+        we want young people to experience.
+      </p>
+
+    </div>
+
+
+    <div class="values-grid">
+
+
+      <!-- VALUE 01 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          01
+        </div>
+
+        <div class="value-symbol">
+          01
+        </div>
+
+        <h3>
+          Potential
+        </h3>
+
+        <p>
+          We look beyond where a young person is today.
+          Talent can begin as something informal, unfinished
+          or unnoticed. We believe development starts by
+          recognising what is already there.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+
+      <!-- VALUE 02 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          02
+        </div>
+
+        <div class="value-symbol">
+          02
+        </div>
+
+        <h3>
+          Growth
+        </h3>
+
+        <p>
+          Talent becomes stronger through practice, learning,
+          feedback and mentorship. We value progress over
+          perfection and create room for people to develop
+          at different stages of their journey.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+
+      <!-- VALUE 03 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          03
+        </div>
+
+        <div class="value-symbol">
+          03
+        </div>
+
+        <h3>
+          Opportunity
+        </h3>
+
+        <p>
+          Development should lead somewhere. We work toward
+          connecting creative ability with platforms, audiences,
+          networks, practical experience and pathways that can
+          create meaningful opportunities.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+
+      <!-- VALUE 04 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          04
+        </div>
+
+        <div class="value-symbol">
+          04
+        </div>
+
+        <h3>
+          Dignity
+        </h3>
+
+        <p>
+          Every young person deserves to be treated with
+          respect. We seek to create environments where people
+          can express themselves, learn from mistakes and
+          contribute without being reduced to their circumstances.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+
+      <!-- VALUE 05 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          05
+        </div>
+
+        <div class="value-symbol">
+          05
+        </div>
+
+        <h3>
+          Community
+        </h3>
+
+        <p>
+          Creative development does not happen in isolation.
+          We believe in building relationships between young
+          people, mentors, families, communities, organisations
+          and the wider creative ecosystem.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+
+      <!-- VALUE 06 -->
+
+      <article class="value-card reveal">
+
+        <div class="value-number">
+          06
+        </div>
+
+        <div class="value-symbol">
+          06
+        </div>
+
+        <h3>
+          Responsibility
+        </h3>
+
+        <p>
+          Opportunity comes with responsibility. We aim to use
+          creativity as a force for personal development,
+          economic possibility and positive contribution to
+          communities.
+        </p>
+
+        <div class="value-card-accent"></div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. VALUES IN PRACTICE
+     ========================================================= -->
+
+<section class="section practice-section">
+
+  <div class="container practice-layout">
+
+    <div class="practice-heading reveal">
+
+      Values only matter
+      when they become
+      <span>action.</span>
+
+    </div>
+
+
+    <div class="practice-copy reveal">
+
+      <p>
+        These principles influence how CoWiTa intends to
+        design programmes, work with participants and build
+        relationships with the people and organisations around us.
+      </p>
+
+
+      <div class="practice-list">
+
+        <div class="practice-item">
+
+          <div class="practice-item-number">
+            01
+          </div>
+
+          <div>
+
+            <strong>
+              We listen before we design.
+            </strong>
+
+            <span>
+              Programmes should respond to real people,
+              real abilities and real community contexts.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="practice-item">
+
+          <div class="practice-item-number">
+            02
+          </div>
+
+          <div>
+
+            <strong>
+              We develop, not simply discover.
+            </strong>
+
+            <span>
+              Identifying talent is only the beginning.
+              Development requires time, practice and guidance.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="practice-item">
+
+          <div class="practice-item-number">
+            03
+          </div>
+
+          <div>
+
+            <strong>
+              We create real pathways.
+            </strong>
+
+            <span>
+              Skills should connect to experiences, platforms,
+              networks and opportunities wherever possible.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="practice-item">
+
+          <div class="practice-item-number">
+            04
+          </div>
+
+          <div>
+
+            <strong>
+              We build with others.
+            </strong>
+
+            <span>
+              Mentors, communities, organisations and partners
+              all have a role in creating stronger pathways.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="practice-item">
+
+          <div class="practice-item-number">
+            05
+          </div>
+
+          <div>
+
+            <strong>
+              We measure progress honestly.
+            </strong>
+
+            <span>
+              As CoWiTa grows, we intend to learn from what
+              works, what does not and what participants actually experience.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. COWITA PRINCIPLE
+     ========================================================= -->
+
+<section class="section values-quote">
+
+  <div class="container values-quote-inner reveal">
+
+    <blockquote>
+      “Talent is the beginning.
+      What we build around it
+      determines where it can go.”
+    </blockquote>
+
+    <cite>
+      The CoWiTa approach
+    </cite>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. NEXT STEP
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container values-next">
+
+    <div class="values-next-copy reveal">
+
+      <div class="section-label">
+        Explore the work
+      </div>
+
+      <h2>
+        See how these values become programmes.
+      </h2>
+
+      <p>
+        Explore the creative disciplines, skills development
+        and mentorship pathways CoWiTa is building for children
+        and young people.
+      </p>
+
+    </div>
+
+
+    <div class="reveal">
+
+      <a
+        class="btn btn-dark"
+        href="/work/"
+      >
+        Explore Our Work →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

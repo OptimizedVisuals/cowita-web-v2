@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>I Have Talent | CoWiTa</title>
+  <meta
+    name="description"
+    content="Have a talent you want to develop? CoWiTa helps young people turn creative ability into skills, confidence, opportunity and purpose."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+
+  <style>
+    /* =========================================================
+       I HAVE TALENT — PAGE-SPECIFIC STYLES
+       ========================================================= */
+
+    .talent-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(105deg, rgba(8, 48, 47, 0.97) 0%, rgba(8, 48, 47, 0.90) 48%, rgba(8, 48, 47, 0.52) 100%),
+        url("/assets/images/cowita-have-talent-hero.jpg") center / cover no-repeat;
+      color: var(--cream);
+    }
+
+    .talent-hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      right: -120px;
+      top: -120px;
+      animation: talentOrbit 16s linear infinite;
+    }
+
+    .talent-hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(211, 164, 70, 0.3);
+      border-radius: 50%;
+      right: 80px;
+      bottom: -160px;
+      animation: talentOrbitReverse 12s linear infinite;
+    }
+
+    .talent-hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .talent-hero-content {
+      max-width: 760px;
+      padding: 110px 0 100px;
+    }
+
+    .talent-hero .eyebrow {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .talent-hero h1 {
+      max-width: 780px;
+      margin: 0 0 26px;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      color: var(--cream);
+    }
+
+    .talent-hero h1 span {
+      color: var(--gold);
+    }
+
+    .talent-hero-copy {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.75;
+      color: rgba(255, 248, 235, 0.82);
+    }
+
+    .talent-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .talent-hero .btn-primary {
+      background: var(--gold);
+      color: var(--deep-teal);
+    }
+
+    .talent-hero .btn-dark {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .talent-intro {
+      padding: 100px 0;
+    }
+
+    .talent-intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .talent-intro h2 {
+      max-width: 600px;
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--deep-teal);
+    }
+
+    .talent-intro-copy {
+      max-width: 680px;
+    }
+
+    .talent-intro-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .talent-intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .discipline-section {
+      padding: 105px 0;
+      background: var(--paper);
+    }
+
+    .discipline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .discipline-card {
+      position: relative;
+      min-height: 250px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--deep-teal);
+      color: var(--cream);
+      text-decoration: none;
+      transition:
+        transform 0.35s var(--ease),
+        box-shadow 0.35s var(--ease);
+    }
+
+    .discipline-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(4, 26, 25, 0.94),
+          rgba(4, 26, 25, 0.18)
+        ),
+        var(--discipline-image) center / cover no-repeat;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .discipline-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .discipline-card:hover::before {
+      transform: scale(1.06);
+    }
+
+    .discipline-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .discipline-number {
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+
+    .discipline-card h3 {
+      margin: 0 0 7px;
+      font-size: 1.45rem;
+      color: var(--cream);
+    }
+
+    .discipline-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(255, 248, 235, 0.72);
+    }
+
+    .journey-section {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .journey-header {
+      max-width: 720px;
+      margin-bottom: 60px;
+    }
+
+    .journey-header h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.3rem, 4.5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--deep-teal);
+    }
+
+    .journey-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.04rem;
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .journey-step {
+      min-height: 280px;
+      padding: 36px 32px;
+      background: var(--cream);
+    }
+
+    .journey-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      background: var(--deep-teal);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .journey-step h3 {
+      margin: 0 0 12px;
+      color: var(--deep-teal);
+      font-size: 1.45rem;
+    }
+
+    .journey-step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .talent-expect-section {
+      padding: 110px 0;
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .expect-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .expect-grid h2 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--cream);
+    }
+
+    .expect-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .expect-item {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 22px;
+      padding: 25px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .expect-item:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .expect-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .expect-item h3 {
+      margin: 0 0 7px;
+      color: var(--cream);
+      font-size: 1.2rem;
+    }
+
+    .expect-item p {
+      margin: 0;
+      color: rgba(255, 248, 235, 0.68);
+      line-height: 1.7;
+    }
+
+    .talent-note {
+      margin-top: 60px;
+      padding: 25px 30px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 248, 235, 0.78);
+      line-height: 1.75;
+    }
+
+    .talent-cta {
+      padding: 105px 0;
+      background: var(--gold);
+      color: var(--deep-teal);
+      text-align: center;
+    }
+
+    .talent-cta-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .talent-cta h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: var(--deep-teal);
+    }
+
+    .talent-cta p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: rgba(8, 48, 47, 0.76);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .talent-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .talent-cta .btn-dark {
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .coming-soon-label {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 10px;
+      border: 1px solid rgba(8, 48, 47, 0.2);
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @keyframes talentOrbit {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes talentOrbitReverse {
+      from {
+        transform: rotate(360deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .discipline-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .talent-intro-grid,
+      .expect-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .journey-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .talent-hero {
+        min-height: 82vh;
+      }
+
+      .talent-hero-content {
+        padding: 90px 0 75px;
+      }
+
+      .talent-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.8rem);
+      }
+
+      .discipline-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .discipline-card {
+        min-height: 220px;
+      }
+
+      .talent-intro,
+      .discipline-section,
+      .journey-section,
+      .talent-expect-section,
+      .talent-cta {
+        padding: 75px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .discipline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talent-hero-actions,
+      .talent-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .talent-hero-actions .btn,
+      .talent-cta-actions .btn {
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .talent-hero::before,
+      .talent-hero::after {
+        animation: none;
+      }
+
+      .discipline-card,
+      .discipline-card::before {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+    <section class="talent-hero">
+      <div class="container">
+
+        <div class="talent-hero-content">
+
+          <p class="eyebrow">I HAVE TALENT</p>
+
+          <h1>
+            You already have<br>
+            <span>something.</span>
+          </h1>
+
+          <p class="talent-hero-copy">
+            Maybe you dance. Maybe you draw, write, act or make music.
+            Maybe you are still figuring out exactly what your thing is.
+            CoWiTa starts there — with what you can already do, and the
+            potential to take it further.
+          </p>
+
+          <div class="talent-hero-actions">
+            <a class="btn btn-primary" href="/contact/">
+              Tell Us About Your Talent
+            </a>
+
+            <a class="btn btn-dark" href="/work/">
+              Explore Our Work
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+         ======================================================= -->
+    <section class="talent-intro section">
+      <div class="container">
+
+        <div class="talent-intro-grid">
+
+          <div>
+            <p class="section-label">START WHERE YOU ARE</p>
+
+            <h2>
+              Your talent does not have to be perfect to matter.
+            </h2>
+          </div>
+
+          <div class="talent-intro-copy">
+
+            <p>
+              A talent can begin as something you do in your free time,
+              something your friends keep asking you to do, or something
+              you have never really considered a talent at all.
+            </p>
+
+            <p>
+              What matters is that there is something worth developing.
+              CoWiTa is built around the idea that young people should
+              have opportunities to identify their strengths, build their
+              abilities and discover where those abilities can take them.
+            </p>
+
+            <p>
+              You do not need to arrive with a finished portfolio,
+              professional experience or a clear career plan. You need
+              curiosity, commitment and a willingness to grow.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CREATIVE DISCIPLINES
+         ======================================================= -->
+    <section class="discipline-section section">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="section-label">CREATIVE DEVELOPMENT</p>
+
+          <h2>
+            What do you love creating?
+          </h2>
+
+          <p>
+            Our creative pathways are designed to give young people
+            space to develop their ability, learn from others and
+            begin building something meaningful from their talent.
+          </p>
+        </div>
+
+
+        <div class="discipline-grid">
+
+          <a
+            class="discipline-card"
+            href="/work/dance.html"
+            style="--discipline-image: url('/assets/images/cowita-dance.jpg');"
+          >
+            <span class="discipline-number">01</span>
+            <h3>Dance</h3>
+            <p>Movement, expression, discipline and performance.</p>
+          </a>
+
+          <a
+            class="discipline-card"
+            href="/work/music.html"
+            style="--discipline-image: url('/assets/images/cowita-music.jpg');"
+          >
+            <span class="discipline-number">02</span>
+            <h3>Music</h3>
+            <p>Find your sound and develop your creative voice.</p>
+          </a>
+
+          <a
+            class="discipline-card"
+            href="/work/drawing.html"
+            style="--discipline-image: url('/assets/images/cowita-drawing.jpg');"
+          >
+            <span class="discipline-number">03</span>
+            <h3>Drawing</h3>
+            <p>Turn observation, imagination and ideas into visual work.</p>
+          </a>
+
+          <a
+            class="discipline-card"
+            href="/work/writing.html"
+            style="--discipline-image: url('/assets/images/cowita-writing.jpg');"
+          >
+            <span class="discipline-number">04</span>
+            <h3>Writing</h3>
+            <p>Develop stories, ideas and a voice worth hearing.</p>
+          </a>
+
+          <a
+            class="discipline-card"
+            href="/work/acting.html"
+            style="--discipline-image: url('/assets/images/cowita-acting.jpg');"
+          >
+            <span class="discipline-number">05</span>
+            <h3>Acting</h3>
+            <p>Explore character, storytelling, confidence and performance.</p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         THE JOURNEY
+         ======================================================= -->
+    <section class="journey-section section">
+      <div class="container">
+
+        <div class="journey-header">
+          <p class="section-label">WHAT DEVELOPMENT CAN LOOK LIKE</p>
+
+          <h2>
+            Talent is only the beginning.
+          </h2>
+
+          <p>
+            CoWiTa's approach is not simply about finding what someone
+            is good at. It is about creating the conditions for that
+            ability to grow into something useful, purposeful and
+            sustainable.
+          </p>
+        </div>
+
+
+        <div class="journey-steps">
+
+          <article class="journey-step">
+            <span class="journey-step-number">01</span>
+
+            <h3>Identify</h3>
+
+            <p>
+              Recognise the ability, interest or creative instinct that
+              is already there — even when it is still rough.
+            </p>
+          </article>
+
+          <article class="journey-step">
+            <span class="journey-step-number">02</span>
+
+            <h3>Develop</h3>
+
+            <p>
+              Build technique, discipline, confidence and practical
+              skills through learning, practice and mentorship.
+            </p>
+          </article>
+
+          <article class="journey-step">
+            <span class="journey-step-number">03</span>
+
+            <h3>Create</h3>
+
+            <p>
+              Put your growing ability into practice by making work,
+              performing, experimenting and solving real problems.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         WHAT TO EXPECT
+         ======================================================= -->
+    <section class="talent-expect-section section">
+      <div class="container">
+
+        <div class="expect-grid">
+
+          <div>
+            <p class="section-label">COME AS YOU ARE</p>
+
+            <h2>
+              You don't need to have it all figured out.
+            </h2>
+          </div>
+
+
+          <div class="expect-list">
+
+            <article class="expect-item">
+              <div class="expect-icon">01</div>
+
+              <div>
+                <h3>Bring what you can do</h3>
+
+                <p>
+                  Your current ability is enough to start the
+                  conversation. You do not need to be an expert.
+                </p>
+              </div>
+            </article>
+
+            <article class="expect-item">
+              <div class="expect-icon">02</div>
+
+              <div>
+                <h3>Be ready to learn</h3>
+
+                <p>
+                  Development takes practice. CoWiTa is interested
+                  in potential and commitment, not just polished results.
+                </p>
+              </div>
+            </article>
+
+            <article class="expect-item">
+              <div class="expect-icon">03</div>
+
+              <div>
+                <h3>Build beyond the talent</h3>
+
+                <p>
+                  Creative ability can be a starting point for wider
+                  skills, confidence, collaboration and opportunity.
+                </p>
+              </div>
+            </article>
+
+            <article class="expect-item">
+              <div class="expect-icon">04</div>
+
+              <div>
+                <h3>Discover where it can take you</h3>
+
+                <p>
+                  As CoWiTa's programmes develop, participants will be
+                  connected to pathways for learning, mentorship,
+                  collaboration and opportunity.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <div class="talent-note">
+          <strong>Programme applications:</strong>
+          CoWiTa's participant application and talent-registration
+          system is currently coming soon. If you want to express
+          interest or tell us about your talent, use the contact
+          pathway below so we can hear from you as the programme
+          develops.
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+         ======================================================= -->
+    <section class="talent-cta section">
+      <div class="container">
+
+        <div class="talent-cta-inner">
+
+          <p class="section-label">YOUR NEXT STEP</p>
+
+          <h2>
+            Let your talent become the beginning of something bigger.
+          </h2>
+
+          <p>
+            Tell us what you do, what you are learning, or what you
+            would love to develop. The formal application pathway is
+            coming soon, but the conversation can start now.
+          </p>
+
+          <div class="talent-cta-actions">
+            <a class="btn btn-dark" href="/contact/">
+              Tell Us About Your Talent
+            </a>
+
+            <a class="btn btn-dark" href="/get-involved/">
+              Explore Ways to Get Involved
+            </a>
+          </div>
+
+          <span class="coming-soon-label">
+            Participant registration — Coming Soon
+          </span>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Skills Development | CoWiTa</title>
+  <meta
+    name="description"
+    content="CoWiTa develops the practical, creative and personal skills young people need to turn talent into opportunity."
+  />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    /* =========================================================
+       SKILLS DEVELOPMENT — PAGE-SPECIFIC STYLES
+       ========================================================= */
+
+    .skills-hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: 9rem 0 5rem;
+      background: var(--color-cream, #f4efe5);
+      overflow: hidden;
+    }
+
+    .skills-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 5rem;
+      align-items: end;
+    }
+
+    .skills-hero-copy {
+      max-width: 760px;
+    }
+
+    .skills-hero h1 {
+      max-width: 760px;
+      margin: 1rem 0 1.5rem;
+      font-size: clamp(3.6rem, 7vw, 7.4rem);
+      line-height: 0.91;
+      letter-spacing: -0.055em;
+    }
+
+    .skills-hero-intro {
+      max-width: 650px;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.55;
+    }
+
+    .skills-hero-media {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+      background: #d8d0c2;
+    }
+
+    .skills-hero-media img,
+    .skills-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .skills-hero-media::after {
+      content: "SKILLS / 01";
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      padding: 0.5rem 0.7rem;
+      background: rgba(20, 25, 23, 0.82);
+      color: #fff;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+    }
+
+    .skills-intro {
+      padding: 8rem 0;
+      background: #fff;
+    }
+
+    .skills-intro-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 5rem;
+    }
+
+    .skills-section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .skills-intro h2 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .skills-intro p {
+      max-width: 720px;
+      margin-top: 2rem;
+      font-size: 1.15rem;
+      line-height: 1.75;
+    }
+
+    .skills-belief {
+      padding: 8rem 0;
+      background: var(--color-dark, #10211e);
+      color: #fff;
+    }
+
+    .skills-belief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .skills-belief h2 {
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .skills-belief-copy {
+      max-width: 650px;
+      font-size: 1.15rem;
+      line-height: 1.75;
+    }
+
+    .skills-pillars {
+      padding: 8rem 0;
+      background: var(--color-paper, #eee8dc);
+    }
+
+    .skills-pillars-header {
+      max-width: 800px;
+      margin-bottom: 4rem;
+    }
+
+    .skills-pillars-header h2 {
+      margin: 0.8rem 0 1.2rem;
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .skills-pillars-header p {
+      max-width: 650px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .skills-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(16, 33, 30, 0.18);
+      border: 1px solid rgba(16, 33, 30, 0.18);
+    }
+
+    .skill-card {
+      min-height: 310px;
+      padding: 2rem;
+      background: var(--color-paper, #eee8dc);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .skill-card-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      opacity: 0.6;
+    }
+
+    .skill-card h3 {
+      margin: 3rem 0 1rem;
+      font-size: 1.7rem;
+      letter-spacing: -0.025em;
+    }
+
+    .skill-card p {
+      margin: 0;
+      line-height: 1.65;
+      opacity: 0.82;
+    }
+
+    .skills-journey {
+      padding: 8rem 0;
+      background: #fff;
+    }
+
+    .skills-journey-header {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .skills-journey-header h2 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(2.8rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .skills-pathway {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid rgba(16, 33, 30, 0.2);
+      border-bottom: 1px solid rgba(16, 33, 30, 0.2);
+    }
+
+    .skills-step {
+      position: relative;
+      min-height: 260px;
+      padding: 1.5rem;
+      border-right: 1px solid rgba(16, 33, 30, 0.2);
+    }
+
+    .skills-step:last-child {
+      border-right: 0;
+    }
+
+    .skills-step-number {
+      display: block;
+      margin-bottom: 4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      opacity: 0.55;
+    }
+
+    .skills-step h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.35rem;
+    }
+
+    .skills-step p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      opacity: 0.75;
+    }
+
+    .skills-image-section {
+      padding: 0 0 8rem;
+      background: #fff;
+    }
+
+    .skills-image {
+      min-height: 620px;
+      overflow: hidden;
+      background: #d8d0c2;
+      position: relative;
+    }
+
+    .skills-image-caption {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      max-width: 420px;
+      padding: 1.2rem 1.4rem;
+      background: rgba(255, 255, 255, 0.92);
+      color: #10211e;
+    }
+
+    .skills-image-caption strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .skills-image-caption span {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .skills-practical {
+      padding: 8rem 0;
+      background: var(--color-gold, #c9a646);
+      color: #10211e;
+    }
+
+    .skills-practical-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 5rem;
+    }
+
+    .skills-practical h2 {
+      margin: 0;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .skills-practical-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(16, 33, 30, 0.2);
+      border: 1px solid rgba(16, 33, 30, 0.2);
+    }
+
+    .practical-item {
+      padding: 1.7rem;
+      background: var(--color-gold, #c9a646);
+    }
+
+    .practical-item h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.2rem;
+    }
+
+    .practical-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .skills-coming-soon {
+      padding: 8rem 0;
+      background: var(--color-dark, #10211e);
+      color: #fff;
+    }
+
+    .skills-coming-soon-inner {
+      max-width: 1050px;
+    }
+
+    .coming-soon-tag {
+      display: inline-flex;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .skills-coming-soon h2 {
+      max-width: 900px;
+      margin: 1.5rem 0;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+    }
+
+    .skills-coming-soon p {
+      max-width: 680px;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      opacity: 0.78;
+    }
+
+    .skills-coming-soon-note {
+      margin-top: 2.5rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 2px solid var(--color-gold, #c9a646);
+      max-width: 650px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .skills-cta {
+      padding: 8rem 0;
+      background: var(--color-cream, #f4efe5);
+    }
+
+    .skills-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .skills-cta h2 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: 0.93;
+      letter-spacing: -0.055em;
+    }
+
+    .skills-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 1000px) {
+      .skills-hero-grid,
+      .skills-intro-grid,
+      .skills-belief-grid,
+      .skills-practical-grid,
+      .skills-journey-header,
+      .skills-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .skills-card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-pathway {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .skills-step:nth-child(3) {
+        border-right: 0;
+      }
+
+      .skills-step:nth-child(n + 4) {
+        border-top: 1px solid rgba(16, 33, 30, 0.2);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .skills-hero {
+        min-height: auto;
+        padding: 7rem 0 3rem;
+      }
+
+      .skills-hero-grid {
+        gap: 2.5rem;
+      }
+
+      .skills-hero-media {
+        min-height: 360px;
+      }
+
+      .skills-intro,
+      .skills-belief,
+      .skills-pillars,
+      .skills-journey,
+      .skills-practical,
+      .skills-coming-soon,
+      .skills-cta {
+        padding: 5rem 0;
+      }
+
+      .skills-card-grid,
+      .skills-practical-list {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-pathway {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-step:nth-child(3) {
+        border-right: 1px solid rgba(16, 33, 30, 0.2);
+      }
+
+      .skills-step:nth-child(even) {
+        border-right: 0;
+      }
+
+      .skills-step:nth-child(n + 3) {
+        border-top: 1px solid rgba(16, 33, 30, 0.2);
+      }
+
+      .skills-step {
+        min-height: 220px;
+      }
+
+      .skills-image {
+        min-height: 420px;
+      }
+
+      .skills-cta-actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+    <section class="skills-hero">
+      <div class="container skills-hero-grid">
+
+        <div class="skills-hero-copy reveal">
+          <span class="eyebrow">Our Work / Skills Development</span>
+
+          <h1>
+            Talent opens the door. Skills help you walk through it.
+          </h1>
+
+          <p class="skills-hero-intro">
+            A young person can have talent and still need the practical
+            skills, discipline, confidence and knowledge to turn that
+            talent into something they can build with.
+          </p>
+        </div>
+
+        <div class="skills-hero-media reveal">
+          <img
+            src="../assets/images/work/skills-development/cowita-skills-development-hero.webp"
+            alt="Young people learning and developing practical creative skills"
+            loading="eager"
+          />
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+         ======================================================= -->
+    <section class="skills-intro">
+      <div class="container skills-intro-grid">
+
+        <div class="reveal">
+          <span class="skills-section-label">01 / Why skills matter</span>
+        </div>
+
+        <div class="reveal">
+          <h2>
+            Talent is the starting point, not the finished product.
+          </h2>
+
+          <p>
+            Someone may know how to dance, sing, draw, write, perform or
+            create. But developing that ability into a sustainable pathway
+            requires more than natural ability.
+          </p>
+
+          <p>
+            It takes communication. Collaboration. Problem-solving.
+            Digital confidence. Professional discipline. Financial
+            awareness. The ability to present your work, understand an
+            opportunity and keep learning after the first opportunity is
+            over.
+          </p>
+
+          <p>
+            CoWiTa sees skills development as the bridge between what a
+            young person already has and what that ability could become.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         BELIEF
+         ======================================================= -->
+    <section class="skills-belief">
+      <div class="container skills-belief-grid">
+
+        <div class="reveal">
+          <span class="skills-section-label">02 / Our belief</span>
+
+          <h2>
+            Don't just discover potential. Build capacity.
+          </h2>
+        </div>
+
+        <div class="skills-belief-copy reveal">
+          <p>
+            CoWiTa's work begins with the strengths young people already
+            carry. Skills development then adds the tools that help those
+            strengths become useful, adaptable and purposeful.
+          </p>
+
+          <p>
+            We want a young person to leave a learning experience with more
+            than something they can say they attended. The goal is greater
+            confidence in what they can do, clearer understanding of how
+            they can use it, and a stronger foundation for the next step.
+          </p>
+
+          <p>
+            That may eventually mean creating work, joining a team,
+            starting something of their own, serving their community or
+            pursuing a professional creative pathway.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         SKILLS PILLARS
+         ======================================================= -->
+    <section class="skills-pillars">
+      <div class="container">
+
+        <div class="skills-pillars-header reveal">
+          <span class="skills-section-label">03 / What we develop</span>
+
+          <h2>
+            Skills for the creative journey — and for life beyond it.
+          </h2>
+
+          <p>
+            Skills development at CoWiTa is designed to connect creative
+            ability with the practical capabilities young people need to
+            create, collaborate and pursue opportunity.
+          </p>
+        </div>
+
+        <div class="skills-card-grid">
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">01</span>
+              <h3>Communication</h3>
+              <p>
+                Finding your voice, expressing ideas clearly, listening
+                actively and communicating with different people and
+                audiences.
+              </p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">02</span>
+              <h3>Digital Skills</h3>
+              <p>
+                Building practical confidence with digital tools that can
+                support learning, creativity, collaboration and opportunity.
+              </p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">03</span>
+              <h3>Professional Practice</h3>
+              <p>
+                Developing reliability, discipline, preparation, teamwork
+                and the habits required to turn ideas into completed work.
+              </p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">04</span>
+              <h3>Creative Problem-Solving</h3>
+              <p>
+                Learning to experiment, adapt, think critically and find
+                new ways to respond when the first idea does not work.
+              </p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">05</span>
+              <h3>Entrepreneurial Thinking</h3>
+              <p>
+                Understanding how an ability can create value, solve a
+                problem and potentially become a sustainable opportunity.
+              </p>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div>
+              <span class="skill-card-number">06</span>
+              <h3>Self-Development</h3>
+              <p>
+                Building confidence, self-awareness, resilience and the
+                mindset to keep learning as circumstances and opportunities
+                change.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         LEARNING JOURNEY
+         ======================================================= -->
+    <section class="skills-journey">
+      <div class="container">
+
+        <div class="skills-journey-header">
+
+          <div class="reveal">
+            <span class="skills-section-label">04 / The journey</span>
+          </div>
+
+          <div class="reveal">
+            <h2>
+              Skills become powerful when they lead somewhere.
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="skills-pathway">
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">01</span>
+            <h3>Discover</h3>
+            <p>
+              Understand strengths, interests and the direction a young
+              person wants to explore.
+            </p>
+          </article>
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">02</span>
+            <h3>Learn</h3>
+            <p>
+              Build practical knowledge and foundational skills through
+              guided learning.
+            </p>
+          </article>
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">03</span>
+            <h3>Practice</h3>
+            <p>
+              Apply what has been learned through projects, collaboration
+              and real creative work.
+            </p>
+          </article>
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">04</span>
+            <h3>Create</h3>
+            <p>
+              Turn skills into work that can be shared, refined and
+              developed further.
+            </p>
+          </article>
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">05</span>
+            <h3>Connect</h3>
+            <p>
+              Build relationships with mentors, peers, collaborators and
+              potential opportunities.
+            </p>
+          </article>
+
+          <article class="skills-step reveal">
+            <span class="skills-step-number">06</span>
+            <h3>Grow</h3>
+            <p>
+              Continue developing the ability to create value and pursue
+              meaningful opportunities.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         IMAGE STORY
+         ======================================================= -->
+    <section class="skills-image-section">
+      <div class="container">
+
+        <div class="skills-image reveal">
+          <img
+            src="../assets/images/work/skills-development/cowita-skills-development-workshop.webp"
+            alt="Young people working together during a creative skills learning session"
+            loading="lazy"
+          />
+
+          <div class="skills-image-caption">
+            <strong>Learning should lead to doing.</strong>
+            <span>
+              CoWiTa's approach connects learning with practice, creation,
+              collaboration and the possibility of real-world opportunity.
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         PRACTICAL APPLICATION
+         ======================================================= -->
+    <section class="skills-practical">
+      <div class="container skills-practical-grid">
+
+        <div class="reveal">
+          <span class="skills-section-label">05 / From learning to action</span>
+
+          <h2>
+            The skill matters. What you do with it matters more.
+          </h2>
+        </div>
+
+        <div class="skills-practical-list">
+
+          <article class="practical-item reveal">
+            <h3>Create better work</h3>
+            <p>
+              Use stronger creative, technical and communication skills to
+              turn ideas into work that can be experienced and shared.
+            </p>
+          </article>
+
+          <article class="practical-item reveal">
+            <h3>Work with others</h3>
+            <p>
+              Learn how to contribute to teams, communicate clearly and
+              build alongside people with different strengths.
+            </p>
+          </article>
+
+          <article class="practical-item reveal">
+            <h3>Recognise opportunity</h3>
+            <p>
+              Develop the confidence to identify opportunities and
+              understand what skills or preparation they require.
+            </p>
+          </article>
+
+          <article class="practical-item reveal">
+            <h3>Build something</h3>
+            <p>
+              Explore how creative and practical abilities can become
+              projects, services, enterprises or community initiatives.
+            </p>
+          </article>
+
+          <article class="practical-item reveal">
+            <h3>Keep learning</h3>
+            <p>
+              Treat skill development as a continuing process rather than
+              something that ends when a workshop or programme finishes.
+            </p>
+          </article>
+
+          <article class="practical-item reveal">
+            <h3>Create impact</h3>
+            <p>
+              Use developed abilities not only for personal growth, but to
+              contribute to families, communities and wider society.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         COMING SOON
+         ======================================================= -->
+    <section class="skills-coming-soon">
+      <div class="container">
+
+        <div class="skills-coming-soon-inner reveal">
+
+          <span class="coming-soon-tag">Coming Soon</span>
+
+          <h2>
+            A more structured skills-development pathway is being built.
+          </h2>
+
+          <p>
+            CoWiTa is developing the next stage of its skills-development
+            work around practical learning, creative practice, mentorship
+            and pathways toward opportunity.
+          </p>
+
+          <div class="skills-coming-soon-note">
+            Programme schedules, learning cohorts, participation details,
+            mentors, locations and specific opportunities will be announced
+            as they become available.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+         ======================================================= -->
+    <section class="skills-cta">
+      <div class="container skills-cta-grid">
+
+        <div class="reveal">
+          <span class="eyebrow">Your next step</span>
+
+          <h2>
+            You already have something. Let's help you develop it.
+          </h2>
+        </div>
+
+        <div class="skills-cta-actions reveal">
+
+          <a
+            class="button"
+            href="../get-involved/have-talent.html"
+          >
+            I Have Talent
+          </a>
+
+          <a
+            class="button button-outline"
+            href="../get-involved/want-to-learn.html"
+          >
+            I Want to Learn
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

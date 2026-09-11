@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Partnership Support | CoWiTa</title>
+
+  <meta
+    name="description"
+    content="Partner with CoWiTa to create stronger pathways for children and young people to develop talent, skills and opportunity."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       PARTNERSHIP SUPPORT
+    ========================================================= */
+
+    .partnership-hero {
+      min-height: 76vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 47, 47, 0.96) 0%,
+          rgba(7, 47, 47, 0.82) 48%,
+          rgba(7, 47, 47, 0.28) 100%
+        ),
+        url('/assets/images/support-partnership-hero.jpg')
+        center / cover no-repeat;
+    }
+
+    .partnership-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(7, 47, 47, 0.48),
+          transparent 55%
+        );
+
+      pointer-events: none;
+    }
+
+    .partnership-hero .container {
+      position: relative;
+      z-index: 2;
+
+      padding-top: 9rem;
+      padding-bottom: 6rem;
+    }
+
+    .partnership-hero-content {
+      max-width: 800px;
+      color: #fff;
+    }
+
+    .partnership-hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .partnership-hero h1 {
+      max-width: 780px;
+      margin: 0 0 1.5rem;
+
+      color: #fff;
+
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .partnership-hero p {
+      max-width: 680px;
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.86);
+
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.75;
+    }
+
+    .partnership-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+
+      margin-top: 2rem;
+    }
+
+    .partnership-hero-actions .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .partnership-hero-actions .btn-dark {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .partnership-intro {
+      background: var(--paper);
+    }
+
+    .partnership-intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .partnership-intro h2 {
+      max-width: 590px;
+    }
+
+    .partnership-intro-copy {
+      max-width: 700px;
+    }
+
+    .partnership-intro-copy p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .partnership-intro-copy p + p {
+      margin-top: 1.25rem;
+    }
+
+
+    /* =========================================================
+       WHAT PARTNERSHIP MEANS
+    ========================================================= */
+
+    .partnership-model {
+      background: var(--cream);
+    }
+
+    .partnership-model-header {
+      max-width: 800px;
+    }
+
+    .partnership-model-header p {
+      max-width: 700px;
+      margin-top: 1rem;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .partnership-model-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+
+      margin-top: 3.5rem;
+
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .partnership-model-card {
+      min-height: 280px;
+      padding: 2.2rem;
+
+      background: var(--paper);
+    }
+
+    .partnership-model-number {
+      display: block;
+      margin-bottom: 4rem;
+
+      color: var(--gold);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .partnership-model-card h3 {
+      margin: 0 0 0.8rem;
+
+      font-size: 1.5rem;
+    }
+
+    .partnership-model-card p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       WHO CAN PARTNER
+    ========================================================= */
+
+    .partner-types {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .partner-types .section-label {
+      color: var(--gold);
+    }
+
+    .partner-types h2 {
+      max-width: 800px;
+      color: #fff;
+    }
+
+    .partner-types-intro {
+      max-width: 700px;
+      margin-top: 1rem;
+
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+    }
+
+    .partner-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      margin-top: 4rem;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .partner-type {
+      min-height: 250px;
+      padding: 2rem;
+
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .partner-type-number {
+      display: block;
+      margin-bottom: 3.5rem;
+
+      color: var(--gold);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .partner-type h3 {
+      margin: 0 0 0.7rem;
+
+      color: #fff;
+      font-size: 1.35rem;
+    }
+
+    .partner-type p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.66);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       WHAT PARTNERS BRING
+    ========================================================= */
+
+    .partnership-contributions {
+      background: var(--paper);
+    }
+
+    .contributions-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contributions-image {
+      min-height: 540px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(7, 47, 47, 0.02),
+          rgba(7, 47, 47, 0.2)
+        ),
+        url('/assets/images/support-partnership-collaboration.jpg')
+        center / cover no-repeat;
+    }
+
+    .contributions-copy {
+      max-width: 620px;
+    }
+
+    .contributions-copy h2 {
+      margin-bottom: 1.2rem;
+    }
+
+    .contributions-copy > p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contribution-list {
+      display: grid;
+      gap: 0;
+
+      margin-top: 2rem;
+    }
+
+    .contribution-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 1rem;
+
+      padding: 1.2rem 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .contribution-number {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--line);
+      border-radius: 50%;
+
+      color: var(--deep-teal);
+
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .contribution-item h3 {
+      margin: 0 0 0.3rem;
+
+      font-size: 1.05rem;
+    }
+
+    .contribution-item p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       WHAT COWITA BRINGS
+    ========================================================= */
+
+    .cowita-brings {
+      background: var(--cream);
+    }
+
+    .cowita-brings-header {
+      max-width: 760px;
+    }
+
+    .cowita-brings-header p {
+      margin-top: 1rem;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cowita-brings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+
+      margin-top: 3rem;
+    }
+
+    .cowita-bring {
+      min-height: 250px;
+      padding: 2rem;
+
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .cowita-bring h3 {
+      margin: 0 0 0.7rem;
+
+      font-size: 1.3rem;
+    }
+
+    .cowita-bring p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       HOW PARTNERSHIP WORKS
+    ========================================================= */
+
+    .partnership-process {
+      background: var(--paper);
+    }
+
+    .process-header {
+      max-width: 760px;
+    }
+
+    .process-header p {
+      margin-top: 1rem;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      margin-top: 4rem;
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step {
+      min-height: 280px;
+      padding: 2rem;
+
+      border-right: 1px solid var(--line);
+    }
+
+    .process-step:last-child {
+      border-right: none;
+    }
+
+    .process-step-number {
+      display: block;
+      margin-bottom: 4rem;
+
+      color: var(--gold);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .process-step h3 {
+      margin: 0 0 0.7rem;
+
+      font-size: 1.15rem;
+    }
+
+    .process-step p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       RESPONSIBLE PARTNERSHIP
+    ========================================================= */
+
+    .responsible-partnership {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .responsible-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .responsible-partnership .section-label {
+      color: var(--gold);
+    }
+
+    .responsible-partnership h2 {
+      max-width: 560px;
+      color: #fff;
+    }
+
+    .responsible-copy {
+      max-width: 700px;
+    }
+
+    .responsible-copy > p {
+      margin: 0;
+
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+    }
+
+    .responsibility-list {
+      display: grid;
+      gap: 1rem;
+
+      margin-top: 2rem;
+    }
+
+    .responsibility-item {
+      padding: 1.3rem 0;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .responsibility-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+
+      color: #fff;
+    }
+
+    .responsibility-item span {
+      display: block;
+
+      color: rgba(255, 255, 255, 0.64);
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       CURRENT STAGE
+    ========================================================= */
+
+    .partnership-status {
+      background: var(--cream);
+    }
+
+    .partnership-status-box {
+      max-width: 900px;
+      margin: 0 auto;
+
+      padding: 3.5rem;
+
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .status-tag {
+      display: inline-flex;
+
+      margin-bottom: 1.3rem;
+      padding: 0.45rem 0.75rem;
+
+      border: 1px solid rgba(218, 173, 75, 0.5);
+      background: rgba(218, 173, 75, 0.1);
+
+      color: var(--deep-teal);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .partnership-status-box h2 {
+      max-width: 680px;
+      margin-bottom: 1rem;
+    }
+
+    .partnership-status-box p {
+      max-width: 700px;
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .partnership-cta {
+      background: var(--gold);
+    }
+
+    .partnership-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 3rem;
+    }
+
+    .partnership-cta h2 {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .partnership-cta p {
+      max-width: 650px;
+      margin: 1rem 0 0;
+
+      color: rgba(20, 28, 27, 0.72);
+      line-height: 1.7;
+    }
+
+    .partnership-cta .btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .partnership-intro-grid,
+      .contributions-grid,
+      .responsible-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .partner-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cowita-brings-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-step:nth-child(2n) {
+        border-right: none;
+      }
+
+      .process-step {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .process-step:last-child {
+        border-bottom: none;
+      }
+    }
+
+
+    @media (max-width: 700px) {
+
+      .partnership-hero {
+        min-height: 70vh;
+      }
+
+      .partnership-hero .container {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+      }
+
+      .partnership-hero h1 {
+        font-size: clamp(2.7rem, 14vw, 4.4rem);
+      }
+
+      .partnership-model-grid,
+      .partner-types-grid,
+      .cowita-brings-grid,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .partnership-model-card,
+      .partner-type {
+        min-height: auto;
+      }
+
+      .partner-type {
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .process-step {
+        border-right: none;
+      }
+
+      .process-step-number {
+        margin-bottom: 2rem;
+      }
+
+      .contributions-image {
+        min-height: 350px;
+      }
+
+      .partnership-status-box {
+        padding: 2rem;
+      }
+
+      .partnership-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .partnership-cta .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main id="main-content">
+
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section class="partnership-hero">
+
+      <div class="container">
+
+        <div class="partnership-hero-content">
+
+          <div class="eyebrow reveal">
+            Partnership Support
+          </div>
+
+          <h1 class="reveal">
+            Bring what you have to what we are building.
+          </h1>
+
+          <p class="reveal">
+            CoWiTa is building pathways around young people's talent.
+            The right partners can help make those pathways wider,
+            stronger and more meaningful.
+          </p>
+
+          <div class="partnership-hero-actions reveal">
+
+            <a
+              href="/contact/"
+              class="btn btn-primary"
+            >
+              Start a Conversation
+            </a>
+
+            <a
+              href="/get-involved/partner.html"
+              class="btn btn-dark"
+            >
+              Explore Partnership
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+    ======================================================== -->
+
+    <section class="section partnership-intro">
+
+      <div class="container">
+
+        <div class="partnership-intro-grid">
+
+          <div>
+
+            <div class="section-label reveal">
+              Partnership support
+            </div>
+
+            <h2 class="reveal">
+              Stronger youth development takes more than one organisation.
+            </h2>
+
+          </div>
+
+
+          <div class="partnership-intro-copy">
+
+            <p>
+              CoWiTa's work sits at the intersection of talent, creativity,
+              skills, mentorship and opportunity. Each of those areas connects
+              to people and organisations with different strengths.
+            </p>
+
+            <p>
+              A school may have access to young people. A creative
+              organisation may have expertise. A business may have resources
+              or professional networks. A technology organisation may have
+              tools. A development organisation may have experience and
+              reach.
+            </p>
+
+            <p>
+              Partnership support is about bringing those strengths together
+              around a shared purpose.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHAT PARTNERSHIP CAN LOOK LIKE
+    ======================================================== -->
+
+    <section class="section partnership-model">
+
+      <div class="container">
+
+        <div class="partnership-model-header">
+
+          <div class="section-label reveal">
+            What partnership can look like
+          </div>
+
+          <h2 class="reveal">
+            Not every partnership has to look the same.
+          </h2>
+
+          <p class="reveal">
+            We are interested in relationships that make sense for both
+            sides and create something useful for the young people and
+            communities CoWiTa exists to serve.
+          </p>
+
+        </div>
+
+
+        <div class="partnership-model-grid">
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              01
+            </span>
+
+            <h3>
+              Programme Support
+            </h3>
+
+            <p>
+              Support the development or delivery of programmes, learning
+              experiences, creative activities and mentorship opportunities.
+            </p>
+
+          </article>
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              02
+            </span>
+
+            <h3>
+              Resource Support
+            </h3>
+
+            <p>
+              Provide equipment, technology, spaces, materials or other
+              resources that can make creative and learning opportunities
+              more accessible.
+            </p>
+
+          </article>
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              03
+            </span>
+
+            <h3>
+              Expertise &amp; Skills
+            </h3>
+
+            <p>
+              Bring professional knowledge, training, mentorship or technical
+              expertise that can strengthen what young people and the CoWiTa
+              team are able to do.
+            </p>
+
+          </article>
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              04
+            </span>
+
+            <h3>
+              Access &amp; Opportunity
+            </h3>
+
+            <p>
+              Open doors to platforms, networks, experiences, audiences,
+              internships, creative opportunities or other pathways for
+              developing talent.
+            </p>
+
+          </article>
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              05
+            </span>
+
+            <h3>
+              Financial Partnership
+            </h3>
+
+            <p>
+              Provide financial resources that help programmes, initiatives
+              or wider organisational development move from ideas into
+              sustainable work.
+            </p>
+
+          </article>
+
+
+          <article class="partnership-model-card reveal">
+
+            <span class="partnership-model-number">
+              06
+            </span>
+
+            <h3>
+              Long-Term Partnership
+            </h3>
+
+            <p>
+              Build an ongoing relationship around shared goals, combining
+              resources and capabilities over time rather than supporting
+              only one activity.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHO CAN PARTNER
+    ======================================================== -->
+
+    <section class="section partner-types">
+
+      <div class="container">
+
+        <div class="section-label reveal">
+          Who can partner
+        </div>
+
+        <h2 class="reveal">
+          If you have something that can strengthen the journey,
+          there may be a place for you here.
+        </h2>
+
+        <p class="partner-types-intro reveal">
+          We are open to partnerships across sectors where there is genuine
+          alignment with CoWiTa's purpose and a clear benefit to the young
+          people and communities involved.
+        </p>
+
+
+        <div class="partner-types-grid">
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              01
+            </span>
+
+            <h3>
+              Schools &amp; Learning Institutions
+            </h3>
+
+            <p>
+              Create pathways for students to discover, develop and
+              practically explore their abilities.
+            </p>
+
+          </article>
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              02
+            </span>
+
+            <h3>
+              Businesses
+            </h3>
+
+            <p>
+              Contribute resources, professional expertise, opportunities,
+              technology or funding toward youth development.
+            </p>
+
+          </article>
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              03
+            </span>
+
+            <h3>
+              Creative Organisations
+            </h3>
+
+            <p>
+              Bring creative expertise, platforms, production capacity,
+              mentorship or opportunities for emerging talent.
+            </p>
+
+          </article>
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              04
+            </span>
+
+            <h3>
+              Community Organisations
+            </h3>
+
+            <p>
+              Connect CoWiTa with communities, local knowledge, networks
+              and existing youth-focused initiatives.
+            </p>
+
+          </article>
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              05
+            </span>
+
+            <h3>
+              Development Organisations
+            </h3>
+
+            <p>
+              Explore programme, capacity-building, funding or knowledge
+              partnerships around youth development and opportunity.
+            </p>
+
+          </article>
+
+
+          <article class="partner-type reveal">
+
+            <span class="partner-type-number">
+              06
+            </span>
+
+            <h3>
+              Technology &amp; Innovation Partners
+            </h3>
+
+            <p>
+              Help build tools, platforms and digital pathways that make
+              learning, creativity and opportunity more accessible.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHAT PARTNERS BRING
+    ======================================================== -->
+
+    <section class="section partnership-contributions">
+
+      <div class="container">
+
+        <div class="contributions-grid">
+
+
+          <div class="contributions-image reveal">
+            <span class="sr-only">
+              People working together on a creative project.
+            </span>
+          </div>
+
+
+          <div class="contributions-copy">
+
+            <div class="section-label reveal">
+              What you can bring
+            </div>
+
+            <h2 class="reveal">
+              Your strongest contribution may not be money.
+            </h2>
+
+            <p class="reveal">
+              Financial resources are valuable, but partnership can also
+              mean opening a door, sharing knowledge, providing a platform
+              or bringing people together.
+            </p>
+
+
+            <div class="contribution-list">
+
+
+              <div class="contribution-item reveal">
+
+                <div class="contribution-number">
+                  01
+                </div>
+
+                <div>
+                  <h3>
+                    Expertise
+                  </h3>
+
+                  <p>
+                    Professional or technical knowledge that young people
+                    and programmes can learn from.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="contribution-item reveal">
+
+                <div class="contribution-number">
+                  02
+                </div>
+
+                <div>
+                  <h3>
+                    Networks
+                  </h3>
+
+                  <p>
+                    Relationships and connections that can create new
+                    pathways and opportunities.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="contribution-item reveal">
+
+                <div class="contribution-number">
+                  03
+                </div>
+
+                <div>
+                  <h3>
+                    Platforms
+                  </h3>
+
+                  <p>
+                    Spaces, audiences and channels through which emerging
+                    talent can be seen and heard.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="contribution-item reveal">
+
+                <div class="contribution-number">
+                  04
+                </div>
+
+                <div>
+                  <h3>
+                    Resources
+                  </h3>
+
+                  <p>
+                    Equipment, technology, spaces, materials or financial
+                    support that makes activity possible.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="contribution-item reveal">
+
+                <div class="contribution-number">
+                  05
+                </div>
+
+                <div>
+                  <h3>
+                    Opportunity
+                  </h3>
+
+                  <p>
+                    Real experiences through which young people can apply
+                    their developing skills.
+                  </p>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHAT COWITA BRINGS
+    ======================================================== -->
+
+    <section class="section cowita-brings">
+
+      <div class="container">
+
+        <div class="cowita-brings-header">
+
+          <div class="section-label reveal">
+            What CoWiTa brings
+          </div>
+
+          <h2 class="reveal">
+            Partnership should work both ways.
+          </h2>
+
+          <p class="reveal">
+            A meaningful partnership is not simply about what CoWiTa can
+            receive. It should also create a clear contribution from our side.
+            As CoWiTa develops, our role is to bring the talent-development
+            perspective, community context and coordination needed to connect
+            resources with meaningful youth opportunities.
+          </p>
+
+        </div>
+
+
+        <div class="cowita-brings-grid">
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              A Talent-First Lens
+            </h3>
+
+            <p>
+              We begin with what young people already carry and look for
+              ways to help those abilities develop into practical pathways.
+            </p>
+
+          </article>
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              Creative Development
+            </h3>
+
+            <p>
+              Creative disciplines provide a practical entry point for
+              discovering confidence, discipline, expression and capability.
+            </p>
+
+          </article>
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              Youth-Centred Thinking
+            </h3>
+
+            <p>
+              Young people should not simply be recipients of programmes.
+              Their experiences and perspectives matter to how opportunities
+              are designed.
+            </p>
+
+          </article>
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              Community Connection
+            </h3>
+
+            <p>
+              CoWiTa is intended to connect individual talent with the
+              wider communities, networks and opportunities around it.
+            </p>
+
+          </article>
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              A Platform for Growth
+            </h3>
+
+            <p>
+              The longer-term ambition is to connect development with
+              platforms, visibility and opportunities beyond training alone.
+            </p>
+
+          </article>
+
+
+          <article class="cowita-bring reveal">
+
+            <h3>
+              A Shared Mission
+            </h3>
+
+            <p>
+              The strongest partnerships will be built around a genuine
+              shared interest in expanding opportunity for young people.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         HOW IT WORKS
+    ======================================================== -->
+
+    <section class="section partnership-process">
+
+      <div class="container">
+
+        <div class="process-header">
+
+          <div class="section-label reveal">
+            How we approach partnership
+          </div>
+
+          <h2 class="reveal">
+            Start with a conversation, not a proposal template.
+          </h2>
+
+          <p class="reveal">
+            We would rather understand what you care about, what you can
+            contribute and what you hope to achieve before deciding what
+            a partnership should look like.
+          </p>
+
+        </div>
+
+
+        <div class="process">
+
+
+          <div class="process-step reveal">
+
+            <span class="process-step-number">
+              01
+            </span>
+
+            <h3>
+              Connect
+            </h3>
+
+            <p>
+              Tell us about your organisation, your interests and why
+              CoWiTa caught your attention.
+            </p>
+
+          </div>
+
+
+          <div class="process-step reveal">
+
+            <span class="process-step-number">
+              02
+            </span>
+
+            <h3>
+              Explore
+            </h3>
+
+            <p>
+              We look at where your strengths and CoWiTa's work genuinely
+              intersect.
+            </p>
+
+          </div>
+
+
+          <div class="process-step reveal">
+
+            <span class="process-step-number">
+              03
+            </span>
+
+            <h3>
+              Shape
+            </h3>
+
+            <p>
+              Together we define the purpose, contribution, responsibilities
+              and intended outcomes.
+            </p>
+
+          </div>
+
+
+          <div class="process-step reveal">
+
+            <span class="process-step-number">
+              04
+            </span>
+
+            <h3>
+              Build
+            </h3>
+
+            <p>
+              We establish the practical arrangements needed to move from
+              an idea into action.
+            </p>
+
+          </div>
+
+
+          <div class="process-step reveal">
+
+            <span class="process-step-number">
+              05
+            </span>
+
+            <h3>
+              Learn
+            </h3>
+
+            <p>
+              We review what is working, listen to the people involved and
+              improve the partnership as it develops.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         RESPONSIBLE PARTNERSHIP
+    ======================================================== -->
+
+    <section class="section responsible-partnership">
+
+      <div class="container">
+
+        <div class="responsible-grid">
+
+
+          <div>
+
+            <div class="section-label reveal">
+              Responsible partnership
+            </div>
+
+            <h2 class="reveal">
+              The people we serve come first.
+            </h2>
+
+          </div>
+
+
+          <div class="responsible-copy">
+
+            <p class="reveal">
+              Because CoWiTa works around children and young people,
+              partnerships must be built with care. Shared ambition is
+              important, but so are safety, respect, clear responsibilities
+              and appropriate boundaries.
+            </p>
+
+
+            <div class="responsibility-list">
+
+
+              <div class="responsibility-item reveal">
+
+                <strong>
+                  Youth-centred
+                </strong>
+
+                <span>
+                  Partnerships should ultimately create meaningful value
+                  for the young people involved.
+                </span>
+
+              </div>
+
+
+              <div class="responsibility-item reveal">
+
+                <strong>
+                  Safe
+                </strong>
+
+                <span>
+                  Activities involving children and young people should
+                  follow appropriate safeguarding and consent practices.
+                </span>
+
+              </div>
+
+
+              <div class="responsibility-item reveal">
+
+                <strong>
+                  Clear
+                </strong>
+
+                <span>
+                  Roles, responsibilities, expectations and resources should
+                  be understood before joint work begins.
+                </span>
+
+              </div>
+
+
+              <div class="responsibility-item reveal">
+
+                <strong>
+                  Respectful
+                </strong>
+
+                <span>
+                  Young people, communities and partner organisations should
+                  be treated with dignity throughout the relationship.
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CURRENT STAGE
+    ======================================================== -->
+
+    <section class="section partnership-status">
+
+      <div class="container">
+
+        <div class="partnership-status-box reveal">
+
+          <span class="status-tag">
+            Building the partnership network
+          </span>
+
+          <h2>
+            We are opening the door to the right conversations.
+          </h2>
+
+          <p>
+            CoWiTa is still developing its partnership structures and
+            programme portfolio. That means there is room for early
+            partners to help shape how this ecosystem grows. If you see
+            a genuine connection between your organisation and CoWiTa's
+            purpose, we would like to hear from you.
+          </p>
+
+          <div style="margin-top: 1.8rem;">
+
+            <a
+              href="/contact/"
+              class="btn btn-dark"
+            >
+              Start a Conversation
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+    ======================================================== -->
+
+    <section class="section partnership-cta">
+
+      <div class="container">
+
+        <div class="partnership-cta-inner">
+
+          <div>
+
+            <h2 class="reveal">
+              What could we build together?
+            </h2>
+
+            <p class="reveal">
+              You may already have an idea. Or you may simply see a
+              connection worth exploring. Either is a good place to start.
+            </p>
+
+          </div>
+
+
+          <a
+            href="/contact/"
+            class="btn btn-dark reveal"
+          >
+            Talk to CoWiTa
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

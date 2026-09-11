@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Writing | CoWiTa</title>
+  <meta
+    name="description"
+    content="CoWiTa's writing pathway helps children and young people develop their voice, storytelling ability and creative expression through writing."
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       WRITING PAGE
+       ========================================================= */
+
+    .writing-hero {
+      background: var(--deep-teal, #123f3b);
+      color: #fff;
+      padding: 8rem 0 6rem;
+      overflow: hidden;
+    }
+
+    .writing-hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .writing-hero-copy {
+      max-width: 720px;
+    }
+
+    .writing-hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: .95;
+      letter-spacing: -0.055em;
+      margin: .8rem 0 1.5rem;
+    }
+
+    .writing-hero h1 span {
+      color: #d6a84f;
+    }
+
+    .writing-hero p {
+      max-width: 650px;
+      color: rgba(255,255,255,.78);
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+
+    .writing-hero-image {
+      position: relative;
+    }
+
+    .writing-hero-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 2rem 2rem 2rem .4rem;
+      display: block;
+      filter: saturate(.9);
+    }
+
+    .writing-note {
+      position: absolute;
+      left: -2rem;
+      bottom: 2rem;
+      max-width: 230px;
+      padding: 1.2rem 1.4rem;
+      background: #d6a84f;
+      color: #123f3b;
+      border-radius: .7rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      transform: rotate(-3deg);
+    }
+
+    .writing-note strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      margin-bottom: .35rem;
+    }
+
+    .writing-note span {
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    .writing-intro {
+      padding: 7rem 0;
+    }
+
+    .writing-intro-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .writing-intro h2,
+    .writing-development h2,
+    .writing-pathway h2,
+    .writing-status h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin: .7rem 0 1.5rem;
+      color: #123f3b;
+    }
+
+    .writing-intro-copy {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #4f5f5d;
+    }
+
+    .writing-intro-copy p {
+      margin-bottom: 1.3rem;
+    }
+
+    .writing-quote {
+      border-left: 3px solid #d6a84f;
+      padding-left: 1.5rem;
+      margin-top: 2rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: #123f3b;
+    }
+
+    .writing-development {
+      background: #f3f0e9;
+      padding: 7rem 0;
+    }
+
+    .writing-development-header {
+      max-width: 760px;
+      margin-bottom: 3.5rem;
+    }
+
+    .writing-development-header p {
+      max-width: 650px;
+      color: #5b6866;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .writing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .writing-card {
+      background: #fff;
+      padding: 2.2rem;
+      border-radius: 1.25rem;
+      min-height: 245px;
+      border: 1px solid rgba(18,63,59,.08);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .writing-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(18,63,59,.1);
+    }
+
+    .writing-card-number {
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b18435;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .writing-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.65rem;
+      color: #123f3b;
+      margin: 0 0 .8rem;
+    }
+
+    .writing-card p {
+      color: #64716f;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .writing-pathway {
+      padding: 7rem 0;
+    }
+
+    .writing-pathway-intro {
+      max-width: 720px;
+      margin-bottom: 4rem;
+    }
+
+    .writing-pathway-intro p {
+      color: #5f6c6a;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .writing-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid rgba(18,63,59,.18);
+    }
+
+    .writing-step {
+      padding: 2rem 1.25rem 1rem;
+      border-right: 1px solid rgba(18,63,59,.12);
+    }
+
+    .writing-step:last-child {
+      border-right: 0;
+    }
+
+    .writing-step span {
+      display: block;
+      font-size: .75rem;
+      color: #b18435;
+      font-weight: 700;
+      letter-spacing: .1em;
+      margin-bottom: 1.4rem;
+    }
+
+    .writing-step h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #123f3b;
+      font-size: 1.35rem;
+      margin: 0 0 .7rem;
+    }
+
+    .writing-step p {
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #687573;
+      margin: 0;
+    }
+
+    .writing-gallery {
+      padding: 0 0 7rem;
+    }
+
+    .writing-gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .writing-gallery-header h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #123f3b;
+      font-size: clamp(2.3rem, 4vw, 3.7rem);
+      line-height: 1;
+      margin: .5rem 0 0;
+    }
+
+    .writing-gallery-header p {
+      max-width: 450px;
+      color: #65716f;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .writing-gallery-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1.25rem;
+    }
+
+    .writing-gallery-main,
+    .writing-gallery-side {
+      overflow: hidden;
+      border-radius: 1.4rem;
+    }
+
+    .writing-gallery-main img,
+    .writing-gallery-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .writing-gallery-main {
+      min-height: 530px;
+    }
+
+    .writing-gallery-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .writing-gallery-side > div {
+      overflow: hidden;
+      border-radius: 1.4rem;
+      min-height: 255px;
+    }
+
+    .writing-gallery-main:hover img,
+    .writing-gallery-side > div:hover img {
+      transform: scale(1.045);
+    }
+
+    .writing-status {
+      background: #123f3b;
+      color: #fff;
+      padding: 6rem 0;
+    }
+
+    .writing-status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .writing-status h2 {
+      color: #fff;
+    }
+
+    .writing-status p {
+      color: rgba(255,255,255,.74);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .writing-status-box {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 1.3rem;
+      padding: 2.2rem;
+      background: rgba(255,255,255,.04);
+    }
+
+    .writing-status-box h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      margin: 0 0 1rem;
+    }
+
+    .writing-status-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .writing-status-box li {
+      padding: .8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.72);
+    }
+
+    .writing-status-box li:last-child {
+      border-bottom: 0;
+    }
+
+    .writing-status-box li::before {
+      content: "—";
+      color: #d6a84f;
+      margin-right: .7rem;
+    }
+
+    .writing-cta {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+    }
+
+    .writing-next {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(18,63,59,.1);
+    }
+
+    .writing-next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .writing-next-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      border: 1px solid rgba(18,63,59,.12);
+      border-radius: 1rem;
+      text-decoration: none;
+      transition: background .3s ease, transform .3s ease;
+    }
+
+    .writing-next-card:hover {
+      background: #f3f0e9;
+      transform: translateY(-4px);
+    }
+
+    .writing-next-card small {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .7rem;
+      color: #b18435;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .writing-next-card strong {
+      color: #123f3b;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+    }
+
+    .writing-next-arrow {
+      color: #123f3b;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .writing-hero {
+        padding: 6rem 0 4rem;
+      }
+
+      .writing-hero-grid,
+      .writing-intro-grid,
+      .writing-status-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .writing-hero-image {
+        max-width: 650px;
+      }
+
+      .writing-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .writing-step:nth-child(3) {
+        border-right: 0;
+      }
+
+      .writing-step:nth-child(n+4) {
+        border-top: 1px solid rgba(18,63,59,.12);
+      }
+
+      .writing-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .writing-gallery-main {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .writing-hero h1 {
+        font-size: 3.4rem;
+      }
+
+      .writing-note {
+        left: 1rem;
+        bottom: 1rem;
+      }
+
+      .writing-cards,
+      .writing-next-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .writing-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .writing-step,
+      .writing-step:nth-child(3) {
+        border-right: 0;
+        border-bottom: 1px solid rgba(18,63,59,.12);
+      }
+
+      .writing-step:last-child {
+        border-bottom: 0;
+      }
+
+      .writing-gallery-header {
+        display: block;
+      }
+
+      .writing-gallery-header p {
+        margin-top: 1.5rem;
+      }
+
+      .writing-gallery-main {
+        min-height: 300px;
+      }
+
+      .writing-gallery-side {
+        grid-template-rows: 260px 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="writing-hero">
+      <div class="container writing-hero-grid">
+
+        <div class="writing-hero-copy reveal">
+
+          <div class="eyebrow">OUR WORK / WRITING</div>
+
+          <h1>
+            Your words can<br>
+            <span>go somewhere.</span>
+          </h1>
+
+          <p>
+            Writing gives young people a way to make sense of what they see,
+            imagine what could be and give their ideas a voice. CoWiTa sees
+            writing not simply as an academic skill, but as a creative
+            discipline that can grow into storytelling, communication,
+            authorship and opportunity.
+          </p>
+
+          <div class="writing-cta">
+            <a href="/get-involved/have-talent.html" class="btn btn-primary">
+              I Have Talent
+            </a>
+
+            <a href="/work/" class="btn btn-dark">
+              Explore Our Work
+            </a>
+          </div>
+
+        </div>
+
+        <div class="writing-hero-image reveal">
+
+          <!-- IMAGE: work-writing-hero.jpg -->
+          <img
+            src="/assets/images/work-writing-hero.jpg"
+            alt="Young writer developing a story with a notebook"
+          >
+
+          <div class="writing-note">
+            <strong>Start with a thought.</strong>
+            <span>
+              Then give it structure, a voice and somewhere to be heard.
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="writing-intro section">
+      <div class="container writing-intro-grid">
+
+        <div class="reveal">
+          <div class="section-label">WHY WRITING</div>
+
+          <h2>
+            A blank page is not the end.
+            It is the beginning.
+          </h2>
+        </div>
+
+        <div class="writing-intro-copy reveal">
+
+          <p>
+            A young person may already be writing without calling themselves
+            a writer — in notebooks, poems, stories, scripts, journals,
+            spoken-word pieces, school projects or ideas they keep to
+            themselves.
+          </p>
+
+          <p>
+            The opportunity is to help that raw expression become something
+            stronger: a clear voice, a developed story, a finished piece and,
+            eventually, work that can reach an audience.
+          </p>
+
+          <p>
+            CoWiTa's approach is therefore not about telling young people
+            what to write. It is about helping them discover what they want
+            to say, develop the craft to say it well and understand where
+            their creativity can take them.
+          </p>
+
+          <div class="writing-quote">
+            “Every talent deserves the opportunity to grow, be seen and
+            create lasting impact.”
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DEVELOPMENT
+         ===================================================== -->
+
+    <section class="writing-development">
+      <div class="container">
+
+        <div class="writing-development-header reveal">
+
+          <div class="section-label">WHAT DEVELOPMENT CAN LOOK LIKE</div>
+
+          <h2>
+            From having something to say
+            to knowing how to say it.
+          </h2>
+
+          <p>
+            Writing development can take many forms. The focus is on building
+            confidence and craft while giving young creators practical ways
+            to develop and present their work.
+          </p>
+
+        </div>
+
+
+        <div class="writing-cards">
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">01 / FIND YOUR VOICE</div>
+
+            <h3>Voice &amp; Expression</h3>
+
+            <p>
+              Discovering what you care about, developing a personal point of
+              view and learning how to communicate ideas with confidence.
+            </p>
+          </article>
+
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">02 / BUILD THE STORY</div>
+
+            <h3>Storytelling &amp; Structure</h3>
+
+            <p>
+              Exploring characters, ideas, scenes, beginnings, turning points
+              and endings so that a good idea can become a compelling story.
+            </p>
+          </article>
+
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">03 / DEVELOP THE CRAFT</div>
+
+            <h3>Writing Practice</h3>
+
+            <p>
+              Strengthening clarity, description, dialogue, pacing, editing
+              and the discipline required to move from an idea to a finished
+              piece.
+            </p>
+          </article>
+
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">04 / MAKE IT REAL</div>
+
+            <h3>Projects &amp; Portfolio</h3>
+
+            <p>
+              Turning selected work into pieces that can be shared, presented,
+              performed or developed into a broader creative portfolio.
+            </p>
+          </article>
+
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">05 / EXPAND THE FORMAT</div>
+
+            <h3>Creative Writing Across Media</h3>
+
+            <p>
+              Exploring how writing can become poetry, scripts, digital
+              stories, spoken word, articles, captions, books and other
+              creative formats.
+            </p>
+          </article>
+
+
+          <article class="writing-card reveal">
+            <div class="writing-card-number">06 / GROW WITH OTHERS</div>
+
+            <h3>Mentorship &amp; Feedback</h3>
+
+            <p>
+              Learning through constructive feedback, collaboration and
+              guidance from people who can help emerging writers keep
+              developing their craft.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PATHWAY
+         ===================================================== -->
+
+    <section class="writing-pathway">
+      <div class="container">
+
+        <div class="writing-pathway-intro reveal">
+
+          <div class="section-label">FROM TALENT TO OPPORTUNITY</div>
+
+          <h2>
+            Writing is the talent.
+            The pathway is bigger.
+          </h2>
+
+          <p>
+            CoWiTa's wider model is designed to move creative ability beyond
+            discovery. For a young writer, that can mean developing the craft,
+            creating meaningful work, finding platforms for that work and
+            eventually understanding how creativity can contribute to a
+            sustainable future.
+          </p>
+
+        </div>
+
+
+        <div class="writing-steps">
+
+          <div class="writing-step reveal">
+            <span>01</span>
+            <h3>Identify</h3>
+            <p>
+              Recognise the interest, curiosity and potential already present.
+            </p>
+          </div>
+
+          <div class="writing-step reveal">
+            <span>02</span>
+            <h3>Develop</h3>
+            <p>
+              Build writing ability, confidence, discipline and creative
+              thinking.
+            </p>
+          </div>
+
+          <div class="writing-step reveal">
+            <span>03</span>
+            <h3>Create</h3>
+            <p>
+              Turn ideas into stories, poems, scripts, articles and other
+              finished work.
+            </p>
+          </div>
+
+          <div class="writing-step reveal">
+            <span>04</span>
+            <h3>Platform</h3>
+            <p>
+              Give strong work opportunities to be shared, performed or
+              published.
+            </p>
+          </div>
+
+          <div class="writing-step reveal">
+            <span>05</span>
+            <h3>Monetize</h3>
+            <p>
+              Explore ethical ways creative work and writing skills can
+              create economic opportunity.
+            </p>
+          </div>
+
+          <div class="writing-step reveal">
+            <span>06</span>
+            <h3>Sustain</h3>
+            <p>
+              Keep learning, creating and building a long-term creative
+              pathway.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         VISUAL STORY / GALLERY
+         ===================================================== -->
+
+    <section class="writing-gallery">
+      <div class="container">
+
+        <div class="writing-gallery-header reveal">
+
+          <div>
+            <div class="section-label">THE CREATIVE PROCESS</div>
+
+            <h2>
+              Ideas become stories
+              when we work on them.
+            </h2>
+          </div>
+
+          <p>
+            CoWiTa's future writing spaces will create room for young people
+            to experiment, write, receive feedback and build work they are
+            proud to put their name on.
+          </p>
+
+        </div>
+
+
+        <div class="writing-gallery-grid">
+
+          <div class="writing-gallery-main reveal">
+            <!-- IMAGE: work-writing-01.jpg -->
+            <img
+              src="/assets/images/work-writing-01.jpg"
+              alt="Young person writing and developing a creative idea"
+            >
+          </div>
+
+
+          <div class="writing-gallery-side">
+
+            <div class="reveal">
+              <!-- IMAGE: work-writing-02.jpg -->
+              <img
+                src="/assets/images/work-writing-02.jpg"
+                alt="Notebook containing creative writing ideas"
+              >
+            </div>
+
+            <div class="reveal">
+              <!-- IMAGE: work-writing-03.jpg -->
+              <img
+                src="/assets/images/work-writing-03.jpg"
+                alt="Young creatives sharing and discussing written work"
+              >
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         STATUS / COMING SOON
+         ===================================================== -->
+
+    <section class="writing-status">
+      <div class="container writing-status-grid">
+
+        <div class="reveal">
+
+          <div class="section-label">WHERE WE ARE</div>
+
+          <h2>
+            The writing pathway is being built.
+          </h2>
+
+          <p>
+            CoWiTa is developing the structures, partnerships and opportunities
+            needed to make creative development meaningful and sustainable.
+          </p>
+
+          <p>
+            Rather than promise programmes that are not yet fully established,
+            we will share confirmed opportunities here as they become
+            available.
+          </p>
+
+          <div class="writing-cta">
+            <a href="/get-involved/have-talent.html" class="btn btn-primary">
+              Tell Us About Your Talent
+            </a>
+
+            <a href="/contact/" class="btn btn-dark">
+              Contact CoWiTa
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="writing-status-box reveal">
+
+          <h3>Coming Soon</h3>
+
+          <ul>
+            <li>Writing development opportunities</li>
+            <li>Creative writing sessions</li>
+            <li>Mentorship opportunities</li>
+            <li>Writing and storytelling projects</li>
+            <li>Platforms for emerging writers</li>
+            <li>Confirmed programme locations and dates</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         NEXT DISCIPLINES
+         ===================================================== -->
+
+    <section class="writing-next">
+      <div class="container">
+
+        <div class="section-label">KEEP EXPLORING</div>
+
+        <div class="writing-next-grid">
+
+          <a href="/work/drawing.html" class="writing-next-card reveal">
+            <div>
+              <small>Previous discipline</small>
+              <strong>Drawing</strong>
+            </div>
+            <span class="writing-next-arrow">←</span>
+          </a>
+
+          <a href="/work/acting.html" class="writing-next-card reveal">
+            <div>
+              <small>Next discipline</small>
+              <strong>Acting</strong>
+            </div>
+            <span class="writing-next-arrow">→</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

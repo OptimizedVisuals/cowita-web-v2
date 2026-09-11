@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Dance at CoWiTa — developing young dancers through training, mentorship, creative practice, performance and pathways to opportunity."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Dance — CoWiTa</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       DANCE PAGE
+       Page-specific styles only.
+       ========================================================= */
+
+    .dance-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--deep-teal);
+      color: #fff;
+      padding: 150px 0 75px;
+    }
+
+    .dance-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 30, 34, .94) 0%,
+          rgba(5, 30, 34, .72) 48%,
+          rgba(5, 30, 34, .25) 100%
+        );
+      z-index: 1;
+    }
+
+    .dance-hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .dance-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .dance-hero-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .dance-hero-content {
+      max-width: 850px;
+    }
+
+    .dance-hero h1 {
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      font-weight: 500;
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+
+    .dance-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .dance-hero-copy {
+      max-width: 650px;
+      margin: 28px 0 0;
+
+      color: rgba(255,255,255,.78);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .dance-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .dance-hero-actions .btn-primary {
+      background: var(--gold);
+      color: #191711;
+    }
+
+    .dance-hero-actions .btn-primary:hover {
+      background: #f0bb38;
+    }
+
+    .dance-hero-side {
+      align-self: end;
+      justify-self: end;
+      max-width: 310px;
+
+      padding: 25px;
+
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .dance-hero-side-label {
+      margin-bottom: 12px;
+
+      color: var(--gold);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .dance-hero-side p {
+      margin: 0;
+
+      color: rgba(255,255,255,.72);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
+
+    .dance-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .dance-intro-copy {
+      max-width: 720px;
+    }
+
+    .dance-intro-copy .lead {
+      margin: 0 0 24px;
+
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .dance-intro-copy p {
+      margin: 0 0 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       THE IDEA
+       ========================================================= */
+
+    .dance-belief {
+      background: var(--cream);
+    }
+
+    .dance-belief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .dance-belief-image {
+      position: relative;
+    }
+
+    .dance-belief-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+
+      border-radius: 30px 30px 110px 30px;
+    }
+
+    .dance-belief-image::after {
+      content: "";
+
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+
+      width: 95px;
+      height: 95px;
+
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .dance-belief-copy {
+      max-width: 650px;
+    }
+
+    .dance-belief-copy h2 {
+      margin-bottom: 25px;
+    }
+
+    .dance-belief-copy p {
+      margin: 0 0 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .dance-quote {
+      margin-top: 35px;
+      padding-left: 25px;
+
+      border-left: 3px solid var(--gold);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+
+
+    /* =========================================================
+       DEVELOPMENT PATHWAY
+       ========================================================= */
+
+    .pathway-header {
+      max-width: 750px;
+      margin-bottom: 55px;
+    }
+
+    .pathway-header p {
+      max-width: 650px;
+      margin-top: 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .dance-pathway {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .pathway-card {
+      position: relative;
+
+      min-height: 275px;
+      padding: 28px;
+
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
+      background: #fff;
+
+      overflow: hidden;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .pathway-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .pathway-number {
+      font-size: 3.2rem;
+      line-height: .8;
+      font-weight: 800;
+      opacity: .07;
+    }
+
+    .pathway-card h3 {
+      margin: 35px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.5rem;
+    }
+
+    .pathway-card p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       WHAT PARTICIPANTS EXPERIENCE
+       ========================================================= */
+
+    .experience-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .experience-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .experience-header .section-label {
+      color: var(--gold);
+    }
+
+    .experience-header p {
+      margin-top: 20px;
+
+      color: rgba(255,255,255,.68);
+      line-height: 1.7;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .experience-card {
+      min-height: 250px;
+      padding: 32px;
+
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+
+      background: rgba(255,255,255,.055);
+    }
+
+    .experience-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+      color: #191711;
+
+      font-size: .75rem;
+      font-weight: 800;
+    }
+
+    .experience-card h3 {
+      margin: 30px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.6rem;
+    }
+
+    .experience-card p {
+      margin: 0;
+
+      color: rgba(255,255,255,.62);
+      font-size: .8rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       OPPORTUNITY
+       ========================================================= */
+
+    .opportunity-section {
+      background: var(--paper);
+    }
+
+    .opportunity-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .opportunity-copy {
+      max-width: 650px;
+    }
+
+    .opportunity-copy p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .opportunity-list {
+      margin-top: 35px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .opportunity-item {
+      display: grid;
+      grid-template-columns: 35px 1fr;
+      gap: 15px;
+
+      padding: 19px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .opportunity-item-number {
+      color: var(--teal);
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .opportunity-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .opportunity-item span {
+      color: var(--muted);
+      font-size: .76rem;
+      line-height: 1.5;
+    }
+
+    .opportunity-card {
+      min-height: 430px;
+      padding: 45px;
+
+      border-radius: 28px;
+
+      background: var(--gold);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .opportunity-card-label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .opportunity-card h3 {
+      max-width: 450px;
+
+      margin: 35px 0 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .opportunity-card p {
+      max-width: 430px;
+      margin: 25px 0 0;
+
+      color: rgba(27,26,22,.7);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       COMING SOON
+       ========================================================= */
+
+    .coming-soon {
+      background: var(--cream);
+    }
+
+    .coming-soon-inner {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .coming-soon-inner h2 {
+      margin-bottom: 20px;
+    }
+
+    .coming-soon-inner p {
+      max-width: 650px;
+      margin: 0 auto;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+
+      margin-top: 30px;
+      padding: 9px 15px;
+
+      border: 1px solid var(--line);
+      border-radius: 100px;
+
+      background: #fff;
+
+      color: var(--teal);
+
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .dance-cta {
+      background: var(--gold);
+      color: #191711;
+    }
+
+    .dance-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .dance-cta h2 {
+      max-width: 800px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .dance-cta p {
+      max-width: 280px;
+      margin: 0;
+
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .dance-pathway {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .dance-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dance-hero-side {
+        justify-self: start;
+      }
+    }
+
+
+    @media (max-width: 900px) {
+
+      .dance-intro,
+      .dance-belief-grid,
+      .opportunity-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dance-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .dance-cta p {
+        max-width: 500px;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .dance-hero {
+        min-height: auto;
+        padding: 130px 0 55px;
+      }
+
+      .dance-hero h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+      }
+
+      .dance-hero-copy {
+        font-size: .95rem;
+      }
+
+      .dance-hero-side {
+        max-width: none;
+      }
+
+      .dance-belief-image img {
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .dance-pathway,
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .opportunity-card {
+        min-height: 350px;
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+
+<section class="dance-hero">
+
+  <div class="dance-hero-image">
+
+    <img
+      src="/assets/images/work/dance/dance-hero.jpg"
+      alt="Young dancer performing in a creative community setting"
+    >
+
+  </div>
+
+
+  <div class="container dance-hero-grid">
+
+    <div class="dance-hero-content reveal">
+
+      <div class="eyebrow">
+        Our Work · Dance
+      </div>
+
+      <h1>
+        Movement can become
+        <em>possibility.</em>
+      </h1>
+
+      <p class="dance-hero-copy">
+        CoWiTa uses dance as a starting point for creative
+        development, discipline, confidence, collaboration
+        and pathways toward meaningful opportunity.
+      </p>
+
+      <div class="dance-hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/get-involved/have-talent.html"
+        >
+          I Have Talent
+        </a>
+
+        <a
+          class="btn btn-outline"
+          href="/work/"
+        >
+          Explore Our Work
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <aside class="dance-hero-side reveal">
+
+      <div class="dance-hero-side-label">
+        CoWiTa approach
+      </div>
+
+      <p>
+        Dance is not treated simply as performance.
+        It can become a discipline through which a young
+        person develops skills, creates work, builds confidence
+        and discovers new possibilities.
+      </p>
+
+    </aside>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. INTRODUCTION
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container dance-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        Why dance?
+      </div>
+
+      <h2>
+        Start with what
+        already moves you.
+      </h2>
+
+    </div>
+
+
+    <div class="dance-intro-copy reveal">
+
+      <p class="lead">
+        For many young people, dance begins long before
+        anyone calls it a skill.
+      </p>
+
+      <p>
+        It can begin at home, at school, at church, in a
+        neighbourhood, at an event or simply with friends.
+        A young person may already be creating movement,
+        copying routines, choreographing performances or
+        expressing themselves through dance.
+      </p>
+
+      <p>
+        CoWiTa sees that ability as a starting point.
+        Rather than asking a young person to abandon what
+        they naturally enjoy, we seek to create a pathway
+        through which that interest can become stronger,
+        more disciplined and more useful.
+      </p>
+
+      <p>
+        Through training, mentorship, creative practice,
+        performance and connection to opportunity, dance
+        can become more than an activity. It can become
+        part of a person's development and future.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. BELIEF
+     ========================================================= -->
+
+<section class="section dance-belief">
+
+  <div class="container dance-belief-grid">
+
+    <div class="dance-belief-image reveal">
+
+      <img
+        src="/assets/images/work/dance/dance-training.jpg"
+        alt="Young people learning and practising dance together"
+        loading="lazy"
+      >
+
+    </div>
+
+
+    <div class="dance-belief-copy reveal">
+
+      <div class="section-label">
+        What we believe
+      </div>
+
+      <h2>
+        A dancer needs more
+        than a stage.
+      </h2>
+
+      <p>
+        A strong performance may be the visible result,
+        but meaningful development happens long before
+        the audience arrives.
+      </p>
+
+      <p>
+        Young dancers need opportunities to learn technique,
+        develop discipline, work with others, understand
+        creative production and build the confidence to
+        present their work.
+      </p>
+
+      <p>
+        They also need people who can help them understand
+        what their ability could become.
+      </p>
+
+      <div class="dance-quote">
+        We want young people to move from
+        <strong>“I can dance”</strong>
+        to
+        <strong>“I can build something with this.”</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. DEVELOPMENT PATHWAY
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="pathway-header reveal">
+
+      <div class="section-label">
+        The pathway
+      </div>
+
+      <h2>
+        From natural ability
+        to creative opportunity.
+      </h2>
+
+      <p>
+        Dance development within CoWiTa follows the wider
+        talent-to-opportunity model. The exact programmes
+        and delivery structures will continue to develop
+        as the organisation grows.
+      </p>
+
+    </div>
+
+
+    <div class="dance-pathway">
+
+      <article class="pathway-card reveal">
+
+        <div class="pathway-number">
+          01
+        </div>
+
+        <h3>
+          Discover
+        </h3>
+
+        <p>
+          Identify young people with an interest or natural
+          ability in dance and create spaces where that
+          potential can be recognised.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-card reveal">
+
+        <div class="pathway-number">
+          02
+        </div>
+
+        <h3>
+          Develop
+        </h3>
+
+        <p>
+          Strengthen technique, discipline, confidence and
+          creative thinking through structured learning
+          and practice.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-card reveal">
+
+        <div class="pathway-number">
+          03
+        </div>
+
+        <h3>
+          Create
+        </h3>
+
+        <p>
+          Turn learning into choreography, performances,
+          productions and other creative work.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-card reveal">
+
+        <div class="pathway-number">
+          04
+        </div>
+
+        <h3>
+          Connect
+        </h3>
+
+        <p>
+          Build relationships with audiences, creative
+          practitioners, organisations and potential
+          opportunities.
+        </p>
+
+      </article>
+
+
+      <article class="pathway-card reveal">
+
+        <div class="pathway-number">
+          05
+        </div>
+
+        <h3>
+          Grow
+        </h3>
+
+        <p>
+          Continue developing the dancer as a creative
+          practitioner and as a young person with wider
+          skills and possibilities.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. EXPERIENCE
+     ========================================================= -->
+
+<section class="section experience-section">
+
+  <div class="container">
+
+    <div class="experience-header reveal">
+
+      <div class="section-label">
+        What development can include
+      </div>
+
+      <h2>
+        More than learning
+        choreography.
+      </h2>
+
+      <p>
+        CoWiTa's future dance programmes can combine creative
+        practice with wider personal and professional skills.
+        Specific programme structures will be introduced as
+        they are established.
+      </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          01
+        </div>
+
+        <h3>
+          Technique
+        </h3>
+
+        <p>
+          Building stronger movement foundations, physical
+          awareness, practice habits and performance ability.
+        </p>
+
+      </article>
+
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          02
+        </div>
+
+        <h3>
+          Choreography
+        </h3>
+
+        <p>
+          Helping young dancers move from following routines
+          to understanding and creating movement of their own.
+        </p>
+
+      </article>
+
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          03
+        </div>
+
+        <h3>
+          Collaboration
+        </h3>
+
+        <p>
+          Learning how to work with other dancers, creatives,
+          organisers and production teams.
+        </p>
+
+      </article>
+
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          04
+        </div>
+
+        <h3>
+          Performance
+        </h3>
+
+        <p>
+          Creating opportunities to practise presenting
+          creative work before real audiences.
+        </p>
+
+      </article>
+
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          05
+        </div>
+
+        <h3>
+          Creative skills
+        </h3>
+
+        <p>
+          Developing supporting abilities such as
+          communication, content creation, production and
+          creative entrepreneurship.
+        </p>
+
+      </article>
+
+
+      <article class="experience-card reveal">
+
+        <div class="experience-icon">
+          06
+        </div>
+
+        <h3>
+          Mentorship
+        </h3>
+
+        <p>
+          Connecting young people with people who can guide
+          their development and help them see wider possibilities.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. OPPORTUNITY
+     ========================================================= -->
+
+<section class="section opportunity-section">
+
+  <div class="container opportunity-layout">
+
+    <div class="opportunity-copy reveal">
+
+      <div class="section-label">
+        Beyond the classroom
+      </div>
+
+      <h2>
+        The goal is not
+        simply better dancers.
+      </h2>
+
+      <p>
+        CoWiTa ultimately wants creative development to open
+        doors. That means creating connections between talent,
+        creative work and opportunities that can continue
+        beyond a programme.
+      </p>
+
+
+      <div class="opportunity-list">
+
+        <div class="opportunity-item">
+
+          <div class="opportunity-item-number">
+            01
+          </div>
+
+          <div>
+
+            <strong>
+              Performances
+            </strong>
+
+            <span>
+              Opportunities to present creative work to
+              audiences and communities.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="opportunity-item">
+
+          <div class="opportunity-item-number">
+            02
+          </div>
+
+          <div>
+
+            <strong>
+              Creative productions
+            </strong>
+
+            <span>
+              Participation in collaborative performances,
+              productions and creative projects.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="opportunity-item">
+
+          <div class="opportunity-item-number">
+            03
+          </div>
+
+          <div>
+
+            <strong>
+              Collaborations
+            </strong>
+
+            <span>
+              Connections with other creatives, organisations,
+              events and potential partners.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="opportunity-item">
+
+          <div class="opportunity-item-number">
+            04
+          </div>
+
+          <div>
+
+            <strong>
+              Future income pathways
+            </strong>
+
+            <span>
+              Exploring how creative skills can eventually
+              connect to commissions, work and sustainable
+              livelihoods.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="opportunity-card reveal">
+
+      <div>
+
+        <div class="opportunity-card-label">
+          The bigger picture
+        </div>
+
+        <h3>
+          Talent should not
+          stop at potential.
+        </h3>
+
+        <p>
+          CoWiTa is building a model where creative ability
+          can lead somewhere — from learning, to creation,
+          to visibility, to opportunity.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn btn-dark"
+        href="/about/our-approach.html"
+      >
+        Explore Our Approach →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. COMING SOON
+     ========================================================= -->
+
+<section class="section coming-soon">
+
+  <div class="container coming-soon-inner reveal">
+
+    <div class="section-label">
+      Programme development
+    </div>
+
+    <h2>
+      Our dance programme is growing.
+    </h2>
+
+    <p>
+      Detailed programme schedules, training cohorts,
+      locations, mentors, participant numbers and measurable
+      results will be published as CoWiTa's dance initiatives
+      become operational.
+    </p>
+
+    <div class="coming-soon-badge">
+      Programme details coming soon
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. CTA
+     ========================================================= -->
+
+<section class="section dance-cta">
+
+  <div class="container dance-cta-inner reveal">
+
+    <h2>
+      Do you have a talent
+      you want to develop?
+    </h2>
+
+    <div>
+
+      <p>
+        If dance is something you already do, CoWiTa is
+        interested in helping you explore where that ability
+        could take you.
+      </p>
+
+      <a
+        class="btn btn-dark"
+        href="/get-involved/have-talent.html"
+        style="margin-top:20px;"
+      >
+        I Have Talent →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore the change CoWiTa is working toward — helping children and young people transform creative talent into skills, opportunities, livelihoods and community impact."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>Our Impact — CoWiTa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       IMPACT PAGE
+       Page-specific styles only.
+       Global design system remains in /css/styles.css
+       ========================================================= */
+
+    .impact-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background: var(--deep-teal);
+      color: #fff;
+
+      padding: 150px 0 85px;
+    }
+
+    .impact-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 78% 18%,
+          rgba(229,165,26,.24),
+          transparent 28%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(7,35,40,.96),
+          rgba(13,75,75,.76)
+        );
+    }
+
+    .impact-hero-grid {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 75px;
+      align-items: end;
+    }
+
+    .impact-hero h1 {
+      max-width: 850px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.4rem, 7vw, 6.7rem);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .impact-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .impact-hero-copy {
+      max-width: 570px;
+      margin-top: 28px;
+
+      color: rgba(255,255,255,.76);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .impact-hero-visual {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .impact-hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+
+      object-fit: cover;
+
+      border-radius: 34px 34px 110px 34px;
+    }
+
+    .impact-hero-note {
+      position: absolute;
+      left: -35px;
+      bottom: 28px;
+
+      width: 230px;
+      padding: 20px;
+
+      background: var(--gold);
+      color: #1d1b15;
+
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .impact-hero-note strong {
+      display: block;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .impact-hero-note span {
+      display: block;
+      margin-top: 8px;
+
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       IMPACT INTRO
+       ========================================================= */
+
+    .impact-intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .impact-intro-copy {
+      max-width: 720px;
+    }
+
+    .impact-intro-copy p {
+      margin: 0 0 22px;
+
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .impact-intro-copy p:first-child {
+      color: var(--ink);
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+
+    /* =========================================================
+       THEORY OF CHANGE
+       ========================================================= */
+
+    .change-section {
+      background: var(--cream);
+    }
+
+    .change-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .change-header p {
+      max-width: 650px;
+      margin-top: 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .change-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .change-card {
+      position: relative;
+
+      min-height: 285px;
+      padding: 28px;
+
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
+      transition:
+        transform .3s var(--ease),
+        border-color .3s var(--ease);
+    }
+
+    .change-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .change-number {
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .change-card h3 {
+      margin: 65px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.6rem;
+      line-height: 1.05;
+    }
+
+    .change-card p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       IMPACT AREAS
+       ========================================================= */
+
+    .impact-areas-header {
+      max-width: 720px;
+      margin-bottom: 50px;
+    }
+
+    .impact-areas-header p {
+      margin-top: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .impact-areas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .impact-area {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 25px;
+
+      padding: 32px;
+
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      background: #fff;
+    }
+
+    .impact-area-icon {
+      width: 55px;
+      height: 55px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--cream);
+      color: var(--teal);
+
+      font-size: .75rem;
+      font-weight: 800;
+    }
+
+    .impact-area h3 {
+      margin: 0 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.55rem;
+    }
+
+    .impact-area p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       WHAT WE MEASURE
+       ========================================================= */
+
+    .measure-section {
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .measure-header {
+      max-width: 760px;
+      margin-bottom: 55px;
+    }
+
+    .measure-header p {
+      margin-top: 20px;
+
+      color: rgba(255,255,255,.7);
+      line-height: 1.7;
+    }
+
+    .measure-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .measure-card {
+      min-height: 220px;
+      padding: 28px;
+
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+
+      background: rgba(255,255,255,.045);
+    }
+
+    .measure-card-label {
+      color: var(--gold);
+
+      font-size: .65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .measure-value {
+      margin: 45px 0 12px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .measure-card p {
+      margin: 0;
+
+      color: rgba(255,255,255,.6);
+      font-size: .75rem;
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       COMING SOON / DATA PROMISE
+       ========================================================= */
+
+    .data-section {
+      background: var(--paper);
+    }
+
+    .data-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .data-copy {
+      max-width: 620px;
+    }
+
+    .data-copy h2 {
+      margin-bottom: 20px;
+    }
+
+    .data-copy p {
+      margin: 0 0 20px;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .data-promise {
+      padding: 35px;
+
+      border-radius: 26px;
+
+      background: var(--cream);
+      border: 1px solid var(--line);
+    }
+
+    .data-promise-label {
+      color: var(--teal);
+
+      font-size: .65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .data-promise h3 {
+      margin: 22px 0 15px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+    .data-promise p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       CHANGE WE SEEK
+       ========================================================= */
+
+    .future-section {
+      background: var(--gold);
+      color: #1b1a16;
+    }
+
+    .future-layout {
+      display: grid;
+      grid-template-columns: 1fr .75fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .future-layout h2 {
+      max-width: 850px;
+      margin: 0;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.7rem, 5vw, 5.4rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+    }
+
+    .future-layout p {
+      margin: 0;
+
+      max-width: 390px;
+
+      font-size: .85rem;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       NEXT STEP
+       ========================================================= */
+
+    .impact-next {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .impact-next-copy {
+      max-width: 650px;
+    }
+
+    .impact-next-copy p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .impact-hero-grid,
+      .impact-intro,
+      .data-layout,
+      .future-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .change-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .measure-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-hero-visual {
+        min-height: 400px;
+      }
+
+      .impact-hero-visual img {
+        min-height: 400px;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 650px) {
+
+      .impact-hero {
+        min-height: auto;
+        padding-bottom: 45px;
+      }
+
+      .impact-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .impact-hero-visual {
+        min-height: 340px;
+      }
+
+      .impact-hero-visual img {
+        min-height: 340px;
+        border-radius: 24px 24px 80px 24px;
+      }
+
+      .impact-hero-note {
+        left: 15px;
+      }
+
+      .impact-intro-copy p:first-child {
+        font-size: 1.4rem;
+      }
+
+      .change-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-areas {
+        grid-template-columns: 1fr;
+      }
+
+      .measure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-area {
+        grid-template-columns: 55px 1fr;
+        padding: 25px;
+      }
+
+      .future-layout h2 {
+        font-size: 3rem;
+      }
+
+      .impact-next {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
+
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
+
+      <!-- DISCOVER -->
+      <details class="nav-group">
+
+        <summary>Discover</summary>
+
+        <div class="dropdown">
+
+          <a href="/about/">
+            About CoWiTa
+          </a>
+
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
+
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
+
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
+
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
+
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- OUR WORK -->
+      <details class="nav-group">
+
+        <summary>Our Work</summary>
+
+        <div class="dropdown">
+
+          <a href="/work/">
+            Overview
+          </a>
+
+          <a href="/work/dance.html">
+            Dance
+          </a>
+
+          <a href="/work/music.html">
+            Music
+          </a>
+
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
+
+          <a href="/work/writing.html">
+            Writing
+          </a>
+
+          <a href="/work/acting.html">
+            Acting
+          </a>
+
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
+
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- STORIES -->
+      <details class="nav-group">
+
+        <summary>Stories</summary>
+
+        <div class="dropdown">
+
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
+
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
+
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
+
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- IMPACT -->
+      <details class="nav-group">
+
+        <summary>Impact</summary>
+
+        <div class="dropdown">
+
+          <a href="/impact/">
+            Our Impact
+          </a>
+
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
+
+        <summary>Get Involved</summary>
+
+        <div class="dropdown">
+
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
+
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
+
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
+
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
+
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
+
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- SUPPORT -->
+      <details class="nav-group">
+
+        <summary>Support</summary>
+
+        <div class="dropdown">
+
+          <a href="/support/">
+            Support CoWiTa
+          </a>
+
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
+
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
+
+        </div>
+
+      </details>
+
+
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
+
+      <a href="/utility/contact/">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
+
+  </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =========================================================
+     1. IMPACT HERO
+     ========================================================= -->
+
+<section class="impact-hero">
+
+  <div class="container impact-hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Our Impact
+      </div>
+
+      <h1>
+        We measure
+        <em>the change</em>
+        talent can create.
+      </h1>
+
+      <p class="impact-hero-copy">
+        CoWiTa is not only interested in discovering talent.
+        We want to understand what happens when that talent is
+        developed, supported, connected to opportunity and given
+        room to grow.
+      </p>
+
+    </div>
+
+
+    <div class="impact-hero-visual reveal">
+
+      <!-- IMAGE PLACEHOLDER
+           Recommended file:
+           /assets/images/impact/impact-hero.jpg
+      -->
+
+      <img
+        src="/assets/images/impact/impact-hero.jpg"
+        alt="Young creatives learning, collaborating and developing their skills"
+      >
+
+      <div class="impact-hero-note">
+
+        <strong>
+          Talent → opportunity → impact.
+        </strong>
+
+        <span>
+          Our impact framework follows the journey,
+          not just the activity.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     2. WHAT IMPACT MEANS TO COWITA
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container impact-intro">
+
+    <div class="section-header reveal">
+
+      <div class="section-label">
+        What impact means
+      </div>
+
+      <h2>
+        Activity is not the same as change.
+      </h2>
+
+    </div>
+
+
+    <div class="impact-intro-copy">
+
+      <p>
+        For CoWiTa, impact means a young person's capacity,
+        confidence and opportunities are meaningfully changed.
+      </p>
+
+      <p>
+        A workshop matters because of what it enables afterwards.
+        A mentorship matters because it can strengthen a skill,
+        open a relationship or change the direction of a creative
+        journey.
+      </p>
+
+      <p>
+        That means we will not measure success only by how many
+        events we hold or how many people attend them.
+      </p>
+
+      <p>
+        We want to understand whether young people are developing
+        stronger skills, creating meaningful work, accessing
+        opportunities and moving closer to sustainable livelihoods.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. OUR THEORY OF CHANGE
+     ========================================================= -->
+
+<section class="section change-section">
+
+  <div class="container">
+
+    <div class="change-header reveal">
+
+      <div class="section-label">
+        Our theory of change
+      </div>
+
+      <h2>
+        The journey from potential to possibility.
+      </h2>
+
+      <p>
+        CoWiTa's model is built around a simple progression:
+        discover potential, develop ability, create real work,
+        connect that work to opportunity and support continued
+        growth.
+      </p>
+
+    </div>
+
+
+    <div class="change-flow">
+
+      <article class="change-card reveal">
+
+        <div class="change-number">
+          01 / POTENTIAL
+        </div>
+
+        <h3>
+          Talent is identified.
+        </h3>
+
+        <p>
+          Young people are recognised for abilities they may
+          already be practising in their communities, schools
+          or everyday lives.
+        </p>
+
+      </article>
+
+
+      <article class="change-card reveal">
+
+        <div class="change-number">
+          02 / DEVELOPMENT
+        </div>
+
+        <h3>
+          Ability becomes skill.
+        </h3>
+
+        <p>
+          Training, practice and mentorship strengthen creative
+          ability and build practical knowledge.
+        </p>
+
+      </article>
+
+
+      <article class="change-card reveal">
+
+        <div class="change-number">
+          03 / CREATION
+        </div>
+
+        <h3>
+          Skill becomes work.
+        </h3>
+
+        <p>
+          Participants create performances, projects, content
+          and other outputs that demonstrate what they can do.
+        </p>
+
+      </article>
+
+
+      <article class="change-card reveal">
+
+        <div class="change-number">
+          04 / OPPORTUNITY
+        </div>
+
+        <h3>
+          Work meets opportunity.
+        </h3>
+
+        <p>
+          Creative output can be connected to audiences,
+          collaborations, commissions, platforms and markets.
+        </p>
+
+      </article>
+
+
+      <article class="change-card reveal">
+
+        <div class="change-number">
+          05 / IMPACT
+        </div>
+
+        <h3>
+          Opportunity creates change.
+        </h3>
+
+        <p>
+          Stronger skills, confidence, networks and income
+          potential can contribute to longer-term livelihoods
+          and community development.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     4. AREAS OF IMPACT
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="impact-areas-header reveal">
+
+      <div class="section-label">
+        Areas of impact
+      </div>
+
+      <h2>
+        What we hope to change.
+      </h2>
+
+      <p>
+        CoWiTa's impact is broader than artistic ability.
+        Creative development can influence confidence, skills,
+        relationships, opportunity and livelihoods.
+      </p>
+
+    </div>
+
+
+    <div class="impact-areas">
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Creative Skills
+          </h3>
+
+          <p>
+            Young people develop stronger technical and creative
+            abilities in the disciplines they choose to pursue.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            Confidence & Agency
+          </h3>
+
+          <p>
+            Participants gain confidence to express themselves,
+            make decisions, create and take ownership of their
+            development.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            Opportunity
+          </h3>
+
+          <p>
+            Young creatives gain access to platforms, networks,
+            collaborations and practical opportunities to use
+            their abilities.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          04
+        </div>
+
+        <div>
+
+          <h3>
+            Livelihood Potential
+          </h3>
+
+          <p>
+            Creative skills can become connected to income,
+            commissions, employment, entrepreneurship and other
+            sustainable pathways.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          05
+        </div>
+
+        <div>
+
+          <h3>
+            Networks & Mentorship
+          </h3>
+
+          <p>
+            Participants build relationships with mentors,
+            peers, practitioners and organisations within the
+            creative ecosystem.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="impact-area reveal">
+
+        <div class="impact-area-icon">
+          06
+        </div>
+
+        <div>
+
+          <h3>
+            Community Impact
+          </h3>
+
+          <p>
+            Creative activity can contribute to stronger
+            communities by creating spaces for expression,
+            collaboration and shared opportunity.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     5. WHAT WE WILL MEASURE
+     ========================================================= -->
+
+<section class="section measure-section">
+
+  <div class="container">
+
+    <div class="measure-header reveal">
+
+      <div class="section-label">
+        Measuring the journey
+      </div>
+
+      <h2>
+        Numbers will come later.
+        The framework starts now.
+      </h2>
+
+      <p>
+        CoWiTa is still building its programmes and systems.
+        We will not manufacture impact statistics before the
+        work exists. Instead, we are establishing the measures
+        that future programmes will report against.
+      </p>
+
+    </div>
+
+
+    <div class="measure-grid">
+
+      <article class="measure-card reveal">
+
+        <div class="measure-card-label">
+          Reach
+        </div>
+
+        <div class="measure-value">
+          Coming soon
+        </div>
+
+        <p>
+          Young people reached through programmes,
+          workshops and community activities.
+        </p>
+
+      </article>
+
+
+      <article class="measure-card reveal">
+
+        <div class="measure-card-label">
+          Development
+        </div>
+
+        <div class="measure-value">
+          Coming soon
+        </div>
+
+        <p>
+          Participants completing training, mentorship
+          and structured development pathways.
+        </p>
+
+      </article>
+
+
+      <article class="measure-card reveal">
+
+        <div class="measure-card-label">
+          Opportunity
+        </div>
+
+        <div class="measure-value">
+          Coming soon
+        </div>
+
+        <p>
+          Collaborations, performances, commissions,
+          placements and other opportunities created.
+        </p>
+
+      </article>
+
+
+      <article class="measure-card reveal">
+
+        <div class="measure-card-label">
+          Livelihoods
+        </div>
+
+        <div class="measure-value">
+          Coming soon
+        </div>
+
+        <p>
+          Participants progressing toward income generation
+          and sustainable creative livelihoods.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     6. DATA & ACCOUNTABILITY
+     ========================================================= -->
+
+<section class="section data-section">
+
+  <div class="container data-layout">
+
+    <div class="data-copy reveal">
+
+      <div class="section-label">
+        Evidence matters
+      </div>
+
+      <h2>
+        We want to show the work,
+        not simply claim the impact.
+      </h2>
+
+      <p>
+        As CoWiTa grows, participant stories, programme records,
+        outcome data and feedback will become part of how we
+        understand what is working.
+      </p>
+
+      <p>
+        This will allow us to improve programmes, communicate
+        honestly with partners and supporters, and understand
+        where CoWiTa is actually creating value.
+      </p>
+
+    </div>
+
+
+    <div class="data-promise reveal">
+
+      <div class="data-promise-label">
+        Our commitment
+      </div>
+
+      <h3>
+        Measure what matters.
+      </h3>
+
+      <p>
+        We will distinguish between what CoWiTa has done,
+        what participants experienced and what changed as
+        a result. Impact reporting will develop alongside
+        the programmes themselves.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. CHANGE WE SEEK
+     ========================================================= -->
+
+<section class="section future-section">
+
+  <div class="container future-layout reveal">
+
+    <h2>
+      We want a future where creative talent is not left
+      as potential.
+    </h2>
+
+    <p>
+      The change CoWiTa seeks is simple:
+      young people should be able to recognise their abilities,
+      develop them, find meaningful opportunities to use them
+      and build lives in which their talents have real value.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     8. GO DEEPER
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="container impact-next">
+
+    <div class="impact-next-copy reveal">
+
+      <div class="section-label">
+        Go deeper
+      </div>
+
+      <h2>
+        What does this change look like?
+      </h2>
+
+      <p>
+        Explore the specific transformation CoWiTa is working
+        toward and the role different people can play in making
+        that change possible.
+      </p>
+
+    </div>
+
+
+    <div class="reveal">
+
+      <a
+        class="btn btn-dark"
+        href="/impact/change-we-seek.html"
+      >
+        The Change We Seek →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
+        <a href="/about/">
+          About
+        </a>
+
+        <a href="/work/">
+          Our Work
+        </a>
+
+        <a href="/stories/featured.html">
+          Stories
+        </a>
+
+        <a href="/impact/">
+          Impact
+        </a>
+
+        <a href="/get-involved/">
+          Get Involved
+        </a>
+
+        <a href="/support/">
+          Support
+        </a>
+
+        <a href="/opportunity/">
+          Opportunity
+        </a>
+
+        <a href="/utility/contact/">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
+
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
+
+      <a href="/utility/faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+
+</body>
+</html>
