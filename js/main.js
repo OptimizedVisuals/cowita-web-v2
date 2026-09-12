@@ -1,6 +1,19 @@
 /* =========================================================
    CoWiTa — Shared Site JavaScript
-   V2 — Revised Shared Navigation System
+   ---------------------------------------------------------
+   Canonical shared navigation system.
+
+   Responsibilities:
+   - Mobile navigation
+   - Header dropdowns
+   - Header scroll state
+   - Smooth anchor scrolling
+   - Reveal animations
+   - Current year
+   - Escape-key handling
+
+   The HTML structure is intentionally kept simple.
+   Native <details>/<summary> controls the dropdown state.
    ========================================================= */
 
 (function () {
@@ -12,6 +25,7 @@
      ========================================================= */
 
   const MOBILE_BREAKPOINT = 900;
+  const HEADER_SCROLL_THRESHOLD = 20;
 
 
   /* =========================================================
@@ -28,6 +42,7 @@
     initEscapeKeyHandling();
   }
 
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initSite);
   } else {
@@ -36,7 +51,7 @@
 
 
   /* =========================================================
-     SHARED NAVIGATION HELPERS
+     SHARED HELPERS
      ========================================================= */
 
   function getSiteHeader() {
@@ -44,55 +59,41 @@
   }
 
 
-  function getNavigationContainers() {
-    return Array.from(
-      document.querySelectorAll(
-        ".nav-links, .primary-nav"
-      )
-    );
-  }
-
-
-  function getNavigationToggle() {
-    return document.querySelector(".menu-toggle");
-  }
-
-
-  function getDropdownGroups() {
-    return Array.from(
-      document.querySelectorAll(
-        ".nav-group, .nav-dropdown"
-      )
-    );
-  }
-
-
-  function getHeaderNavigation() {
+  function getNavigation() {
     const header = getSiteHeader();
 
     if (!header) {
       return null;
     }
 
+    const nav = header.querySelector(
+      ".nav-links"
+    );
+
+    const menuToggle = header.querySelector(
+      ".menu-toggle"
+    );
+
+    const dropdownGroups = Array.from(
+      header.querySelectorAll(".nav-group")
+    );
+
     return {
-      header: header,
-
-      toggles: Array.from(
-        header.querySelectorAll(".menu-toggle")
-      ),
-
-      containers: Array.from(
-        header.querySelectorAll(
-          ".nav-links, .primary-nav"
-        )
-      ),
-
-      dropdowns: Array.from(
-        header.querySelectorAll(
-          ".nav-group, .nav-dropdown"
-        )
-      )
+      header,
+      nav,
+      menuToggle,
+      dropdownGroups
     };
+  }
+
+
+  function isModifiedClick(event) {
+    return (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    );
   }
 
 
@@ -101,7 +102,7 @@
      ========================================================= */
 
   function initMobileNavigation() {
-    const navigation = getHeaderNavigation();
+    const navigation = getNavigation();
 
     if (!navigation) {
       return;
@@ -109,40 +110,29 @@
 
     const {
       header,
-      toggles,
-      containers
+      nav,
+      menuToggle
     } = navigation;
 
-    if (!toggles.length || !containers.length) {
+
+    if (!nav || !menuToggle) {
       return;
     }
 
 
     /* -------------------------------------------------------
-       Set initial ARIA state
+       Ensure correct navigation relationship
        ------------------------------------------------------- */
 
-    toggles.forEach(function (toggle) {
-      toggle.setAttribute("aria-expanded", "false");
+    const navigationId =
+      nav.id || "primary-navigation";
 
-      /*
-       * Connect the button to the navigation where possible.
-       * If multiple navigation containers exist, the first
-       * visible/primary one is used.
-       */
-      const navigationId =
-        containers[0].id ||
-        "cowita-primary-navigation";
+    nav.id = navigationId;
 
-      if (!containers[0].id) {
-        containers[0].id = navigationId;
-      }
-
-      toggle.setAttribute(
-        "aria-controls",
-        navigationId
-      );
-    });
+    menuToggle.setAttribute(
+      "aria-controls",
+      navigationId
+    );
 
 
     /* -------------------------------------------------------
@@ -151,17 +141,17 @@
 
     function closeMenu() {
       header.classList.remove("nav-open");
+      nav.classList.remove("is-open");
 
-      containers.forEach(function (container) {
-        container.classList.remove("is-open");
-      });
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-      toggles.forEach(function (toggle) {
-        toggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-      });
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
+      );
     }
 
 
@@ -171,22 +161,22 @@
 
     function openMenu() {
       header.classList.add("nav-open");
+      nav.classList.add("is-open");
 
-      containers.forEach(function (container) {
-        container.classList.add("is-open");
-      });
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
 
-      toggles.forEach(function (toggle) {
-        toggle.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-      });
+      menuToggle.setAttribute(
+        "aria-label",
+        "Close navigation"
+      );
     }
 
 
     /* -------------------------------------------------------
-       Toggle navigation
+       Toggle mobile navigation
        ------------------------------------------------------- */
 
     function toggleMenu() {
@@ -202,67 +192,75 @@
 
 
     /* -------------------------------------------------------
-       Toggle button events
+       Initial state
        ------------------------------------------------------- */
 
-    toggles.forEach(function (toggle) {
-      toggle.addEventListener("click", function (event) {
+    closeMenu();
+
+
+    /* -------------------------------------------------------
+       Menu button
+       ------------------------------------------------------- */
+
+    menuToggle.addEventListener(
+      "click",
+      function (event) {
         event.preventDefault();
 
         toggleMenu();
-      });
-    });
+      }
+    );
 
 
     /* -------------------------------------------------------
-       Close menu after selecting a normal link
+       Close after normal navigation link
        ------------------------------------------------------- */
 
-    containers.forEach(function (container) {
+    nav.querySelectorAll("a").forEach(
+      function (link) {
 
-      container
-        .querySelectorAll("a")
-        .forEach(function (link) {
+        link.addEventListener(
+          "click",
+          function (event) {
 
-          link.addEventListener(
-            "click",
-            function () {
-
-              /*
-               * Do not interfere with:
-               * - modifier-clicks
-               * - new-tab behaviour
-               * - downloads
-               * - external links
-               */
-              if (
-                eventHasModifier(arguments[0]) ||
-                link.hasAttribute("download") ||
-                link.target === "_blank"
-              ) {
-                return;
-              }
-
-              closeMenu();
-
-              closeAllDropdowns();
+            /*
+             * Preserve browser behaviour for:
+             * - Ctrl/Cmd click
+             * - Shift click
+             * - Alt click
+             * - middle/new-tab behaviour
+             * - downloads
+             * - target="_blank"
+             */
+            if (
+              isModifiedClick(event) ||
+              link.hasAttribute("download") ||
+              link.target === "_blank"
+            ) {
+              return;
             }
-          );
 
-        });
+            closeMenu();
+            closeAllDropdowns();
+          }
+        );
 
-    });
+      }
+    );
 
 
     /* -------------------------------------------------------
-       Reset mobile state when returning to desktop
+       Close when returning to desktop
        ------------------------------------------------------- */
 
     function handleResize() {
-      if (window.innerWidth > MOBILE_BREAKPOINT) {
+      if (
+        window.innerWidth > MOBILE_BREAKPOINT
+      ) {
         closeMenu();
       }
     }
+
 
     window.addEventListener(
       "resize",
@@ -270,6 +268,12 @@
       { passive: true }
     );
 
+
+    /*
+     * Expose a small internal helper so Escape and
+     * smooth scrolling can close the same navigation.
+     */
+    header.__cowitaCloseMenu = closeMenu;
   }
 
 
@@ -278,8 +282,17 @@
      ========================================================= */
 
   function initDropdownNavigation() {
-    const dropdownGroups =
-      getDropdownGroups();
+    const navigation = getNavigation();
+
+    if (!navigation) {
+      return;
+    }
+
+    const {
+      header,
+      dropdownGroups
+    } = navigation;
+
 
     if (!dropdownGroups.length) {
       return;
@@ -287,7 +300,7 @@
 
 
     /* -------------------------------------------------------
-       Close all dropdowns
+       Close every dropdown
        ------------------------------------------------------- */
 
     window.closeCowitaDropdowns =
@@ -298,98 +311,117 @@
        Setup each dropdown
        ------------------------------------------------------- */
 
-    dropdownGroups.forEach(function (group) {
+    dropdownGroups.forEach(
+      function (group) {
 
-      const summary =
-        group.querySelector(":scope > summary");
-
-      if (!summary) {
-        return;
-      }
-
-
-      /* -----------------------------------------------------
-         Ensure summary is keyboard accessible
-         ----------------------------------------------------- */
-
-      if (!summary.hasAttribute("tabindex")) {
-        summary.setAttribute("tabindex", "0");
-      }
-
-
-      /* -----------------------------------------------------
-         Native <details> toggle event
-         ----------------------------------------------------- */
-
-      group.addEventListener(
-        "toggle",
-        function () {
-
-          if (!group.open) {
-            return;
-          }
-
-          /*
-           * Only one dropdown should remain open at a time.
-           */
-          dropdownGroups.forEach(
-            function (otherGroup) {
-
-              if (
-                otherGroup !== group &&
-                otherGroup.open
-              ) {
-                otherGroup.removeAttribute(
-                  "open"
-                );
-              }
-
-            }
+        const summary =
+          group.querySelector(
+            ":scope > summary"
           );
 
+        if (!summary) {
+          return;
         }
-      );
 
 
-      /* -----------------------------------------------------
-         Escape closes the current dropdown
-         ----------------------------------------------------- */
+        /*
+         * Native <summary> already provides keyboard
+         * interaction. We only use the toggle event to
+         * coordinate the other dropdowns.
+         */
+        group.addEventListener(
+          "toggle",
+          function () {
 
-      summary.addEventListener(
-        "keydown",
-        function (event) {
+            if (!group.open) {
+              return;
+            }
 
-          if (event.key !== "Escape") {
-            return;
+
+            /*
+             * Keep only one dropdown open at a time.
+             */
+            dropdownGroups.forEach(
+              function (otherGroup) {
+
+                if (
+                  otherGroup !== group &&
+                  otherGroup.open
+                ) {
+                  otherGroup.removeAttribute(
+                    "open"
+                  );
+                }
+
+              }
+            );
+
           }
+        );
 
-          event.preventDefault();
-          event.stopPropagation();
 
-          group.removeAttribute("open");
+        /* ---------------------------------------------------
+           Escape closes this dropdown
+           --------------------------------------------------- */
 
-          summary.focus();
+        summary.addEventListener(
+          "keydown",
+          function (event) {
 
-        }
-      );
+            if (event.key !== "Escape") {
+              return;
+            }
 
-    });
+            event.preventDefault();
+            event.stopPropagation();
+
+            group.removeAttribute("open");
+
+            summary.focus();
+          }
+        );
+
+
+        /* ---------------------------------------------------
+           Dropdown links
+           --------------------------------------------------- */
+
+        group.querySelectorAll("a").forEach(
+          function (link) {
+
+            link.addEventListener(
+              "click",
+              function (event) {
+
+                if (
+                  isModifiedClick(event) ||
+                  link.hasAttribute("download") ||
+                  link.target === "_blank"
+                ) {
+                  return;
+                }
+
+                group.removeAttribute(
+                  "open"
+                );
+
+              }
+            );
+
+          }
+        );
+
+      }
+    );
 
 
     /* -------------------------------------------------------
-       Click outside navigation closes dropdowns
+       Click outside header
        ------------------------------------------------------- */
 
     document.addEventListener(
       "click",
       function (event) {
-
-        const header =
-          getSiteHeader();
-
-        if (!header) {
-          return;
-        }
 
         if (
           header.contains(event.target)
@@ -398,10 +430,8 @@
         }
 
         closeAllDropdowns();
-
       }
     );
-
   }
 
 
@@ -410,15 +440,17 @@
      ========================================================= */
 
   function closeAllDropdowns() {
-    getDropdownGroups().forEach(
-      function (group) {
+    document
+      .querySelectorAll(
+        ".site-header .nav-group[open]"
+      )
+      .forEach(
+        function (group) {
 
-        if (group.open) {
           group.removeAttribute("open");
-        }
 
-      }
-    );
+        }
+      );
   }
 
 
@@ -427,19 +459,22 @@
      ========================================================= */
 
   function initHeaderScrollState() {
-    const header =
-      getSiteHeader();
+    const header = getSiteHeader();
 
     if (!header) {
       return;
     }
+
 
     let ticking = false;
 
 
     function updateHeader() {
 
-      if (window.scrollY > 20) {
+      if (
+        window.scrollY >
+        HEADER_SCROLL_THRESHOLD
+      ) {
         header.classList.add(
           "is-scrolled"
         );
@@ -477,12 +512,11 @@
         passive: true
       }
     );
-
   }
 
 
   /* =========================================================
-     SMOOTH SCROLLING
+     SMOOTH ANCHOR SCROLLING
      ========================================================= */
 
   function initSmoothScrolling() {
@@ -492,118 +526,136 @@
         'a[href^="#"]'
       );
 
+
     if (!links.length) {
       return;
     }
 
 
-    links.forEach(function (link) {
+    links.forEach(
+      function (link) {
 
-      link.addEventListener(
-        "click",
-        function (event) {
+        link.addEventListener(
+          "click",
+          function (event) {
 
-          const href =
-            link.getAttribute("href");
-
-          /*
-           * Ignore empty/hash-only links.
-           */
-          if (
-            !href ||
-            href === "#"
-          ) {
-            return;
-          }
+            /*
+             * Preserve modified clicks.
+             */
+            if (
+              isModifiedClick(event)
+            ) {
+              return;
+            }
 
 
-          /*
-           * Ignore invalid CSS selectors instead
-           * of allowing querySelector() to throw.
-           */
-          let target = null;
-
-          try {
-            target =
-              document.querySelector(href);
-          } catch (error) {
-            return;
-          }
+            const href =
+              link.getAttribute("href");
 
 
-          if (!target) {
-            return;
-          }
+            /*
+             * Ignore empty anchors.
+             */
+            if (
+              !href ||
+              href === "#"
+            ) {
+              return;
+            }
 
 
-          event.preventDefault();
+            let target = null;
 
 
-          /*
-           * Close navigation before scrolling.
-           */
-          closeMobileNavigation();
-          closeAllDropdowns();
+            /*
+             * Prevent malformed selectors from
+             * breaking the rest of the JS.
+             */
+            try {
+              target =
+                document.querySelector(
+                  href
+                );
+            } catch (error) {
+              return;
+            }
 
 
-          const header =
-            getSiteHeader();
-
-          const headerHeight =
-            header
-              ? header.offsetHeight
-              : 0;
+            if (!target) {
+              return;
+            }
 
 
-          const targetPosition =
-            target.getBoundingClientRect().top +
-            window.scrollY -
-            headerHeight -
-            20;
+            event.preventDefault();
 
 
-          window.scrollTo({
-            top: Math.max(
-              targetPosition,
-              0
-            ),
-            behavior:
-              getScrollBehavior()
-          });
+            /*
+             * Close navigation before scrolling.
+             */
+            closeMobileNavigation();
+            closeAllDropdowns();
 
 
-          /*
-           * Give keyboard users a meaningful
-           * focus target.
-           */
-          if (
-            !target.hasAttribute(
-              "tabindex"
-            )
-          ) {
-            target.setAttribute(
-              "tabindex",
-              "-1"
+            const header =
+              getSiteHeader();
+
+
+            const headerHeight =
+              header
+                ? header.offsetHeight
+                : 0;
+
+
+            const targetPosition =
+              target.getBoundingClientRect()
+                .top +
+              window.scrollY -
+              headerHeight -
+              20;
+
+
+            window.scrollTo({
+              top: Math.max(
+                targetPosition,
+                0
+              ),
+              behavior:
+                getScrollBehavior()
+            });
+
+
+            /*
+             * Allow keyboard users to focus the
+             * destination without moving the page.
+             */
+            if (
+              !target.hasAttribute(
+                "tabindex"
+              )
+            ) {
+              target.setAttribute(
+                "tabindex",
+                "-1"
+              );
+            }
+
+
+            window.setTimeout(
+              function () {
+
+                target.focus({
+                  preventScroll: true
+                });
+
+              },
+              100
             );
+
           }
+        );
 
-
-          window.setTimeout(
-            function () {
-
-              target.focus({
-                preventScroll: true
-              });
-
-            },
-            100
-          );
-
-        }
-      );
-
-    });
-
+      }
+    );
   }
 
 
@@ -616,6 +668,7 @@
     const header =
       getSiteHeader();
 
+
     if (!header) {
       return;
     }
@@ -626,40 +679,38 @@
     );
 
 
-    const containers =
-      header.querySelectorAll(
-        ".nav-links, .primary-nav"
+    const nav =
+      header.querySelector(
+        ".nav-links"
       );
 
 
-    containers.forEach(
-      function (container) {
-
-        container.classList.remove(
-          "is-open"
-        );
-
-      }
-    );
+    if (nav) {
+      nav.classList.remove(
+        "is-open"
+      );
+    }
 
 
-    const toggles =
-      header.querySelectorAll(
+    const menuToggle =
+      header.querySelector(
         ".menu-toggle"
       );
 
 
-    toggles.forEach(
-      function (toggle) {
+    if (menuToggle) {
 
-        toggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-      }
-    );
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
+      );
 
+    }
   }
 
 
@@ -673,6 +724,7 @@
       window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
+
 
     return reducedMotion
       ? "auto"
@@ -691,6 +743,7 @@
         ".reveal"
       );
 
+
     if (!revealElements.length) {
       return;
     }
@@ -702,9 +755,10 @@
       ).matches;
 
 
-    /*
-     * Respect reduced-motion preferences.
-     */
+    /* -------------------------------------------------------
+       Reduced motion
+       ------------------------------------------------------- */
+
     if (reducedMotion) {
 
       revealElements.forEach(
@@ -725,9 +779,10 @@
     }
 
 
-    /*
-     * IntersectionObserver.
-     */
+    /* -------------------------------------------------------
+       IntersectionObserver
+       ------------------------------------------------------- */
+
     if (
       "IntersectionObserver" in window
     ) {
@@ -753,6 +808,7 @@
                   "is-visible"
                 );
 
+
                 entry.target.classList.remove(
                   "is-hidden"
                 );
@@ -768,7 +824,6 @@
           },
           {
             threshold: 0.12,
-
             rootMargin:
               "0px 0px -40px 0px"
           }
@@ -779,8 +834,10 @@
         function (element) {
 
           /*
-           * Explicitly activate the hidden
-           * animation state only when JS exists.
+           * Important:
+           * Content starts visible by default in CSS.
+           * JavaScript explicitly enables the hidden
+           * state before observing it.
            */
           element.classList.add(
             "is-hidden"
@@ -793,13 +850,15 @@
         }
       );
 
+
       return;
     }
 
 
-    /*
-     * Fallback.
-     */
+    /* -------------------------------------------------------
+       Fallback
+       ------------------------------------------------------- */
+
     revealElements.forEach(
       function (element) {
 
@@ -813,7 +872,6 @@
 
       }
     );
-
   }
 
 
@@ -827,6 +885,7 @@
       document.querySelectorAll(
         "[data-current-year]"
       );
+
 
     if (!yearElements.length) {
       return;
@@ -845,7 +904,6 @@
 
       }
     );
-
   }
 
 
@@ -859,46 +917,26 @@
       "keydown",
       function (event) {
 
-        if (event.key !== "Escape") {
+        if (
+          event.key !== "Escape"
+        ) {
           return;
         }
 
 
         /*
-         * Close all navigation dropdowns.
+         * Close dropdowns first.
          */
         closeAllDropdowns();
 
 
         /*
-         * Close mobile navigation.
+         * Then close the mobile navigation.
          */
         closeMobileNavigation();
 
       }
     );
-
   }
-
-
-  /* =========================================================
-     LINK EVENT HELPER
-     ========================================================= */
-
-  function eventHasModifier(event) {
-
-    if (!event) {
-      return false;
-    }
-
-    return (
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    );
-
-  }
-
 
 })();

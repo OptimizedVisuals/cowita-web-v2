@@ -88,6 +88,7 @@
   --section-space: clamp(80px, 10vw, 150px);
 
   --header-height: 57px;
+  --header-z: 5000;
 
 
   /* ---------- Radius ---------- */
@@ -397,25 +398,21 @@ h4 {
 /* ============================================================
    07. HEADER / NAVIGATION
    ------------------------------------------------------------
-   Shared header system.
-
-   Supports both the current V2 markup and legacy page variants:
-   - .nav / .header-inner
-   - .brand / .site-logo / .logo / .header-brand
-   - .nav-links / .primary-nav
-   - .dropdown / .nav-dropdown-menu
-   - .header-cta / .nav-cta
+   Canonical header:
+   .site-header > .container.nav
+   .brand / .menu-toggle / .nav-links / .nav-group / .dropdown
+   .header-cta
    ============================================================ */
 
 .site-header {
   position: fixed;
-  inset: 0 0 auto 0;
-
+  top: 0;
+  right: 0;
+  left: 0;
   width: 100%;
   height: var(--header-height);
   min-height: var(--header-height);
-
-  z-index: 1000;
+  z-index: var(--header-z);
 
   background: rgba(250, 249, 245, .94);
   border-bottom: 1px solid rgba(23, 26, 25, .07);
@@ -433,21 +430,19 @@ h4 {
   box-shadow: 0 8px 30px rgba(8, 39, 39, .08);
 }
 
-/* The header is fixed, so main content needs the same top offset. */
+/* Fixed headers leave normal document flow. Reserve exactly 57px. */
 .site-header + main {
   padding-top: var(--header-height);
 }
 
-.nav,
-.header-inner {
+.nav {
+  position: relative;
   width: min(
     calc(100% - (var(--gutter) * 2)),
     var(--container-wide)
   );
-
-  min-height: var(--header-height);
   height: var(--header-height);
-
+  min-height: var(--header-height);
   margin-inline: auto;
 
   display: flex;
@@ -455,63 +450,43 @@ h4 {
   gap: 24px;
 }
 
-.brand,
-.site-logo,
-.logo,
-.header-brand {
+.brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
-
+  flex: 0 0 auto;
   line-height: 0;
 }
 
-.brand img,
-.site-logo img,
-.logo img,
-.header-brand img {
+.brand img {
   display: block;
-
   width: auto;
-  height: auto;
-
   max-width: 110px;
-  max-height: 38px;
+  max-height: 36px;
+  height: auto;
 }
 
-.nav-links,
-.primary-nav {
+.nav-links {
   margin-left: auto;
-
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
 .nav-links > a,
-.nav-links > .nav-group > summary,
-.primary-nav > a,
-.primary-nav > .nav-dropdown > summary,
-.primary-nav > .nav-group > summary {
+.nav-group > summary {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-
   min-height: 36px;
-
-  padding: 8px 11px;
+  padding: 8px 10px;
 
   color: var(--ink-soft);
-
   font-size: .76rem;
   font-weight: 700;
   line-height: 1;
-
   border-radius: var(--radius-pill);
-
   cursor: pointer;
 
   transition:
@@ -520,78 +495,56 @@ h4 {
 }
 
 .nav-links > a:hover,
-.nav-links > .nav-group > summary:hover,
-.primary-nav > a:hover,
-.primary-nav > .nav-dropdown > summary:hover,
-.primary-nav > .nav-group > summary:hover,
-.nav-group[open] > summary,
-.nav-dropdown[open] > summary {
+.nav-group > summary:hover,
+.nav-group[open] > summary {
   background: rgba(13, 75, 75, .07);
   color: var(--deep-teal);
 }
 
-.nav-group,
-.nav-dropdown {
+.nav-group {
   position: relative;
 }
 
-.nav-group summary,
-.nav-dropdown summary {
+.nav-group > summary {
   list-style: none;
 }
 
-.nav-group summary::-webkit-details-marker,
-.nav-dropdown summary::-webkit-details-marker {
+.nav-group > summary::-webkit-details-marker {
   display: none;
 }
 
-.nav-group summary::after,
-.nav-dropdown summary::after {
+.nav-group > summary::after {
   content: "";
-
   width: 6px;
   height: 6px;
-
   flex: 0 0 6px;
-
   border-right: 1.5px solid currentColor;
   border-bottom: 1.5px solid currentColor;
-
   transform: rotate(45deg) translateY(-2px);
-
   transition: transform var(--transition-fast);
 }
 
-.nav-group[open] summary::after,
-.nav-dropdown[open] summary::after {
+.nav-group[open] > summary::after {
   transform: rotate(225deg) translateY(-1px);
 }
 
-.dropdown,
-.nav-dropdown-menu {
+.dropdown {
   position: absolute;
-
   top: calc(100% + 8px);
   left: 0;
-
   width: 260px;
-
   max-height: min(70vh, 520px);
   overflow-y: auto;
-
   padding: 9px;
 
   background: rgba(255, 255, 255, .98);
-
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-
   box-shadow: var(--shadow-lg);
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transform: translateY(8px);
 
   transition:
@@ -600,26 +553,20 @@ h4 {
     transform var(--transition-fast);
 }
 
-.nav-group[open] > .dropdown,
-.nav-dropdown[open] > .nav-dropdown-menu {
+.nav-group[open] > .dropdown {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
 }
 
-.dropdown a,
-.nav-dropdown-menu a {
+.dropdown a {
   display: block;
-
   width: 100%;
-
   padding: 10px 12px;
-
   border-radius: 10px;
 
   color: var(--ink-soft);
-
   font-size: .76rem;
   font-weight: 600;
   line-height: 1.35;
@@ -630,26 +577,22 @@ h4 {
     transform var(--transition-fast);
 }
 
-.dropdown a:hover,
-.nav-dropdown-menu a:hover {
+.dropdown a:hover {
   background: var(--cream);
   color: var(--deep-teal);
   transform: translateX(3px);
 }
 
-.header-cta,
-.nav-cta {
-  flex-shrink: 0;
+.header-cta {
+  flex: 0 0 auto;
   margin-left: 4px;
 }
 
 .menu-toggle {
   display: none;
-
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
-
   margin-left: auto;
 
   align-items: center;
@@ -659,18 +602,14 @@ h4 {
 
   background: var(--deep-teal);
   color: #fff;
-
   border-radius: 50%;
 }
 
 .menu-toggle span {
   display: block;
-
   width: 15px;
   height: 1.5px;
-
   background: currentColor;
-
   border-radius: 2px;
 }
 
@@ -1797,97 +1736,98 @@ h4 {
 
 /* ============================================================
    27. FOOTER
+   ------------------------------------------------------------
+   Canonical footer:
+   .footer-main / .footer-brand / .footer-nav / .footer-bottom
    ============================================================ */
 
 .site-footer {
-  padding:
-    80px 0
-    25px;
-
+  padding: 58px 0 20px;
   background: #092f30;
-
   color: #fff;
 }
 
-.footer-grid {
+.footer-main {
   display: grid;
-
-  grid-template-columns:
-    1.5fr
-    1fr
-    1fr
-    1fr;
-
-  gap: 45px;
-
-  padding-bottom: 65px;
+  grid-template-columns: minmax(220px, .8fr) minmax(0, 1.6fr);
+  gap: 70px;
+  align-items: start;
+  padding-bottom: 42px;
 }
 
 .footer-brand {
-  max-width: 340px;
+  max-width: 300px;
 }
 
-.footer-brand img {
-  width: 110px;
-
-  margin-bottom: 22px;
-
-  filter: brightness(0) invert(1);
+.footer-brand .brand {
+  margin-bottom: 16px;
 }
 
-.footer-brand p {
+.footer-brand .brand img {
+  width: auto;
+  max-width: 110px;
+  max-height: 36px;
+}
+
+.footer-tagline {
+  max-width: 260px;
+  margin: 0;
   color: rgba(255, 255, 255, .58);
-
-  font-size: .8rem;
-  line-height: 1.7;
+  font-size: .78rem;
+  line-height: 1.6;
 }
 
-.site-footer h3,
-.footer-grid h3 {
-  margin-bottom: 20px;
-
-  color: #fff;
-
-  font-family: var(--font-sans);
-
-  font-size: .7rem;
-  font-weight: 800;
-
-  letter-spacing: .12em;
-  text-transform: uppercase;
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 28px;
+  align-content: start;
 }
 
-.footer-grid a {
+.footer-nav a {
   display: block;
-
   width: fit-content;
-
-  margin-bottom: 11px;
-
-  color: rgba(255, 255, 255, .58);
-
+  color: rgba(255, 255, 255, .62);
   font-size: .76rem;
-
-  transition:
-    color var(--transition-fast),
-    transform var(--transition-fast);
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.footer-grid a:hover {
+.footer-nav a:hover {
   color: var(--gold-light);
-
   transform: translateX(3px);
 }
 
 .footer-bottom {
-  padding-top: 22px;
-
-  border-top:
-    1px solid rgba(255, 255, 255, .1);
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
   color: rgba(255, 255, 255, .38);
+  font-size: .66rem;
+  line-height: 1.5;
+}
 
-  font-size: .68rem;
+.footer-bottom a {
+  color: rgba(255, 255, 255, .52);
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom a:hover {
+  color: var(--gold-light);
+}
+
+.footer-mission {
+  color: rgba(255, 255, 255, .46);
+  white-space: nowrap;
+}
+
+.footer-mission span {
+  padding-inline: 4px;
+  color: var(--gold);
 }
 
 
@@ -2123,34 +2063,26 @@ h4 {
 
 @media (max-width: 1100px) {
 
-  .nav-links,
-  .primary-nav {
+  .nav-links {
     gap: 0;
   }
 
   .nav-links > a,
-  .nav-links > .nav-group > summary,
-  .primary-nav > a,
-  .primary-nav > .nav-dropdown > summary,
-  .primary-nav > .nav-group > summary {
+  .nav-group > summary {
     padding-inline: 8px;
-
     font-size: .72rem;
   }
 
   .discipline-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .opportunity-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .footer-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+  .footer-main {
+    gap: 45px;
   }
 
 }
@@ -2163,116 +2095,79 @@ h4 {
 @media (max-width: 900px) {
 
   .site-header {
-    background:
-      rgba(250, 249, 245, .96);
+    background: rgba(250, 249, 245, .97);
   }
 
   .menu-toggle {
     display: inline-flex;
   }
 
-  .header-cta,
-  .nav-cta {
+  .header-cta {
     display: none;
   }
 
-  .nav,
-  .header-inner {
-    position: relative;
-  }
-
-  .nav-links,
-  .primary-nav {
+  .nav-links {
     position: absolute;
-
     top: calc(100% + 8px);
     left: 0;
     right: 0;
 
     display: none;
-
     flex-direction: column;
     align-items: stretch;
 
-    max-height:
-      calc(
-        100vh -
-        var(--header-height) -
-        16px
-      );
-
+    max-height: calc(100vh - var(--header-height) - 16px);
     overflow-y: auto;
-
     padding: 9px;
 
-    background: rgba(255, 255, 255, .98);
-
+    background: rgba(255, 255, 255, .99);
     border: 1px solid var(--line);
-
     border-radius: var(--radius-md);
-
     box-shadow: var(--shadow-lg);
   }
 
-  .nav-links.is-open,
-  .primary-nav.is-open,
-  .site-header.nav-open .primary-nav {
+  .nav-links.is-open {
     display: flex;
   }
 
   .nav-links > a,
-  .nav-links > .nav-group > summary,
-  .primary-nav > a,
-  .primary-nav > .nav-dropdown > summary,
-  .primary-nav > .nav-group > summary {
+  .nav-group > summary {
     width: 100%;
-
     min-height: 44px;
-
     justify-content: space-between;
-
     padding: 12px 14px;
   }
 
-  .nav-group,
-  .nav-dropdown {
+  .nav-group {
     width: 100%;
   }
 
-  .dropdown,
-  .nav-dropdown-menu {
+  .dropdown {
     position: static;
-
     width: 100%;
-
     max-height: none;
-
     overflow: visible;
-
+    margin-top: 3px;
     padding: 4px;
 
-    margin-top: 3px;
-
     border: 0;
-
     border-radius: 10px;
-
     box-shadow: none;
-
     background: var(--cream);
 
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     transform: none;
-
     display: none;
   }
 
-  .nav-group[open] > .dropdown,
-  .nav-dropdown[open] > .nav-dropdown-menu {
+  .nav-group[open] > .dropdown {
     display: block;
+  }
+
+  .dropdown a {
+    padding: 11px 12px;
   }
 
   .hero-grid,
@@ -2284,7 +2179,6 @@ h4 {
 
   .hero {
     min-height: auto;
-
     padding-bottom: 80px;
   }
 
@@ -2293,8 +2187,7 @@ h4 {
   }
 
   .card-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .feature-card {
@@ -2306,22 +2199,24 @@ h4 {
   }
 
   .stats-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .opportunity-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .discipline-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .vm-grid {
+  .footer-main {
     grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
 }
@@ -2335,32 +2230,22 @@ h4 {
 
   :root {
     --gutter: 20px;
-
     --section-space: 75px;
   }
 
   html {
-    scroll-padding-top:
-      calc(var(--header-height) + 16px);
+    scroll-padding-top: calc(var(--header-height) + 16px);
   }
 
-  .site-header {
+  .site-header,
+  .nav {
     height: var(--header-height);
     min-height: var(--header-height);
   }
 
-  .nav,
-  .header-inner {
-    min-height: var(--header-height);
-    height: var(--header-height);
-  }
-
-  .brand img,
-  .site-logo img,
-  .logo img,
-  .header-brand img {
+  .brand img {
     max-width: 94px;
-    max-height: 34px;
+    max-height: 32px;
   }
 
   h1 {
@@ -2377,7 +2262,6 @@ h4 {
 
   .hero {
     padding-top: 45px;
-
     padding-bottom: 65px;
   }
 
@@ -2387,7 +2271,6 @@ h4 {
 
   .hero-actions {
     align-items: stretch;
-
     flex-direction: column;
   }
 
@@ -2396,19 +2279,13 @@ h4 {
   }
 
   .hero-image {
-    border-radius:
-      24px
-      24px
-      80px
-      24px;
+    border-radius: 24px 24px 80px 24px;
   }
 
   .hero-note {
     left: 15px;
     bottom: 15px;
-
     max-width: 210px;
-
     padding: 16px;
   }
 
@@ -2443,7 +2320,6 @@ h4 {
 
   .stat {
     min-height: 150px;
-
     padding: 22px;
   }
 
@@ -2453,13 +2329,11 @@ h4 {
 
   .story-highlight {
     padding-left: 18px;
-
     font-size: 1.3rem;
   }
 
   .cta {
     padding: 35px 25px;
-
     border-radius: var(--radius-lg);
   }
 
@@ -2479,16 +2353,35 @@ h4 {
     grid-column: auto;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-
-    padding-bottom: 45px;
+  .footer-main {
+    gap: 28px;
+    padding-bottom: 30px;
   }
 
   .footer-brand {
     max-width: 100%;
+  }
+
+  /* Mobile footer stays compact. The supplied canonical footer
+     has ordinary links, so there is no fake +/- disclosure UI. */
+  .footer-nav {
+    grid-template-columns: 1fr 1fr;
+    gap: 13px 22px;
+  }
+
+  .footer-nav a {
+    font-size: .75rem;
+  }
+
+  .footer-bottom {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 8px;
+  }
+
+  .footer-mission {
+    white-space: normal;
   }
 
 }
@@ -2510,8 +2403,11 @@ h4 {
 
   .btn {
     min-height: 46px;
-
     padding-inline: 18px;
+  }
+
+  .footer-nav {
+    grid-template-columns: 1fr;
   }
 
 }
