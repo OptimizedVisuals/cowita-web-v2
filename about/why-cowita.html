@@ -360,6 +360,53 @@
 }
 .why-actions-section .action-card:hover{border-color:var(--gold)}
 
+.why-actions-section .action-pathway-card{
+  position:relative;
+  min-height:330px;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fff;
+  overflow:hidden;
+  transition:transform .3s var(--ease),border-color .3s var(--ease);
+}
+.why-actions-section .action-pathway-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--gold);
+}
+.why-actions-section .action-pathway-card h3{
+  margin:18px 0 14px;
+  font-family:"Lora",Georgia,serif;
+  font-size:1.55rem;
+  line-height:1.12;
+}
+.why-actions-section .action-pathway-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.8rem;
+  line-height:1.65;
+}
+.why-actions-section .action-card-label{
+  display:block;
+  color:var(--teal);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.why-actions-section .action-button{
+  margin-top:26px;
+  border:1px solid var(--teal);
+  border-radius:100px;
+  color:var(--teal);
+  background:transparent;
+  text-decoration:none;
+}
+.why-actions-section .action-pathway-card:hover .action-button{
+  background:var(--teal);
+  color:#fff;
+}
+
 /* Buttons: no important action is allowed to collapse into plain text. */
 .why-page-hero .btn,
 .why-page .btn,
@@ -395,12 +442,18 @@
   .why-hero-side{justify-self:start}
   .why-challenge-section .problem-grid{grid-template-columns:repeat(2,1fr)}
   .why-pathway{grid-template-columns:repeat(3,1fr)}
+  .why-actions-section .action-pathway{grid-template-columns:repeat(2,1fr)}
   .why-practice-section .discipline-story-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
   .why-talent-section .editorial-grid,
   .why-mentorship-section .mentorship-feature,
   .why-impact-section .impact-story{grid-template-columns:1fr}
+  .why-mentorship-section .mentorship-image,
+  .why-mentorship-section .mentorship-copy{
+    grid-column:auto;
+    grid-row:auto;
+  }
 }
 @media(max-width:650px){
   .why-page-hero{min-height:auto;padding:130px 0 55px}
@@ -409,6 +462,7 @@
   .why-hero-side{max-width:none}
   .why-challenge-section .problem-grid,
   .why-pathway,
+  .why-actions-section .action-pathway,
   .why-practice-section .discipline-story-grid,
   .why-difference-section .difference-grid{grid-template-columns:1fr}
   .why-talent-section .editorial-image img,
@@ -418,6 +472,22 @@
 /* =========================================================
    REQUESTED REFINEMENTS
    ========================================================= */
+
+/* Mentorship: image and text are equal editorial columns, with the IMAGE FIRST. */
+.why-mentorship-section .mentorship-feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.why-mentorship-section .mentorship-image{
+  grid-column:1;
+  grid-row:1;
+}
+.why-mentorship-section .mentorship-copy{
+  grid-column:2;
+  grid-row:1;
+}
 
 /* Talent + mentorship now use the same editorial image/copy relationship. */
 .why-talent-section .editorial-grid,
@@ -444,19 +514,21 @@
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  width:max-content;
   min-height:48px;
-  margin-top:14px;
+  margin-top:18px;
   padding:12px 22px;
+  border:1px solid var(--teal);
   border-radius:100px;
   background:var(--teal);
   color:#fff;
   font-weight:800;
+  line-height:1;
   text-decoration:none;
-  box-shadow:none;
 }
-
 .why-mentorship-section .mentorship-button:hover{
   background:var(--deep-teal);
+  border-color:var(--deep-teal);
   color:#fff;
 }
 
@@ -570,7 +642,9 @@
 }
 
 .action-pathway{
+  display:grid;
   grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
 
 .action-pathway-card{
@@ -1577,8 +1651,8 @@
             </p>
 
             <a
-              href="/work/mentorship.html"
-              class="button button-secondary"
+              href="https://helpful-lolly-c7036b.netlify.app/work/mentorship"
+              class="button button-secondary mentorship-button"
             >
               Explore mentorship
             </a>
@@ -1827,11 +1901,11 @@
         </div>
 
 
-        <div class="action-grid">
+        <div class="why-pathway action-pathway">
 
           <a
             href="/get-involved/have-talent.html"
-            class="action-card"
+            class="why-pathway-card action-pathway-card reveal"
           >
             <span class="action-card-label">For young creatives</span>
 
@@ -1844,13 +1918,13 @@
               could take me.
             </p>
 
-            <span class="action-arrow" aria-hidden="true">→</span>
+            <span class="action-button" aria-hidden="true">Explore this path&nbsp; →</span>
           </a>
 
 
           <a
             href="/get-involved/want-to-learn.html"
-            class="action-card"
+            class="why-pathway-card action-pathway-card reveal"
           >
             <span class="action-card-label">For learners</span>
 
@@ -1863,13 +1937,13 @@
               at what I do.
             </p>
 
-            <span class="action-arrow" aria-hidden="true">→</span>
+            <span class="action-button" aria-hidden="true">Explore this path&nbsp; →</span>
           </a>
 
 
           <a
             href="/get-involved/mentor.html"
-            class="action-card"
+            class="why-pathway-card action-pathway-card reveal"
           >
             <span class="action-card-label">For mentors</span>
 
@@ -1882,13 +1956,13 @@
               someone else grow.
             </p>
 
-            <span class="action-arrow" aria-hidden="true">→</span>
+            <span class="action-button" aria-hidden="true">Explore this path&nbsp; →</span>
           </a>
 
 
           <a
             href="/get-involved/partner.html"
-            class="action-card"
+            class="why-pathway-card action-pathway-card reveal"
           >
             <span class="action-card-label">For partners</span>
 
@@ -1901,7 +1975,7 @@
               young people.
             </p>
 
-            <span class="action-arrow" aria-hidden="true">→</span>
+            <span class="action-button" aria-hidden="true">Explore this path&nbsp; →</span>
           </a>
 
         </div>
