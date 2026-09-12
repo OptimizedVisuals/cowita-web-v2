@@ -305,12 +305,11 @@
 
     .pathway-section {
       background: var(--deep-teal);
-      color: #fff;
+      color: var(--deep-teal);
     }
 
     .pathway-header {
       max-width: 760px;
-
       margin-bottom: 55px;
     }
 
@@ -320,54 +319,65 @@
 
     .pathway-header p {
       color: rgba(255,255,255,.68);
-
       line-height: 1.7;
     }
 
     .pathway {
       display: grid;
-
       grid-template-columns: repeat(5, 1fr);
-
-      border-top: 1px solid rgba(255,255,255,.16);
+      gap: 18px;
     }
 
     .pathway-step {
+      position: relative;
       min-height: 250px;
-
-      padding: 28px 22px;
-
-      border-right: 1px solid rgba(255,255,255,.16);
+      padding: 28px 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--cream);
+      color: var(--deep-teal);
     }
 
-    .pathway-step:last-child {
-      border-right: 0;
+    .pathway-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: -18px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--deep-teal);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
     }
 
     .pathway-step-number {
       color: var(--gold);
-
-      font-size: .7rem;
+      font-size: .72rem;
       font-weight: 800;
+      letter-spacing: .08em;
     }
 
     .pathway-step h3 {
       margin: 55px 0 12px;
-
+      color: var(--deep-teal);
       font-family: "Lora", Georgia, serif;
-
       font-size: 1.45rem;
     }
 
     .pathway-step p {
       margin: 0;
-
-      color: rgba(255,255,255,.58);
-
-      font-size: .76rem;
+      color: var(--muted);
+      font-size: .78rem;
       line-height: 1.6;
     }
-
 
     /* =========================================================
        CREATIVE OUTPUT
@@ -611,7 +621,11 @@
       }
 
       .pathway-step {
-        border-bottom: 1px solid rgba(255,255,255,.16);
+        border-bottom: 0;
+      }
+
+      .pathway-step:not(:last-child)::after {
+        right: -19px;
       }
 
       .outputs-grid {
@@ -665,6 +679,10 @@
 
       .pathway-step {
         border-right: 0;
+      }
+
+      .pathway-step:not(:last-child)::after {
+        display: none;
       }
 
       .output-card {

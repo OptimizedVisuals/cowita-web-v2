@@ -321,19 +321,53 @@
 
       grid-template-columns: repeat(5, 1fr);
 
-      gap: 1px;
+      /* Give the arrow its own visual space between cards. */
+      gap: 36px;
 
-      background: rgba(255,255,255,.15);
+      background: transparent;
 
-      border: 1px solid rgba(255,255,255,.15);
+      border: 0;
     }
 
     .pathway-step {
+      position: relative;
+
       min-height: 260px;
 
       padding: 28px;
 
       background: var(--deep-teal);
+
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    /* Keep arrows in the gap between cards instead of over the next card. */
+    .pathway-step:not(:last-child)::after {
+      content: "→";
+
+      position: absolute;
+      z-index: 3;
+
+      top: 50%;
+      right: -36px;
+
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transform: translateY(-50%);
+
+      border-radius: 50%;
+
+      background: var(--gold);
+      color: var(--deep-teal);
+
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
     }
 
     .pathway-step-number {
@@ -590,6 +624,11 @@
 
       .pathway {
         grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .pathway-step:not(:last-child)::after {
+        right: -30px;
       }
 
       .pathway-step:last-child {
@@ -637,6 +676,11 @@
       .possibilities-grid,
       .pathway {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .pathway-step:not(:last-child)::after {
+        display: none;
       }
 
       .pathway-step:last-child {

@@ -95,9 +95,25 @@
 
     .opportunity-intro-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.4fr;
+      grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: center;
+    }
+
+    .opportunity-intro-image {
+      position: relative;
+    }
+
+    .opportunity-intro-image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 30px 30px 110px 30px;
+    }
+
+    .opportunity-intro-copy {
+      max-width: 720px;
     }
 
     .opportunity-intro-label {
@@ -863,13 +879,22 @@
 
         <div class="opportunity-intro-grid">
 
-          <div>
+          <div class="opportunity-intro-image reveal">
+
+            <img
+              src="/assets/images/opportunity-idea.jpg"
+              alt="Young people discovering and developing new opportunities"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="opportunity-intro-copy">
+
             <div class="section-label opportunity-intro-label">
               THE IDEA
             </div>
-          </div>
 
-          <div>
             <h2>
               Opportunity should meet people where they are.
             </h2>
@@ -891,6 +916,7 @@
               people to today, while building a wider opportunity network for
               the future.
             </p>
+
           </div>
 
         </div>
