@@ -19,20 +19,279 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 <style>
-/* Page-specific flow refinement: keeps the shared site system intact. */
-.why-page-hero{position:relative;overflow:hidden}
-.why-page-hero .page-hero-grid{min-height:clamp(560px,72vh,760px);align-items:center}
-.why-page-hero .page-hero-copy{max-width:720px;padding-block:3rem}
-.why-page-hero .page-hero-copy::after{content:"";display:block;width:72px;height:3px;margin-top:2.5rem;background:currentColor;opacity:.28}
-.why-page-hero + .section{border-top:1px solid rgba(20,32,28,.08)}
-.why-page-hero + .section .section-intro{position:relative;padding-left:clamp(1.25rem,3vw,2.5rem);border-left:3px solid currentColor}
-.why-page-hero ~ .section + .section{border-top:1px solid rgba(20,32,28,.06)}
-.why-page-hero ~ .section .section-intro,.why-page-hero ~ .section .two-column-heading,.why-page-hero ~ .section .section-heading-row{margin-bottom:clamp(3rem,6vw,5rem)}
+/* =========================================================
+   WHY COWITA PAGE
+   Visual system aligned with the Dance page.
+   Page-specific styles only.
+   ========================================================= */
+
+/* HERO — same editorial, full-bleed treatment as Dance */
+.why-page-hero{
+  position:relative;
+  min-height:78vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:var(--deep-teal);
+  color:#fff;
+  padding:150px 0 75px;
+}
+.why-page-hero .page-hero-media{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.why-page-hero .page-hero-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,30,34,.94) 0%,
+      rgba(5,30,34,.72) 48%,
+      rgba(5,30,34,.25) 100%
+    );
+}
+.why-page-hero .image-frame,
+.why-page-hero .image-frame-tall{
+  width:100%;
+  height:100%;
+  border-radius:0;
+}
+.why-page-hero .page-hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.why-page-hero .floating-note{
+  position:absolute;
+  right:clamp(20px,5vw,70px);
+  bottom:clamp(25px,5vw,70px);
+  z-index:2;
+  max-width:310px;
+  padding:25px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:22px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+}
+.why-page-hero .floating-note-label{
+  display:block;
+  margin-bottom:12px;
+  color:var(--gold);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.why-page-hero .floating-note strong{
+  color:rgba(255,255,255,.92);
+  line-height:1.45;
+}
+.why-page-hero .container{
+  position:relative;
+  z-index:2;
+}
+.why-page-hero .page-hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:end;
+}
+.why-page-hero .page-hero-copy{
+  max-width:850px;
+}
+.why-page-hero .page-hero-copy > .eyebrow{
+  color:var(--gold);
+}
+.why-page-hero h1{
+  margin:0;
+  font-family:"Lora",Georgia,serif;
+  font-size:clamp(4rem,9vw,8.5rem);
+  font-weight:500;
+  line-height:.88;
+  letter-spacing:-.065em;
+}
+.why-page-hero h1 span{
+  color:var(--gold);
+}
+.why-page-hero .hero-lead{
+  max-width:650px;
+  margin:28px 0 0;
+  color:rgba(255,255,255,.82);
+  font-size:1.05rem;
+  line-height:1.65;
+}
+.why-page-hero .hero-supporting-copy{
+  max-width:650px;
+  margin:18px 0 0;
+  color:rgba(255,255,255,.62);
+  line-height:1.65;
+}
+.why-page-hero .hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:32px;
+}
+.why-page-hero .hero-actions .btn-primary{
+  background:var(--gold);
+  color:#191711;
+}
+.why-page-hero .hero-actions .btn-primary:hover{
+  background:#f0bb38;
+}
+.why-page-hero .hero-actions .btn-outline{
+  border-color:rgba(255,255,255,.45);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(8px);
+}
+.why-page-hero .hero-actions .btn-outline:hover{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.7);
+}
+
+/* SECTION RHYTHM — clear divisions like the Dance page */
+.why-gap-section{background:var(--paper)}
+.why-challenge-section{background:var(--deep-teal);color:#fff}
+.why-talent-section{background:var(--cream)}
+.why-journey-section{background:#fff}
+.why-practice-section{background:var(--paper)}
+.why-mentorship-section{background:var(--cream)}
+.why-difference-section{background:var(--deep-teal);color:#fff}
+.why-impact-section{background:var(--paper)}
+.why-belief-section{background:var(--gold);color:#191711}
+.why-actions-section{background:var(--cream)}
+.why-final-cta-section{background:var(--gold);color:#191711}
+
+/* Give every section a stronger editorial entry point. */
+.why-gap-section .section-intro,
+.why-journey-section .section-intro,
+.why-mentorship-section .mentorship-copy{
+  max-width:760px;
+}
+.why-challenge-section .two-column-heading,
+.why-practice-section .section-heading-row,
+.why-difference-section .section-intro,
+.why-actions-section .section-heading-row{
+  margin-bottom:55px;
+}
+.why-challenge-section .eyebrow-light,
+.why-difference-section .eyebrow-light{
+  color:var(--gold);
+}
+.why-challenge-section .problem-card,
+.why-difference-section .difference-item{
+  border-color:rgba(255,255,255,.14);
+  background:rgba(255,255,255,.055);
+}
+.why-challenge-section .problem-card{
+  border-radius:22px;
+}
+.why-challenge-section .problem-number{
+  color:var(--gold);
+}
+.why-journey-section .journey-card,
+.why-practice-section .discipline-story{
+  border-radius:22px;
+}
+.why-journey-section .journey-card{
+  border:1px solid var(--line);
+  background:#fff;
+}
+.why-journey-section .journey-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-7px);
+}
+.why-belief-section .belief-banner{
+  background:transparent;
+}
+.why-actions-section .action-card{
+  border-radius:22px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.why-actions-section .action-card:hover{
+  border-color:var(--gold);
+}
+
+/* Convert meaningful in-page text links into deliberate controls. */
+.why-page .text-link,
+main .why-page-hero + .section .text-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:46px;
+  padding:11px 18px;
+  border:1px solid var(--teal);
+  border-radius:100px;
+  background:rgba(13,75,75,.04);
+  color:var(--teal);
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease);
+}
+.why-page .text-link:hover,
+main .why-page-hero + .section .text-link:hover{
+  transform:translateY(-2px);
+  background:rgba(13,75,75,.09);
+  border-color:var(--gold);
+}
+.why-page-hero .hero-actions .btn{
+  text-decoration:none;
+}
+
+/* Strong final CTA, matching Dance's gold close. */
+.why-final-cta-section .final-cta{
+  align-items:center;
+}
+.why-final-cta-section .final-cta-actions .button-light{
+  background:#191711;
+  color:#fff;
+}
+.why-final-cta-section .final-cta-actions .button-light:hover{
+  background:#0d4b4b;
+}
+
+/* Responsive */
+@media(max-width:1000px){
+  .why-page-hero .page-hero-grid{
+    grid-template-columns:1fr;
+  }
+  .why-page-hero .floating-note{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:35px;
+    justify-self:start;
+  }
+}
 @media(max-width:800px){
- .why-page-hero .page-hero-grid{min-height:auto}
- .why-page-hero .page-hero-copy{padding-block:1rem 2rem}
- .why-page-hero + .section .section-intro{padding-left:1rem}
- .why-page-hero ~ .section .section-intro,.why-page-hero ~ .section .two-column-heading,.why-page-hero ~ .section .section-heading-row{margin-bottom:2.5rem}
+  .why-page-hero{
+    min-height:auto;
+    padding:130px 0 55px;
+  }
+  .why-page-hero h1{
+    font-size:clamp(3.5rem,18vw,6rem);
+  }
+  .why-page-hero .hero-lead{
+    font-size:.95rem;
+  }
+  .why-page-hero .page-hero-media{
+    position:absolute;
+  }
+}
+@media(max-width:650px){
+  .why-page-hero .page-hero-grid{
+    gap:35px;
+  }
+  .why-page-hero .floating-note{
+    max-width:none;
+  }
 }
 </style>
 </head>
@@ -296,7 +555,7 @@
 </header>
 
 
-  <main id="main-content">
+  <main id="main-content" class="why-page">
 
     <!-- =========================
          PAGE HERO
@@ -331,14 +590,14 @@
             <div class="hero-actions">
               <a
                 href="/get-involved/have-talent.html"
-                class="button button-primary"
+                class="btn btn-primary"
               >
                 I Have Talent
               </a>
 
               <a
                 href="#the-gap"
-                class="text-link"
+                class="btn btn-outline"
               >
                 Understand the gap
                 <span aria-hidden="true">↓</span>
@@ -375,7 +634,7 @@
     <!-- =========================
          THE GAP
     ========================== -->
-    <section class="section section-paper" id="the-gap">
+    <section class="section why-gap-section" id="the-gap">
       <div class="container">
 
         <div class="section-intro section-intro-narrow">
@@ -452,7 +711,7 @@
     <!-- =========================
          NOT A LACK OF ABILITY
     ========================== -->
-    <section class="section section-teal">
+    <section class="section why-challenge-section">
       <div class="container">
 
         <div class="two-column-heading">
@@ -545,7 +804,7 @@
     <!-- =========================
          WHY START WITH TALENT
     ========================== -->
-    <section class="section">
+    <section class="section why-talent-section">
       <div class="container">
 
         <div class="editorial-grid">
@@ -613,7 +872,7 @@
     <!-- =========================
          FROM TALENT TO POSSIBILITY
     ========================== -->
-    <section class="section section-cream">
+    <section class="section why-journey-section">
       <div class="container">
 
         <div class="section-intro section-intro-narrow">
@@ -739,7 +998,7 @@
     <!-- =========================
          WHAT THIS LOOKS LIKE
     ========================== -->
-    <section class="section">
+    <section class="section why-practice-section">
       <div class="container">
 
         <div class="section-heading-row">
@@ -915,7 +1174,7 @@
 
               <a
                 href="/work/skills-development.html"
-                class="text-link text-link-light"
+                class="btn btn-outline text-link-light"
               >
                 Explore skills development
                 <span aria-hidden="true">→</span>
@@ -933,7 +1192,7 @@
     <!-- =========================
          MENTORSHIP
     ========================== -->
-    <section class="section section-paper">
+    <section class="section why-mentorship-section">
       <div class="container">
 
         <div class="mentorship-feature">
@@ -994,7 +1253,7 @@
     <!-- =========================
          OUR DIFFERENCE
     ========================== -->
-    <section class="section section-dark">
+    <section class="section why-difference-section">
       <div class="container">
 
         <div class="section-intro section-intro-dark">
@@ -1081,7 +1340,7 @@
     <!-- =========================
          THE BIGGER PICTURE
     ========================== -->
-    <section class="section">
+    <section class="section why-impact-section">
       <div class="container">
 
         <div class="impact-story">
@@ -1145,7 +1404,7 @@
     <!-- =========================
          BELIEF
     ========================== -->
-    <section class="section section-gold">
+    <section class="section why-belief-section">
       <div class="container">
 
         <div class="belief-banner">
@@ -1178,7 +1437,7 @@
     <!-- =========================
          ACTION PATHS
     ========================== -->
-    <section class="section section-cream">
+    <section class="section why-actions-section">
       <div class="container">
 
         <div class="section-heading-row">
@@ -1285,7 +1544,7 @@
     <!-- =========================
          FINAL CTA
     ========================== -->
-    <section class="section section-teal final-cta-section">
+    <section class="section why-final-cta-section">
       <div class="container">
 
         <div class="final-cta">
