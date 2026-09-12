@@ -414,6 +414,263 @@
   .why-talent-section .editorial-image img,
   .why-mentorship-section .mentorship-image img{aspect-ratio:4/5}
 }
+
+/* =========================================================
+   REQUESTED REFINEMENTS
+   ========================================================= */
+
+/* Talent + mentorship now use the same editorial image/copy relationship. */
+.why-talent-section .editorial-grid,
+.why-mentorship-section .editorial-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.why-mentorship-section .editorial-image .image-frame{
+  overflow:hidden;
+  border-radius:30px 30px 110px 30px;
+}
+
+.why-mentorship-section .editorial-image img{
+  display:block;
+  width:100%;
+  aspect-ratio:4 / 5;
+  object-fit:cover;
+}
+
+.why-mentorship-section .mentorship-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  margin-top:14px;
+  padding:12px 22px;
+  border-radius:100px;
+  background:var(--teal);
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:none;
+}
+
+.why-mentorship-section .mentorship-button:hover{
+  background:var(--deep-teal);
+  color:#fff;
+}
+
+/* Bigger picture: central talent node with five connected possibilities. */
+.why-impact-section .impact-story-note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:430px;
+}
+
+.possibility-map{
+  position:relative;
+  width:min(100%, 520px);
+  aspect-ratio:1;
+}
+
+.possibility-map::before{
+  content:"";
+  position:absolute;
+  inset:16%;
+  border:1px solid var(--line);
+  border-radius:50%;
+}
+
+.possibility-map::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:1px;
+  height:1px;
+  box-shadow:
+    0 -155px 0 0 var(--line),
+    147px -48px 0 0 var(--line),
+    91px 125px 0 0 var(--line),
+    -91px 125px 0 0 var(--line),
+    -147px -48px 0 0 var(--line);
+}
+
+.possibility-node{
+  position:absolute;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  width:92px;
+  height:92px;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:#fff;
+  color:var(--teal);
+  text-align:center;
+  box-shadow:0 8px 24px rgba(20,32,28,.08);
+}
+
+.possibility-node strong{
+  display:block;
+  font-size:.78rem;
+  line-height:1.1;
+}
+
+.possibility-node span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.6rem;
+  line-height:1.1;
+}
+
+.possibility-center{
+  left:50%;
+  top:50%;
+  width:132px;
+  height:132px;
+  transform:translate(-50%,-50%);
+  border:2px solid var(--gold);
+  background:var(--gold);
+  color:#191711;
+  box-shadow:none;
+}
+
+.possibility-center strong{
+  font-family:"Lora",Georgia,serif;
+  font-size:1.35rem;
+}
+
+.possibility-center span{
+  color:#191711;
+  opacity:.7;
+  font-size:.68rem;
+}
+
+.possibility-node-1{left:50%;top:3%;transform:translateX(-50%)}
+.possibility-node-2{right:2%;top:31%}
+.possibility-node-3{right:20%;bottom:3%}
+.possibility-node-4{left:20%;bottom:3%}
+.possibility-node-5{left:2%;top:31%}
+
+/* Where do you fit? — same pathway treatment, with defined action controls. */
+.why-actions-section .pathway-header{
+  max-width:750px;
+  margin-bottom:55px;
+}
+
+.why-actions-section .pathway-header p{
+  max-width:650px;
+  margin-top:20px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.action-pathway{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.action-pathway-card{
+  display:flex;
+  flex-direction:column;
+  min-height:330px;
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.action-pathway-card .action-card-label{
+  margin-top:20px;
+  color:var(--teal);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.action-pathway-card h3{
+  margin-top:15px;
+}
+
+.action-pathway-card p{
+  flex:1;
+}
+
+.action-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:flex-start;
+  gap:9px;
+  min-height:42px;
+  margin-top:24px;
+  padding:10px 16px;
+  border:1px solid var(--teal);
+  border-radius:100px;
+  color:var(--teal);
+  background:transparent;
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.action-pathway-card:hover .action-button{
+  background:var(--teal);
+  color:#fff;
+}
+
+/* Final CTA: make "Start with your talent" an intentional button. */
+.why-final-cta-section .final-cta-actions .button-light{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:13px 24px;
+  border:1px solid #191711;
+  border-radius:100px;
+  background:#191711;
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:none;
+}
+
+.why-final-cta-section .final-cta-actions .button-light:hover{
+  border-color:var(--deep-teal);
+  background:var(--deep-teal);
+  color:#fff;
+}
+
+@media(max-width:1000px){
+  .action-pathway{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:900px){
+  .why-talent-section .editorial-grid,
+  .why-mentorship-section .editorial-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:650px){
+  .action-pathway{
+    grid-template-columns:1fr;
+  }
+
+  .possibility-map{
+    width:min(100%, 390px);
+  }
+
+  .possibility-node-1{top:2%}
+  .possibility-node-2{right:0;top:30%}
+  .possibility-node-3{right:13%;bottom:2%}
+  .possibility-node-4{left:13%;bottom:2%}
+  .possibility-node-5{left:0;top:30%}
+}
+
 </style>
 </head>
 
@@ -932,12 +1189,7 @@
                 loading="lazy"
               >
             </div>
-
-            <p class="image-caption">
-              Development begins with the person, not just the programme.
-            </p>
-
-          </div>
+</div>
 
 
           <div class="editorial-copy">
@@ -1481,17 +1733,32 @@
 
           <div class="impact-story-note">
 
-            <div class="number-note">
+            <div class="possibility-map" aria-label="One talent can become many possibilities">
 
-              <span class="number-note-symbol">∞</span>
+              <div class="possibility-node possibility-center">
+                <strong>Talent</strong>
+                <span>Potential</span>
+              </div>
 
-              <p>
-                <strong>One talent can become many possibilities.</strong>
-              </p>
+              <div class="possibility-node possibility-node-1">
+                <strong>Skill</strong>
+              </div>
 
-              <span class="number-note-small">
-                Skill · Confidence · Creation · Opportunity · Impact
-              </span>
+              <div class="possibility-node possibility-node-2">
+                <strong>Confidence</strong>
+              </div>
+
+              <div class="possibility-node possibility-node-3">
+                <strong>Creation</strong>
+              </div>
+
+              <div class="possibility-node possibility-node-4">
+                <strong>Opportunity</strong>
+              </div>
+
+              <div class="possibility-node possibility-node-5">
+                <strong>Impact</strong>
+              </div>
 
             </div>
 
