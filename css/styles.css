@@ -397,11 +397,6 @@ h4 {
 
 /* ============================================================
    07. HEADER / NAVIGATION
-   ------------------------------------------------------------
-   Canonical header:
-   .site-header > .container.nav
-   .brand / .menu-toggle / .nav-links / .nav-group / .dropdown
-   .header-cta
    ============================================================ */
 
 .site-header {
@@ -430,7 +425,6 @@ h4 {
   box-shadow: 0 8px 30px rgba(8, 39, 39, .08);
 }
 
-/* Fixed headers leave normal document flow. Reserve exactly 57px. */
 .site-header + main {
   padding-top: var(--header-height);
 }
@@ -518,9 +512,12 @@ h4 {
   width: 6px;
   height: 6px;
   flex: 0 0 6px;
+
   border-right: 1.5px solid currentColor;
   border-bottom: 1.5px solid currentColor;
+
   transform: rotate(45deg) translateY(-2px);
+
   transition: transform var(--transition-fast);
 }
 
@@ -532,14 +529,18 @@ h4 {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
+
   width: 260px;
   max-height: min(70vh, 520px);
+
   overflow-y: auto;
   padding: 9px;
 
   background: rgba(255, 255, 255, .98);
+
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
+
   box-shadow: var(--shadow-lg);
 
   opacity: 0;
@@ -564,6 +565,7 @@ h4 {
   display: block;
   width: 100%;
   padding: 10px 12px;
+
   border-radius: 10px;
 
   color: var(--ink-soft);
@@ -590,6 +592,7 @@ h4 {
 
 .menu-toggle {
   display: none;
+
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
@@ -602,13 +605,16 @@ h4 {
 
   background: var(--deep-teal);
   color: #fff;
+
   border-radius: 50%;
 }
 
 .menu-toggle span {
   display: block;
+
   width: 15px;
   height: 1.5px;
+
   background: currentColor;
   border-radius: 2px;
 }
@@ -1737,83 +1743,224 @@ h4 {
 /* ============================================================
    27. FOOTER
    ------------------------------------------------------------
-   Canonical footer:
-   .footer-main / .footer-brand / .footer-nav / .footer-bottom
+   Works with the EXISTING footer HTML:
+   .footer-main
+   .footer-brand
+   .footer-nav
+   .footer-group
+   .footer-group-toggle
+   .footer-group-links
+   .footer-toggle-icon
+   .footer-bottom
+
+   Desktop:
+   - Multi-column navigation
+   - Plain section headings
+   - No fake + icons
+
+   Mobile:
+   - Collapsed accordion groups
+   - + / − toggle
+   - Link panels open through aria-expanded
    ============================================================ */
 
 .site-footer {
-  padding: 58px 0 20px;
+  padding: 58px 0 22px;
+
   background: #092f30;
   color: #fff;
 }
 
+
+/* ---------- Main footer layout ---------- */
+
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(220px, .8fr) minmax(0, 1.6fr);
+
+  grid-template-columns:
+    minmax(190px, .85fr)
+    minmax(0, 2.15fr);
+
   gap: 70px;
+
   align-items: start;
+
   padding-bottom: 42px;
 }
 
+
+/* ---------- Footer brand ---------- */
+
 .footer-brand {
-  max-width: 300px;
+  max-width: 250px;
 }
 
 .footer-brand .brand {
+  display: inline-flex;
   margin-bottom: 16px;
 }
 
 .footer-brand .brand img {
+  display: block;
+
   width: auto;
   max-width: 110px;
   max-height: 36px;
 }
 
 .footer-tagline {
-  max-width: 260px;
+  max-width: 220px;
+
   margin: 0;
+
   color: rgba(255, 255, 255, .58);
-  font-size: .78rem;
-  line-height: 1.6;
+
+  font-size: .75rem;
+  line-height: 1.5;
 }
+
+
+/* ---------- Footer navigation grid ---------- */
 
 .footer-nav {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px 28px;
-  align-content: start;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 38px 42px;
+
+  align-items: start;
 }
 
-.footer-nav a {
-  display: block;
+
+/* ---------- Footer groups ---------- */
+
+.footer-group {
+  min-width: 0;
+}
+
+
+/* ---------- Footer group toggle / heading ---------- */
+
+.footer-group-toggle {
+  display: flex;
+  align-items: center;
+
   width: fit-content;
-  color: rgba(255, 255, 255, .62);
-  font-size: .76rem;
-  font-weight: 600;
-  line-height: 1.4;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+
+  margin: 0 0 11px;
+  padding: 0;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  color: #fff;
+
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  cursor: default;
 }
 
-.footer-nav a:hover {
+
+/* Remove any inherited button hover treatment */
+
+.footer-group-toggle:hover,
+.footer-group-toggle:focus,
+.footer-group-toggle:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff;
+  transform: none;
+}
+
+
+/* ---------- Desktop: hide accordion icon ---------- */
+
+.footer-toggle-icon {
+  display: none;
+}
+
+
+/* ---------- Footer links ---------- */
+
+.footer-group-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.footer-group-links a {
+  display: block;
+
+  width: fit-content;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent !important;
+
+  color: rgba(255, 255, 255, .62);
+
+  font-size: .74rem;
+  font-weight: 500;
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.footer-group-links a:hover {
   color: var(--gold-light);
+
   transform: translateX(3px);
 }
 
+
+/* ---------- Footer bottom ---------- */
+
 .footer-bottom {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
+
   gap: 20px;
+
   padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, .1);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, .10);
+
   color: rgba(255, 255, 255, .38);
+
   font-size: .66rem;
   line-height: 1.5;
 }
 
 .footer-bottom a {
   color: rgba(255, 255, 255, .52);
-  transition: color var(--transition-fast);
+
+  transition:
+    color var(--transition-fast);
 }
 
 .footer-bottom a:hover {
@@ -1822,20 +1969,19 @@ h4 {
 
 .footer-mission {
   color: rgba(255, 255, 255, .46);
+
   white-space: nowrap;
 }
 
 .footer-mission span {
   padding-inline: 4px;
+
   color: var(--gold);
 }
 
 
 /* ============================================================
    28. REVEAL ANIMATION
-   ------------------------------------------------------------
-   The default state remains visible so content never disappears
-   if JavaScript is unavailable.
    ============================================================ */
 
 .reveal {
@@ -2074,15 +2220,24 @@ h4 {
   }
 
   .discipline-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
   .opportunity-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
+
+
+  /* Footer */
 
   .footer-main {
     gap: 45px;
+  }
+
+  .footer-nav {
+    gap: 30px 28px;
   }
 
 }
@@ -2108,21 +2263,35 @@ h4 {
 
   .nav-links {
     position: absolute;
+
     top: calc(100% + 8px);
     left: 0;
     right: 0;
 
     display: none;
+
     flex-direction: column;
     align-items: stretch;
 
-    max-height: calc(100vh - var(--header-height) - 16px);
+    max-height:
+      calc(
+        100vh -
+        var(--header-height) -
+        16px
+      );
+
     overflow-y: auto;
+
     padding: 9px;
 
     background: rgba(255, 255, 255, .99);
-    border: 1px solid var(--line);
+
+    border:
+      1px solid
+      var(--line);
+
     border-radius: var(--radius-md);
+
     box-shadow: var(--shadow-lg);
   }
 
@@ -2133,8 +2302,11 @@ h4 {
   .nav-links > a,
   .nav-group > summary {
     width: 100%;
+
     min-height: 44px;
+
     justify-content: space-between;
+
     padding: 12px 14px;
   }
 
@@ -2144,21 +2316,29 @@ h4 {
 
   .dropdown {
     position: static;
+
     width: 100%;
+
     max-height: none;
+
     overflow: visible;
+
     margin-top: 3px;
+
     padding: 4px;
 
     border: 0;
     border-radius: 10px;
+
     box-shadow: none;
+
     background: var(--cream);
 
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: none;
+
     display: none;
   }
 
@@ -2187,7 +2367,8 @@ h4 {
   }
 
   .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
   .feature-card {
@@ -2199,24 +2380,34 @@ h4 {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .opportunity-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .discipline-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
+
+
+  /* Footer layout at tablet */
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 35px;
+
+    gap: 38px;
   }
 
   .footer-nav {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    gap: 30px 28px;
   }
 
 }
@@ -2234,7 +2425,8 @@ h4 {
   }
 
   html {
-    scroll-padding-top: calc(var(--header-height) + 16px);
+    scroll-padding-top:
+      calc(var(--header-height) + 16px);
   }
 
   .site-header,
@@ -2249,11 +2441,13 @@ h4 {
   }
 
   h1 {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size:
+      clamp(3rem, 15vw, 5rem);
   }
 
   h2 {
-    font-size: clamp(2.4rem, 12vw, 4rem);
+    font-size:
+      clamp(2.4rem, 12vw, 4rem);
   }
 
   .section-header {
@@ -2279,13 +2473,19 @@ h4 {
   }
 
   .hero-image {
-    border-radius: 24px 24px 80px 24px;
+    border-radius:
+      24px
+      24px
+      80px
+      24px;
   }
 
   .hero-note {
     left: 15px;
     bottom: 15px;
+
     max-width: 210px;
+
     padding: 16px;
   }
 
@@ -2315,7 +2515,8 @@ h4 {
   }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 
   .stat {
@@ -2353,8 +2554,20 @@ h4 {
     grid-column: auto;
   }
 
+
+  /* ========================================================
+     MOBILE FOOTER
+     ======================================================== */
+
+  .site-footer {
+    padding: 45px 0 20px;
+  }
+
   .footer-main {
-    gap: 28px;
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
     padding-bottom: 30px;
   }
 
@@ -2362,22 +2575,185 @@ h4 {
     max-width: 100%;
   }
 
-  /* Mobile footer stays compact. The supplied canonical footer
-     has ordinary links, so there is no fake +/- disclosure UI. */
-  .footer-nav {
-    grid-template-columns: 1fr 1fr;
-    gap: 13px 22px;
+  .footer-brand .brand {
+    margin-bottom: 14px;
   }
 
-  .footer-nav a {
+  .footer-brand .brand img {
+    max-width: 100px;
+    max-height: 34px;
+  }
+
+  .footer-tagline {
+    max-width: 280px;
     font-size: .75rem;
   }
 
+
+  /* Mobile footer navigation becomes a vertical accordion */
+
+  .footer-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    width: 100%;
+  }
+
+
+  /* Each section becomes one bordered row */
+
+  .footer-group {
+    width: 100%;
+
+    border-top:
+      1px solid
+      rgba(255, 255, 255, .11);
+  }
+
+  .footer-group:last-child {
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, .11);
+  }
+
+
+  /* Mobile toggle button */
+
+  .footer-group-toggle {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin: 0;
+
+    padding: 15px 0;
+
+    background: transparent !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    color: #fff;
+
+    font-size: .74rem;
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    cursor: pointer;
+  }
+
+
+  /* Keep toggle clean in every state */
+
+  .footer-group-toggle:hover,
+  .footer-group-toggle:focus,
+  .footer-group-toggle:active {
+    background: transparent !important;
+
+    color: #fff;
+
+    box-shadow: none !important;
+
+    transform: none;
+  }
+
+
+  /* + / − icon */
+
+  .footer-toggle-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    flex: 0 0 22px;
+
+    color: rgba(255, 255, 255, .70);
+
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    line-height: 1;
+  }
+
+
+  /* Closed by default */
+
+  .footer-group-links {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin: 0;
+
+    padding:
+      0
+      0
+      18px;
+  }
+
+
+  /* Open state controlled by aria-expanded */
+
+  .footer-group-toggle[aria-expanded="true"]
+    + .footer-group-links {
+    display: flex;
+  }
+
+
+  /* Mobile footer links */
+
+  .footer-group-links a {
+    width: fit-content;
+
+    padding: 0;
+
+    color: rgba(255, 255, 255, .58);
+
+    font-size: .76rem;
+    font-weight: 500;
+
+    line-height: 1.45;
+  }
+
+  .footer-group-links a:hover {
+    color: #fff;
+
+    transform: translateX(3px);
+  }
+
+
+  /* Footer bottom */
+
   .footer-bottom {
     display: grid;
+
     grid-template-columns: 1fr;
+
     align-items: start;
+
     gap: 8px;
+
+    padding-top: 18px;
   }
 
   .footer-mission {
@@ -2406,9 +2782,8 @@ h4 {
     padding-inline: 18px;
   }
 
-  .footer-nav {
-    grid-template-columns: 1fr;
-  }
+  /* Footer is already a single-column accordion.
+     No grid override is needed here. */
 
 }
 

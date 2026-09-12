@@ -1,8 +1,6 @@
 /* =========================================================
    CoWiTa — Shared Site JavaScript
    ---------------------------------------------------------
-   Canonical shared navigation system.
-
    Responsibilities:
    - Mobile navigation
    - Header dropdowns
@@ -10,10 +8,13 @@
    - Smooth anchor scrolling
    - Reveal animations
    - Current year
+   - Footer accordion
+   - Footer legacy-link normalization
    - Escape-key handling
 
-   The HTML structure is intentionally kept simple.
-   Native <details>/<summary> controls the dropdown state.
+   Header dropdowns use native <details>/<summary>.
+   Footer sections use native <button> controls with
+   aria-expanded / aria-controls.
    ========================================================= */
 
 (function () {
@@ -25,6 +26,7 @@
      ========================================================= */
 
   const MOBILE_BREAKPOINT = 900;
+  const FOOTER_ACCORDION_BREAKPOINT = 650;
   const HEADER_SCROLL_THRESHOLD = 20;
 
 
@@ -39,6 +41,8 @@
     initSmoothScrolling();
     initRevealAnimations();
     initCurrentYear();
+    initFooterAccordion();
+    initFooterLegacyLinks();
     initEscapeKeyHandling();
   }
 
@@ -66,13 +70,9 @@
       return null;
     }
 
-    const nav = header.querySelector(
-      ".nav-links"
-    );
+    const nav = header.querySelector(".nav-links");
 
-    const menuToggle = header.querySelector(
-      ".menu-toggle"
-    );
+    const menuToggle = header.querySelector(".menu-toggle");
 
     const dropdownGroups = Array.from(
       header.querySelectorAll(".nav-group")
@@ -270,8 +270,9 @@
 
 
     /*
-     * Expose a small internal helper so Escape and
-     * smooth scrolling can close the same navigation.
+     * Expose internal helper so other site systems,
+     * including Escape handling and smooth scrolling,
+     * can close the same navigation.
      */
     header.__cowitaCloseMenu = closeMenu;
   }
@@ -300,7 +301,7 @@
 
 
     /* -------------------------------------------------------
-       Close every dropdown
+       Make close function available if needed elsewhere
        ------------------------------------------------------- */
 
     window.closeCowitaDropdowns =
@@ -325,9 +326,9 @@
 
 
         /*
-         * Native <summary> already provides keyboard
-         * interaction. We only use the toggle event to
-         * coordinate the other dropdowns.
+         * Native <details> controls its own open state.
+         * This listener only ensures one dropdown is open
+         * at a time.
          */
         group.addEventListener(
           "toggle",
@@ -338,9 +339,6 @@
             }
 
 
-            /*
-             * Keep only one dropdown open at a time.
-             */
             dropdownGroups.forEach(
               function (otherGroup) {
 
@@ -401,10 +399,7 @@
                   return;
                 }
 
-                group.removeAttribute(
-                  "open"
-                );
-
+                group.removeAttribute("open");
               }
             );
 
@@ -834,7 +829,6 @@
         function (element) {
 
           /*
-           * Important:
            * Content starts visible by default in CSS.
            * JavaScript explicitly enables the hidden
            * state before observing it.
@@ -908,6 +902,368 @@
 
 
   /* =========================================================
+     FOOTER ACCORDION
+     ---------------------------------------------------------
+     Desktop:
+       - All footer sections remain open.
+       - Links remain visible.
+       - Toggle icons are hidden by CSS.
+
+     Mobile:
+       - All sections start collapsed.
+       - Clicking a heading opens/closes its links.
+       - aria-expanded stays synchronized.
+       - CSS changes + to − automatically.
+
+     The HTML already uses:
+       <button class="footer-group-toggle"
+               aria-expanded="false"
+               aria-controls="...">
+
+       <div class="footer-group-links">
+     ========================================================= */
+
+  function initFooterAccordion() {
+
+    const footer =
+      document.querySelector(".site-footer");
+
+
+    if (!footer) {
+      return;
+    }
+
+
+    const toggles =
+      Array.from(
+        footer.querySelectorAll(
+          ".footer-group-toggle"
+        )
+      );
+
+
+    if (!toggles.length) {
+      return;
+    }
+
+
+    /* -------------------------------------------------------
+       Find controlled panel
+       ------------------------------------------------------- */
+
+    function getControlledPanel(toggle) {
+
+      const panelId =
+        toggle.getAttribute(
+          "aria-controls"
+        );
+
+
+      if (!panelId) {
+        return null;
+      }
+
+
+      /*
+       * getElementById is safer than querySelector
+       * because IDs can theoretically contain characters
+       * that have special meaning in CSS selectors.
+       */
+      return document.getElementById(
+        panelId
+      );
+    }
+
+
+    /* -------------------------------------------------------
+       Set accordion state
+       ------------------------------------------------------- */
+
+    function setFooterGroupState(
+      toggle,
+      expanded
+    ) {
+
+      const panel =
+        getControlledPanel(toggle);
+
+
+      if (!panel) {
+        return;
+      }
+
+
+      toggle.setAttribute(
+        "aria-expanded",
+        String(expanded)
+      );
+
+
+      /*
+       * The CSS controls visual visibility through
+       * aria-expanded, so we intentionally do not
+       * use the hidden attribute here.
+       *
+       * This allows the desktop CSS to keep all groups
+       * permanently visible.
+       */
+      panel.classList.toggle(
+        "is-open",
+        expanded
+      );
+    }
+
+
+    /* -------------------------------------------------------
+       Synchronize footer with viewport
+       ------------------------------------------------------- */
+
+    function syncFooterAccordion() {
+
+      const isMobile =
+        window.innerWidth <=
+        FOOTER_ACCORDION_BREAKPOINT;
+
+
+      toggles.forEach(
+        function (toggle) {
+
+          /*
+           * Desktop:
+           * Everything is permanently expanded.
+           */
+          if (!isMobile) {
+            setFooterGroupState(
+              toggle,
+              true
+            );
+
+            return;
+          }
+
+
+          /*
+           * Mobile:
+           * Start collapsed unless the user has already
+           * interacted with this group.
+           *
+           * On a breakpoint transition from desktop to
+           * mobile we deliberately collapse everything.
+           */
+          setFooterGroupState(
+            toggle,
+            false
+          );
+
+        }
+      );
+    }
+
+
+    /* -------------------------------------------------------
+       Toggle handler
+       ------------------------------------------------------- */
+
+    toggles.forEach(
+      function (toggle) {
+
+        /*
+         * Make sure aria-controls points to a real
+         * panel if the HTML already provides the ID.
+         */
+        const panel =
+          getControlledPanel(toggle);
+
+
+        if (!panel) {
+          return;
+        }
+
+
+        toggle.addEventListener(
+          "click",
+          function () {
+
+            /*
+             * Footer accordion behaviour only exists
+             * on mobile. Desktop sections stay open.
+             */
+            if (
+              window.innerWidth >
+              FOOTER_ACCORDION_BREAKPOINT
+            ) {
+              return;
+            }
+
+
+            const isExpanded =
+              toggle.getAttribute(
+                "aria-expanded"
+              ) === "true";
+
+
+            setFooterGroupState(
+              toggle,
+              !isExpanded
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* -------------------------------------------------------
+       Initial state
+       ------------------------------------------------------- */
+
+    syncFooterAccordion();
+
+
+    /* -------------------------------------------------------
+       Responsive state
+       ------------------------------------------------------- */
+
+    let resizeTimer = null;
+
+
+    window.addEventListener(
+      "resize",
+      function () {
+
+        window.clearTimeout(
+          resizeTimer
+        );
+
+
+        resizeTimer =
+          window.setTimeout(
+            function () {
+              syncFooterAccordion();
+            },
+            100
+          );
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /*
+     * Expose helper for Escape-key handling.
+     */
+    footer.__cowitaSyncAccordion =
+      syncFooterAccordion;
+
+
+    footer.__cowitaCloseAccordion =
+      function () {
+
+        toggles.forEach(
+          function (toggle) {
+
+            setFooterGroupState(
+              toggle,
+              false
+            );
+
+          }
+        );
+
+      };
+  }
+
+
+  /* =========================================================
+     FOOTER LEGACY LINK NORMALIZATION
+     ---------------------------------------------------------
+     The existing footer contains older Stories URLs.
+
+     This allows the shared JS to correct them at runtime
+     without requiring the same HTML change across every
+     page.
+     ========================================================= */
+
+  function initFooterLegacyLinks() {
+
+    const footer =
+      document.querySelector(".site-footer");
+
+
+    if (!footer) {
+      return;
+    }
+
+
+    const redirects = {
+      "/stories/featured.html":
+        "/stories/featured-stories.html",
+
+      "/stories/participant-stories.html":
+        "/stories/participants.html",
+
+      "/stories/journeys.html":
+        "/stories/journey.html",
+
+      "/stories/news.html":
+        "/stories/news-updates.html"
+    };
+
+
+    footer
+      .querySelectorAll("a[href]")
+      .forEach(
+        function (link) {
+
+          const href =
+            link.getAttribute("href");
+
+
+          if (!href) {
+            return;
+          }
+
+
+          /*
+           * Only rewrite exact internal paths.
+           *
+           * Query strings and hash fragments are preserved.
+           */
+          const urlParts =
+            href.split(/([?#].*)/);
+
+
+          const basePath =
+            urlParts[0];
+
+
+          const suffix =
+            urlParts[1] || "";
+
+
+          const correctedPath =
+            redirects[basePath];
+
+
+          if (!correctedPath) {
+            return;
+          }
+
+
+          link.setAttribute(
+            "href",
+            correctedPath + suffix
+          );
+
+        }
+      );
+  }
+
+
+  /* =========================================================
      ESCAPE KEY HANDLING
      ========================================================= */
 
@@ -925,18 +1281,39 @@
 
 
         /*
-         * Close dropdowns first.
+         * Close header dropdowns first.
          */
         closeAllDropdowns();
 
 
         /*
-         * Then close the mobile navigation.
+         * Close mobile navigation.
          */
         closeMobileNavigation();
+
+
+        /*
+         * Close open footer sections on mobile.
+         */
+        const footer =
+          document.querySelector(
+            ".site-footer"
+          );
+
+
+        if (
+          footer &&
+          typeof footer.__cowitaCloseAccordion ===
+            "function"
+        ) {
+
+          footer.__cowitaCloseAccordion();
+
+        }
 
       }
     );
   }
+
 
 })();
