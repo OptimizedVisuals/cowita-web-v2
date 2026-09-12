@@ -18,6 +18,23 @@
   >
 
   <link rel="stylesheet" href="/css/styles.css">
+<style>
+/* Page-specific flow refinement: keeps the shared site system intact. */
+.why-page-hero{position:relative;overflow:hidden}
+.why-page-hero .page-hero-grid{min-height:clamp(560px,72vh,760px);align-items:center}
+.why-page-hero .page-hero-copy{max-width:720px;padding-block:3rem}
+.why-page-hero .page-hero-copy::after{content:"";display:block;width:72px;height:3px;margin-top:2.5rem;background:currentColor;opacity:.28}
+.why-page-hero + .section{border-top:1px solid rgba(20,32,28,.08)}
+.why-page-hero + .section .section-intro{position:relative;padding-left:clamp(1.25rem,3vw,2.5rem);border-left:3px solid currentColor}
+.why-page-hero ~ .section + .section{border-top:1px solid rgba(20,32,28,.06)}
+.why-page-hero ~ .section .section-intro,.why-page-hero ~ .section .two-column-heading,.why-page-hero ~ .section .section-heading-row{margin-bottom:clamp(3rem,6vw,5rem)}
+@media(max-width:800px){
+ .why-page-hero .page-hero-grid{min-height:auto}
+ .why-page-hero .page-hero-copy{padding-block:1rem 2rem}
+ .why-page-hero + .section .section-intro{padding-left:1rem}
+ .why-page-hero ~ .section .section-intro,.why-page-hero ~ .section .two-column-heading,.why-page-hero ~ .section .section-heading-row{margin-bottom:2.5rem}
+}
+</style>
 </head>
 
 <body>

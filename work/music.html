@@ -1,602 +1,2465 @@
-For each of the codes i will provide below i will need you to replace the header and the footer with this exact code (Do not change anything else in the codes just replace the footer and the header parts, provide revised full code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Header:
+  <title>Music | CoWiTa — Talent Transformed</title>
+
+  <meta
+    name="description"
+    content="CoWiTa's music development pathway helps children and youth turn musical ability into skills, creative confidence, opportunities and sustainable possibilities."
+  >
+
+  <meta name="theme-color" content="#073f3f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    /* =========================================================
+       MUSIC PAGE
+       ========================================================= */
+
+    .music-hero {
+      position: relative;
+      min-height: 86vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background: var(--deep-teal);
+    }
+
+    .music-hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .music-hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 35, 35, 0.92) 0%,
+          rgba(3, 35, 35, 0.74) 43%,
+          rgba(3, 35, 35, 0.30) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(3, 35, 35, 0.78) 0%,
+          transparent 55%
+        );
+    }
+
+    .music-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .music-hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 130px 0 90px;
+      color: #fff;
+    }
+
+    .music-hero-content .eyebrow {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .music-hero h1 {
+      max-width: 850px;
+      margin: 0 0 25px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .music-hero-copy {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .music-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .music-hero-actions .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .music-hero-actions .btn-primary:hover {
+      background: #fff;
+    }
+
+    .music-hero-actions .btn-dark {
+      border-color: rgba(255, 255, 255, 0.45);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .music-hero-actions .btn-dark:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .music-intro {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .music-intro-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .music-intro h2 {
+      max-width: 540px;
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--deep-teal);
+    }
+
+    .music-intro-copy {
+      max-width: 680px;
+    }
+
+    .music-intro-copy p {
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .music-intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .music-highlight {
+      margin-top: 42px;
+      padding: 25px 28px;
+      border-left: 4px solid var(--gold);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .music-highlight strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--deep-teal);
+      font-size: 1rem;
+    }
+
+    .music-highlight span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .music-skills {
+      padding: 110px 0;
+      background: var(--paper);
+    }
+
+    .music-section-heading {
+      max-width: 720px;
+      margin-bottom: 55px;
+    }
+
+    .music-section-heading h2 {
+      margin: 12px 0 18px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      color: var(--deep-teal);
+    }
+
+    .music-section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    .music-skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .music-skill-card {
+      min-height: 250px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      transition:
+        transform 0.35s var(--ease),
+        box-shadow 0.35s var(--ease),
+        border-color 0.35s var(--ease);
+    }
+
+    .music-skill-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(7, 63, 63, 0.22);
+      box-shadow: var(--shadow);
+    }
+
+    .music-skill-number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      background: var(--deep-teal);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .music-skill-card h3 {
+      margin: 0 0 12px;
+      color: var(--deep-teal);
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.55rem;
+    }
+
+    .music-skill-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .music-pathway {
+      padding: 120px 0;
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .music-pathway .section-label {
+      color: var(--gold);
+    }
+
+    .music-pathway-heading {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 65px;
+    }
+
+    .music-pathway h2 {
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+    }
+
+    .music-pathway-heading p {
+      margin: 0;
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .music-pathway-list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .music-pathway-step {
+      position: relative;
+      min-height: 245px;
+      padding: 28px 22px;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .music-pathway-step:last-child {
+      border-right: 0;
+    }
+
+    .music-pathway-step span {
+      display: block;
+      margin-bottom: 45px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .music-pathway-step h3 {
+      margin: 0 0 10px;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.45rem;
+    }
+
+    .music-pathway-step p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .music-experience {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .music-experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .music-experience-image {
+      overflow: hidden;
+      min-height: 600px;
+      background: var(--paper);
+    }
+
+    .music-experience-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease);
+    }
+
+    .music-experience-image:hover img {
+      transform: scale(1.035);
+    }
+
+    .music-experience-content {
+      max-width: 600px;
+    }
+
+    .music-experience-content h2 {
+      margin: 12px 0 22px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 4.5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      color: var(--deep-teal);
+    }
+
+    .music-experience-content > p {
+      margin: 0 0 35px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+
+    .music-experience-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .music-experience-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 15px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .music-experience-item .check {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .music-experience-item h3 {
+      margin: 2px 0 5px;
+      color: var(--deep-teal);
+      font-size: 1rem;
+    }
+
+    .music-experience-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.94rem;
+    }
+
+    .music-opportunity {
+      padding: 110px 0;
+      background: var(--paper);
+    }
+
+    .music-opportunity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .music-opportunity-card {
+      position: relative;
+      min-height: 450px;
+      overflow: hidden;
+      padding: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      background: var(--deep-teal);
+      color: #fff;
+    }
+
+    .music-opportunity-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.48;
+      transition: transform 0.8s var(--ease);
+    }
+
+    .music-opportunity-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(3, 35, 35, 0.95),
+        rgba(3, 35, 35, 0.12)
+      );
+    }
+
+    .music-opportunity-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .music-opportunity-content {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+    }
+
+    .music-opportunity-content .section-label {
+      color: var(--gold);
+    }
+
+    .music-opportunity-content h3 {
+      margin: 12px 0 15px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+    }
+
+    .music-opportunity-content p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.7;
+    }
+
+    .music-coming-soon {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .music-coming-soon-inner {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .music-coming-soon h2 {
+      margin: 12px 0 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      line-height: 1.06;
+      color: var(--deep-teal);
+    }
+
+    .music-coming-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .music-coming-item {
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .music-coming-item span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .music-coming-item strong {
+      color: var(--deep-teal);
+      font-size: 0.98rem;
+    }
+
+    .music-cta {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+      background: var(--gold);
+    }
+
+    .music-cta::before {
+      content: "MUSIC";
+      position: absolute;
+      right: -50px;
+      bottom: -65px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      line-height: 1;
+      font-weight: 700;
+      color: rgba(7, 63, 63, 0.08);
+      pointer-events: none;
+    }
+
+    .music-cta-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: end;
+    }
+
+    .music-cta h2 {
+      max-width: 760px;
+      margin: 10px 0 18px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--deep-teal);
+    }
+
+    .music-cta p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(7, 63, 63, 0.76);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .music-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .music-cta-actions .btn-dark {
+      background: var(--deep-teal);
+      color: #fff;
+      border-color: var(--deep-teal);
+    }
+
+    .music-cta-actions .btn-dark:hover {
+      background: #fff;
+      color: var(--deep-teal);
+    }
+
+    .music-related {
+      padding: 100px 0;
+      background: var(--paper);
+    }
+
+    .music-related-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .music-related-heading h2 {
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.3rem, 4vw, 3.8rem);
+      color: var(--deep-teal);
+    }
+
+    .music-related-heading p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .music-related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .music-related-card {
+      display: flex;
+      min-height: 190px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      transition:
+        transform 0.3s var(--ease),
+        background 0.3s var(--ease);
+    }
+
+    .music-related-card:hover {
+      transform: translateY(-5px);
+      background: #fff;
+    }
+
+    .music-related-card span {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .music-related-card h3 {
+      margin: 20px 0 0;
+      color: var(--deep-teal);
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.65rem;
+    }
+
+    .music-related-card a {
+      margin-top: 25px;
+      color: var(--deep-teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .music-related-card a::after {
+      content: " →";
+      color: var(--gold);
+    }
+
+    @media (max-width: 1050px) {
+      .music-pathway-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .music-pathway-step:nth-child(3) {
+        border-right: 0;
+      }
+
+      .music-pathway-step:nth-child(n + 4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .music-skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .music-hero {
+        min-height: 78vh;
+      }
+
+      .music-hero-content {
+        padding: 120px 0 65px;
+      }
+
+      .music-intro-grid,
+      .music-pathway-heading,
+      .music-experience-grid,
+      .music-coming-soon-inner,
+      .music-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .music-skill-grid,
+      .music-related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-pathway-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .music-pathway-step {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .music-pathway-step:nth-child(n + 3) {
+        border-top: 0;
+      }
+
+      .music-pathway-step:nth-child(even) {
+        border-left: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .music-pathway-step:last-child,
+      .music-pathway-step:nth-last-child(2) {
+        border-bottom: 0;
+      }
+
+      .music-experience-image,
+      .music-experience-image img {
+        min-height: 440px;
+      }
+
+      .music-opportunity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-coming-list {
+        grid-template-columns: 1fr;
+      }
+
+      .music-related-heading {
+        display: block;
+      }
+
+      .music-related-heading p {
+        margin-top: 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .music-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.5rem);
+      }
+
+      .music-intro,
+      .music-skills,
+      .music-pathway,
+      .music-experience,
+      .music-opportunity,
+      .music-coming-soon,
+      .music-cta,
+      .music-related {
+        padding: 80px 0;
+      }
+
+      .music-skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-pathway-list {
+        grid-template-columns: 1fr;
+      }
+
+      .music-pathway-step,
+      .music-pathway-step:nth-child(even) {
+        border-left: 0;
+      }
+
+      .music-pathway-step:nth-last-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .music-opportunity-card {
+        min-height: 380px;
+        padding: 30px;
+      }
+
+      .music-hero-actions,
+      .music-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .music-hero-actions .btn,
+      .music-cta-actions .btn {
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .music-skill-card,
+      .music-experience-image img,
+      .music-opportunity-card img,
+      .music-related-card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       SKIP LINK
+       ========================================================= -->
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
 
 <header class="site-header">
 
-  <div class="container nav">
+  <div class="container nav">
 
-    <!-- LOGO -->
-    <a
-      class="brand"
-      href="/"
-      aria-label="CoWiTa home"
-    >
-      <img
-        src="/assets/images/brand/cowita-logo-primary.svg"
-        alt="CoWiTa"
-      >
-    </a>
+    <!-- LOGO -->
+    <a
+      class="brand"
+      href="/"
+      aria-label="CoWiTa home"
+    >
+      <img
+        src="/assets/images/brand/cowita-logo-primary.svg"
+        alt="CoWiTa"
+      >
+    </a>
 
 
-    <!-- MOBILE MENU TOGGLE -->
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-navigation"
-      aria-label="Open navigation"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <!-- MOBILE MENU TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
 
-    <!-- PRIMARY NAVIGATION -->
-    <nav
-      id="primary-navigation"
-      class="nav-links"
-      aria-label="Primary navigation"
-    >
+    <!-- PRIMARY NAVIGATION -->
+    <nav
+      id="primary-navigation"
+      class="nav-links"
+      aria-label="Primary navigation"
+    >
 
-      <!-- DISCOVER -->
-      <details class="nav-group">
+      <!-- DISCOVER -->
+      <details class="nav-group">
 
-        <summary>Discover</summary>
+        <summary>Discover</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/about/">
-            About CoWiTa
-          </a>
+          <a href="/about/">
+            About CoWiTa
+          </a>
 
-          <a href="/about/why-cowita.html">
-            Why CoWiTa
-          </a>
+          <a href="/about/why-cowita.html">
+            Why CoWiTa
+          </a>
 
-          <a href="/about/our-story.html">
-            Our Story
-          </a>
+          <a href="/about/our-story.html">
+            Our Story
+          </a>
 
-          <a href="/about/our-approach.html">
-            Our Approach
-          </a>
+          <a href="/about/our-approach.html">
+            Our Approach
+          </a>
 
-          <a href="/about/who-we-work-with.html">
-            Who We Work With
-          </a>
+          <a href="/about/who-we-work-with.html">
+            Who We Work With
+          </a>
 
-          <a href="/about/our-values.html">
-            Our Values
-          </a>
+          <a href="/about/our-values.html">
+            Our Values
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- OUR WORK -->
-      <details class="nav-group">
+      <!-- OUR WORK -->
+      <details class="nav-group">
 
-        <summary>Our Work</summary>
+        <summary>Our Work</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/work/">
-            Overview
-          </a>
+          <a href="/work/">
+            Overview
+          </a>
 
-          <a href="/work/dance.html">
-            Dance
-          </a>
+          <a href="/work/dance.html">
+            Dance
+          </a>
 
-          <a href="/work/music.html">
-            Music
-          </a>
+          <a href="/work/music.html">
+            Music
+          </a>
 
-          <a href="/work/drawing.html">
-            Drawing
-          </a>
+          <a href="/work/drawing.html">
+            Drawing
+          </a>
 
-          <a href="/work/writing.html">
-            Writing
-          </a>
+          <a href="/work/writing.html">
+            Writing
+          </a>
 
-          <a href="/work/acting.html">
-            Acting
-          </a>
+          <a href="/work/acting.html">
+            Acting
+          </a>
 
-          <a href="/work/skills-development.html">
-            Skills Development
-          </a>
+          <a href="/work/skills-development.html">
+            Skills Development
+          </a>
 
-          <a href="/work/mentorship.html">
-            Mentorship
-          </a>
+          <a href="/work/mentorship.html">
+            Mentorship
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- STORIES -->
-      <details class="nav-group">
+      <!-- STORIES -->
+      <details class="nav-group">
 
-        <summary>Stories</summary>
+        <summary>Stories</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/stories/featured.html">
-            Featured Stories
-          </a>
+          <a href="/stories/featured.html">
+            Featured Stories
+          </a>
 
-          <a href="/stories/participant-stories.html">
-            Participant Stories
-          </a>
+          <a href="/stories/participant-stories.html">
+            Participant Stories
+          </a>
 
-          <a href="/stories/journeys.html">
-            Creative Journeys
-          </a>
+          <a href="/stories/journeys.html">
+            Creative Journeys
+          </a>
 
-          <a href="/stories/news.html">
-            News &amp; Updates
-          </a>
+          <a href="/stories/news.html">
+            News &amp; Updates
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- IMPACT -->
-      <details class="nav-group">
+      <!-- IMPACT -->
+      <details class="nav-group">
 
-        <summary>Impact</summary>
+        <summary>Impact</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/impact/">
-            Our Impact
-          </a>
+          <a href="/impact/">
+            Our Impact
+          </a>
 
-          <a href="/impact/change-we-seek.html">
-            The Change We Seek
-          </a>
+          <a href="/impact/change-we-seek.html">
+            The Change We Seek
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- GET INVOLVED -->
-      <details class="nav-group">
+      <!-- GET INVOLVED -->
+      <details class="nav-group">
 
-        <summary>Get Involved</summary>
+        <summary>Get Involved</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/get-involved/">
-            All Opportunities
-          </a>
+          <a href="/get-involved/">
+            All Opportunities
+          </a>
 
-          <a href="/get-involved/have-talent.html">
-            I Have Talent
-          </a>
+          <a href="/get-involved/have-talent.html">
+            I Have Talent
+          </a>
 
-          <a href="/get-involved/want-to-learn.html">
-            I Want to Learn
-          </a>
+          <a href="/get-involved/want-to-learn.html">
+            I Want to Learn
+          </a>
 
-          <a href="/get-involved/mentor.html">
-            I Want to Mentor
-          </a>
+          <a href="/get-involved/mentor.html">
+            I Want to Mentor
+          </a>
 
-          <a href="/get-involved/collaborate.html">
-            I Want to Collaborate
-          </a>
+          <a href="/get-involved/collaborate.html">
+            I Want to Collaborate
+          </a>
 
-          <a href="/get-involved/partner.html">
-            I Want to Partner
-          </a>
+          <a href="/get-involved/partner.html">
+            I Want to Partner
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- SUPPORT -->
-      <details class="nav-group">
+      <!-- SUPPORT -->
+      <details class="nav-group">
 
-        <summary>Support</summary>
+        <summary>Support</summary>
 
-        <div class="dropdown">
+        <div class="dropdown">
 
-          <a href="/support/">
-            Support CoWiTa
-          </a>
+          <a href="/support/">
+            Support CoWiTa
+          </a>
 
-          <a href="/support/financial-support.html">
-            Financial Support
-          </a>
+          <a href="/support/financial-support.html">
+            Financial Support
+          </a>
 
-          <a href="/support/partnership-support.html">
-            Partnership Support
-          </a>
+          <a href="/support/partnership-support.html">
+            Partnership Support
+          </a>
 
-        </div>
+        </div>
 
-      </details>
+      </details>
 
 
-      <!-- DIRECT LINKS -->
-      <a href="/opportunity/">
-        Opportunity
-      </a>
+      <!-- DIRECT LINKS -->
+      <a href="/opportunity/">
+        Opportunity
+      </a>
 
-      <a href="/contact/">
-        Contact
-      </a>
+      <a href="/contact/">
+        Contact
+      </a>
 
-    </nav>
+    </nav>
 
 
-    <!-- PRIMARY CTA -->
-    <a
-      class="btn btn-primary header-cta"
-      href="/get-involved/have-talent.html"
-    >
-      I Have Talent
-    </a>
+    <!-- PRIMARY CTA -->
+    <a
+      class="btn btn-primary header-cta"
+      href="/get-involved/have-talent.html"
+    >
+      I Have Talent
+    </a>
 
-  </div>
+  </div>
 
 </header>
 
 
-FOOTER:
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+
+  <main id="main-content">
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section class="music-hero">
+
+      <div class="music-hero-media">
+
+        <img
+          src="/assets/images/work/music/music-hero.jpg"
+          alt="Young people expressing themselves through music"
+          fetchpriority="high"
+        >
+
+      </div>
+
+      <div class="music-hero-content">
+
+        <p class="eyebrow">
+          Creative Development · Music
+        </p>
+
+        <h1>
+          Music can become more than a sound.
+        </h1>
+
+        <p class="music-hero-copy">
+          For a young person with a voice, a rhythm, an instrument
+          or an idea, music can be the beginning of something much
+          bigger: confidence, discipline, creative skill and a
+          pathway toward opportunity.
+        </p>
+
+        <div class="music-hero-actions">
+
+          <a
+            href="/get-involved/have-talent.html"
+            class="btn btn-primary"
+          >
+            I Have Talent
+          </a>
+
+          <a
+            href="/get-involved/want-to-learn.html"
+            class="btn btn-dark"
+          >
+            I Want to Learn
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         INTRO
+         ======================================================= -->
+
+    <section class="music-intro">
+
+      <div class="container music-intro-grid">
+
+        <div>
+
+          <p class="section-label">
+            Why music?
+          </p>
+
+          <h2>
+            The talent may already be there. The pathway often isn't.
+          </h2>
+
+        </div>
+
+
+        <div class="music-intro-copy">
+
+          <p>
+            Across communities are young people who sing, play
+            instruments, write lyrics, create beats or simply have
+            an instinct for rhythm and sound.
+          </p>
+
+          <p>
+            But natural ability does not automatically become a
+            developed skill. Without guidance, practice, mentorship,
+            creative space and opportunities to create, much of that
+            potential can remain informal — something a young person
+            enjoys without ever discovering where it could lead.
+          </p>
+
+          <p>
+            CoWiTa sees music as a starting point for development.
+            The goal is not simply to teach someone to perform.
+            It is to help them understand their ability, strengthen
+            it, create with it and begin seeing where that ability
+            could take them.
+          </p>
+
+
+          <div class="music-highlight">
+
+            <strong>
+              Talent transformed.
+            </strong>
+
+            <span>
+              Music becomes more powerful when a young person's
+              natural ability is connected to knowledge, practice,
+              mentorship, creation and opportunity.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         DEVELOPMENT AREAS
+         ======================================================= -->
+
+    <section class="music-skills">
+
+      <div class="container">
+
+        <div class="music-section-heading">
+
+          <p class="section-label">
+            What we develop
+          </p>
+
+          <h2>
+            More than musical ability.
+          </h2>
+
+          <p>
+            Music provides the creative environment. The development
+            reaches further — helping young people build the habits,
+            confidence and practical abilities that can support their
+            wider journey.
+          </p>
+
+        </div>
+
+
+        <div class="music-skill-grid">
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              01
+            </span>
+
+            <h3>
+              Musical Skill
+            </h3>
+
+            <p>
+              Developing stronger foundations in areas such as
+              singing, rhythm, instruments, songwriting, beat-making
+              and musical expression.
+            </p>
+
+          </article>
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              02
+            </span>
+
+            <h3>
+              Creative Expression
+            </h3>
+
+            <p>
+              Helping young people turn emotions, experiences and
+              ideas into music that communicates something meaningful.
+            </p>
+
+          </article>
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              03
+            </span>
+
+            <h3>
+              Confidence
+            </h3>
+
+            <p>
+              Creating opportunities to practice, share work and
+              gradually become more comfortable expressing a creative
+              identity in front of others.
+            </p>
+
+          </article>
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              04
+            </span>
+
+            <h3>
+              Discipline
+            </h3>
+
+            <p>
+              Turning interest into consistent practice, preparation,
+              patience and the willingness to keep improving.
+            </p>
+
+          </article>
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              05
+            </span>
+
+            <h3>
+              Collaboration
+            </h3>
+
+            <p>
+              Learning how musicians, writers, producers, performers
+              and other creatives can build something stronger
+              together.
+            </p>
+
+          </article>
+
+
+          <article class="music-skill-card reveal">
+
+            <span class="music-skill-number">
+              06
+            </span>
+
+            <h3>
+              Opportunity Readiness
+            </h3>
+
+            <p>
+              Beginning to understand how creative work can be
+              presented, documented, shared and connected to future
+              opportunities.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PATHWAY
+         ======================================================= -->
+
+    <section class="music-pathway">
+
+      <div class="container">
+
+        <div class="music-pathway-heading">
+
+          <div>
+
+            <p class="section-label">
+              The CoWiTa pathway
+            </p>
+
+            <h2>
+              From a sound in your head to something you can build.
+            </h2>
+
+          </div>
+
+          <p>
+            Music development follows the wider CoWiTa model:
+            identify potential, develop the ability, create something
+            real, connect it to platforms and opportunities, and
+            build toward sustainability.
+          </p>
+
+        </div>
+
+
+        <div class="music-pathway-list">
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              01 · Identify
+            </span>
+
+            <h3>
+              Discover
+            </h3>
+
+            <p>
+              Recognise interest, natural ability and creative
+              potential.
+            </p>
+
+          </div>
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              02 · Develop
+            </span>
+
+            <h3>
+              Strengthen
+            </h3>
+
+            <p>
+              Build musical foundations through learning, practice
+              and guidance.
+            </p>
+
+          </div>
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              03 · Create
+            </span>
+
+            <h3>
+              Make
+            </h3>
+
+            <p>
+              Turn ideas and skills into original creative work.
+            </p>
+
+          </div>
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              04 · Platform
+            </span>
+
+            <h3>
+              Share
+            </h3>
+
+            <p>
+              Create ways for work and talent to be seen, heard and
+              experienced.
+            </p>
+
+          </div>
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              05 · Monetize
+            </span>
+
+            <h3>
+              Connect
+            </h3>
+
+            <p>
+              Explore how creative ability can connect to real
+              economic opportunities.
+            </p>
+
+          </div>
+
+
+          <div class="music-pathway-step">
+
+            <span>
+              06 · Sustain
+            </span>
+
+            <h3>
+              Grow
+            </h3>
+
+            <p>
+              Develop the habits, relationships and skills needed
+              for a longer creative journey.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         EXPERIENCE / PROGRAM DESIGN
+         ======================================================= -->
+
+    <section class="music-experience">
+
+      <div class="container music-experience-grid">
+
+
+        <div class="music-experience-image reveal">
+
+          <img
+            src="/assets/images/work/music/music-development.jpg"
+            alt="Young musician developing creative skills"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="music-experience-content">
+
+          <p class="section-label">
+            What the pathway is designed to include
+          </p>
+
+          <h2>
+            Learning should lead somewhere.
+          </h2>
+
+          <p>
+            CoWiTa's music pathway is designed around progression,
+            not isolated activities. As the programme develops,
+            experiences can move from learning and practice toward
+            creation, presentation, mentorship and opportunity.
+          </p>
+
+
+          <div class="music-experience-list">
+
+
+            <div class="music-experience-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Music learning
+                </h3>
+
+                <p>
+                  Foundations in the creative and technical areas
+                  relevant to each participant's interests.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="music-experience-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Practice and rehearsal
+                </h3>
+
+                <p>
+                  Space to turn knowledge into confidence through
+                  repetition, experimentation and preparation.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="music-experience-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Original creation
+                </h3>
+
+                <p>
+                  Encouraging young people to move beyond consuming
+                  music and begin creating their own work.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="music-experience-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Mentorship
+                </h3>
+
+                <p>
+                  Connecting developing creatives with people who
+                  can provide perspective, encouragement and guidance.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="music-experience-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Performance and presentation
+                </h3>
+
+                <p>
+                  Building the confidence to present creative work
+                  and learn from real audience experiences.
+                </p>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         MUSIC AS OPPORTUNITY
+         ======================================================= -->
+
+    <section class="music-opportunity">
+
+      <div class="container">
+
+        <div class="music-section-heading">
+
+          <p class="section-label">
+            Beyond the performance
+          </p>
+
+          <h2>
+            A song can be the beginning of a creative ecosystem.
+          </h2>
+
+          <p>
+            Music connects naturally with other creative disciplines.
+            A musician may need a writer, visual artist, filmmaker,
+            designer, performer or digital creator. Developing one
+            talent can therefore open the door to collaboration with
+            many others.
+          </p>
+
+        </div>
+
+
+        <div class="music-opportunity-grid">
+
+
+          <article class="music-opportunity-card">
+
+            <img
+              src="/assets/images/work/music/music-creation.jpg"
+              alt="Young people creating music together"
+              loading="lazy"
+            >
+
+            <div class="music-opportunity-content">
+
+              <p class="section-label">
+                Create
+              </p>
+
+              <h3>
+                Build something of your own.
+              </h3>
+
+              <p>
+                Original songs, performances, collaborations and
+                other creative projects give young people something
+                tangible to develop and share.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="music-opportunity-card">
+
+            <img
+              src="/assets/images/work/music/music-opportunity.jpg"
+              alt="Young performer preparing for a creative opportunity"
+              loading="lazy"
+            >
+
+            <div class="music-opportunity-content">
+
+              <p class="section-label">
+                Opportunity
+              </p>
+
+              <h3>
+                Let creative work open doors.
+              </h3>
+
+              <p>
+                As skills and portfolios grow, the goal is to help
+                young creatives understand how their abilities can
+                connect with platforms, collaborations and future
+                economic opportunities.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         COMING SOON
+         ======================================================= -->
+
+    <section class="music-coming-soon">
+
+      <div class="container music-coming-soon-inner">
+
+        <div>
+
+          <p class="section-label">
+            Building the programme
+          </p>
+
+          <h2>
+            Some parts of the journey are still being built.
+          </h2>
+
+        </div>
+
+
+        <div class="music-coming-list">
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Music programme schedule
+            </strong>
+
+          </div>
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Training locations
+            </strong>
+
+          </div>
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Participant applications
+            </strong>
+
+          </div>
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Music mentorship opportunities
+            </strong>
+
+          </div>
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Participant stories
+            </strong>
+
+          </div>
+
+
+          <div class="music-coming-item">
+
+            <span>
+              Coming Soon
+            </span>
+
+            <strong>
+              Programme impact data
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CTA
+         ======================================================= -->
+
+    <section class="music-cta">
+
+      <div class="container music-cta-inner">
+
+        <div>
+
+          <p class="section-label">
+            Your next note could become a new direction.
+          </p>
+
+          <h2>
+            Have the talent? Let's give it room to grow.
+          </h2>
+
+          <p>
+            Whether you sing, play, write, produce or simply know
+            that music is something you want to take seriously,
+            CoWiTa is being built around the belief that your
+            potential deserves a pathway.
+          </p>
+
+        </div>
+
+
+        <div class="music-cta-actions">
+
+          <a
+            href="/get-involved/have-talent.html"
+            class="btn btn-dark"
+          >
+            I Have Talent
+          </a>
+
+          <a
+            href="/get-involved/collaborate.html"
+            class="btn btn-dark"
+          >
+            Collaborate With Us
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         RELATED WORK
+         ======================================================= -->
+
+    <section class="music-related">
+
+      <div class="container">
+
+        <div class="music-related-heading">
+
+          <h2>
+            Explore the wider creative pathway.
+          </h2>
+
+          <p>
+            Music does not exist in isolation. Explore the other
+            disciplines and development pathways within CoWiTa.
+          </p>
+
+        </div>
+
+
+        <div class="music-related-grid">
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Creative Development
+              </span>
+
+              <h3>
+                Dance
+              </h3>
+
+            </div>
+
+            <a href="/work/dance.html">
+              Explore Dance
+            </a>
+
+          </article>
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Creative Development
+              </span>
+
+              <h3>
+                Drawing
+              </h3>
+
+            </div>
+
+            <a href="/work/drawing.html">
+              Explore Drawing
+            </a>
+
+          </article>
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Creative Development
+              </span>
+
+              <h3>
+                Writing
+              </h3>
+
+            </div>
+
+            <a href="/work/writing.html">
+              Explore Writing
+            </a>
+
+          </article>
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Creative Development
+              </span>
+
+              <h3>
+                Acting
+              </h3>
+
+            </div>
+
+            <a href="/work/acting.html">
+              Explore Acting
+            </a>
+
+          </article>
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Development
+              </span>
+
+              <h3>
+                Skills Development
+              </h3>
+
+            </div>
+
+            <a href="/work/skills-development.html">
+              Explore Skills
+            </a>
+
+          </article>
+
+
+          <article class="music-related-card">
+
+            <div>
+
+              <span>
+                Development
+              </span>
+
+              <h3>
+                Mentorship
+              </h3>
+
+            </div>
+
+            <a href="/work/mentorship.html">
+              Explore Mentorship
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
 
 <footer class="site-footer">
 
-  <div class="container">
-
-    <!-- FOOTER MAIN -->
-    <div class="footer-main">
-
-      <!-- BRAND -->
-      <div class="footer-brand">
-
-        <a
-          class="brand"
-          href="/"
-          aria-label="CoWiTa home"
-        >
-          <img
-            src="/assets/images/brand/cowita-logo-white.svg"
-            alt="CoWiTa"
-          >
-        </a>
-
-        <p class="footer-tagline">
-          We believe talent can become a future.
-        </p>
-
-      </div>
-
-
-      <!-- FOOTER NAVIGATION -->
-      <nav
-        class="footer-nav"
-        aria-label="Footer navigation"
-      >
-
+  <div class="container">
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
+
+        <a
+          class="brand"
+          href="/"
+          aria-label="CoWiTa home"
+        >
+          <img
+            src="/assets/images/brand/cowita-logo-white.svg"
+            alt="CoWiTa"
+          >
+        </a>
+
+        <p class="footer-tagline">
+          We believe talent can become a future.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER NAVIGATION -->
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
+
 
-        <!-- DISCOVER -->
-        <section class="footer-group">
+        <!-- DISCOVER -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-discover"
-          >
-            <span>Discover</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
-
-          <div
-            id="footer-discover"
-            class="footer-group-links"
-          >
-
-            <a href="/about/">
-              About CoWiTa
-            </a>
-
-            <a href="/about/why-cowita.html">
-              Why CoWiTa
-            </a>
-
-            <a href="/about/our-story.html">
-              Our Story
-            </a>
-
-            <a href="/about/our-approach.html">
-              Our Approach
-            </a>
-
-            <a href="/about/who-we-work-with.html">
-              Who We Work With
-            </a>
-
-            <a href="/about/our-values.html">
-              Our Values
-            </a>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-discover"
+          >
+            <span>Discover</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div
+            id="footer-discover"
+            class="footer-group-links"
+          >
+
+            <a href="/about/">
+              About CoWiTa
+            </a>
+
+            <a href="/about/why-cowita.html">
+              Why CoWiTa
+            </a>
+
+            <a href="/about/our-story.html">
+              Our Story
+            </a>
+
+            <a href="/about/our-approach.html">
+              Our Approach
+            </a>
+
+            <a href="/about/who-we-work-with.html">
+              Who We Work With
+            </a>
+
+            <a href="/about/our-values.html">
+              Our Values
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- OUR WORK -->
-        <section class="footer-group">
+        <!-- OUR WORK -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-work"
-          >
-            <span>Our Work</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-work"
+          >
+            <span>Our Work</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-work"
-            class="footer-group-links"
-          >
-
-            <a href="/work/">
-              Overview
-            </a>
+          <div
+            id="footer-work"
+            class="footer-group-links"
+          >
+
+            <a href="/work/">
+              Overview
+            </a>
 
-            <a href="/work/dance.html">
-              Dance
-            </a>
+            <a href="/work/dance.html">
+              Dance
+            </a>
 
-            <a href="/work/music.html">
-              Music
-            </a>
+            <a href="/work/music.html">
+              Music
+            </a>
 
-            <a href="/work/drawing.html">
-              Drawing
-            </a>
+            <a href="/work/drawing.html">
+              Drawing
+            </a>
 
-            <a href="/work/writing.html">
-              Writing
-            </a>
+            <a href="/work/writing.html">
+              Writing
+            </a>
 
-            <a href="/work/acting.html">
-              Acting
-            </a>
+            <a href="/work/acting.html">
+              Acting
+            </a>
 
-            <a href="/work/skills-development.html">
-              Skills Development
-            </a>
+            <a href="/work/skills-development.html">
+              Skills Development
+            </a>
 
-            <a href="/work/mentorship.html">
-              Mentorship
-            </a>
+            <a href="/work/mentorship.html">
+              Mentorship
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- STORIES -->
-        <section class="footer-group">
+        <!-- STORIES -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-stories"
-          >
-            <span>Stories</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-stories"
+          >
+            <span>Stories</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-stories"
-            class="footer-group-links"
-          >
+          <div
+            id="footer-stories"
+            class="footer-group-links"
+          >
 
-            <a href="/stories/featured.html">
-              Featured Stories
-            </a>
+            <a href="/stories/featured.html">
+              Featured Stories
+            </a>
 
-            <a href="/stories/participant-stories.html">
-              Participant Stories
-            </a>
+            <a href="/stories/participant-stories.html">
+              Participant Stories
+            </a>
 
-            <a href="/stories/journeys.html">
-              Creative Journeys
-            </a>
+            <a href="/stories/journeys.html">
+              Creative Journeys
+            </a>
 
-            <a href="/stories/news.html">
-              News &amp; Updates
-            </a>
+            <a href="/stories/news.html">
+              News &amp; Updates
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- IMPACT -->
-        <section class="footer-group">
+        <!-- IMPACT -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-impact"
-          >
-            <span>Impact</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-impact"
+          >
+            <span>Impact</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-impact"
-            class="footer-group-links"
-          >
+          <div
+            id="footer-impact"
+            class="footer-group-links"
+          >
 
-            <a href="/impact/">
-              Our Impact
-            </a>
+            <a href="/impact/">
+              Our Impact
+            </a>
 
-            <a href="/impact/change-we-seek.html">
-              The Change We Seek
-            </a>
+            <a href="/impact/change-we-seek.html">
+              The Change We Seek
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- GET INVOLVED -->
-        <section class="footer-group">
+        <!-- GET INVOLVED -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-get-involved"
-          >
-            <span>Get Involved</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-get-involved"
+          >
+            <span>Get Involved</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-get-involved"
-            class="footer-group-links"
-          >
+          <div
+            id="footer-get-involved"
+            class="footer-group-links"
+          >
 
-            <a href="/get-involved/">
-              All Opportunities
-            </a>
+            <a href="/get-involved/">
+              All Opportunities
+            </a>
 
-            <a href="/get-involved/have-talent.html">
-              I Have Talent
-            </a>
+            <a href="/get-involved/have-talent.html">
+              I Have Talent
+            </a>
 
-            <a href="/get-involved/want-to-learn.html">
-              I Want to Learn
-            </a>
+            <a href="/get-involved/want-to-learn.html">
+              I Want to Learn
+            </a>
 
-            <a href="/get-involved/mentor.html">
-              I Want to Mentor
-            </a>
+            <a href="/get-involved/mentor.html">
+              I Want to Mentor
+            </a>
 
-            <a href="/get-involved/collaborate.html">
-              I Want to Collaborate
-            </a>
+            <a href="/get-involved/collaborate.html">
+              I Want to Collaborate
+            </a>
 
-            <a href="/get-involved/partner.html">
-              I Want to Partner
-            </a>
+            <a href="/get-involved/partner.html">
+              I Want to Partner
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- SUPPORT -->
-        <section class="footer-group">
+        <!-- SUPPORT -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-support"
-          >
-            <span>Support</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-support"
+          >
+            <span>Support</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-support"
-            class="footer-group-links"
-          >
+          <div
+            id="footer-support"
+            class="footer-group-links"
+          >
 
-            <a href="/support/">
-              Support CoWiTa
-            </a>
+            <a href="/support/">
+              Support CoWiTa
+            </a>
 
-            <a href="/support/financial-support.html">
-              Financial Support
-            </a>
+            <a href="/support/financial-support.html">
+              Financial Support
+            </a>
 
-            <a href="/support/partnership-support.html">
-              Partnership Support
-            </a>
+            <a href="/support/partnership-support.html">
+              Partnership Support
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-        <!-- CONNECT -->
-        <section class="footer-group">
+        <!-- CONNECT -->
+        <section class="footer-group">
 
-          <button
-            class="footer-group-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="footer-connect"
-          >
-            <span>Connect</span>
-            <span class="footer-toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <button
+            class="footer-group-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="footer-connect"
+          >
+            <span>Connect</span>
+            <span class="footer-toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <div
-            id="footer-connect"
-            class="footer-group-links"
-          >
+          <div
+            id="footer-connect"
+            class="footer-group-links"
+          >
 
-            <a href="/opportunity/">
-              Opportunity
-            </a>
+            <a href="/opportunity/">
+              Opportunity
+            </a>
 
-            <a href="/contact/">
-              Contact
-            </a>
+            <a href="/contact/">
+              Contact
+            </a>
 
-            <a href="/utility/faq.html">
-              FAQ
-            </a>
+            <a href="/utility/faq.html">
+              FAQ
+            </a>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
 
-      </nav>
+      </nav>
 
-    </div>
+    </div>
 
 
-    <!-- FOOTER BOTTOM -->
-    <div class="footer-bottom">
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
 
-      <span>
-        © <span data-current-year></span> CoWiTa. All rights reserved.
-      </span>
+      <span>
+        © <span data-current-year></span> CoWiTa. All rights reserved.
+      </span>
 
-      <span class="footer-mission">
-        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
-      </span>
+      <span class="footer-mission">
+        Talent <span>→</span> Skills <span>→</span> Opportunity <span>→</span> Impact
+      </span>
 
-    </div>
+    </div>
 
-  </div>
+  </div>
 
 </footer>
+
+
+  <!-- =========================================================
+       GLOBAL JAVASCRIPT
+       ========================================================= -->
+
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
