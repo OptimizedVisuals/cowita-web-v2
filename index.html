@@ -259,6 +259,25 @@
       color: var(--muted);
     }
 
+    .home-statement-side {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .home-statement-image {
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--home-dark);
+    }
+
+    .home-statement-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .home-statement h2 {
       max-width: 900px;
       margin: 0;
@@ -1258,9 +1277,10 @@
 
     <section class="home-hero">
 
-      <div class="container home-hero-inner">
+      <div class="home-hero-inner">
+        <div class="container">
 
-        <div class="home-hero-content reveal">
+          <div class="home-hero-content reveal">
 
           <span class="home-hero-kicker">
             Talent • Creativity • Opportunity
@@ -1288,7 +1308,7 @@
             </a>
 
             <a
-              class="btn btn-dark"
+              class="btn btn-primary"
               href="/about/"
             >
               Discover CoWiTa
@@ -1321,6 +1341,8 @@
 
           </div>
 
+          </div>
+
         </div>
 
       </div>
@@ -1338,8 +1360,17 @@
 
         <div class="home-statement-grid">
 
-          <div class="home-statement-number reveal">
-            01 / The idea
+          <div class="home-statement-side reveal">
+            <div class="home-statement-number">
+              01 / The idea
+            </div>
+
+            <div class="home-statement-image">
+              <img
+                src="/assets/images/home/home-idea.jpg"
+                alt="CoWiTa developing talent, creativity and opportunity"
+              />
+            </div>
           </div>
 
           <div class="reveal">
@@ -1363,7 +1394,7 @@
             </p>
 
             <a
-              class="btn btn-dark"
+              class="btn btn-primary"
               href="/about/why-cowita.html"
             >
               Why CoWiTa
