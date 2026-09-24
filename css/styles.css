@@ -901,6 +901,55 @@ h4 {
 
 
 /* ============================================================
+   10A. PAGE HERO VIEWPORT REFINEMENT
+   ============================================================ */
+
+@media (min-width: 951px) {
+
+  section[class$="-hero"] {
+    min-height: calc(100vh - var(--header-height)) !important;
+    padding-block: clamp(40px, 5vh, 72px) !important;
+  }
+
+  section[class$="-hero"] > [class$="-hero-inner"] {
+    padding-block: clamp(20px, 4vh, 48px) !important;
+  }
+
+  section[class$="-hero"] > .container {
+    padding-block: 0 !important;
+  }
+
+  section[class$="-hero"] [class*="-hero-visual"] img {
+    max-height: calc(100vh - var(--header-height) - 112px) !important;
+  }
+
+  section[class$="-hero"] [class*="-hero-visual"] {
+    max-height: calc(100vh - var(--header-height) - 112px) !important;
+  }
+
+  section[class$="-hero"] h1 {
+    font-size: clamp(3rem, 5.8vw, 6.5rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  section.mentor-hero h1 {
+    font-size: clamp(3rem, 4.1vw, 6rem) !important;
+  }
+
+  section.mentor-hero p {
+    line-height: 1.6 !important;
+  }
+
+  section.mentor-hero [class*="hero-actions"],
+  section.mentor-hero [class*="hero-note"] {
+    margin-top: 24px !important;
+  }
+
+}
+
+
+/* ============================================================
    11. CARD SYSTEM
    ============================================================ */
 
