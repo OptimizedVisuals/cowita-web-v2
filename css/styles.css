@@ -919,11 +919,17 @@ h4 {
     padding-block: 0 !important;
   }
 
+  section[class$="-hero"] [class*="-hero-content"],
+  section[class$="-hero"] [class*="-hero-copy"] {
+    padding-block: 0 !important;
+  }
+
   section[class$="-hero"] [class*="-hero-visual"] img {
     max-height: calc(100vh - var(--header-height) - 112px) !important;
   }
 
-  section[class$="-hero"] [class*="-hero-visual"] {
+  section[class$="-hero"] [class*="-hero-visual"],
+  section[class$="-hero"] [class*="-hero-image"] {
     max-height: calc(100vh - var(--header-height) - 112px) !important;
   }
 
