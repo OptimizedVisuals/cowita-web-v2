@@ -425,7 +425,7 @@ h4 {
   box-shadow: 0 8px 30px rgba(8, 39, 39, .08);
 }
 
-.site-header + main {
+#site-header + main {
   padding-top: var(--header-height);
 }
 

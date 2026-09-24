@@ -1,29 +1,5 @@
-/* =========================================================
-   CoWiTa — Shared Site JavaScript
-   ---------------------------------------------------------
-   Responsibilities:
-   - Mobile navigation
-   - Header dropdowns
-   - Header scroll state
-   - Smooth anchor scrolling
-   - Reveal animations
-   - Current year
-   - Footer accordion
-   - Footer legacy-link normalization
-   - Escape-key handling
-
-   Header dropdowns use native <details>/<summary>.
-   Footer sections use native <button> controls with
-   aria-expanded / aria-controls.
-   ========================================================= */
-
 (function () {
   "use strict";
-
-
-  /* =========================================================
-     CONFIG
-     ========================================================= */
 
   const MOBILE_BREAKPOINT = 900;
   const FOOTER_ACCORDION_BREAKPOINT = 650;
@@ -31,10 +7,66 @@
 
 
   /* =========================================================
-     DOM READY
+     SHARED COMPONENT LOADER
      ========================================================= */
 
-  function initSite() {
+  async function loadComponent(selector, path) {
+    const container = document.querySelector(selector);
+
+    if (!container) {
+      return false;
+    }
+
+    try {
+      const response = await fetch(path);
+
+      if (!response.ok) {
+        throw new Error(
+          `Failed to load ${path}: ${response.status} ${response.statusText}`
+        );
+      }
+
+      container.innerHTML = await response.text();
+
+      return true;
+    } catch (error) {
+      console.error(
+        `CoWiTa component loading error: ${path}`,
+        error
+      );
+
+      return false;
+    }
+  }
+
+
+  /* =========================================================
+     SITE INITIALIZATION
+     ========================================================= */
+
+  async function initSite() {
+    /*
+     * Load shared components first.
+     * Navigation and footer functionality depends on
+     * these elements already existing in the DOM.
+     */
+    await Promise.all([
+      loadComponent(
+        "#site-header",
+        "/components/header.html"
+      ),
+
+      loadComponent(
+        "#site-footer",
+        "/components/footer.html"
+      )
+    ]);
+
+
+    /*
+     * Initialize all site functionality after the
+     * shared components have been injected.
+     */
     initMobileNavigation();
     initDropdownNavigation();
     initHeaderScrollState();
@@ -48,7 +80,10 @@
 
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initSite);
+    document.addEventListener(
+      "DOMContentLoaded",
+      initSite
+    );
   } else {
     initSite();
   }
@@ -70,30 +105,12 @@
       return null;
     }
 
-    const nav = header.querySelector(".nav-links");
-
-    const menuToggle = header.querySelector(".menu-toggle");
-
-    const dropdownGroups = Array.from(
-      header.querySelectorAll(".nav-group")
-    );
-
     return {
-      header,
-      nav,
-      menuToggle,
-      dropdownGroups
+      header: header,
+      toggle: header.querySelector(".menu-toggle"),
+      nav: header.querySelector(".nav-links"),
+      groups: header.querySelectorAll(".nav-group")
     };
-  }
-
-
-  function isModifiedClick(event) {
-    return (
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    );
   }
 
 
@@ -104,175 +121,98 @@
   function initMobileNavigation() {
     const navigation = getNavigation();
 
-    if (!navigation) {
+    if (!navigation || !navigation.toggle || !navigation.nav) {
       return;
     }
 
     const {
       header,
-      nav,
-      menuToggle
+      toggle,
+      nav
     } = navigation;
 
 
-    if (!nav || !menuToggle) {
-      return;
+    /*
+     * Make sure the navigation has an ID so the
+     * mobile menu button can reference it.
+     */
+    if (!nav.id) {
+      nav.id = "primary-navigation";
     }
 
-
-    /* -------------------------------------------------------
-       Ensure correct navigation relationship
-       ------------------------------------------------------- */
-
-    const navigationId =
-      nav.id || "primary-navigation";
-
-    nav.id = navigationId;
-
-    menuToggle.setAttribute(
+    toggle.setAttribute(
       "aria-controls",
-      navigationId
+      nav.id
     );
 
-
-    /* -------------------------------------------------------
-       Close mobile navigation
-       ------------------------------------------------------- */
 
     function closeMenu() {
       header.classList.remove("nav-open");
       nav.classList.remove("is-open");
 
-      menuToggle.setAttribute(
+      toggle.setAttribute(
         "aria-expanded",
         "false"
       );
 
-      menuToggle.setAttribute(
+      toggle.setAttribute(
         "aria-label",
         "Open navigation"
       );
     }
 
 
-    /* -------------------------------------------------------
-       Open mobile navigation
-       ------------------------------------------------------- */
-
     function openMenu() {
       header.classList.add("nav-open");
       nav.classList.add("is-open");
 
-      menuToggle.setAttribute(
+      toggle.setAttribute(
         "aria-expanded",
         "true"
       );
 
-      menuToggle.setAttribute(
+      toggle.setAttribute(
         "aria-label",
         "Close navigation"
       );
     }
 
 
-    /* -------------------------------------------------------
-       Toggle mobile navigation
-       ------------------------------------------------------- */
-
-    function toggleMenu() {
+    toggle.addEventListener("click", function () {
       const isOpen =
-        header.classList.contains("nav-open");
+        toggle.getAttribute("aria-expanded") === "true";
 
       if (isOpen) {
         closeMenu();
       } else {
         openMenu();
       }
-    }
-
-
-    /* -------------------------------------------------------
-       Initial state
-       ------------------------------------------------------- */
-
-    closeMenu();
-
-
-    /* -------------------------------------------------------
-       Menu button
-       ------------------------------------------------------- */
-
-    menuToggle.addEventListener(
-      "click",
-      function (event) {
-        event.preventDefault();
-
-        toggleMenu();
-      }
-    );
-
-
-    /* -------------------------------------------------------
-       Close after normal navigation link
-       ------------------------------------------------------- */
-
-    nav.querySelectorAll("a").forEach(
-      function (link) {
-
-        link.addEventListener(
-          "click",
-          function (event) {
-
-            /*
-             * Preserve browser behaviour for:
-             * - Ctrl/Cmd click
-             * - Shift click
-             * - Alt click
-             * - middle/new-tab behaviour
-             * - downloads
-             * - target="_blank"
-             */
-            if (
-              isModifiedClick(event) ||
-              link.hasAttribute("download") ||
-              link.target === "_blank"
-            ) {
-              return;
-            }
-
-            closeMenu();
-            closeAllDropdowns();
-          }
-        );
-
-      }
-    );
-
-
-    /* -------------------------------------------------------
-       Close when returning to desktop
-       ------------------------------------------------------- */
-
-    function handleResize() {
-      if (
-        window.innerWidth > MOBILE_BREAKPOINT
-      ) {
-        closeMenu();
-      }
-    }
-
-
-    window.addEventListener(
-      "resize",
-      handleResize,
-      { passive: true }
-    );
+    });
 
 
     /*
-     * Expose internal helper so other site systems,
-     * including Escape handling and smooth scrolling,
-     * can close the same navigation.
+     * Close the mobile menu after selecting a normal
+     * navigation link.
+     */
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeMenu();
+      });
+    });
+
+
+    /*
+     * Reset mobile navigation when returning to desktop.
+     */
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > MOBILE_BREAKPOINT) {
+        closeMenu();
+      }
+    });
+
+
+    /*
+     * Expose the close function for other site behaviors.
      */
     header.__cowitaCloseMenu = closeMenu;
   }
@@ -285,167 +225,84 @@
   function initDropdownNavigation() {
     const navigation = getNavigation();
 
-    if (!navigation) {
+    if (!navigation || !navigation.nav) {
       return;
     }
 
     const {
       header,
-      dropdownGroups
+      nav,
+      groups
     } = navigation;
 
 
-    if (!dropdownGroups.length) {
-      return;
+    function closeAllDropdowns() {
+      header
+        .querySelectorAll(".nav-group[open]")
+        .forEach(function (group) {
+          group.removeAttribute("open");
+        });
     }
 
 
-    /* -------------------------------------------------------
-       Make close function available if needed elsewhere
-       ------------------------------------------------------- */
-
-    window.closeCowitaDropdowns =
-      closeAllDropdowns;
-
-
-    /* -------------------------------------------------------
-       Setup each dropdown
-       ------------------------------------------------------- */
-
-    dropdownGroups.forEach(
-      function (group) {
-
-        const summary =
-          group.querySelector(
-            ":scope > summary"
-          );
-
-        if (!summary) {
-          return;
-        }
+    /*
+     * Make dropdown closing available to other site
+     * functionality, such as smooth scrolling and Escape.
+     */
+    window.closeCowitaDropdowns = closeAllDropdowns;
 
 
-        /*
-         * Native <details> controls its own open state.
-         * This listener only ensures one dropdown is open
-         * at a time.
-         */
-        group.addEventListener(
-          "toggle",
-          function () {
+    groups.forEach(function (group) {
+      const summary = group.querySelector("summary");
 
-            if (!group.open) {
-              return;
-            }
-
-
-            dropdownGroups.forEach(
-              function (otherGroup) {
-
-                if (
-                  otherGroup !== group &&
-                  otherGroup.open
-                ) {
-                  otherGroup.removeAttribute(
-                    "open"
-                  );
-                }
-
-              }
-            );
-
-          }
-        );
-
-
-        /* ---------------------------------------------------
-           Escape closes this dropdown
-           --------------------------------------------------- */
-
-        summary.addEventListener(
-          "keydown",
-          function (event) {
-
-            if (event.key !== "Escape") {
-              return;
-            }
-
-            event.preventDefault();
-            event.stopPropagation();
-
-            group.removeAttribute("open");
-
-            summary.focus();
-          }
-        );
-
-
-        /* ---------------------------------------------------
-           Dropdown links
-           --------------------------------------------------- */
-
-        group.querySelectorAll("a").forEach(
-          function (link) {
-
-            link.addEventListener(
-              "click",
-              function (event) {
-
-                if (
-                  isModifiedClick(event) ||
-                  link.hasAttribute("download") ||
-                  link.target === "_blank"
-                ) {
-                  return;
-                }
-
-                group.removeAttribute("open");
-              }
-            );
-
-          }
-        );
-
+      if (!summary) {
+        return;
       }
-    );
 
 
-    /* -------------------------------------------------------
-       Click outside header
-       ------------------------------------------------------- */
+      summary.addEventListener("click", function () {
+        /*
+         * Native <details> toggles after the click event.
+         * Close other groups after the current group has
+         * had a chance to open.
+         */
+        setTimeout(function () {
+          groups.forEach(function (otherGroup) {
+            if (otherGroup !== group) {
+              otherGroup.removeAttribute("open");
+            }
+          });
+        }, 0);
+      });
 
-    document.addEventListener(
-      "click",
-      function (event) {
 
-        if (
-          header.contains(event.target)
-        ) {
-          return;
+      summary.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          group.removeAttribute("open");
+          summary.focus();
         }
+      });
 
+
+      /*
+       * Close the dropdown after selecting one of its links.
+       */
+      group.querySelectorAll(".dropdown a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          group.removeAttribute("open");
+        });
+      });
+    });
+
+
+    /*
+     * Close dropdowns when clicking outside the header.
+     */
+    document.addEventListener("click", function (event) {
+      if (!header.contains(event.target)) {
         closeAllDropdowns();
       }
-    );
-  }
-
-
-  /* =========================================================
-     CLOSE ALL DROPDOWNS
-     ========================================================= */
-
-  function closeAllDropdowns() {
-    document
-      .querySelectorAll(
-        ".site-header .nav-group[open]"
-      )
-      .forEach(
-        function (group) {
-
-          group.removeAttribute("open");
-
-        }
-      );
+    });
   }
 
 
@@ -461,51 +318,21 @@
     }
 
 
-    let ticking = false;
-
-
-    function updateHeader() {
-
-      if (
-        window.scrollY >
-        HEADER_SCROLL_THRESHOLD
-      ) {
-        header.classList.add(
-          "is-scrolled"
-        );
+    function updateHeaderState() {
+      if (window.scrollY > HEADER_SCROLL_THRESHOLD) {
+        header.classList.add("is-scrolled");
       } else {
-        header.classList.remove(
-          "is-scrolled"
-        );
+        header.classList.remove("is-scrolled");
       }
-
-      ticking = false;
     }
 
 
-    function requestHeaderUpdate() {
-
-      if (ticking) {
-        return;
-      }
-
-      window.requestAnimationFrame(
-        updateHeader
-      );
-
-      ticking = true;
-    }
-
-
-    updateHeader();
-
+    updateHeaderState();
 
     window.addEventListener(
       "scroll",
-      requestHeaderUpdate,
-      {
-        passive: true
-      }
+      updateHeaderState,
+      { passive: true }
     );
   }
 
@@ -515,215 +342,114 @@
      ========================================================= */
 
   function initSmoothScrolling() {
-
-    const links =
-      document.querySelectorAll(
-        'a[href^="#"]'
-      );
+    const anchorLinks =
+      document.querySelectorAll('a[href^="#"]');
 
 
-    if (!links.length) {
-      return;
-    }
+    anchorLinks.forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        /*
+         * Let modified clicks behave normally.
+         */
+        if (
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
 
 
-    links.forEach(
-      function (link) {
+        const href = link.getAttribute("href");
 
-        link.addEventListener(
-          "click",
-          function (event) {
-
-            /*
-             * Preserve modified clicks.
-             */
-            if (
-              isModifiedClick(event)
-            ) {
-              return;
-            }
+        if (!href || href === "#") {
+          return;
+        }
 
 
-            const href =
-              link.getAttribute("href");
+        let target;
+
+        try {
+          target = document.querySelector(href);
+        } catch (error) {
+          return;
+        }
 
 
-            /*
-             * Ignore empty anchors.
-             */
-            if (
-              !href ||
-              href === "#"
-            ) {
-              return;
-            }
+        if (!target) {
+          return;
+        }
 
 
-            let target = null;
+        event.preventDefault();
 
 
-            /*
-             * Prevent malformed selectors from
-             * breaking the rest of the JS.
-             */
-            try {
-              target =
-                document.querySelector(
-                  href
-                );
-            } catch (error) {
-              return;
-            }
+        /*
+         * Close mobile navigation and dropdowns before scrolling.
+         */
+        const header = getSiteHeader();
+
+        if (
+          header &&
+          typeof header.__cowitaCloseMenu === "function"
+        ) {
+          header.__cowitaCloseMenu();
+        }
 
 
-            if (!target) {
-              return;
-            }
+        if (
+          typeof window.closeCowitaDropdowns === "function"
+        ) {
+          window.closeCowitaDropdowns();
+        }
 
 
-            event.preventDefault();
+        /*
+         * Account for the fixed/sticky site header.
+         */
+        const headerHeight = header
+          ? header.getBoundingClientRect().height
+          : 0;
+
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight;
 
 
-            /*
-             * Close navigation before scrolling.
-             */
-            closeMobileNavigation();
-            closeAllDropdowns();
+        const prefersReducedMotion =
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
 
 
-            const header =
-              getSiteHeader();
+        window.scrollTo({
+          top: Math.max(targetPosition, 0),
+          behavior: prefersReducedMotion
+            ? "auto"
+            : "smooth"
+        });
 
 
-            const headerHeight =
-              header
-                ? header.offsetHeight
-                : 0;
+        /*
+         * Update keyboard focus for accessibility.
+         */
+        if (!target.hasAttribute("tabindex")) {
+          target.setAttribute("tabindex", "-1");
+        }
 
 
-            const targetPosition =
-              target.getBoundingClientRect()
-                .top +
-              window.scrollY -
-              headerHeight -
-              20;
+        const focusDelay =
+          prefersReducedMotion ? 0 : 500;
 
-
-            window.scrollTo({
-              top: Math.max(
-                targetPosition,
-                0
-              ),
-              behavior:
-                getScrollBehavior()
-            });
-
-
-            /*
-             * Allow keyboard users to focus the
-             * destination without moving the page.
-             */
-            if (
-              !target.hasAttribute(
-                "tabindex"
-              )
-            ) {
-              target.setAttribute(
-                "tabindex",
-                "-1"
-              );
-            }
-
-
-            window.setTimeout(
-              function () {
-
-                target.focus({
-                  preventScroll: true
-                });
-
-              },
-              100
-            );
-
-          }
-        );
-
-      }
-    );
-  }
-
-
-  /* =========================================================
-     CLOSE MOBILE NAVIGATION
-     ========================================================= */
-
-  function closeMobileNavigation() {
-
-    const header =
-      getSiteHeader();
-
-
-    if (!header) {
-      return;
-    }
-
-
-    header.classList.remove(
-      "nav-open"
-    );
-
-
-    const nav =
-      header.querySelector(
-        ".nav-links"
-      );
-
-
-    if (nav) {
-      nav.classList.remove(
-        "is-open"
-      );
-    }
-
-
-    const menuToggle =
-      header.querySelector(
-        ".menu-toggle"
-      );
-
-
-    if (menuToggle) {
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation"
-      );
-
-    }
-  }
-
-
-  /* =========================================================
-     SCROLL BEHAVIOUR
-     ========================================================= */
-
-  function getScrollBehavior() {
-
-    const reducedMotion =
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-
-    return reducedMotion
-      ? "auto"
-      : "smooth";
+        window.setTimeout(function () {
+          target.focus({
+            preventScroll: true
+          });
+        }, focusDelay);
+      });
+    });
   }
 
 
@@ -732,11 +458,8 @@
      ========================================================= */
 
   function initRevealAnimations() {
-
     const revealElements =
-      document.querySelectorAll(
-        ".reveal"
-      );
+      document.querySelectorAll(".reveal");
 
 
     if (!revealElements.length) {
@@ -744,128 +467,60 @@
     }
 
 
-    const reducedMotion =
+    const prefersReducedMotion =
       window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
 
-    /* -------------------------------------------------------
-       Reduced motion
-       ------------------------------------------------------- */
-
-    if (reducedMotion) {
-
-      revealElements.forEach(
-        function (element) {
-
-          element.classList.add(
-            "is-visible"
-          );
-
-          element.classList.remove(
-            "is-hidden"
-          );
-
-        }
-      );
+    /*
+     * Do not animate when reduced motion is requested.
+     */
+    if (prefersReducedMotion) {
+      revealElements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
 
       return;
     }
 
 
-    /* -------------------------------------------------------
-       IntersectionObserver
-       ------------------------------------------------------- */
+    /*
+     * Fallback for browsers without IntersectionObserver.
+     */
+    if (!("IntersectionObserver" in window)) {
+      revealElements.forEach(function (element) {
+        element.classList.add("is-visible");
+      });
 
-    if (
-      "IntersectionObserver" in window
-    ) {
-
-      const observer =
-        new IntersectionObserver(
-          function (
-            entries,
-            observerInstance
-          ) {
-
-            entries.forEach(
-              function (entry) {
-
-                if (
-                  !entry.isIntersecting
-                ) {
-                  return;
-                }
+      return;
+    }
 
 
-                entry.target.classList.add(
-                  "is-visible"
-                );
+    const observer =
+      new IntersectionObserver(
+        function (entries, observerInstance) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
 
+            entry.target.classList.add("is-visible");
 
-                entry.target.classList.remove(
-                  "is-hidden"
-                );
-
-
-                observerInstance.unobserve(
-                  entry.target
-                );
-
-              }
+            observerInstance.unobserve(
+              entry.target
             );
-
-          },
-          {
-            threshold: 0.12,
-            rootMargin:
-              "0px 0px -40px 0px"
-          }
-        );
-
-
-      revealElements.forEach(
-        function (element) {
-
-          /*
-           * Content starts visible by default in CSS.
-           * JavaScript explicitly enables the hidden
-           * state before observing it.
-           */
-          element.classList.add(
-            "is-hidden"
-          );
-
-          observer.observe(
-            element
-          );
-
+          });
+        },
+        {
+          threshold: 0.12
         }
       );
 
 
-      return;
-    }
-
-
-    /* -------------------------------------------------------
-       Fallback
-       ------------------------------------------------------- */
-
-    revealElements.forEach(
-      function (element) {
-
-        element.classList.add(
-          "is-visible"
-        );
-
-        element.classList.remove(
-          "is-hidden"
-        );
-
-      }
-    );
+    revealElements.forEach(function (element) {
+      observer.observe(element);
+    });
   }
 
 
@@ -874,57 +529,25 @@
      ========================================================= */
 
   function initCurrentYear() {
-
     const yearElements =
-      document.querySelectorAll(
-        "[data-current-year]"
-      );
-
-
-    if (!yearElements.length) {
-      return;
-    }
+      document.querySelectorAll("[data-current-year]");
 
 
     const currentYear =
       new Date().getFullYear();
 
 
-    yearElements.forEach(
-      function (element) {
-
-        element.textContent =
-          currentYear;
-
-      }
-    );
+    yearElements.forEach(function (element) {
+      element.textContent = currentYear;
+    });
   }
 
 
   /* =========================================================
      FOOTER ACCORDION
-     ---------------------------------------------------------
-     Desktop:
-       - All footer sections remain open.
-       - Links remain visible.
-       - Toggle icons are hidden by CSS.
-
-     Mobile:
-       - All sections start collapsed.
-       - Clicking a heading opens/closes its links.
-       - aria-expanded stays synchronized.
-       - CSS changes + to − automatically.
-
-     The HTML already uses:
-       <button class="footer-group-toggle"
-               aria-expanded="false"
-               aria-controls="...">
-
-       <div class="footer-group-links">
      ========================================================= */
 
   function initFooterAccordion() {
-
     const footer =
       document.querySelector(".site-footer");
 
@@ -935,10 +558,8 @@
 
 
     const toggles =
-      Array.from(
-        footer.querySelectorAll(
-          ".footer-group-toggle"
-        )
+      footer.querySelectorAll(
+        ".footer-group-toggle"
       );
 
 
@@ -947,45 +568,20 @@
     }
 
 
-    /* -------------------------------------------------------
-       Find controlled panel
-       ------------------------------------------------------- */
-
-    function getControlledPanel(toggle) {
-
+    function setGroupState(toggle, isOpen) {
       const panelId =
-        toggle.getAttribute(
-          "aria-controls"
-        );
+        toggle.getAttribute("aria-controls");
 
 
       if (!panelId) {
-        return null;
+        return;
       }
 
 
-      /*
-       * getElementById is safer than querySelector
-       * because IDs can theoretically contain characters
-       * that have special meaning in CSS selectors.
-       */
-      return document.getElementById(
-        panelId
-      );
-    }
-
-
-    /* -------------------------------------------------------
-       Set accordion state
-       ------------------------------------------------------- */
-
-    function setFooterGroupState(
-      toggle,
-      expanded
-    ) {
-
       const panel =
-        getControlledPanel(toggle);
+        footer.querySelector(
+          `#${CSS.escape(panelId)}`
+        );
 
 
       if (!panel) {
@@ -995,200 +591,92 @@
 
       toggle.setAttribute(
         "aria-expanded",
-        String(expanded)
+        String(isOpen)
       );
 
 
-      /*
-       * The CSS controls visual visibility through
-       * aria-expanded, so we intentionally do not
-       * use the hidden attribute here.
-       *
-       * This allows the desktop CSS to keep all groups
-       * permanently visible.
-       */
+      toggle.classList.toggle(
+        "is-open",
+        isOpen
+      );
+
+
       panel.classList.toggle(
         "is-open",
-        expanded
+        isOpen
       );
+
+
+      panel.hidden = !isOpen;
     }
 
 
-    /* -------------------------------------------------------
-       Synchronize footer with viewport
-       ------------------------------------------------------- */
-
-    function syncFooterAccordion() {
-
+    function syncAccordion() {
       const isMobile =
         window.innerWidth <=
         FOOTER_ACCORDION_BREAKPOINT;
 
 
-      toggles.forEach(
-        function (toggle) {
-
-          /*
-           * Desktop:
-           * Everything is permanently expanded.
-           */
-          if (!isMobile) {
-            setFooterGroupState(
-              toggle,
-              true
-            );
-
-            return;
-          }
-
-
-          /*
-           * Mobile:
-           * Start collapsed unless the user has already
-           * interacted with this group.
-           *
-           * On a breakpoint transition from desktop to
-           * mobile we deliberately collapse everything.
-           */
-          setFooterGroupState(
-            toggle,
-            false
-          );
-
-        }
-      );
+      toggles.forEach(function (toggle) {
+        /*
+         * Desktop: all footer groups expanded.
+         * Mobile: all footer groups collapsed by default.
+         */
+        setGroupState(
+          toggle,
+          !isMobile
+        );
+      });
     }
 
 
-    /* -------------------------------------------------------
-       Toggle handler
-       ------------------------------------------------------- */
-
-    toggles.forEach(
-      function (toggle) {
-
-        /*
-         * Make sure aria-controls points to a real
-         * panel if the HTML already provides the ID.
-         */
-        const panel =
-          getControlledPanel(toggle);
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener("click", function () {
+        const isOpen =
+          toggle.getAttribute("aria-expanded") === "true";
 
 
-        if (!panel) {
-          return;
-        }
-
-
-        toggle.addEventListener(
-          "click",
-          function () {
-
-            /*
-             * Footer accordion behaviour only exists
-             * on mobile. Desktop sections stay open.
-             */
-            if (
-              window.innerWidth >
-              FOOTER_ACCORDION_BREAKPOINT
-            ) {
-              return;
-            }
-
-
-            const isExpanded =
-              toggle.getAttribute(
-                "aria-expanded"
-              ) === "true";
-
-
-            setFooterGroupState(
-              toggle,
-              !isExpanded
-            );
-
-          }
+        setGroupState(
+          toggle,
+          !isOpen
         );
-
-      }
-    );
-
-
-    /* -------------------------------------------------------
-       Initial state
-       ------------------------------------------------------- */
-
-    syncFooterAccordion();
+      });
+    });
 
 
-    /* -------------------------------------------------------
-       Responsive state
-       ------------------------------------------------------- */
-
-    let resizeTimer = null;
+    syncAccordion();
 
 
     window.addEventListener(
       "resize",
-      function () {
-
-        window.clearTimeout(
-          resizeTimer
-        );
-
-
-        resizeTimer =
-          window.setTimeout(
-            function () {
-              syncFooterAccordion();
-            },
-            100
-          );
-
-      },
-      {
-        passive: true
-      }
+      syncAccordion
     );
 
 
     /*
-     * Expose helper for Escape-key handling.
+     * Expose footer controls for Escape-key handling.
      */
     footer.__cowitaSyncAccordion =
-      syncFooterAccordion;
+      syncAccordion;
 
 
     footer.__cowitaCloseAccordion =
       function () {
-
-        toggles.forEach(
-          function (toggle) {
-
-            setFooterGroupState(
-              toggle,
-              false
-            );
-
-          }
-        );
-
+        toggles.forEach(function (toggle) {
+          setGroupState(
+            toggle,
+            false
+          );
+        });
       };
   }
 
 
   /* =========================================================
      FOOTER LEGACY LINK NORMALIZATION
-     ---------------------------------------------------------
-     The existing footer contains older Stories URLs.
-
-     This allows the shared JS to correct them at runtime
-     without requiring the same HTML change across every
-     page.
      ========================================================= */
 
   function initFooterLegacyLinks() {
-
     const footer =
       document.querySelector(".site-footer");
 
@@ -1198,68 +686,19 @@
     }
 
 
-    const redirects = {
-      "/stories/featured.html":
-        "/stories/featured-stories.html",
-
-      "/stories/participant-stories.html":
-        "/stories/participants.html",
-
-      "/stories/journeys.html":
-        "/stories/journey.html",
-
-      "/stories/news.html":
-        "/stories/news-updates.html"
-    };
-
-
-    footer
-      .querySelectorAll("a[href]")
-      .forEach(
-        function (link) {
-
-          const href =
-            link.getAttribute("href");
-
-
-          if (!href) {
-            return;
-          }
-
-
-          /*
-           * Only rewrite exact internal paths.
-           *
-           * Query strings and hash fragments are preserved.
-           */
-          const urlParts =
-            href.split(/([?#].*)/);
-
-
-          const basePath =
-            urlParts[0];
-
-
-          const suffix =
-            urlParts[1] || "";
-
-
-          const correctedPath =
-            redirects[basePath];
-
-
-          if (!correctedPath) {
-            return;
-          }
-
-
-          link.setAttribute(
-            "href",
-            correctedPath + suffix
-          );
-
-        }
-      );
+    /*
+     * Current footer links already match the actual
+     * CoWiTa file structure.
+     *
+     * No runtime redirects are required.
+     *
+     * Actual Stories paths:
+     *
+     * /stories/featured.html
+     * /stories/participant-stories.html
+     * /stories/journeys.html
+     * /stories/news.html
+     */
   }
 
 
@@ -1268,52 +707,57 @@
      ========================================================= */
 
   function initEscapeKeyHandling() {
-
     document.addEventListener(
       "keydown",
       function (event) {
-
-        if (
-          event.key !== "Escape"
-        ) {
+        if (event.key !== "Escape") {
           return;
         }
 
 
         /*
-         * Close header dropdowns first.
+         * Close header dropdowns.
          */
-        closeAllDropdowns();
+        if (
+          typeof window.closeCowitaDropdowns ===
+          "function"
+        ) {
+          window.closeCowitaDropdowns();
+        }
 
 
         /*
          * Close mobile navigation.
          */
-        closeMobileNavigation();
+        const header =
+          getSiteHeader();
+
+
+        if (
+          header &&
+          typeof header.__cowitaCloseMenu ===
+          "function"
+        ) {
+          header.__cowitaCloseMenu();
+        }
 
 
         /*
-         * Close open footer sections on mobile.
+         * Close footer accordion groups.
          */
         const footer =
-          document.querySelector(
-            ".site-footer"
-          );
+          document.querySelector(".site-footer");
 
 
         if (
           footer &&
           typeof footer.__cowitaCloseAccordion ===
-            "function"
+          "function"
         ) {
-
           footer.__cowitaCloseAccordion();
-
         }
-
       }
     );
   }
-
 
 })();
