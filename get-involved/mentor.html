@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>I Want to Mentor | CoWiTa</title>
+
   <meta
     name="description"
-    content="Share your experience, skills and perspective with the next generation through CoWiTa's mentorship pathway."
+    content="Share your experience, skills and perspective with young people through CoWiTa's mentorship pathway."
   >
+
   <meta name="theme-color" content="#073f3b">
 
   <link rel="stylesheet" href="/css/styles.css">
@@ -20,73 +22,112 @@
     ========================================================= */
 
     .mentor-hero {
-      background:
-        linear-gradient(115deg, rgba(5, 48, 45, 0.97), rgba(7, 63, 59, 0.88)),
-        url("/assets/images/cowita-mentor-hero.jpg") center / cover no-repeat;
-      color: #fff;
-      padding: 7rem 0 6rem;
+      position: relative;
       overflow: hidden;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          115deg,
+          rgba(5, 48, 45, 0.97),
+          rgba(7, 63, 59, 0.84)
+        ),
+        url("/assets/images/cowita-mentor-hero.jpg") center / cover no-repeat;
+      color: var(--cream);
+    }
+
+    .mentor-hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -140px;
+      top: -140px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .mentor-hero .container {
+      position: relative;
+      z-index: 2;
     }
 
     .mentor-hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 4rem;
+      gap: 4.5rem;
       align-items: center;
     }
 
     .mentor-hero-copy {
       max-width: 720px;
+      padding: 105px 0 95px;
     }
 
     .mentor-hero .eyebrow {
       color: var(--gold);
+      margin-bottom: 20px;
     }
 
     .mentor-hero h1 {
-      margin: 0.5rem 0 1.5rem;
-      color: #fff;
+      margin: 0 0 25px;
       max-width: 720px;
+      color: var(--cream);
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      line-height: 0.96;
+      letter-spacing: -0.02em;
     }
 
     .mentor-hero h1 span {
       color: var(--gold);
     }
 
-    .mentor-hero p {
-      color: rgba(255, 255, 255, 0.84);
-      font-size: 1.12rem;
-      line-height: 1.8;
+    .mentor-hero-copy > p {
       max-width: 650px;
+      margin: 0;
+      color: rgba(255, 248, 235, 0.82);
+      font-size: 1.08rem;
+      line-height: 1.8;
     }
 
     .mentor-hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .mentor-hero .btn-primary {
+      background: var(--gold);
+      color: var(--deep-teal);
+    }
+
+    .mentor-hero .btn-light {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
     }
 
     .mentor-hero-note {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      margin-top: 2rem;
-      max-width: 610px;
-      padding: 1rem 1.1rem;
+      max-width: 620px;
+      margin-top: 30px;
+      padding: 18px 20px;
       border-left: 3px solid var(--gold);
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .mentor-hero-note strong {
       display: block;
-      color: #fff;
-      margin-bottom: 0.2rem;
+      margin-bottom: 5px;
+      color: var(--cream);
     }
 
     .mentor-hero-note span {
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.92rem;
+      color: rgba(255, 248, 235, 0.68);
+      font-size: 0.9rem;
       line-height: 1.6;
     }
 
@@ -94,33 +135,21 @@
       position: relative;
     }
 
-    .mentor-hero-visual::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      right: -35px;
-      bottom: -35px;
-      border: 1px solid rgba(207, 168, 73, 0.45);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
     .mentor-hero-visual img {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       display: block;
-      border-radius: 2px;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+      border-radius: 3px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
     }
 
     .mentor-quote {
       position: absolute;
-      left: -2rem;
-      bottom: 2rem;
-      max-width: 290px;
-      padding: 1.4rem;
+      left: -35px;
+      bottom: 35px;
+      max-width: 300px;
+      padding: 22px;
       background: var(--gold);
       color: var(--deep-teal);
       box-shadow: var(--shadow);
@@ -130,18 +159,24 @@
       margin: 0;
       color: var(--deep-teal);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       line-height: 1.45;
     }
 
     .mentor-quote small {
       display: block;
-      margin-top: 0.75rem;
-      font-size: 0.78rem;
-      font-weight: 700;
+      margin-top: 12px;
+      color: var(--deep-teal);
+      font-size: 0.72rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
 
     .mentor-intro {
       max-width: 850px;
@@ -149,364 +184,485 @@
       text-align: center;
     }
 
-    .mentor-intro p {
-      font-size: 1.08rem;
-      line-height: 1.85;
+    .mentor-intro h2 {
+      max-width: 760px;
+      margin: 0 auto 22px;
     }
 
-    .mentor-belief {
+    .mentor-intro p {
+      margin: 0 auto 18px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .mentor-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       MENTORING AREAS
+    ========================================================= */
+
+    .mentor-areas-section {
       background: var(--cream);
     }
 
-    .mentor-belief-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 4rem;
-      align-items: center;
+    .mentor-section-header {
+      max-width: 760px;
+      margin-bottom: 48px;
     }
 
-    .mentor-belief-visual img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-      border-radius: 2px;
+    .mentor-section-header h2 {
+      margin: 0 0 18px;
     }
 
-    .mentor-belief-copy h2 {
-      margin-top: 0;
-    }
-
-    .mentor-belief-copy p {
+    .mentor-section-header p {
+      margin: 0;
+      color: var(--muted);
       line-height: 1.8;
     }
 
-    .mentor-principles {
+    .mentor-area-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
-    .mentor-principle {
-      padding: 1.5rem;
-      background: #fff;
+    .mentor-area {
+      position: relative;
+      min-height: 180px;
+      padding: 25px;
       border: 1px solid var(--line);
-      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+      background: var(--paper);
+      transition:
+        transform 0.3s var(--ease),
+        box-shadow 0.3s var(--ease),
+        border-color 0.3s var(--ease);
     }
 
-    .mentor-principle:hover {
+    .mentor-area:hover {
       transform: translateY(-5px);
+      border-color: rgba(7, 63, 59, 0.25);
       box-shadow: var(--shadow);
     }
 
-    .mentor-principle-number {
+    .mentor-area-number {
+      display: block;
+      margin-bottom: 35px;
       color: var(--gold);
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.12em;
     }
 
-    .mentor-principle h3 {
-      margin: 0.65rem 0 0.5rem;
+    .mentor-area h3 {
+      margin: 0 0 8px;
+      color: var(--deep-teal);
+      font-size: 1.2rem;
     }
 
-    .mentor-principle p {
+    .mentor-area p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.7;
+      font-size: 0.88rem;
+      line-height: 1.6;
     }
 
-    .mentor-types-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.5rem;
-    }
 
-    .mentor-type {
-      position: relative;
-      padding: 2rem;
-      border: 1px solid var(--line);
+    /* =========================================================
+       MENTOR INTAKE FORM
+    ========================================================= */
+
+    .mentor-form-section {
       background: var(--paper);
-      overflow: hidden;
     }
 
-    .mentor-type::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--gold);
+    .mentor-form-header {
+      max-width: 760px;
+      margin-bottom: 48px;
     }
 
-    .mentor-type h3 {
-      margin-top: 0;
+    .mentor-form-header h2 {
+      margin: 0 0 18px;
     }
 
-    .mentor-type p {
-      line-height: 1.75;
-    }
-
-    .mentor-type ul {
-      margin: 1rem 0 0;
-      padding-left: 1.1rem;
-    }
-
-    .mentor-type li {
-      margin-bottom: 0.55rem;
+    .mentor-form-header p {
+      margin: 0;
       color: var(--muted);
-    }
-
-    .mentor-pathway {
-      background: var(--deep-teal);
-      color: #fff;
-    }
-
-    .mentor-pathway .section-label,
-    .mentor-pathway .eyebrow {
-      color: var(--gold);
-    }
-
-    .mentor-pathway h2 {
-      color: #fff;
-    }
-
-    .mentor-pathway-intro {
-      max-width: 720px;
-      color: rgba(255, 255, 255, 0.78);
       line-height: 1.8;
     }
 
-    .mentor-steps {
+    .mentor-form {
+      max-width: 1000px;
+      padding: 46px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+
+    .mentor-form-group {
+      margin-bottom: 44px;
+    }
+
+    .mentor-form-group:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .mentor-form-title {
+      margin: 0 0 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--deep-teal);
+      font-size: 1.3rem;
+    }
+
+    .mentor-form-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    .mentor-step {
-      position: relative;
-      padding: 1.5rem 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    .mentor-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .mentor-step-number {
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+    .mentor-field.full {
+      grid-column: 1 / -1;
     }
 
-    .mentor-step h3 {
-      margin: 0.7rem 0 0.5rem;
-      color: #fff;
-      font-size: 1.1rem;
+    .mentor-field label,
+    .mentor-field legend {
+      color: var(--deep-teal);
+      font-size: 0.88rem;
+      font-weight: 700;
     }
 
-    .mentor-step p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 0.9rem;
+    .mentor-field label span,
+    .mentor-field legend span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .mentor-field input,
+    .mentor-field select,
+    .mentor-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 14px 15px;
+      background: #fffdf8;
+      color: var(--deep-teal);
+      font: inherit;
+      outline: none;
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .mentor-field input,
+    .mentor-field select {
+      min-height: 50px;
+    }
+
+    .mentor-field textarea {
+      min-height: 135px;
+      resize: vertical;
       line-height: 1.65;
     }
 
-    .mentor-expect {
+    .mentor-field input:focus,
+    .mentor-field select:focus,
+    .mentor-field textarea:focus {
+      border-color: var(--deep-teal);
+      box-shadow: 0 0 0 3px rgba(7, 63, 59, 0.08);
+    }
+
+    .mentor-fieldset {
+      min-width: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .mentor-fieldset legend {
+      margin-bottom: 13px;
+    }
+
+    .mentor-option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .mentor-option {
+      position: relative;
+    }
+
+    .mentor-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .mentor-option label {
+      display: flex;
+      align-items: center;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: #fffdf8;
+      color: var(--deep-teal);
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .mentor-option label:hover {
+      border-color: var(--deep-teal);
+    }
+
+    .mentor-option input:checked + label {
+      background: var(--deep-teal);
+      border-color: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .mentor-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mentor-consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--deep-teal);
+    }
+
+    .mentor-consent label {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .mentor-form-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .mentor-form-actions .btn-primary {
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .mentor-form-note {
+      max-width: 500px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       WHAT HAPPENS NEXT
+    ========================================================= */
+
+    .mentor-process-section {
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .mentor-process-section .section-label {
+      color: var(--gold);
+    }
+
+    .mentor-process-header {
+      max-width: 750px;
+      margin-bottom: 55px;
+    }
+
+    .mentor-process-header h2 {
+      margin: 0 0 18px;
+      color: var(--cream);
+    }
+
+    .mentor-process-header p {
+      margin: 0;
+      color: rgba(255, 248, 235, 0.7);
+      line-height: 1.8;
+    }
+
+    .mentor-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .mentor-process-step {
+      min-height: 260px;
+      padding: 32px;
+      background: var(--deep-teal);
+    }
+
+    .mentor-process-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 34px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--deep-teal);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .mentor-process-step h3 {
+      margin: 0 0 12px;
+      color: var(--cream);
+      font-size: 1.25rem;
+    }
+
+    .mentor-process-step p {
+      margin: 0;
+      color: rgba(255, 248, 235, 0.66);
+      line-height: 1.65;
+      font-size: 0.9rem;
+    }
+
+
+    /* =========================================================
+       EXPECTATIONS
+    ========================================================= */
+
+    .mentor-expect-section {
       background: var(--cream);
     }
 
     .mentor-expect-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.5rem;
+      gap: 14px;
     }
 
     .mentor-expect-card {
-      padding: 2rem;
-      background: #fff;
+      padding: 28px;
       border: 1px solid var(--line);
+      background: #fff;
     }
 
     .mentor-expect-card h3 {
-      margin-top: 0;
+      margin: 0 0 12px;
+      color: var(--deep-teal);
+      font-size: 1.2rem;
     }
 
     .mentor-expect-card p {
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 0;
-    }
-
-    .mentor-qualities {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .mentor-qualities-copy h2 {
-      margin-top: 0;
-    }
-
-    .mentor-qualities-copy > p {
-      line-height: 1.8;
-    }
-
-    .mentor-quality-list {
-      display: grid;
-      gap: 0.8rem;
-      margin-top: 1.75rem;
-    }
-
-    .mentor-quality {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      padding: 1rem 1.1rem;
-      background: var(--paper);
-      border: 1px solid var(--line);
-    }
-
-    .mentor-quality-mark {
-      flex: 0 0 28px;
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--gold);
-      color: var(--deep-teal);
-      font-weight: 800;
-      font-size: 0.8rem;
-    }
-
-    .mentor-quality strong {
-      display: block;
-      margin-bottom: 0.15rem;
-    }
-
-    .mentor-quality span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    .mentor-safeguarding {
-      background: #f8f5ec;
-      border: 1px solid var(--line);
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .mentor-safeguarding h3 {
-      margin-top: 0;
-    }
-
-    .mentor-safeguarding p {
-      margin-bottom: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .mentor-coming {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.25rem 1.4rem;
-      margin-top: 2rem;
-      border: 1px dashed rgba(7, 63, 59, 0.3);
-      background: rgba(207, 168, 73, 0.08);
-    }
-
-    .mentor-coming-badge {
-      flex: 0 0 auto;
-      padding: 0.35rem 0.55rem;
-      background: var(--gold);
-      color: var(--deep-teal);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .mentor-coming p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.7;
       font-size: 0.92rem;
     }
 
-    .mentor-faq {
-      max-width: 900px;
-      margin: 2.5rem auto 0;
+
+    /* =========================================================
+       SAFEGUARDING / NOTE
+    ========================================================= */
+
+    .mentor-safety {
+      background: var(--paper);
     }
 
-    .mentor-faq details {
-      border-top: 1px solid var(--line);
-      padding: 1.25rem 0;
+    .mentor-safety-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      align-items: start;
     }
 
-    .mentor-faq details:last-child {
-      border-bottom: 1px solid var(--line);
+    .mentor-safety h2 {
+      margin: 0;
     }
 
-    .mentor-faq summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 700;
-      padding-right: 2rem;
-      position: relative;
-    }
-
-    .mentor-faq summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .mentor-faq summary::after {
-      content: "+";
-      position: absolute;
-      right: 0;
-      top: -0.15rem;
-      font-size: 1.35rem;
-      font-weight: 400;
-      color: var(--gold);
-    }
-
-    .mentor-faq details[open] summary::after {
-      content: "−";
-    }
-
-    .mentor-faq details p {
-      max-width: 760px;
-      margin: 0.9rem 0 0;
+    .mentor-safety-copy p {
+      margin: 0 0 18px;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.8;
     }
+
+    .mentor-safety-note {
+      padding: 24px 26px;
+      border-left: 3px solid var(--gold);
+      background: rgba(207, 168, 73, 0.08);
+    }
+
+    .mentor-safety-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--deep-teal);
+    }
+
+    .mentor-safety-note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
 
     .mentor-final {
       background:
-        linear-gradient(120deg, rgba(5, 48, 45, 0.97), rgba(7, 63, 59, 0.94)),
+        linear-gradient(
+          120deg,
+          rgba(5, 48, 45, 0.97),
+          rgba(7, 63, 59, 0.92)
+        ),
         url("/assets/images/cowita-mentor-community.jpg") center / cover no-repeat;
-      color: #fff;
+      color: var(--cream);
       text-align: center;
     }
 
     .mentor-final-inner {
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
+    .mentor-final .eyebrow {
+      color: var(--gold);
+    }
+
     .mentor-final h2 {
-      color: #fff;
-      margin-top: 0;
+      margin: 0 0 20px;
+      color: var(--cream);
     }
 
     .mentor-final p {
-      color: rgba(255, 255, 255, 0.78);
+      max-width: 650px;
+      margin: 0 auto;
+      color: rgba(255, 248, 235, 0.74);
       line-height: 1.8;
     }
 
@@ -514,14 +670,30 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 14px;
+      margin-top: 32px;
     }
 
+    .mentor-final .btn-primary {
+      background: var(--gold);
+      color: var(--deep-teal);
+    }
+
+    .mentor-final .btn-light {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
     @media (max-width: 1000px) {
+
       .mentor-hero-grid,
-      .mentor-belief-grid,
-      .mentor-qualities {
+      .mentor-safety-grid {
         grid-template-columns: 1fr;
       }
 
@@ -529,37 +701,32 @@
         max-width: 650px;
       }
 
-      .mentor-steps {
-        grid-template-columns: repeat(3, 1fr);
+      .mentor-area-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mentor-process-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .mentor-expect-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .mentor-belief-visual {
-        max-width: 700px;
-      }
     }
 
+
     @media (max-width: 760px) {
+
       .mentor-hero {
-        padding: 5rem 0 4rem;
+        min-height: auto;
+      }
+
+      .mentor-hero-copy {
+        padding: 90px 0 55px;
       }
 
       .mentor-hero-grid {
-        gap: 3rem;
-      }
-
-      .mentor-hero-actions,
-      .mentor-final-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .mentor-hero-actions .btn,
-      .mentor-final-actions .btn {
-        text-align: center;
+        gap: 30px;
       }
 
       .mentor-quote {
@@ -567,44 +734,84 @@
         left: 0;
         bottom: auto;
         max-width: none;
-        margin-top: -1rem;
+        margin-top: -15px;
       }
 
-      .mentor-principles,
-      .mentor-types-grid,
+      .mentor-area-grid,
+      .mentor-option-grid,
       .mentor-expect-grid,
-      .mentor-steps {
+      .mentor-process-grid {
         grid-template-columns: 1fr;
       }
 
-      .mentor-step {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      .mentor-form {
+        padding: 28px 20px;
+      }
+
+      .mentor-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mentor-field.full {
+        grid-column: auto;
+      }
+
+      .mentor-final-actions,
+      .mentor-hero-actions,
+      .mentor-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .mentor-final-actions .btn,
+      .mentor-hero-actions .btn,
+      .mentor-form-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .mentor-hero h1 {
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
 
   <!-- =======================================================
        HEADER
   ======================================================== -->
+
   <div id="site-header"></div>
 
 
   <main id="main-content">
 
+
     <!-- =====================================================
          HERO
     ====================================================== -->
+
     <section class="mentor-hero">
+
       <div class="container mentor-hero-grid">
 
-        <div class="mentor-hero-copy reveal">
+        <div class="mentor-hero-copy">
 
-          <span class="eyebrow">GET INVOLVED</span>
+          <p class="eyebrow">
+            I WANT TO MENTOR
+          </p>
 
           <h1>
             Your experience could become
@@ -612,614 +819,1169 @@
           </h1>
 
           <p>
-            Talent needs more than encouragement. Sometimes a young person
-            needs someone who has already walked part of the road — someone
-            who can listen, challenge, guide, share experience and help them
-            see what is possible.
+            Share your experience, skills and perspective with young people
+            who are developing their talents, exploring possibilities and
+            figuring out what comes next.
           </p>
 
           <div class="mentor-hero-actions">
-            <a class="btn btn-primary" href="/contact/">
-              Express Your Interest
+
+            <a
+              class="btn btn-primary"
+              href="#mentor-form"
+            >
+              Become a Mentor
             </a>
 
-            <a class="btn btn-light" href="/work/mentorship.html">
+            <a
+              class="btn btn-light"
+              href="/work/mentorship.html"
+            >
               Explore Mentorship
             </a>
+
           </div>
 
           <div class="mentor-hero-note">
-            <div>
-              <strong>Mentorship at CoWiTa is about relationship, not just advice.</strong>
-              <span>
-                We are developing a structured pathway for people who want to
-                use their experience and skills to support the growth of young
-                creatives and emerging talent.
-              </span>
-            </div>
+
+            <strong>
+              Mentorship is about relationship, not just advice.
+            </strong>
+
+            <span>
+              CoWiTa is developing a structured pathway for people who
+              want to use their experience and skills to support young
+              people's growth.
+            </span>
+
           </div>
 
         </div>
 
-        <div class="mentor-hero-visual reveal">
+
+        <div class="mentor-hero-visual">
+
           <img
             src="/assets/images/cowita-mentor-hero.jpg"
             alt="Mentor guiding a young person during a creative learning session"
           >
 
           <div class="mentor-quote">
+
             <p>
-              “Sometimes what a young person needs most is someone who can see
-              the potential before they can see it themselves.”
+              Sometimes what a young person needs most is someone who
+              can help them see what is possible.
             </p>
-            <small>Why mentorship matters</small>
+
+            <small>
+              Why mentorship matters
+            </small>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
          INTRO
     ====================================================== -->
+
     <section class="section">
+
       <div class="container">
 
-        <div class="mentor-intro reveal">
+        <div class="mentor-intro">
 
-          <span class="section-label">WHY MENTOR?</span>
+          <p class="section-label">
+            SHARE WHAT YOU KNOW
+          </p>
 
           <h2>
-            Talent grows faster when experience is shared.
+            You do not need to have all the answers.
           </h2>
 
           <p>
-            A mentor does not have to have all the answers. What matters is
-            the willingness to listen, share honestly, ask useful questions,
-            offer perspective and help another person navigate the decisions
-            that come with developing a skill.
+            A mentor can listen, ask useful questions, share practical
+            experience, offer honest feedback and help someone think
+            through their next step.
           </p>
 
           <p>
-            For CoWiTa, mentorship connects a young person's creative journey
-            with people who can contribute knowledge, experience, discipline,
-            encouragement and perspective along the way.
+            Your contribution could come from your creative practice,
+            professional experience, technical skills, business knowledge,
+            career journey or simply lessons you have learned along the way.
           </p>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         BELIEF
+         MENTORING AREAS
     ====================================================== -->
-    <section class="section mentor-belief">
-      <div class="container mentor-belief-grid">
 
-        <div class="mentor-belief-visual reveal">
-          <img
-            src="/assets/images/cowita-mentor-session.jpg"
-            alt="A mentor having a focused conversation with a young creative"
-            loading="lazy"
-          >
-        </div>
+    <section class="section mentor-areas-section">
 
-        <div class="mentor-belief-copy reveal">
+      <div class="container">
 
-          <span class="section-label">OUR APPROACH</span>
+        <div class="mentor-section-header">
+
+          <p class="section-label">
+            YOUR AREA OF EXPERTISE
+          </p>
 
           <h2>
-            We believe mentorship should help a young person move forward.
+            What could you mentor in?
           </h2>
 
           <p>
-            Mentorship should not become a one-way lecture. The strongest
-            relationships create space for questions, practice, reflection,
-            honest feedback and gradual independence.
+            Select the areas where your experience could be useful.
+            You can choose more than one in the form below.
           </p>
-
-          <p>
-            A CoWiTa mentor may contribute to a creative discipline, a
-            practical skill, personal development, career thinking, creative
-            entrepreneurship or simply the confidence to keep developing.
-          </p>
-
-          <div class="mentor-principles">
-
-            <article class="mentor-principle">
-              <span class="mentor-principle-number">01</span>
-              <h3>Listen first</h3>
-              <p>
-                Understand the young person's interests, goals, challenges
-                and current level before trying to direct the journey.
-              </p>
-            </article>
-
-            <article class="mentor-principle">
-              <span class="mentor-principle-number">02</span>
-              <h3>Guide, don't control</h3>
-              <p>
-                Offer perspective and challenge while allowing the mentee to
-                develop ownership of their own decisions.
-              </p>
-            </article>
-
-            <article class="mentor-principle">
-              <span class="mentor-principle-number">03</span>
-              <h3>Build independence</h3>
-              <p>
-                The goal is not dependence on a mentor, but greater confidence,
-                ability and direction over time.
-              </p>
-            </article>
-
-          </div>
 
         </div>
 
-      </div>
-    </section>
 
+        <div class="mentor-area-grid">
 
-    <!-- =====================================================
-         WHO CAN MENTOR
-    ====================================================== -->
-    <section class="section">
-      <div class="container">
-
-        <div class="section-header reveal">
-          <div>
-            <span class="section-label">WHO CAN MENTOR?</span>
-            <h2>There is more than one way to bring value.</h2>
-          </div>
-
-          <p>
-            You do not need to fit one specific professional profile.
-            What matters is having something useful to share and the
-            willingness to contribute responsibly.
-          </p>
-        </div>
-
-        <div class="mentor-types-grid">
-
-          <article class="mentor-type reveal">
-            <h3>Creative Practitioners</h3>
+          <article class="mentor-area">
+            <span class="mentor-area-number">01</span>
+            <h3>Creative Practice</h3>
             <p>
-              Artists and creatives who have developed experience in their
-              craft and can help young people understand the discipline
-              behind creative growth.
-            </p>
-
-            <ul>
-              <li>Dance and performance</li>
-              <li>Music and songwriting</li>
-              <li>Drawing and visual art</li>
-              <li>Writing and storytelling</li>
-              <li>Acting and theatre</li>
-            </ul>
-          </article>
-
-          <article class="mentor-type reveal">
-            <h3>Industry Professionals</h3>
-            <p>
-              People working in creative, technical or professional fields
-              who can expose young people to how their skills operate beyond
-              the classroom.
-            </p>
-
-            <ul>
-              <li>Creative production</li>
-              <li>Media and communication</li>
-              <li>Technology and digital work</li>
-              <li>Business and entrepreneurship</li>
-              <li>Professional development</li>
-            </ul>
-          </article>
-
-          <article class="mentor-type reveal">
-            <h3>Experienced Community Members</h3>
-            <p>
-              People with practical experience, leadership ability or
-              community knowledge who can provide perspective and
-              encouragement.
-            </p>
-
-            <ul>
-              <li>Leadership and responsibility</li>
-              <li>Personal development</li>
-              <li>Life skills</li>
-              <li>Community engagement</li>
-              <li>Purpose and direction</li>
-            </ul>
-          </article>
-
-          <article class="mentor-type reveal">
-            <h3>People Who Have Walked the Journey</h3>
-            <p>
-              Sometimes the most valuable mentor is someone who remembers
-              what it felt like to be at the beginning and can share the
-              lessons they wish they had known earlier.
-            </p>
-
-            <ul>
-              <li>Emerging creatives</li>
-              <li>Young professionals</li>
-              <li>Entrepreneurs</li>
-              <li>Former participants</li>
-              <li>Peer mentors</li>
-            </ul>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =====================================================
-         MENTOR PATHWAY
-    ====================================================== -->
-    <section class="section mentor-pathway">
-      <div class="container">
-
-        <span class="section-label reveal">THE PATHWAY</span>
-
-        <div class="section-header reveal">
-          <div>
-            <h2>
-              From experience to meaningful guidance.
-            </h2>
-          </div>
-
-          <p class="mentor-pathway-intro">
-            CoWiTa is designing mentorship around a simple idea: good
-            intentions need structure. The pathway should make it clear
-            what mentors are contributing, who they are supporting and
-            how the relationship is expected to work.
-          </p>
-        </div>
-
-        <div class="mentor-steps">
-
-          <article class="mentor-step reveal">
-            <span class="mentor-step-number">01</span>
-            <h3>Connect</h3>
-            <p>
-              Tell us about your experience, interests and the kind of
-              contribution you would like to make.
+              Help someone develop their creative process, discipline
+              and confidence.
             </p>
           </article>
 
-          <article class="mentor-step reveal">
-            <span class="mentor-step-number">02</span>
-            <h3>Understand</h3>
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">02</span>
+            <h3>Dance</h3>
             <p>
-              Explore where your experience could best support a young
-              person's development.
+              Movement, performance, technique and creative development.
             </p>
           </article>
 
-          <article class="mentor-step reveal">
-            <span class="mentor-step-number">03</span>
-            <h3>Prepare</h3>
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">03</span>
+            <h3>Acting</h3>
             <p>
-              Align around expectations, boundaries, safeguarding and
-              the responsibilities of mentorship.
+              Character, performance, storytelling and stage confidence.
             </p>
           </article>
 
-          <article class="mentor-step reveal">
-            <span class="mentor-step-number">04</span>
-            <h3>Mentor</h3>
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">04</span>
+            <h3>Music</h3>
             <p>
-              Share guidance through conversations, practice, feedback,
-              encouragement and practical support.
+              Performance, songwriting, production and developing a voice.
             </p>
           </article>
 
-          <article class="mentor-step reveal">
-            <span class="mentor-step-number">05</span>
-            <h3>Reflect</h3>
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">05</span>
+            <h3>Writing</h3>
             <p>
-              Learn from the relationship and identify what the mentee
-              needs for the next stage of their journey.
+              Storytelling, communication, ideas and creative writing.
+            </p>
+          </article>
+
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">06</span>
+            <h3>Visual Arts</h3>
+            <p>
+              Drawing, illustration, visual thinking and creative practice.
+            </p>
+          </article>
+
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">07</span>
+            <h3>Production</h3>
+            <p>
+              Creative production, project planning, media and technical work.
+            </p>
+          </article>
+
+
+          <article class="mentor-area">
+            <span class="mentor-area-number">08</span>
+            <h3>Business & Career</h3>
+            <p>
+              Entrepreneurship, professional development and career direction.
             </p>
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         WHAT TO EXPECT
+         MENTOR INTAKE FORM
     ====================================================== -->
-    <section class="section mentor-expect">
+
+    <section
+      class="section mentor-form-section"
+      id="mentor-form"
+    >
+
       <div class="container">
 
-        <div class="section-header reveal">
-          <div>
-            <span class="section-label">WHAT TO EXPECT</span>
-            <h2>Mentorship is a commitment.</h2>
-          </div>
+        <div class="mentor-form-header">
+
+          <p class="section-label">
+            MENTOR INTEREST
+          </p>
+
+          <h2>
+            Tell us how you could contribute.
+          </h2>
 
           <p>
-            The exact format will depend on the programme and the needs of
-            the mentee. The principles below provide the foundation for how
-            CoWiTa intends to approach the relationship.
+            Share enough information for us to understand your experience,
+            expertise, availability and the kind of mentorship you would
+            like to explore.
           </p>
+
         </div>
+
+
+        <form
+          class="mentor-form"
+          id="mentor-interest-form"
+          method="post"
+        >
+
+
+          <!-- =================================================
+               PERSONAL DETAILS
+          ================================================== -->
+
+          <div class="mentor-form-group">
+
+            <h3 class="mentor-form-title">
+              Your details
+            </h3>
+
+            <div class="mentor-form-grid">
+
+              <div class="mentor-field">
+
+                <label for="mentor-name">
+                  Full name
+                </label>
+
+                <input
+                  type="text"
+                  id="mentor-name"
+                  name="full_name"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-email">
+                  Email address
+                </label>
+
+                <input
+                  type="email"
+                  id="mentor-email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-phone">
+                  Phone number
+                  <span>(optional)</span>
+                </label>
+
+                <input
+                  type="tel"
+                  id="mentor-phone"
+                  name="phone"
+                  autocomplete="tel"
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-location">
+                  Location
+                </label>
+
+                <input
+                  type="text"
+                  id="mentor-location"
+                  name="location"
+                  placeholder="Town / city / country"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               PROFESSIONAL BACKGROUND
+          ================================================== -->
+
+          <div class="mentor-form-group">
+
+            <h3 class="mentor-form-title">
+              Your experience
+            </h3>
+
+            <div class="mentor-form-grid">
+
+              <div class="mentor-field">
+
+                <label for="mentor-profession">
+                  Profession / role
+                </label>
+
+                <input
+                  type="text"
+                  id="mentor-profession"
+                  name="profession"
+                  placeholder="e.g. Dancer, Producer, Entrepreneur"
+                  required
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-organisation">
+                  Organisation / company
+                  <span>(optional)</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="mentor-organisation"
+                  name="organisation"
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-years">
+                  Years of experience
+                </label>
+
+                <select
+                  id="mentor-years"
+                  name="years_experience"
+                >
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option value="under-2">
+                    Under 2 years
+                  </option>
+
+                  <option value="2-5">
+                    2–5 years
+                  </option>
+
+                  <option value="6-10">
+                    6–10 years
+                  </option>
+
+                  <option value="11-15">
+                    11–15 years
+                  </option>
+
+                  <option value="16-plus">
+                    16+ years
+                  </option>
+                </select>
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-website">
+                  Portfolio / LinkedIn / website
+                  <span>(optional)</span>
+                </label>
+
+                <input
+                  type="url"
+                  id="mentor-website"
+                  name="website"
+                  placeholder="https://"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               EXPERTISE
+          ================================================== -->
+
+          <div class="mentor-form-group">
+
+            <h3 class="mentor-form-title">
+              What could you mentor in?
+            </h3>
+
+            <div class="mentor-form-grid">
+
+              <fieldset class="mentor-field mentor-fieldset full">
+
+                <legend>
+                  Areas of expertise
+                </legend>
+
+                <div class="mentor-option-grid">
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-creative"
+                      name="expertise[]"
+                      value="creative-practice"
+                    >
+                    <label for="expertise-creative">
+                      Creative practice
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-dance"
+                      name="expertise[]"
+                      value="dance"
+                    >
+                    <label for="expertise-dance">
+                      Dance
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-acting"
+                      name="expertise[]"
+                      value="acting"
+                    >
+                    <label for="expertise-acting">
+                      Acting
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-music"
+                      name="expertise[]"
+                      value="music"
+                    >
+                    <label for="expertise-music">
+                      Music
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-writing"
+                      name="expertise[]"
+                      value="writing"
+                    >
+                    <label for="expertise-writing">
+                      Writing
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-visual"
+                      name="expertise[]"
+                      value="visual-arts"
+                    >
+                    <label for="expertise-visual">
+                      Visual arts
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-production"
+                      name="expertise[]"
+                      value="production"
+                    >
+                    <label for="expertise-production">
+                      Production
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-business"
+                      name="expertise[]"
+                      value="business"
+                    >
+                    <label for="expertise-business">
+                      Business
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-career"
+                      name="expertise[]"
+                      value="career-development"
+                    >
+                    <label for="expertise-career">
+                      Career development
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-entrepreneurship"
+                      name="expertise[]"
+                      value="entrepreneurship"
+                    >
+                    <label for="expertise-entrepreneurship">
+                      Entrepreneurship
+                    </label>
+                  </div>
+
+
+                  <div class="mentor-option">
+                    <input
+                      type="checkbox"
+                      id="expertise-other"
+                      name="expertise[]"
+                      value="other"
+                    >
+                    <label for="expertise-other">
+                      Other
+                    </label>
+                  </div>
+
+                </div>
+
+              </fieldset>
+
+
+              <div class="mentor-field full">
+
+                <label for="mentor-can-help">
+                  What could you help a young person develop?
+                </label>
+
+                <textarea
+                  id="mentor-can-help"
+                  name="mentoring_focus"
+                  placeholder="Describe the knowledge, skills or experience you could share."
+                  required
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               MENTORING PREFERENCES
+          ================================================== -->
+
+          <div class="mentor-form-group">
+
+            <h3 class="mentor-form-title">
+              Your mentoring preferences
+            </h3>
+
+            <div class="mentor-form-grid">
+
+              <div class="mentor-field">
+
+                <label for="mentor-age-group">
+                  Preferred age group
+                </label>
+
+                <select
+                  id="mentor-age-group"
+                  name="preferred_age_group"
+                >
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option value="under-13">
+                    Under 13
+                  </option>
+
+                  <option value="13-15">
+                    13–15
+                  </option>
+
+                  <option value="16-18">
+                    16–18
+                  </option>
+
+                  <option value="18-plus">
+                    18+
+                  </option>
+
+                  <option value="flexible">
+                    Flexible
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-format">
+                  Preferred format
+                </label>
+
+                <select
+                  id="mentor-format"
+                  name="preferred_format"
+                >
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option value="in-person">
+                    In person
+                  </option>
+
+                  <option value="online">
+                    Online
+                  </option>
+
+                  <option value="hybrid">
+                    Hybrid
+                  </option>
+
+                  <option value="flexible">
+                    Flexible
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-availability">
+                  Availability
+                </label>
+
+                <input
+                  type="text"
+                  id="mentor-availability"
+                  name="availability"
+                  placeholder="e.g. Weekends / evenings"
+                >
+
+              </div>
+
+
+              <div class="mentor-field">
+
+                <label for="mentor-frequency">
+                  Preferred commitment
+                </label>
+
+                <select
+                  id="mentor-frequency"
+                  name="preferred_commitment"
+                >
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option value="short-term">
+                    Short-term
+                  </option>
+
+                  <option value="ongoing">
+                    Ongoing
+                  </option>
+
+                  <option value="project-based">
+                    Project-based
+                  </option>
+
+                  <option value="flexible">
+                    Flexible
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="mentor-field full">
+
+                <label for="mentor-introduction">
+                  Tell us about yourself
+                </label>
+
+                <textarea
+                  id="mentor-introduction"
+                  name="introduction"
+                  placeholder="Give us a short introduction to your experience and what you bring."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <div class="mentor-field full">
+
+                <label for="mentor-why">
+                  Why would you like to mentor?
+                </label>
+
+                <textarea
+                  id="mentor-why"
+                  name="why_mentor"
+                  placeholder="What motivates you to support young people through mentorship?"
+                  required
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               CONSENT
+          ================================================== -->
+
+          <div class="mentor-consent">
+
+            <input
+              type="checkbox"
+              id="mentor-consent"
+              name="consent"
+              value="yes"
+              required
+            >
+
+            <label for="mentor-consent">
+              I confirm that the information I have provided is accurate
+              and I am happy for CoWiTa to use it to understand my interest
+              in mentorship and contact me about relevant opportunities.
+            </label>
+
+          </div>
+
+
+          <!-- =================================================
+               SUBMIT
+          ================================================== -->
+
+          <div class="mentor-form-actions">
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Submit Mentor Interest
+            </button>
+
+            <p class="mentor-form-note">
+              Submitting this form expresses your interest. It does not
+              guarantee acceptance into a mentorship programme or a
+              particular mentor placement.
+            </p>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT HAPPENS NEXT
+    ====================================================== -->
+
+    <section class="section mentor-process-section">
+
+      <div class="container">
+
+        <div class="mentor-process-header">
+
+          <p class="section-label">
+            WHAT HAPPENS NEXT
+          </p>
+
+          <h2>
+            From mentor interest to meaningful connection.
+          </h2>
+
+          <p>
+            CoWiTa's mentorship pathway will develop around a clear process
+            so that mentors understand what is expected and young people are
+            connected appropriately.
+          </p>
+
+        </div>
+
+
+        <div class="mentor-process-grid">
+
+          <article class="mentor-process-step">
+
+            <span class="mentor-process-number">
+              01
+            </span>
+
+            <h3>Apply</h3>
+
+            <p>
+              Tell us about your experience, expertise, availability
+              and mentoring interests.
+            </p>
+
+          </article>
+
+
+          <article class="mentor-process-step">
+
+            <span class="mentor-process-number">
+              02
+            </span>
+
+            <h3>Review</h3>
+
+            <p>
+              CoWiTa reviews the information provided and considers
+              the suitability of the proposed contribution.
+            </p>
+
+          </article>
+
+
+          <article class="mentor-process-step">
+
+            <span class="mentor-process-number">
+              03
+            </span>
+
+            <h3>Conversation</h3>
+
+            <p>
+              Where appropriate, we continue the conversation to
+              understand your experience and expectations.
+            </p>
+
+          </article>
+
+
+          <article class="mentor-process-step">
+
+            <span class="mentor-process-number">
+              04
+            </span>
+
+            <h3>Match</h3>
+
+            <p>
+              Where there is a suitable opportunity, CoWiTa can explore
+              an appropriate mentorship connection and next step.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPECTATIONS
+    ====================================================== -->
+
+    <section class="section mentor-expect-section">
+
+      <div class="container">
+
+        <div class="mentor-section-header">
+
+          <p class="section-label">
+            WHAT MENTORSHIP REQUIRES
+          </p>
+
+          <h2>
+            Bring experience. Bring patience. Bring consistency.
+          </h2>
+
+          <p>
+            Mentorship can take different forms, but a few qualities are
+            important across the pathway.
+          </p>
+
+        </div>
+
 
         <div class="mentor-expect-grid">
 
-          <article class="mentor-expect-card reveal">
-            <h3>Consistent engagement</h3>
+          <article class="mentor-expect-card">
+
+            <h3>
+              Reliability
+            </h3>
+
             <p>
-              Meaningful mentorship requires more than a single inspirational
-              conversation. Consistency helps trust and progress develop over
-              time.
+              Show up, communicate clearly and honour the commitments
+              you make.
             </p>
+
           </article>
 
-          <article class="mentor-expect-card reveal">
-            <h3>Honest feedback</h3>
+
+          <article class="mentor-expect-card">
+
+            <h3>
+              Listening
+            </h3>
+
             <p>
-              Mentors should be able to encourage without simply agreeing.
-              Useful feedback helps a young person recognise strengths and
-              areas that still need work.
+              Understand the young person's interests, questions and
+              goals rather than assuming what they need.
             </p>
+
           </article>
 
-          <article class="mentor-expect-card reveal">
-            <h3>Practical guidance</h3>
+
+          <article class="mentor-expect-card">
+
+            <h3>
+              Honest feedback
+            </h3>
+
             <p>
-              Where appropriate, mentorship should connect ideas to action:
-              practice, projects, portfolios, performances, learning or
-              other meaningful next steps.
+              Encourage while also offering useful and respectful
+              feedback that supports development.
             </p>
+
           </article>
 
-          <article class="mentor-expect-card reveal">
-            <h3>Respect for the mentee</h3>
+
+          <article class="mentor-expect-card">
+
+            <h3>
+              Practical guidance
+            </h3>
+
             <p>
-              Every young person arrives with a different background,
-              personality, pace and ambition. Mentorship should create room
-              for that individuality.
+              Where appropriate, connect conversations to practice,
+              projects, portfolios, learning or other next steps.
             </p>
+
           </article>
 
-          <article class="mentor-expect-card reveal">
-            <h3>Professional boundaries</h3>
+
+          <article class="mentor-expect-card">
+
+            <h3>
+              Professional boundaries
+            </h3>
+
             <p>
-              Mentorship should remain purposeful, respectful and
-              appropriately bounded, particularly when working with
-              children and younger participants.
+              Maintain appropriate communication, conduct and boundaries
+              throughout the mentoring relationship.
             </p>
+
           </article>
 
-          <article class="mentor-expect-card reveal">
-            <h3>A willingness to learn</h3>
+
+          <article class="mentor-expect-card">
+
+            <h3>
+              Willingness to learn
+            </h3>
+
             <p>
-              Mentors can learn too. Strong mentorship is a relationship
-              where experience is shared while both people remain open to
-              new perspectives.
+              Remain open to new perspectives and recognise that
+              mentorship can be a learning experience for both people.
             </p>
+
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         QUALITIES
+         SAFEGUARDING
     ====================================================== -->
-    <section class="section">
-      <div class="container mentor-qualities">
 
-        <div class="mentor-qualities-copy reveal">
+    <section class="section mentor-safety">
 
-          <span class="section-label">WHAT WE VALUE IN A MENTOR</span>
+      <div class="container mentor-safety-grid">
 
-          <h2>
-            You do not need to be perfect. You need to be intentional.
-          </h2>
+        <div>
 
-          <p>
-            A mentor's value is not measured only by titles, qualifications
-            or years of experience. Character, reliability and the ability
-            to genuinely listen can be just as important.
+          <p class="section-label">
+            RESPONSIBLE MENTORSHIP
           </p>
 
-          <div class="mentor-quality-list">
-
-            <div class="mentor-quality">
-              <div class="mentor-quality-mark">✓</div>
-              <div>
-                <strong>Reliability</strong>
-                <span>Show up, communicate clearly and honour commitments.</span>
-              </div>
-            </div>
-
-            <div class="mentor-quality">
-              <div class="mentor-quality-mark">✓</div>
-              <div>
-                <strong>Patience</strong>
-                <span>Understand that development takes time and looks different for everyone.</span>
-              </div>
-            </div>
-
-            <div class="mentor-quality">
-              <div class="mentor-quality-mark">✓</div>
-              <div>
-                <strong>Empathy</strong>
-                <span>Listen to the person, not only the talent they are developing.</span>
-              </div>
-            </div>
-
-            <div class="mentor-quality">
-              <div class="mentor-quality-mark">✓</div>
-              <div>
-                <strong>Integrity</strong>
-                <span>Give honest guidance while respecting trust and boundaries.</span>
-              </div>
-            </div>
-
-            <div class="mentor-quality">
-              <div class="mentor-quality-mark">✓</div>
-              <div>
-                <strong>Growth mindset</strong>
-                <span>Be willing to keep learning alongside the people you mentor.</span>
-              </div>
-            </div>
-
-          </div>
+          <h2>
+            Safeguarding is part of the pathway.
+          </h2>
 
         </div>
 
-        <div class="reveal">
 
-          <div class="mentor-safeguarding">
-            <h3>Safeguarding matters.</h3>
+        <div class="mentor-safety-copy">
+
+          <p>
+            CoWiTa's work may involve children and young people. Any
+            mentorship programme involving younger participants will
+            therefore require appropriate safeguarding expectations,
+            boundaries and procedures.
+          </p>
+
+          <p>
+            The specific requirements will depend on the programme,
+            participant age and format of the mentorship relationship.
+            These requirements will be communicated as the pathway is
+            formally developed.
+          </p>
+
+          <div class="mentor-safety-note">
+
+            <strong>
+              Important
+            </strong>
 
             <p>
-              CoWiTa's work may involve children and young people. Any future
-              mentorship programme will need clear safeguarding expectations,
-              appropriate boundaries, responsible communication and suitable
-              processes for working with minors. Participation in mentorship
-              will therefore be subject to the requirements of the specific
+              Expressing interest in mentorship does not by itself
+              create a mentor–mentee relationship. Participation will
+              be subject to the requirements of the relevant CoWiTa
               programme.
             </p>
-          </div>
 
-          <div class="mentor-coming">
-            <span class="mentor-coming-badge">Coming Soon</span>
-
-            <p>
-              Confirmed mentor intake dates, programme structures, eligibility
-              requirements and onboarding procedures will be published as the
-              CoWiTa mentorship pathway is formally launched.
-            </p>
           </div>
 
         </div>
 
       </div>
-    </section>
 
-
-    <!-- =====================================================
-         FAQ
-    ====================================================== -->
-    <section class="section mentor-faq-section">
-      <div class="container">
-
-        <div class="section-header reveal">
-          <div>
-            <span class="section-label">QUESTIONS</span>
-            <h2>Before you express interest.</h2>
-          </div>
-        </div>
-
-        <div class="mentor-faq">
-
-          <details class="reveal">
-            <summary>Do I need to be a professional artist to become a mentor?</summary>
-            <p>
-              No. Creative professionals are one possible source of mentorship,
-              but useful experience can also come from entrepreneurship,
-              leadership, technical work, education, community work and other
-              areas. What matters is whether your experience can meaningfully
-              support a young person's development.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Can I mentor in a specific creative discipline?</summary>
-            <p>
-              Yes. Depending on future programme needs, mentors may contribute
-              to areas such as dance, music, drawing, writing, acting,
-              creative production, digital skills and other relevant areas.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Do I need previous mentoring experience?</summary>
-            <p>
-              Not necessarily. Previous mentoring experience can be valuable,
-              but CoWiTa's approach will also consider your experience,
-              communication ability, willingness to learn and suitability for
-              the role.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Will mentors work with children?</summary>
-            <p>
-              Some CoWiTa programmes may involve children or younger
-              participants. Where this applies, additional safeguarding,
-              communication and participation requirements will apply.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Can I contribute even if I have limited time?</summary>
-            <p>
-              Potentially. Different mentorship opportunities may require
-              different levels of commitment. The exact formats and time
-              requirements will depend on the programme being developed.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Is the mentor programme currently open?</summary>
-            <p>
-              Formal mentor intake information is currently coming soon.
-              You can still express your interest through the Contact page so
-              CoWiTa can understand the experience and skills available as the
-              pathway develops.
-            </p>
-          </details>
-
-        </div>
-
-      </div>
     </section>
 
 
     <!-- =====================================================
          FINAL CTA
     ====================================================== -->
-    <section class="section mentor-final">
-      <div class="container mentor-final-inner reveal">
 
-        <span class="eyebrow">SHARE WHAT YOU KNOW</span>
+    <section class="section mentor-final">
+
+      <div class="container mentor-final-inner">
+
+        <p class="eyebrow">
+          SHARE WHAT YOU KNOW
+        </p>
 
         <h2>
           Someone else's journey could begin with what you already know.
         </h2>
 
         <p>
-          If you have experience, skills, perspective or simply a desire to
-          help young people grow, we would like to hear from you.
+          If you have experience, skills, perspective or a desire to help
+          young people grow, start by telling CoWiTa about yourself.
         </p>
 
         <div class="mentor-final-actions">
-          <a class="btn btn-primary" href="/contact/">
-            Express Your Interest
+
+          <a
+            class="btn btn-primary"
+            href="#mentor-form"
+          >
+            Become a Mentor
           </a>
 
-          <a class="btn btn-light" href="/get-involved/">
+          <a
+            class="btn btn-light"
+            href="/get-involved/"
+          >
             Explore Other Ways to Get Involved
           </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
@@ -1228,6 +1990,7 @@
   <!-- =======================================================
        FOOTER
   ======================================================== -->
+
   <div id="site-footer"></div>
 
   <script src="/js/main.js" defer></script>

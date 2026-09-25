@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Partner with CoWiTa to help children and youth transform creative talent into practical skills, opportunities and lasting impact."
+    content="Partner with CoWiTa to create meaningful opportunities for children and young people through resources, expertise, networks, programmes and long-term collaboration."
   >
 
   <meta name="theme-color" content="#0d4b4b">
@@ -20,384 +20,523 @@
 
   <style>
     /* =========================================================
-       PARTNER WITH COWITA — PAGE-SPECIFIC LAYOUT STYLES
-       Keeps the partner page in the same structured flow as the
-       other CoWiTa pages without changing its content.
+       PARTNER WITH COWITA — PAGE-SPECIFIC STYLES
        ========================================================= */
 
-    .page-hero {
-      padding: 90px 0 100px;
-      background: var(--cream);
-      overflow: hidden;
+    .partner-page {
+      --partner-line: rgba(8, 48, 47, 0.14);
+      --partner-soft: rgba(13, 75, 75, 0.05);
+      --partner-gold-soft: rgba(196, 151, 61, 0.1);
     }
 
-    .page-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-      gap: 70px;
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .partner-hero {
+      min-height: calc(100svh - 80px);
+      padding: 48px 0 55px;
+      background: var(--cream);
+      overflow: hidden;
+      display: flex;
       align-items: center;
     }
 
-    .page-hero h1 {
-      max-width: 760px;
-      margin: 0 0 26px;
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
+    .partner-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+      gap: 55px;
+      align-items: center;
+    }
+
+    .partner-hero h1 {
+      max-width: 700px;
+      margin: 0 0 22px;
+      font-size: clamp(2.7rem, 4.7vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.015em;
       color: var(--deep-teal);
     }
 
-    .page-hero h1 em {
+    .partner-hero h1 em {
       color: var(--gold);
       font-style: normal;
     }
 
-    .page-hero .eyebrow {
-      margin-bottom: 20px;
+    .partner-hero .eyebrow {
+      margin-bottom: 16px;
       color: var(--gold);
     }
 
-    .hero-copy {
-      max-width: 680px;
+    .partner-hero-copy {
+      max-width: 620px;
       margin: 0;
-      font-size: 1.1rem;
-      line-height: 1.75;
+      font-size: 1rem;
+      line-height: 1.65;
       color: var(--muted);
     }
 
-    .hero-actions {
+    .partner-hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+      gap: 12px;
+      margin-top: 26px;
     }
 
-    .page-hero-visual {
+    .partner-hero-visual {
       min-width: 0;
+      max-height: calc(100svh - 150px);
       overflow: hidden;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 4.5;
     }
 
-    .page-hero-visual img {
+    .partner-hero-visual img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .section-header {
+    /* =========================================================
+       SECTION HEADERS
+       ========================================================= */
+
+    .partner-section-header {
       max-width: 820px;
-      margin: 0 auto 55px;
+      margin: 0 auto 50px;
       text-align: center;
     }
 
-    .section-header h2 {
-      margin: 0 0 20px;
+    .partner-section-header h2 {
+      margin: 0 0 18px;
     }
 
-    .section-header p {
+    .partner-section-header p {
       max-width: 700px;
       margin: 0 auto;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .feature-card {
-      min-width: 0;
-      padding: 32px;
-      background: var(--cream);
-      border: 1px solid rgba(8, 48, 47, 0.12);
-    }
-
-    .feature-card-number,
-    .number-card > span,
-    .process-step > span {
-      display: block;
-      margin-bottom: 24px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-    }
-
-    .feature-card h3,
-    .number-card h3,
-    .process-step h3 {
-      margin: 0 0 14px;
-      color: var(--deep-teal);
-    }
-
-    .feature-card p,
-    .number-card p,
-    .process-step p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      gap: 80px;
-      align-items: start;
-    }
-
-    .split-copy h2 {
-      margin: 0 0 24px;
-    }
-
-    .split-copy p {
-      margin: 0 0 20px;
       color: var(--muted);
       line-height: 1.75;
     }
 
-    .split-copy p:last-child {
-      margin-bottom: 0;
-    }
+    /* =========================================================
+       PARTNER TYPES
+       ========================================================= */
 
-    .stack-list {
+    .partner-type-grid {
       display: grid;
-      gap: 0;
-      border-top: 1px solid rgba(8, 48, 47, 0.14);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .stack-item {
-      display: grid;
-      grid-template-columns: 54px minmax(0, 1fr);
-      gap: 20px;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(8, 48, 47, 0.14);
+    .partner-type-card {
+      position: relative;
+      min-width: 0;
+      padding: 30px;
+      background: var(--cream);
+      border: 1px solid var(--partner-line);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
     }
 
-    .stack-number {
+    .partner-type-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(13, 75, 75, 0.3);
+    }
+
+    .partner-type-card input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .partner-type-card label {
+      display: block;
+      cursor: pointer;
+    }
+
+    .partner-type-number {
+      display: block;
+      margin-bottom: 22px;
       color: var(--gold);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.12em;
     }
 
-    .stack-item strong {
-      display: block;
-      margin-bottom: 8px;
+    .partner-type-card h3 {
+      margin: 0 0 10px;
       color: var(--deep-teal);
+      font-size: 1.15rem;
     }
 
-    .stack-item p {
+    .partner-type-card p {
       margin: 0;
       color: var(--muted);
       line-height: 1.65;
     }
 
-    .number-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+    .partner-type-card:has(input:checked) {
+      background: var(--partner-gold-soft);
+      border-color: var(--gold);
+      box-shadow: inset 0 0 0 1px var(--gold);
     }
 
-    .number-card {
-      min-width: 0;
-      min-height: 250px;
-      padding: 32px;
-      border-top: 2px solid var(--deep-teal);
+    /* =========================================================
+       CONTRIBUTION / NEEDS
+       ========================================================= */
+
+    .partner-options-section {
       background: var(--cream);
     }
 
-    .dark-section {
+    .partner-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 70px;
+    }
+
+    .partner-option-group h3 {
+      margin: 0 0 10px;
+      color: var(--deep-teal);
+    }
+
+    .partner-option-group > p {
+      margin: 0 0 25px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .partner-option-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .partner-option {
+      position: relative;
+    }
+
+    .partner-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .partner-option label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 56px;
+      padding: 15px 18px;
+      background: var(--cream);
+      border: 1px solid var(--partner-line);
+      color: var(--deep-teal);
+      cursor: pointer;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .partner-option label::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      border: 1px solid rgba(8, 48, 47, 0.3);
+      border-radius: 4px;
+      background: transparent;
+    }
+
+    .partner-option input:checked + label {
+      border-color: var(--gold);
+      background: var(--partner-gold-soft);
+    }
+
+    .partner-option input:checked + label::before {
+      border-color: var(--gold);
+      background: var(--gold);
+      box-shadow: inset 0 0 0 4px var(--cream);
+    }
+
+    /* =========================================================
+       PARTNERSHIP FORM
+       ========================================================= */
+
+    .partner-form-section {
       background: var(--deep-teal);
       color: var(--cream);
     }
 
-    .dark-section-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      gap: 80px;
-      align-items: start;
+    .partner-form-header {
+      max-width: 780px;
+      margin-bottom: 45px;
     }
 
-    .dark-section h2 {
-      margin: 0;
+    .partner-form-header .section-label {
+      color: var(--gold);
+    }
+
+    .partner-form-header h2 {
+      margin: 0 0 18px;
       color: var(--cream);
     }
 
-    .dark-section-copy p {
-      margin: 0 0 22px;
-      color: rgba(255, 248, 235, 0.8);
+    .partner-form-header p {
+      max-width: 700px;
+      margin: 0;
+      color: rgba(255, 248, 235, 0.78);
       line-height: 1.75;
     }
 
-    .check-list {
+    .partner-form {
+      padding: 45px;
+      background: var(--cream);
+      color: var(--deep-teal);
+    }
+
+    .partner-form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 28px;
-      margin-top: 30px;
+      gap: 24px;
     }
 
-    .check-list div {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--cream);
+    .partner-form-field {
+      min-width: 0;
     }
 
-    .check-list span {
-      flex: 0 0 auto;
-      color: var(--gold);
+    .partner-form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .partner-form-field label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--deep-teal);
+      font-size: 0.88rem;
       font-weight: 700;
     }
 
-    .process-grid {
+    .partner-form-field label span {
+      color: var(--gold);
+    }
+
+    .partner-form-field input,
+    .partner-form-field select,
+    .partner-form-field textarea {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 16px;
+      border: 1px solid rgba(8, 48, 47, 0.2);
+      border-radius: 0;
+      background: #fff;
+      color: var(--deep-teal);
+      font: inherit;
+      outline: none;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .partner-form-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .partner-form-field input:focus,
+    .partner-form-field select:focus,
+    .partner-form-field textarea:focus {
+      border-color: var(--deep-teal);
+      box-shadow: 0 0 0 3px rgba(13, 75, 75, 0.08);
+    }
+
+    .partner-form-note {
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .partner-form-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid var(--partner-line);
+    }
+
+    /* =========================================================
+       WHAT HAPPENS NEXT
+       ========================================================= */
+
+    .partner-process-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .process-step {
+    .partner-process-step {
       min-width: 0;
       padding: 30px;
-      border-top: 1px solid rgba(8, 48, 47, 0.2);
-    }
-
-    .coming-soon-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 40px;
-      align-items: center;
-      padding: 55px;
+      border-top: 2px solid var(--deep-teal);
       background: var(--cream);
-      border: 1px solid rgba(8, 48, 47, 0.12);
     }
 
-    .coming-soon-card h2 {
-      max-width: 760px;
-      margin: 0 0 20px;
+    .partner-process-step-number {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
     }
 
-    .coming-soon-card p {
-      max-width: 760px;
+    .partner-process-step h3 {
+      margin: 0 0 12px;
+      color: var(--deep-teal);
+    }
+
+    .partner-process-step p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
-    .coming-soon-badge {
-      padding: 10px 16px;
-      border: 1px solid rgba(8, 48, 47, 0.18);
-      border-radius: 999px;
-      color: var(--deep-teal);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+    /* =========================================================
+       FINAL CTA
+       ========================================================= */
 
-    .cta-section {
+    .partner-cta {
       background: var(--cream);
     }
 
-    .cta-inner {
+    .partner-cta-inner {
       display: flex;
       justify-content: space-between;
-      gap: 50px;
       align-items: center;
+      gap: 50px;
     }
 
-    .cta-inner h2 {
+    .partner-cta-copy {
       max-width: 760px;
+    }
+
+    .partner-cta-copy h2 {
       margin: 0 0 18px;
     }
 
-    .cta-inner p {
+    .partner-cta-copy p {
       max-width: 650px;
       margin: 0;
       color: var(--muted);
       line-height: 1.7;
     }
 
-    .cta-actions {
+    .partner-cta-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       flex: 0 0 auto;
     }
 
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
     @media (max-width: 1000px) {
-      .page-hero-grid,
-      .split-section,
-      .dark-section-grid {
+      .partner-hero {
+        min-height: auto;
+        padding: 70px 0 75px;
+      }
+
+      .partner-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .partner-hero-visual {
+        max-width: 620px;
+        max-height: none;
+      }
+
+      .partner-type-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .partner-options-grid {
         grid-template-columns: 1fr;
         gap: 50px;
       }
 
-      .page-hero-visual {
-        max-width: 620px;
-      }
-
-      .feature-grid {
+      .partner-process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .number-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cta-inner {
+      .partner-cta-inner {
         align-items: flex-start;
         flex-direction: column;
       }
     }
 
     @media (max-width: 680px) {
-      .page-hero {
-        padding: 70px 0 75px;
+      .partner-hero {
+        padding: 65px 0 70px;
       }
 
-      .feature-grid,
-      .number-grid,
-      .process-grid,
-      .check-list {
-        grid-template-columns: 1fr;
+      .partner-hero h1 {
+        font-size: clamp(2.5rem, 11vw, 3.8rem);
       }
 
-      .coming-soon-card {
-        grid-template-columns: 1fr;
-        padding: 35px;
-      }
-
-      .coming-soon-badge {
-        justify-self: start;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-actions,
-      .cta-actions {
+      .partner-hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
 
-      .hero-actions .btn,
-      .cta-actions .btn {
+      .partner-hero-actions .btn {
         text-align: center;
       }
 
-      .feature-card,
-      .number-card,
-      .process-step {
+      .partner-type-grid,
+      .partner-process-grid,
+      .partner-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-form-field.full {
+        grid-column: auto;
+      }
+
+      .partner-form {
+        padding: 30px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .partner-type-card,
+      .partner-process-step {
         padding: 26px;
+      }
+
+      .partner-form {
+        padding: 25px 20px;
+      }
+
+      .partner-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .partner-cta-actions .btn {
+        text-align: center;
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -406,7 +545,6 @@
   Skip to content
 </a>
 
-
 <!-- =========================================================
      HEADER
      ========================================================= -->
@@ -414,590 +552,1084 @@
 <div id="site-header"></div>
 
 
-<main id="main-content">
+<main id="main-content" class="partner-page">
 
+  <!-- =======================================================
+       1. HERO
+       ======================================================= -->
 
-<!-- =========================================================
-     1. HERO
-     ========================================================= -->
+  <section class="partner-hero">
 
-<section class="page-hero">
+    <div class="container">
 
-  <div class="container">
+      <div class="partner-hero-grid">
 
-    <div class="page-hero-grid">
+        <div class="reveal">
 
-      <div class="reveal">
+          <div class="eyebrow">
+            Partner With CoWiTa
+          </div>
 
-        <div class="eyebrow">
-          Partner With CoWiTa
+          <h1>
+            Let’s build
+            <em>something meaningful</em>
+            together.
+          </h1>
+
+          <p class="partner-hero-copy">
+            CoWiTa connects children and young people with the
+            people, resources, knowledge and opportunities that
+            can help their potential grow. Tell us what you can
+            bring and what you would like to build with us.
+          </p>
+
+          <div class="partner-hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="#partnership-form"
+            >
+              Start a Partnership
+            </a>
+
+            <a
+              class="btn btn-light"
+              href="/get-involved/"
+            >
+              Explore Other Ways to Get Involved
+            </a>
+
+          </div>
+
         </div>
 
-        <h1>
-          Help create
-          <em>pathways</em>
-          for talent.
-        </h1>
 
-        <p class="hero-copy">
-          CoWiTa believes that transforming talent requires more
-          than individual effort. It requires people, organisations
-          and institutions willing to create opportunities together.
-        </p>
+        <div class="partner-hero-visual reveal">
 
-        <div class="hero-actions">
-
-          <a
-            class="btn btn-primary"
-            href="#partnership"
+          <img
+            src="/assets/images/get-involved-partnership-hero.jpg"
+            alt="Young creatives collaborating during a community activity"
           >
-            Explore Partnership
-          </a>
-
-          <a
-            class="btn btn-light"
-            href="/contact/"
-          >
-            Contact CoWiTa
-          </a>
 
         </div>
 
       </div>
 
-
-      <div class="page-hero-visual reveal">
-
-        <img
-          src="/assets/images/get-involved-partnership-hero.jpg"
-          alt="Young creatives collaborating during a community activity"
-        >
-
-      </div>
-
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- =========================================================
-     2. WHY PARTNERSHIPS MATTER
-     ========================================================= -->
+  <!-- =======================================================
+       2. WHO IS THIS FOR?
+       ======================================================= -->
 
-<section class="section">
+  <section class="section">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Why partnerships matter
-      </div>
-
-      <h2>
-        Talent grows faster when the right people
-        build the pathway together.
-      </h2>
-
-      <p>
-        CoWiTa is designed to connect young people's creative
-        potential with the people, resources, knowledge and
-        opportunities that can help that potential grow.
-      </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-
-      <article class="feature-card reveal">
-
-        <div class="feature-card-number">
-          01
-        </div>
-
-        <h3>
-          Access
-        </h3>
-
-        <p>
-          Help young creatives access spaces, equipment,
-          platforms, networks and experiences that may
-          otherwise be difficult to reach.
-        </p>
-
-      </article>
-
-
-      <article class="feature-card reveal">
-
-        <div class="feature-card-number">
-          02
-        </div>
-
-        <h3>
-          Knowledge
-        </h3>
-
-        <p>
-          Share professional knowledge, technical expertise,
-          industry experience and practical guidance with
-          emerging talent.
-        </p>
-
-      </article>
-
-
-      <article class="feature-card reveal">
-
-        <div class="feature-card-number">
-          03
-        </div>
-
-        <h3>
-          Opportunity
-        </h3>
-
-        <p>
-          Create pathways through commissions, performances,
-          exhibitions, collaborations, placements and other
-          meaningful opportunities.
-        </p>
-
-      </article>
-
-
-      <article class="feature-card reveal">
-
-        <div class="feature-card-number">
-          04
-        </div>
-
-        <h3>
-          Sustainability
-        </h3>
-
-        <p>
-          Help build systems that allow creative development
-          to continue beyond a single programme, event or
-          training session.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     3. WHO CAN PARTNER
-     ========================================================= -->
-
-<section class="section section-cream">
-
-  <div class="container">
-
-    <div class="split-section">
-
-      <div class="split-copy reveal">
+      <div class="partner-section-header reveal">
 
         <div class="section-label">
-          Who we partner with
+          Who is this for?
         </div>
 
         <h2>
-          Different strengths.
-          One shared purpose.
+          Bring your organisation, network, expertise or resources.
         </h2>
 
         <p>
-          CoWiTa's partnership model is intentionally broad.
-          We are interested in relationships that help young
-          people move from potential to practical opportunity.
-        </p>
-
-        <p>
-          A partner does not necessarily need to provide
-          financial support. Expertise, access, equipment,
-          spaces, networks, platforms and opportunities can
-          all contribute to the journey.
+          Partnership can start from many different places.
+          Select the type that best describes you or your
+          organisation.
         </p>
 
       </div>
 
 
-      <div class="stack-list reveal">
+      <div class="partner-type-grid">
+
+        <div class="partner-type-card reveal">
+
+          <input
+            type="checkbox"
+            id="partner-schools"
+            name="partner_type[]"
+            value="Schools and educational institutions"
+            form="partnership-form"
+          >
+
+          <label for="partner-schools">
+
+            <span class="partner-type-number">
+              01
+            </span>
+
+            <h3>
+              Schools & Educational Institutions
+            </h3>
+
+            <p>
+              Connect young people to creative development,
+              learning and opportunity pathways.
+            </p>
+
+          </label>
+
+        </div>
 
 
-        <div class="stack-item">
+        <div class="partner-type-card reveal">
 
-          <span class="stack-number">
+          <input
+            type="checkbox"
+            id="partner-business"
+            name="partner_type[]"
+            value="Creative professionals and businesses"
+            form="partnership-form"
+          >
+
+          <label for="partner-business">
+
+            <span class="partner-type-number">
+              02
+            </span>
+
+            <h3>
+              Creative Professionals & Businesses
+            </h3>
+
+            <p>
+              Share expertise, industry knowledge, services,
+              commissions or professional opportunities.
+            </p>
+
+          </label>
+
+        </div>
+
+
+        <div class="partner-type-card reveal">
+
+          <input
+            type="checkbox"
+            id="partner-community"
+            name="partner_type[]"
+            value="Community organisations"
+            form="partnership-form"
+          >
+
+          <label for="partner-community">
+
+            <span class="partner-type-number">
+              03
+            </span>
+
+            <h3>
+              Community Organisations
+            </h3>
+
+            <p>
+              Help create local spaces, programmes and
+              opportunities for young people.
+            </p>
+
+          </label>
+
+        </div>
+
+
+        <div class="partner-type-card reveal">
+
+          <input
+            type="checkbox"
+            id="partner-brands"
+            name="partner_type[]"
+            value="Companies and brands"
+            form="partnership-form"
+          >
+
+          <label for="partner-brands">
+
+            <span class="partner-type-number">
+              04
+            </span>
+
+            <h3>
+              Companies & Brands
+            </h3>
+
+            <p>
+              Support initiatives, creative work, events,
+              resources or practical opportunities.
+            </p>
+
+          </label>
+
+        </div>
+
+
+        <div class="partner-type-card reveal">
+
+          <input
+            type="checkbox"
+            id="partner-foundations"
+            name="partner_type[]"
+            value="Foundations and development organisations"
+            form="partnership-form"
+          >
+
+          <label for="partner-foundations">
+
+            <span class="partner-type-number">
+              05
+            </span>
+
+            <h3>
+              Foundations & Development Organisations
+            </h3>
+
+            <p>
+              Explore youth development, skills, creativity
+              and livelihood-focused initiatives.
+            </p>
+
+          </label>
+
+        </div>
+
+
+        <div class="partner-type-card reveal">
+
+          <input
+            type="checkbox"
+            id="partner-public"
+            name="partner_type[]"
+            value="Public institutions"
+            form="partnership-form"
+          >
+
+          <label for="partner-public">
+
+            <span class="partner-type-number">
+              06
+            </span>
+
+            <h3>
+              Public Institutions
+            </h3>
+
+            <p>
+              Connect CoWiTa with wider youth, education,
+              culture and creative-economy initiatives.
+            </p>
+
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       3. WHAT YOU CAN BRING / WHAT YOU NEED
+       ======================================================= -->
+
+  <section class="section partner-options-section">
+
+    <div class="container">
+
+      <div class="partner-section-header reveal">
+
+        <div class="section-label">
+          Define the opportunity
+        </div>
+
+        <h2>
+          What can you bring, and what are you looking for?
+        </h2>
+
+        <p>
+          Select everything that applies. This gives us a clearer
+          picture of how a partnership could take shape.
+        </p>
+
+      </div>
+
+
+      <div class="partner-options-grid">
+
+        <!-- WHAT YOU CAN BRING -->
+
+        <div class="partner-option-group reveal">
+
+          <h3>
+            What can you bring?
+          </h3>
+
+          <p>
+            This could be a resource, capability, opportunity,
+            network or practical contribution.
+          </p>
+
+          <div class="partner-option-list">
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-expertise"
+                name="can_bring[]"
+                value="Expertise and knowledge"
+                form="partnership-form"
+              >
+              <label for="bring-expertise">
+                Expertise & knowledge
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-mentorship"
+                name="can_bring[]"
+                value="Mentorship"
+                form="partnership-form"
+              >
+              <label for="bring-mentorship">
+                Mentorship
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-space"
+                name="can_bring[]"
+                value="Space or venue"
+                form="partnership-form"
+              >
+              <label for="bring-space">
+                Space or venue
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-equipment"
+                name="can_bring[]"
+                value="Equipment or technology"
+                form="partnership-form"
+              >
+              <label for="bring-equipment">
+                Equipment or technology
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-network"
+                name="can_bring[]"
+                value="Networks and connections"
+                form="partnership-form"
+              >
+              <label for="bring-network">
+                Networks & connections
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-opportunity"
+                name="can_bring[]"
+                value="Creative or professional opportunities"
+                form="partnership-form"
+              >
+              <label for="bring-opportunity">
+                Creative or professional opportunities
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-funding"
+                name="can_bring[]"
+                value="Funding or programme resources"
+                form="partnership-form"
+              >
+              <label for="bring-funding">
+                Funding or programme resources
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="bring-other"
+                name="can_bring[]"
+                value="Other"
+                form="partnership-form"
+              >
+              <label for="bring-other">
+                Other
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- WHAT YOU NEED -->
+
+        <div class="partner-option-group reveal">
+
+          <h3>
+            What are you looking for?
+          </h3>
+
+          <p>
+            Tell us what would help you develop or deliver the
+            partnership idea.
+          </p>
+
+          <div class="partner-option-list">
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-youth"
+                name="looking_for[]"
+                value="Young people or participants"
+                form="partnership-form"
+              >
+              <label for="need-youth">
+                Young people or participants
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-creative"
+                name="looking_for[]"
+                value="Creative collaborators"
+                form="partnership-form"
+              >
+              <label for="need-creative">
+                Creative collaborators
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-skills"
+                name="looking_for[]"
+                value="Technical or specialist skills"
+                form="partnership-form"
+              >
+              <label for="need-skills">
+                Technical or specialist skills
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-space"
+                name="looking_for_space[]"
+                value="Space or venue"
+                form="partnership-form"
+              >
+              <label for="need-space">
+                Space or venue
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-equipment"
+                name="looking_for[]"
+                value="Equipment or production resources"
+                form="partnership-form"
+              >
+              <label for="need-equipment">
+                Equipment or production resources
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-network"
+                name="looking_for[]"
+                value="Networks or introductions"
+                form="partnership-form"
+              >
+              <label for="need-network">
+                Networks or introductions
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-expertise"
+                name="looking_for[]"
+                value="Expertise or guidance"
+                form="partnership-form"
+              >
+              <label for="need-expertise">
+                Expertise or guidance
+              </label>
+            </div>
+
+            <div class="partner-option">
+              <input
+                type="checkbox"
+                id="need-other"
+                name="looking_for[]"
+                value="Other"
+                form="partnership-form"
+              >
+              <label for="need-other">
+                Other
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       4. PARTNERSHIP INTAKE FORM
+       ======================================================= -->
+
+  <section
+    class="section partner-form-section"
+    id="partnership-form"
+  >
+
+    <div class="container">
+
+      <div class="partner-form-header reveal">
+
+        <div class="section-label">
+          Start a partnership
+        </div>
+
+        <h2>
+          Tell us what you would like to build together.
+        </h2>
+
+        <p>
+          Share enough information for us to understand who you
+          are, what you have in mind and where CoWiTa could fit.
+          You do not need to have everything figured out yet.
+        </p>
+
+      </div>
+
+
+      <form
+        class="partner-form reveal"
+        id="partnership-form"
+        action="#"
+        method="post"
+      >
+
+        <div class="partner-form-grid">
+
+          <!-- FULL NAME -->
+
+          <div class="partner-form-field">
+
+            <label for="full-name">
+              Full name <span>*</span>
+            </label>
+
+            <input
+              type="text"
+              id="full-name"
+              name="full_name"
+              autocomplete="name"
+              required
+            >
+
+          </div>
+
+
+          <!-- ORGANISATION -->
+
+          <div class="partner-form-field">
+
+            <label for="organisation">
+              Organisation / Company
+            </label>
+
+            <input
+              type="text"
+              id="organisation"
+              name="organisation"
+              autocomplete="organization"
+            >
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="partner-form-field">
+
+            <label for="email">
+              Email address <span>*</span>
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            >
+
+          </div>
+
+
+          <!-- PHONE -->
+
+          <div class="partner-form-field">
+
+            <label for="phone">
+              Phone number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+            >
+
+          </div>
+
+
+          <!-- WEBSITE -->
+
+          <div class="partner-form-field">
+
+            <label for="website">
+              Website / Social media
+            </label>
+
+            <input
+              type="url"
+              id="website"
+              name="website"
+              placeholder="https://"
+            >
+
+          </div>
+
+
+          <!-- LOCATION -->
+
+          <div class="partner-form-field">
+
+            <label for="location">
+              Location
+            </label>
+
+            <input
+              type="text"
+              id="location"
+              name="location"
+              autocomplete="address-level2"
+              placeholder="City / Country"
+            >
+
+          </div>
+
+
+          <!-- PARTNERSHIP TITLE -->
+
+          <div class="partner-form-field full">
+
+            <label for="partnership-title">
+              Partnership idea / title <span>*</span>
+            </label>
+
+            <input
+              type="text"
+              id="partnership-title"
+              name="partnership_title"
+              placeholder="Give your idea or proposed partnership a short name"
+              required
+            >
+
+          </div>
+
+
+          <!-- WHO IS IT FOR -->
+
+          <div class="partner-form-field full">
+
+            <label for="audience">
+              Who is it for?
+            </label>
+
+            <input
+              type="text"
+              id="audience"
+              name="audience"
+              placeholder="e.g. young dancers, students, emerging creatives"
+            >
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+
+          <div class="partner-form-field full">
+
+            <label for="description">
+              Tell us about the partnership <span>*</span>
+            </label>
+
+            <textarea
+              id="description"
+              name="description"
+              placeholder="What are you proposing? What would you like to create, support or explore with CoWiTa?"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <!-- CONTRIBUTION -->
+
+          <div class="partner-form-field full">
+
+            <label for="contribution">
+              What would your organisation contribute?
+            </label>
+
+            <textarea
+              id="contribution"
+              name="contribution"
+              placeholder="Describe the expertise, resources, opportunities, networks, funding, space or other contribution you could bring."
+            ></textarea>
+
+          </div>
+
+
+          <!-- SUPPORT NEEDED -->
+
+          <div class="partner-form-field full">
+
+            <label for="support-needed">
+              What would you need from CoWiTa?
+            </label>
+
+            <textarea
+              id="support-needed"
+              name="support_needed"
+              placeholder="Tell us what you would need from CoWiTa or the wider CoWiTa network."
+            ></textarea>
+
+          </div>
+
+
+          <!-- PARTICIPANTS -->
+
+          <div class="partner-form-field">
+
+            <label for="participants">
+              Expected participants / audience
+            </label>
+
+            <input
+              type="text"
+              id="participants"
+              name="participants"
+              placeholder="Approximate number or description"
+            >
+
+          </div>
+
+
+          <!-- PROJECT LOCATION -->
+
+          <div class="partner-form-field">
+
+            <label for="project-location">
+              Proposed project location
+            </label>
+
+            <input
+              type="text"
+              id="project-location"
+              name="project_location"
+              placeholder="Where would the activity take place?"
+            >
+
+          </div>
+
+
+          <!-- TIMELINE -->
+
+          <div class="partner-form-field">
+
+            <label for="timeline">
+              Proposed timeline
+            </label>
+
+            <input
+              type="text"
+              id="timeline"
+              name="timeline"
+              placeholder="e.g. January–March 2027"
+            >
+
+          </div>
+
+
+          <!-- RELEVANT LINKS -->
+
+          <div class="partner-form-field">
+
+            <label for="relevant-links">
+              Relevant links
+            </label>
+
+            <input
+              type="text"
+              id="relevant-links"
+              name="relevant_links"
+              placeholder="Portfolio, project page, social profile, etc."
+            >
+
+          </div>
+
+
+          <!-- ADDITIONAL INFORMATION -->
+
+          <div class="partner-form-field full">
+
+            <label for="additional-information">
+              Anything else we should know?
+            </label>
+
+            <textarea
+              id="additional-information"
+              name="additional_information"
+              placeholder="Add any other information that may help us understand the opportunity."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <p class="partner-form-note">
+          Submitting this form starts a conversation. It does not
+          guarantee that CoWiTa will accept, fund or enter into
+          the proposed partnership.
+        </p>
+
+
+        <div class="partner-form-actions">
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Submit Partnership Idea
+          </button>
+
+          <a
+            href="/contact/"
+            class="btn btn-outline"
+          >
+            Contact CoWiTa Instead
+          </a>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       5. WHAT HAPPENS NEXT
+       ======================================================= -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="partner-section-header reveal">
+
+        <div class="section-label">
+          What happens next
+        </div>
+
+        <h2>
+          From idea to the next conversation.
+        </h2>
+
+        <p>
+          The first step is simply understanding the opportunity.
+          If there is a potential fit, we can explore the next
+          step together.
+        </p>
+
+      </div>
+
+
+      <div class="partner-process-grid">
+
+        <article class="partner-process-step reveal">
+
+          <span class="partner-process-step-number">
             01
           </span>
 
-          <div>
+          <h3>
+            Share the idea
+          </h3>
 
-            <strong>
-              Schools & educational institutions
-            </strong>
+          <p>
+            Tell us who you are, what you can contribute and
+            what you would like to explore.
+          </p>
 
-            <p>
-              Identify talent, provide learning environments
-              and connect young people to development pathways.
-            </p>
-
-          </div>
-
-        </div>
+        </article>
 
 
-        <div class="stack-item">
+        <article class="partner-process-step reveal">
 
-          <span class="stack-number">
+          <span class="partner-process-step-number">
             02
           </span>
 
-          <div>
+          <h3>
+            CoWiTa reviews it
+          </h3>
 
-            <strong>
-              Creative professionals & businesses
-            </strong>
+          <p>
+            We look at the proposed idea, its context and
+            where it may connect with CoWiTa's work.
+          </p>
 
-            <p>
-              Share expertise, industry exposure, mentorship
-              and opportunities for practical experience.
-            </p>
-
-          </div>
-
-        </div>
+        </article>
 
 
-        <div class="stack-item">
+        <article class="partner-process-step reveal">
 
-          <span class="stack-number">
+          <span class="partner-process-step-number">
             03
           </span>
 
-          <div>
+          <h3>
+            Have a conversation
+          </h3>
 
-            <strong>
-              Community organisations
-            </strong>
+          <p>
+            Where there is potential alignment, we can discuss
+            the idea, responsibilities and practical needs.
+          </p>
 
-            <p>
-              Help identify local talent and create spaces
-              where young people can develop and participate.
-            </p>
-
-          </div>
-
-        </div>
+        </article>
 
 
-        <div class="stack-item">
+        <article class="partner-process-step reveal">
 
-          <span class="stack-number">
+          <span class="partner-process-step-number">
             04
           </span>
 
-          <div>
+          <h3>
+            Decide the next step
+          </h3>
 
-            <strong>
-              Companies & brands
-            </strong>
+          <p>
+            Together, we determine whether there is a practical
+            way to move the partnership forward.
+          </p>
 
-            <p>
-              Support programmes, commission creative work
-              and help create real-world opportunities.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="stack-item">
-
-          <span class="stack-number">
-            05
-          </span>
-
-          <div>
-
-            <strong>
-              Foundations & development organisations
-            </strong>
-
-            <p>
-              Collaborate on initiatives focused on youth
-              development, skills and creative livelihoods.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="stack-item">
-
-          <span class="stack-number">
-            06
-          </span>
-
-          <div>
-
-            <strong>
-              Public institutions
-            </strong>
-
-            <p>
-              Connect CoWiTa's work with wider youth,
-              education, culture and creative-economy efforts.
-            </p>
-
-          </div>
-
-        </div>
-
+        </article>
 
       </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- =========================================================
-     4. WHAT PARTNERSHIPS CAN LOOK LIKE
-     ========================================================= -->
+  <!-- =======================================================
+       6. FINAL CTA
+       ======================================================= -->
 
-<section
-  class="section"
-  id="partnership"
->
+  <section class="section partner-cta">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="section-header reveal">
+      <div class="partner-cta-inner reveal">
 
-      <div class="section-label">
-        Partnership possibilities
-      </div>
+        <div class="partner-cta-copy">
 
-      <h2>
-        Partnership can take many forms.
-      </h2>
+          <div class="section-label">
+            Start the conversation
+          </div>
 
-      <p>
-        We do not want to force every organisation into the
-        same partnership model. The right structure depends
-        on what each partner can contribute and what young
-        people need.
-      </p>
+          <h2>
+            Have something valuable to bring to the journey?
+          </h2>
 
-    </div>
+          <p>
+            Whether you have an idea, resource, network,
+            opportunity or expertise, tell us how you would
+            like to work with CoWiTa.
+          </p>
 
-
-    <div class="number-grid">
-
-
-      <article class="number-card reveal">
-
-        <span>
-          01
-        </span>
-
-        <h3>
-          Programme partnerships
-        </h3>
-
-        <p>
-          Co-design or support programmes that develop
-          creative skills, confidence and practical experience.
-        </p>
-
-      </article>
-
-
-      <article class="number-card reveal">
-
-        <span>
-          02
-        </span>
-
-        <h3>
-          Opportunity partnerships
-        </h3>
-
-        <p>
-          Open pathways for young creatives through
-          performances, commissions, internships,
-          exhibitions and projects.
-        </p>
-
-      </article>
-
-
-      <article class="number-card reveal">
-
-        <span>
-          03
-        </span>
-
-        <h3>
-          Knowledge partnerships
-        </h3>
-
-        <p>
-          Provide specialist training, mentorship,
-          professional talks and technical expertise.
-        </p>
-
-      </article>
-
-
-      <article class="number-card reveal">
-
-        <span>
-          04
-        </span>
-
-        <h3>
-          Resource partnerships
-        </h3>
-
-        <p>
-          Contribute equipment, venues, technology,
-          production resources or other practical support.
-        </p>
-
-      </article>
-
-
-      <article class="number-card reveal">
-
-        <span>
-          05
-        </span>
-
-        <h3>
-          Visibility partnerships
-        </h3>
-
-        <p>
-          Help emerging creatives reach audiences through
-          media, events, platforms and communications networks.
-        </p>
-
-      </article>
-
-
-      <article class="number-card reveal">
-
-        <span>
-          06
-        </span>
-
-        <h3>
-          Strategic partnerships
-        </h3>
-
-        <p>
-          Build longer-term relationships around youth
-          development, creative livelihoods and community impact.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     5. WHAT A PARTNER CONTRIBUTES
-     ========================================================= -->
-
-<section class="section dark-section">
-
-  <div class="container">
-
-    <div class="dark-section-grid">
-
-      <div class="reveal">
-
-        <div class="section-label light">
-          The value of partnership
         </div>
 
-        <h2>
-          Bring what you can.
-          Help build what is missing.
-        </h2>
 
-      </div>
+        <div class="partner-cta-actions">
 
+          <a
+            class="btn btn-primary"
+            href="#partnership-form"
+          >
+            Start a Partnership
+          </a>
 
-      <div class="dark-section-copy reveal">
-
-        <p>
-          Partnerships do not have to begin with a large
-          commitment. Sometimes the most valuable contribution
-          is an introduction, a few hours of expertise, access
-          to a workspace or an opportunity for a young creative
-          to demonstrate what they can do.
-        </p>
-
-        <p>
-          CoWiTa's role is to connect those contributions into
-          a meaningful development pathway.
-        </p>
-
-
-        <div class="check-list">
-
-          <div>
-            <span>✓</span>
-            Expertise and mentorship
-          </div>
-
-          <div>
-            <span>✓</span>
-            Creative spaces and equipment
-          </div>
-
-          <div>
-            <span>✓</span>
-            Professional networks
-          </div>
-
-          <div>
-            <span>✓</span>
-            Creative commissions
-          </div>
-
-          <div>
-            <span>✓</span>
-            Events and platforms
-          </div>
-
-          <div>
-            <span>✓</span>
-            Programme resources
-          </div>
+          <a
+            class="btn btn-outline"
+            href="/get-involved/"
+          >
+            Explore Other Ways to Get Involved
+          </a>
 
         </div>
 
@@ -1005,209 +1637,7 @@
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     6. PARTNERSHIP JOURNEY
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        How it could work
-      </div>
-
-      <h2>
-        From conversation to collaboration.
-      </h2>
-
-      <p>
-        As CoWiTa develops its partnership infrastructure,
-        relationships will follow a simple process.
-      </p>
-
-    </div>
-
-
-    <div class="process-grid">
-
-
-      <div class="process-step reveal">
-
-        <span>
-          01
-        </span>
-
-        <h3>
-          Connect
-        </h3>
-
-        <p>
-          Tell us who you are, what you do and what
-          interests you about CoWiTa.
-        </p>
-
-      </div>
-
-
-      <div class="process-step reveal">
-
-        <span>
-          02
-        </span>
-
-        <h3>
-          Explore
-        </h3>
-
-        <p>
-          We identify areas where your capabilities and
-          CoWiTa's work could meaningfully intersect.
-        </p>
-
-      </div>
-
-
-      <div class="process-step reveal">
-
-        <span>
-          03
-        </span>
-
-        <h3>
-          Design
-        </h3>
-
-        <p>
-          Together we define the scope, responsibilities
-          and intended outcomes.
-        </p>
-
-      </div>
-
-
-      <div class="process-step reveal">
-
-        <span>
-          04
-        </span>
-
-        <h3>
-          Build
-        </h3>
-
-        <p>
-          The partnership moves into implementation,
-          learning and practical delivery.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     7. COMING SOON
-     ========================================================= -->
-
-<section class="section section-cream">
-
-  <div class="container">
-
-    <div class="coming-soon-card reveal">
-
-      <div>
-
-        <div class="section-label">
-          Partnership portal
-        </div>
-
-        <h2>
-          A more structured partnership system is coming.
-        </h2>
-
-        <p>
-          In a future version of the CoWiTa platform, partners
-          will be able to explore partnership opportunities,
-          submit partnership proposals, discover programmes
-          and manage ongoing collaborations through a dedicated
-          digital experience.
-        </p>
-
-      </div>
-
-
-      <div class="coming-soon-badge">
-        Coming Soon
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     8. CTA
-     ========================================================= -->
-
-<section class="section cta-section">
-
-  <div class="container cta-inner reveal">
-
-    <div>
-
-      <div class="section-label">
-        Start the conversation
-      </div>
-
-      <h2>
-        Have an idea for how we could work together?
-      </h2>
-
-      <p>
-        We are interested in partnerships that create
-        meaningful opportunities for children and young people.
-      </p>
-
-    </div>
-
-
-    <div class="cta-actions">
-
-      <a
-        class="btn btn-primary"
-        href="/contact/"
-      >
-        Contact CoWiTa
-      </a>
-
-      <a
-        class="btn btn-outline"
-        href="/get-involved/"
-      >
-        Explore Other Ways to Get Involved
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
+  </section>
 
 </main>
 
@@ -1217,7 +1647,6 @@
      ========================================================= -->
 
 <div id="site-footer"></div>
-
 
 <script src="/js/main.js" defer></script>
 

@@ -4,208 +4,163 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Our Values | CoWiTa</title>
   <meta
     name="description"
-    content="Discover the values that guide CoWiTa in identifying, developing and creating opportunities for children and young people through talent, creativity, mentorship and community."
+    content="The values and principles that guide how CoWiTa works with young people, communities and partners."
   >
 
-  <meta name="theme-color" content="#0d4b4b">
-
-  <title>Our Values — CoWiTa</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <!-- Shared CoWiTa design system -->
   <link rel="stylesheet" href="/css/styles.css">
 
   <style>
-
     /* =========================================================
        OUR VALUES PAGE
-       Page-specific styles only.
-       Global design system remains in /css/styles.css
        ========================================================= */
 
-
-    /* =========================================================
+    /* ---------------------------------------------------------
        HERO
-       ========================================================= */
+       --------------------------------------------------------- */
 
     .values-hero {
       position: relative;
-      min-height: 72vh;
+      min-height: 560px;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
-
-      background: var(--deep-teal);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 38, 42, 0.88) 0%,
+          rgba(5, 38, 42, 0.68) 45%,
+          rgba(5, 38, 42, 0.28) 100%
+        ),
+        url("/assets/images/about/our-values-hero.jpg") center center / cover no-repeat;
       color: #fff;
-
       padding: 150px 0 80px;
     }
 
-    .values-hero::before {
+    .values-hero::after {
       content: "";
       position: absolute;
       inset: 0;
-
       background:
-        radial-gradient(
-          circle at 78% 18%,
-          rgba(229,165,26,.24),
-          transparent 27%
-        ),
-        radial-gradient(
-          circle at 15% 90%,
-          rgba(255,255,255,.06),
-          transparent 30%
-        ),
         linear-gradient(
-          120deg,
-          rgba(7,35,40,.97),
-          rgba(13,75,75,.78)
+          to top,
+          rgba(5, 38, 42, 0.62),
+          transparent 55%
         );
+      pointer-events: none;
     }
 
-    .values-hero-grid {
+    .values-hero .container {
       position: relative;
-      z-index: 1;
-
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 80px;
-
-      align-items: end;
+      z-index: 2;
     }
 
-    .values-hero-copy {
-      max-width: 800px;
+    .values-hero-content {
+      max-width: 760px;
+    }
+
+    .values-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 13px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .values-hero h1 {
-      margin: 0;
-
+      margin: 0 0 20px;
+      max-width: 760px;
+      color: #fff;
       font-family: "Lora", Georgia, serif;
-      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 500;
-      line-height: .92;
-      letter-spacing: -.055em;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
     }
 
-    .values-hero h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    .values-hero-text {
-      max-width: 650px;
-      margin-top: 28px;
-
-      color: rgba(255,255,255,.74);
-
-      font-size: 1.05rem;
+    .values-hero p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
       line-height: 1.7;
     }
 
-    .values-hero-visual {
-      position: relative;
-      min-height: 440px;
-    }
 
-    .values-hero-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 440px;
+    /* ---------------------------------------------------------
+       DEFAULT SECTION SPACING
+       --------------------------------------------------------- */
 
-      object-fit: cover;
+    /*
+      Keep one consistent breathing-room system across normal
+      sections. The hero has its own spacing and is not affected.
+    */
 
-      border-radius: 34px 34px 110px 34px;
-    }
-
-    .values-hero-badge {
-      position: absolute;
-
-      left: -30px;
-      bottom: 25px;
-
-      width: 190px;
-      padding: 20px;
-
-      background: var(--gold);
-      color: #1b1a16;
-
-      border-radius: 20px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .values-hero-badge strong {
-      display: block;
-
-      font-family: "Lora", Georgia, serif;
-      font-size: 1.35rem;
-      line-height: 1.05;
-    }
-
-    .values-hero-badge span {
-      display: block;
-      margin-top: 8px;
-
-      font-size: .7rem;
-      line-height: 1.5;
+    .section {
+      padding-block: clamp(52px, 5.5vw, 76px);
     }
 
 
-    /* =========================================================
+    /* ---------------------------------------------------------
        INTRO
-       ========================================================= */
+       --------------------------------------------------------- */
 
     .values-intro {
       display: grid;
-      grid-template-columns: .75fr 1.25fr;
-      gap: 90px;
-
+      grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.45fr);
+      gap: clamp(40px, 7vw, 100px);
       align-items: start;
     }
 
-    .values-intro-heading {
-      max-width: 480px;
+    .values-intro-label {
+      margin: 0;
+      color: var(--deep-teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .values-intro-copy {
-      max-width: 720px;
+    .values-intro-content {
+      max-width: 820px;
     }
 
-    .values-intro-copy p {
+    .values-intro-content h2 {
       margin: 0 0 22px;
-
-      color: var(--muted);
-
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .values-intro-copy p:first-child {
-      color: var(--ink);
-
+      color: var(--deep-teal);
       font-family: "Lora", Georgia, serif;
-      font-size: 1.7rem;
-      line-height: 1.25;
-      letter-spacing: -.025em;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .values-intro-content p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(7, 35, 40, 0.76);
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
 
 
-    /* =========================================================
-       VALUES GRID
-       ========================================================= */
+    /* ---------------------------------------------------------
+       CORE VALUES
+       --------------------------------------------------------- */
 
     .values-section {
-      background: var(--paper);
+      background: #f4f0e7;
     }
 
     .values-header {
@@ -213,905 +168,679 @@
       margin-bottom: 60px;
     }
 
+    .values-header .section-label {
+      margin-bottom: 13px;
+      color: var(--deep-teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .values-header h2 {
+      margin: 0 0 18px;
+      color: var(--deep-teal);
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
     .values-header p {
-      margin-top: 20px;
-
-      color: var(--muted);
-
-      line-height: 1.7;
+      max-width: 700px;
+      margin: 0;
+      color: rgba(7, 35, 40, 0.72);
+      font-size: 1rem;
+      line-height: 1.75;
     }
 
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(7, 35, 40, 0.16);
+      border: 1px solid rgba(7, 35, 40, 0.16);
     }
 
     .value-card {
       position: relative;
-
-      min-height: 330px;
-      padding: 36px;
-
-      background: #fff;
-
-      border: 1px solid var(--line);
-      border-radius: 26px;
-
-      overflow: hidden;
-
+      min-height: 250px;
+      padding: clamp(28px, 4vw, 46px);
+      background: #f4f0e7;
       transition:
-        transform .3s var(--ease),
-        border-color .3s var(--ease),
-        box-shadow .3s var(--ease);
+        background 0.25s ease,
+        transform 0.25s ease;
     }
 
     .value-card:hover {
-      transform: translateY(-7px);
-
-      border-color: var(--gold);
-
-      box-shadow: 0 20px 50px rgba(7,35,40,.08);
+      background: #faf7ef;
     }
 
     .value-number {
-      position: absolute;
-
-      top: 25px;
-      right: 30px;
-
-      font-size: 4.5rem;
+      display: block;
+      margin-bottom: 28px;
+      color: rgba(13, 75, 75, 0.42);
+      font-size: 0.75rem;
       font-weight: 800;
-
-      line-height: .8;
-
-      color: var(--deep-teal);
-
-      opacity: .055;
-    }
-
-    .value-symbol {
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 48px;
-      height: 48px;
-
-      border-radius: 50%;
-
-      background: var(--cream);
-      color: var(--teal);
-
-      font-weight: 800;
-      font-size: .8rem;
+      letter-spacing: 0.12em;
     }
 
     .value-card h3 {
-      margin: 45px 0 14px;
-
+      margin: 0 0 14px;
+      color: var(--deep-teal);
       font-family: "Lora", Georgia, serif;
-      font-size: 2rem;
-      line-height: 1;
-
-      letter-spacing: -.035em;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-weight: 500;
+      line-height: 1.1;
     }
 
     .value-card p {
-      max-width: 500px;
-
+      max-width: 540px;
       margin: 0;
-
-      color: var(--muted);
-
-      font-size: .9rem;
-      line-height: 1.7;
-    }
-
-    .value-card-accent {
-      position: absolute;
-
-      left: 36px;
-      bottom: 0;
-
-      width: 55px;
-      height: 3px;
-
-      background: var(--gold);
+      color: rgba(7, 35, 40, 0.72);
+      font-size: 0.96rem;
+      line-height: 1.75;
     }
 
 
-    /* =========================================================
-       VALUES IN PRACTICE
-       ========================================================= */
+    /* ---------------------------------------------------------
+       PRINCIPLES
+       --------------------------------------------------------- */
 
     .practice-section {
       background: var(--deep-teal);
       color: #fff;
     }
 
-    .practice-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-
-      gap: 90px;
-
-      align-items: center;
+    .practice-section .section-label {
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .practice-heading {
+    .practice-section h2 {
+      max-width: 760px;
+      margin: 0 0 22px;
+      color: #fff;
       font-family: "Lora", Georgia, serif;
-
-      font-size: clamp(2.8rem, 5vw, 5.5rem);
-      line-height: .95;
-
-      letter-spacing: -.05em;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    .practice-heading span {
-      color: var(--gold);
+    .practice-intro {
+      max-width: 720px;
+      margin: 0 0 44px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1rem;
+      line-height: 1.75;
     }
 
-    .practice-copy {
-      color: rgba(255,255,255,.72);
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.17);
+      border: 1px solid rgba(255, 255, 255, 0.17);
     }
 
-    .practice-copy > p {
-      margin: 0 0 30px;
+    .principle-card {
+      min-height: 300px;
+      padding: 30px 25px;
+      background: var(--deep-teal);
+    }
 
+    .principle-number {
+      display: block;
+      margin-bottom: 42px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .principle-card h3 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .principle-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.88rem;
       line-height: 1.7;
     }
 
-    .practice-list {
-      border-top: 1px solid rgba(255,255,255,.16);
-    }
 
-    .practice-item {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-
-      gap: 18px;
-
-      padding: 22px 0;
-
-      border-bottom: 1px solid rgba(255,255,255,.16);
-    }
-
-    .practice-item-number {
-      color: var(--gold);
-
-      font-size: .7rem;
-      font-weight: 800;
-    }
-
-    .practice-item strong {
-      display: block;
-
-      margin-bottom: 5px;
-
-      color: #fff;
-
-      font-size: .92rem;
-    }
-
-    .practice-item span {
-      color: rgba(255,255,255,.57);
-
-      font-size: .78rem;
-      line-height: 1.55;
-    }
-
-
-    /* =========================================================
+    /* ---------------------------------------------------------
        QUOTE
-       ========================================================= */
+       --------------------------------------------------------- */
 
     .values-quote {
-      background: var(--gold);
-      color: #1b1a16;
-    }
-
-    .values-quote-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-
+      background: #e5a51a;
       text-align: center;
     }
 
-    .values-quote-inner blockquote {
-      margin: 0;
-
+    .values-quote blockquote {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--deep-teal);
       font-family: "Lora", Georgia, serif;
-      font-size: clamp(2.4rem, 5vw, 5rem);
-
-      line-height: .98;
-      letter-spacing: -.05em;
-    }
-
-    .values-quote-inner cite {
-      display: block;
-
-      margin-top: 28px;
-
-      font-style: normal;
-
-      font-size: .72rem;
-      font-weight: 800;
-
-      text-transform: uppercase;
-      letter-spacing: .14em;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
     }
 
 
-    /* =========================================================
-       CTA
-       ========================================================= */
+    /* ---------------------------------------------------------
+       FINAL CTA
+       --------------------------------------------------------- */
 
     .values-next {
-      display: flex;
+      text-align: center;
+    }
 
-      justify-content: space-between;
+    .values-next-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .values-next .section-label {
+      margin-bottom: 14px;
+      color: var(--deep-teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .values-next h2 {
+      margin: 0 0 26px;
+      color: var(--deep-teal);
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .values-next .pill-cta {
+      display: inline-flex;
       align-items: center;
-
-      gap: 40px;
+      justify-content: center;
+      padding: 12px 22px;
+      border: 1px solid rgba(13, 75, 75, 0.25);
+      border-radius: 999px;
+      background: rgba(13, 75, 75, 0.07);
+      color: var(--deep-teal);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .values-next-copy {
-      max-width: 650px;
+    .values-next .pill-cta:hover {
+      background: rgba(13, 75, 75, 0.13);
+      border-color: rgba(13, 75, 75, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(7, 35, 40, 0.08);
     }
 
-    .values-next-copy p {
-      margin: 15px 0 0;
-
-      color: var(--muted);
-
-      line-height: 1.7;
+    .values-next .pill-cta:focus-visible {
+      outline: 3px solid rgba(229, 165, 26, 0.55);
+      outline-offset: 4px;
     }
 
 
-    /* =========================================================
+    /* ---------------------------------------------------------
        TABLET
-       ========================================================= */
+       --------------------------------------------------------- */
+
+    @media (max-width: 1100px) {
+      .principles-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .principle-card {
+        min-height: 260px;
+      }
+    }
+
 
     @media (max-width: 900px) {
-
-      .values-hero-grid,
-      .values-intro,
-      .practice-layout {
+      .values-intro {
         grid-template-columns: 1fr;
-      }
-
-      .values-hero {
-        padding-top: 125px;
-      }
-
-      .values-hero-visual {
-        min-height: 400px;
-      }
-
-      .values-hero-visual img {
-        min-height: 400px;
-      }
-
-      .values-hero-badge {
-        left: 15px;
+        gap: 24px;
       }
 
       .values-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .values-hero {
+        min-height: 520px;
       }
     }
 
 
-    /* =========================================================
+    /* ---------------------------------------------------------
        MOBILE
-       ========================================================= */
+       --------------------------------------------------------- */
 
     @media (max-width: 650px) {
+      .section {
+        padding-block: 52px;
+      }
 
       .values-hero {
-        min-height: auto;
-        padding-bottom: 45px;
+        min-height: 500px;
+        padding: 120px 0 56px;
+        background-position: 58% center;
       }
 
       .values-hero h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(2.8rem, 14vw, 4.4rem);
       }
 
-      .values-hero-visual {
-        min-height: 340px;
+      .values-hero p {
+        font-size: 0.96rem;
+        line-height: 1.65;
       }
 
-      .values-hero-visual img {
-        min-height: 340px;
-
-        border-radius: 24px 24px 80px 24px;
+      .values-intro {
+        gap: 18px;
       }
 
-      .values-intro-copy p:first-child {
-        font-size: 1.4rem;
+      .values-intro-content h2,
+      .values-header h2,
+      .practice-section h2,
+      .values-next h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
       }
 
-      .values-grid {
-        grid-template-columns: 1fr;
+      .values-header {
+        margin-bottom: 36px;
       }
 
       .value-card {
-        min-height: 290px;
+        min-height: auto;
+        padding: 28px 24px;
       }
 
-      .practice-heading {
-        font-size: 3rem;
+      .value-number {
+        margin-bottom: 22px;
       }
 
-      .values-quote-inner blockquote {
-        font-size: 2.5rem;
+      .principles-grid {
+        grid-template-columns: 1fr;
       }
 
-      .values-next {
-        flex-direction: column;
-        align-items: flex-start;
+      .principle-card {
+        min-height: auto;
+        padding: 28px 24px;
+      }
+
+      .principle-number {
+        margin-bottom: 28px;
+      }
+
+      .practice-intro {
+        margin-bottom: 30px;
+      }
+
+      .values-quote blockquote {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .values-next .pill-cta {
+        padding: 12px 21px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-<a class="skip-link" href="#main-content">
-  Skip to content
-</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <div id="site-header"></div>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
+  <main id="main-content">
 
-<div id="site-header"></div>
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
 
+    <section class="values-hero">
+      <div class="container">
+        <div class="values-hero-content">
 
-<main id="main-content">
+          <span class="eyebrow">People first.</span>
 
+          <h1>Our Values</h1>
 
-<!-- =========================================================
-     1. HERO
-     ========================================================= -->
+          <p>
+            The way we work matters. These values and principles guide
+            how we build relationships, make decisions and create
+            opportunities with young people and communities.
+          </p>
 
-<section class="values-hero">
-
-  <div class="container values-hero-grid">
-
-    <div class="values-hero-copy reveal">
-
-      <div class="eyebrow">
-        Our values
+        </div>
       </div>
+    </section>
 
-      <h1>
-        How we choose
-        to <em>show up.</em>
-      </h1>
 
-      <p class="values-hero-text">
-        CoWiTa is not only defined by what we do.
-        It is also defined by how we work with young people,
-        communities, mentors and partners along the way.
-      </p>
+    <!-- =======================================================
+         INTRO
+         ======================================================= -->
 
-    </div>
+    <section class="section">
+      <div class="container">
 
-
-    <div class="values-hero-visual reveal">
-
-      <img
-        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85"
-        alt="Young people spending time together as a community"
-      >
-
-      <div class="values-hero-badge">
-
-        <strong>
-          People first.
-        </strong>
-
-        <span>
-          Talent, dignity, growth and opportunity remain
-          at the centre of the CoWiTa approach.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     2. INTRODUCTION
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container values-intro">
-
-    <div class="section-header values-intro-heading reveal">
-
-      <div class="section-label">
-        What matters to us
-      </div>
-
-      <h2>
-        Our values shape the pathway.
-      </h2>
-
-    </div>
-
-
-    <div class="values-intro-copy reveal">
-
-      <p>
-        We want the journey from talent to opportunity
-        to be as meaningful as the outcome.
-      </p>
-
-      <p>
-        That means creating spaces where young people
-        are respected, listened to and encouraged to grow.
-        It means treating creative ability seriously while
-        recognising that every person's journey will look
-        different.
-      </p>
-
-      <p>
-        Our values therefore guide the decisions we make,
-        the programmes we develop, the relationships we build
-        and the opportunities we create.
-      </p>
-
-      <p>
-        They are not simply words on a page. They are the
-        standard we want CoWiTa to hold itself to.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     3. CORE VALUES
-     ========================================================= -->
-
-<section class="section values-section">
-
-  <div class="container">
-
-    <div class="values-header reveal">
-
-      <div class="section-label">
-        The principles behind CoWiTa
-      </div>
-
-      <h2>
-        Six principles guide the work.
-      </h2>
-
-      <p>
-        Together, these values describe the kind of organisation
-        CoWiTa is trying to become—and the kind of environment
-        we want young people to experience.
-      </p>
-
-    </div>
-
-
-    <div class="values-grid">
-
-
-      <!-- VALUE 01 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          01
-        </div>
-
-        <div class="value-symbol">
-          01
-        </div>
-
-        <h3>
-          Potential
-        </h3>
-
-        <p>
-          We look beyond where a young person is today.
-          Talent can begin as something informal, unfinished
-          or unnoticed. We believe development starts by
-          recognising what is already there.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-
-      <!-- VALUE 02 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          02
-        </div>
-
-        <div class="value-symbol">
-          02
-        </div>
-
-        <h3>
-          Growth
-        </h3>
-
-        <p>
-          Talent becomes stronger through practice, learning,
-          feedback and mentorship. We value progress over
-          perfection and create room for people to develop
-          at different stages of their journey.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-
-      <!-- VALUE 03 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          03
-        </div>
-
-        <div class="value-symbol">
-          03
-        </div>
-
-        <h3>
-          Opportunity
-        </h3>
-
-        <p>
-          Development should lead somewhere. We work toward
-          connecting creative ability with platforms, audiences,
-          networks, practical experience and pathways that can
-          create meaningful opportunities.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-
-      <!-- VALUE 04 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          04
-        </div>
-
-        <div class="value-symbol">
-          04
-        </div>
-
-        <h3>
-          Dignity
-        </h3>
-
-        <p>
-          Every young person deserves to be treated with
-          respect. We seek to create environments where people
-          can express themselves, learn from mistakes and
-          contribute without being reduced to their circumstances.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-
-      <!-- VALUE 05 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          05
-        </div>
-
-        <div class="value-symbol">
-          05
-        </div>
-
-        <h3>
-          Community
-        </h3>
-
-        <p>
-          Creative development does not happen in isolation.
-          We believe in building relationships between young
-          people, mentors, families, communities, organisations
-          and the wider creative ecosystem.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-
-      <!-- VALUE 06 -->
-
-      <article class="value-card reveal">
-
-        <div class="value-number">
-          06
-        </div>
-
-        <div class="value-symbol">
-          06
-        </div>
-
-        <h3>
-          Responsibility
-        </h3>
-
-        <p>
-          Opportunity comes with responsibility. We aim to use
-          creativity as a force for personal development,
-          economic possibility and positive contribution to
-          communities.
-        </p>
-
-        <div class="value-card-accent"></div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     4. VALUES IN PRACTICE
-     ========================================================= -->
-
-<section class="section practice-section">
-
-  <div class="container practice-layout">
-
-    <div class="practice-heading reveal">
-
-      Values only matter
-      when they become
-      <span>action.</span>
-
-    </div>
-
-
-    <div class="practice-copy reveal">
-
-      <p>
-        These principles influence how CoWiTa intends to
-        design programmes, work with participants and build
-        relationships with the people and organisations around us.
-      </p>
-
-
-      <div class="practice-list">
-
-        <div class="practice-item">
-
-          <div class="practice-item-number">
-            01
-          </div>
+        <div class="values-intro">
 
           <div>
-
-            <strong>
-              We listen before we design.
-            </strong>
-
-            <span>
-              Programmes should respond to real people,
-              real abilities and real community contexts.
-            </span>
-
+            <p class="values-intro-label">What matters to us</p>
           </div>
 
-        </div>
+          <div class="values-intro-content">
 
+            <h2>
+              Our values shape how we work.
+            </h2>
 
-        <div class="practice-item">
-
-          <div class="practice-item-number">
-            02
-          </div>
-
-          <div>
-
-            <strong>
-              We develop, not simply discover.
-            </strong>
-
-            <span>
-              Identifying talent is only the beginning.
-              Development requires time, practice and guidance.
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="practice-item">
-
-          <div class="practice-item-number">
-            03
-          </div>
-
-          <div>
-
-            <strong>
-              We create real pathways.
-            </strong>
-
-            <span>
-              Skills should connect to experiences, platforms,
-              networks and opportunities wherever possible.
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="practice-item">
-
-          <div class="practice-item-number">
-            04
-          </div>
-
-          <div>
-
-            <strong>
-              We build with others.
-            </strong>
-
-            <span>
-              Mentors, communities, organisations and partners
-              all have a role in creating stronger pathways.
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="practice-item">
-
-          <div class="practice-item-number">
-            05
-          </div>
-
-          <div>
-
-            <strong>
-              We measure progress honestly.
-            </strong>
-
-            <span>
-              As CoWiTa grows, we intend to learn from what
-              works, what does not and what participants actually experience.
-            </span>
+            <p>
+              CoWiTa is built around people, relationships and possibility.
+              Our values help us stay grounded in how we engage with young
+              people, communities, partners and one another. They are not
+              simply statements about what we believe; they inform the
+              choices we make and the way we put our work into practice.
+            </p>
 
           </div>
 
         </div>
 
       </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- =========================================================
-     5. COWITA PRINCIPLE
-     ========================================================= -->
+    <!-- =======================================================
+         CORE VALUES
+         ======================================================= -->
 
-<section class="section values-quote">
+    <section class="section values-section">
+      <div class="container">
 
-  <div class="container values-quote-inner reveal">
+        <div class="values-header">
 
-    <blockquote>
-      “Talent is the beginning.
-      What we build around it
-      determines where it can go.”
-    </blockquote>
+          <p class="section-label">Our values</p>
 
-    <cite>
-      The CoWiTa approach
-    </cite>
+          <h2>
+            What we bring to the work.
+          </h2>
 
-  </div>
+          <p>
+            These six values provide a shared foundation for how CoWiTa
+            approaches people, ideas, opportunities and long-term change.
+          </p>
 
-</section>
+        </div>
 
 
-<!-- =========================================================
-     6. NEXT STEP
-     ========================================================= -->
+        <div class="values-grid">
 
-<section class="section">
+          <article class="value-card">
+            <span class="value-number">01</span>
 
-  <div class="container values-next">
+            <h3>Empowerment</h3>
 
-    <div class="values-next-copy reveal">
+            <p>
+              We support young people to recognise their abilities,
+              develop their voice, make choices and take meaningful
+              steps toward the futures they want.
+            </p>
+          </article>
 
-      <div class="section-label">
-        Explore the work
+
+          <article class="value-card">
+            <span class="value-number">02</span>
+
+            <h3>Integrity</h3>
+
+            <p>
+              We aim to be honest, accountable and consistent in our
+              decisions, relationships and use of resources, including
+              when circumstances are difficult.
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <span class="value-number">03</span>
+
+            <h3>Inclusion</h3>
+
+            <p>
+              We work toward spaces where people with different
+              backgrounds, abilities, experiences and perspectives can
+              participate and contribute meaningfully.
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <span class="value-number">04</span>
+
+            <h3>Dignity</h3>
+
+            <p>
+              We treat every person as worthy of respect and
+              consideration, protecting their agency, identity and
+              right to be treated fairly.
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <span class="value-number">05</span>
+
+            <h3>Innovation</h3>
+
+            <p>
+              We remain open to new ideas, creative approaches and
+              better ways of solving problems, learning from experience
+              rather than relying on one fixed model.
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <span class="value-number">06</span>
+
+            <h3>Sustainability</h3>
+
+            <p>
+              We think beyond short-term activity, seeking approaches
+              that can strengthen people, relationships, resources and
+              opportunities over time.
+            </p>
+          </article>
+
+        </div>
+
       </div>
-
-      <h2>
-        See how these values become programmes.
-      </h2>
-
-      <p>
-        Explore the creative disciplines, skills development
-        and mentorship pathways CoWiTa is building for children
-        and young people.
-      </p>
-
-    </div>
+    </section>
 
 
-    <div class="reveal">
+    <!-- =======================================================
+         PRINCIPLES
+         ======================================================= -->
 
-      <a
-        class="btn btn-dark"
-        href="/work/"
-      >
-        Explore Our Work →
-      </a>
+    <section class="section practice-section">
+      <div class="container">
 
-    </div>
+        <p class="section-label">Our principles</p>
 
-  </div>
+        <h2>
+          How those values show up in practice.
+        </h2>
 
-</section>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
-<div id="site-footer"></div>
+        <p class="practice-intro">
+          Our principles translate our values into practical commitments.
+          They help shape how we design programmes, work with people and
+          make decisions.
+        </p>
 
 
-<script src="/js/main.js" defer></script>
+        <div class="principles-grid">
+
+          <article class="principle-card">
+            <span class="principle-number">01</span>
+
+            <h3>
+              Nothing about us without us
+            </h3>
+
+            <p>
+              People affected by a programme or decision should have
+              meaningful opportunities to influence it, contribute to it
+              and respond to it.
+            </p>
+          </article>
+
+
+          <article class="principle-card">
+            <span class="principle-number">02</span>
+
+            <h3>
+              Do not harm
+            </h3>
+
+            <p>
+              We consider safety, wellbeing, power and potential
+              unintended consequences when designing and delivering
+              our work.
+            </p>
+          </article>
+
+
+          <article class="principle-card">
+            <span class="principle-number">03</span>
+
+            <h3>
+              Action with Integrity
+            </h3>
+
+            <p>
+              We aim to match our actions with our commitments,
+              communicate honestly and take responsibility for the
+              decisions we make.
+            </p>
+          </article>
+
+
+          <article class="principle-card">
+            <span class="principle-number">04</span>
+
+            <h3>
+              Real pathways
+            </h3>
+
+            <p>
+              We focus on practical next steps that can connect learning
+              and development with genuine experiences, networks and
+              opportunities.
+            </p>
+          </article>
+
+
+          <article class="principle-card">
+            <span class="principle-number">05</span>
+
+            <h3>
+              Community ownership
+            </h3>
+
+            <p>
+              We seek to build relationships and approaches that leave
+              communities with meaningful participation, influence and
+              a stake in what develops.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         QUOTE
+         ======================================================= -->
+
+    <section class="section values-quote">
+      <div class="container">
+
+        <blockquote>
+          “How we work matters as much as what we build.”
+        </blockquote>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         FINAL CTA
+         ======================================================= -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="values-next">
+          <div class="values-next-content">
+
+            <p class="section-label">Explore the work</p>
+
+            <h2>
+              See how these commitments shape what we do.
+            </h2>
+
+            <a class="pill-cta" href="/work/">
+              Explore Our Work
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/js/main.js" defer></script>
 
 </body>
 </html>

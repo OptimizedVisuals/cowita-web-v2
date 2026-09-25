@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Collaborate with CoWiTa on creative projects, workshops, events and initiatives that help children and youth turn talent into practical opportunity."
+    content="Share a creative project, event, workshop, community idea, skill or resource you would like to explore with CoWiTa."
   >
 
   <meta name="theme-color" content="#0d4b4b">
@@ -26,7 +26,7 @@
 
     .collab-hero {
       position: relative;
-      min-height: 76vh;
+      min-height: 72vh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -42,13 +42,13 @@
       background:
         radial-gradient(
           circle at 78% 22%,
-          rgba(229,165,26,.22),
+          rgba(229, 165, 26, .22),
           transparent 28%
         ),
         linear-gradient(
           120deg,
-          rgba(7,35,40,.96),
-          rgba(13,75,75,.78)
+          rgba(7, 35, 40, .96),
+          rgba(13, 75, 75, .78)
         );
     }
 
@@ -79,10 +79,10 @@
     }
 
     .collab-hero-copy {
-      max-width: 590px;
+      max-width: 570px;
       margin: 28px 0 0;
 
-      color: rgba(255,255,255,.76);
+      color: rgba(255, 255, 255, .76);
       font-size: 1.05rem;
       line-height: 1.7;
     }
@@ -141,346 +141,349 @@
 
 
     /* =========================================================
-       INTRO
+       FORM INTRO
        ========================================================= */
 
-    .collab-intro {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 90px;
-      align-items: start;
+    .collab-form-intro {
+      max-width: 820px;
+      margin-bottom: 50px;
     }
 
-    .collab-intro h2 {
-      max-width: 520px;
-    }
-
-    .collab-intro-copy {
-      max-width: 700px;
-    }
-
-    .collab-intro-copy p {
-      margin: 0 0 22px;
-
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .collab-intro-copy p:first-child {
-      color: var(--ink);
-
-      font-family: "Lora", Georgia, serif;
-      font-size: 1.7rem;
-      line-height: 1.2;
-      letter-spacing: -.025em;
-    }
-
-
-    /* =========================================================
-       COLLABORATION TYPES
-       ========================================================= */
-
-    .collab-types {
-      background: var(--cream);
-    }
-
-    .collab-types-header {
+    .collab-form-intro h2 {
       max-width: 760px;
-      margin-bottom: 55px;
+      margin-bottom: 18px;
     }
 
-    .collab-types-header p {
+    .collab-form-intro p {
+      max-width: 680px;
+      margin: 0;
+
       color: var(--muted);
       line-height: 1.7;
     }
 
-    .collab-type-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+
+    /* =========================================================
+       SELECTION AREAS
+       ========================================================= */
+
+    .collab-selection-group {
+      margin-bottom: 55px;
     }
 
-    .collab-type-card {
-      min-height: 280px;
-      padding: 30px;
-
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-
-      transition:
-        transform .3s var(--ease),
-        border-color .3s var(--ease);
+    .collab-selection-heading {
+      margin-bottom: 20px;
     }
 
-    .collab-type-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold);
-    }
-
-    .collab-type-number {
-      display: block;
-
-      color: var(--gold);
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-    }
-
-    .collab-type-card h3 {
-      margin: 45px 0 12px;
+    .collab-selection-heading h3 {
+      margin: 0 0 7px;
 
       font-family: "Lora", Georgia, serif;
-      font-size: 1.75rem;
-      line-height: 1;
+      font-size: 1.8rem;
+      line-height: 1.1;
     }
 
-    .collab-type-card p {
+    .collab-selection-heading p {
       margin: 0;
 
       color: var(--muted);
-      font-size: .82rem;
-      line-height: 1.65;
-    }
-
-
-    /* =========================================================
-       PROJECTS
-       ========================================================= */
-
-    .collab-project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .collab-project {
-      position: relative;
-      min-height: 360px;
-
-      padding: 35px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      overflow: hidden;
-      border-radius: 26px;
-
-      color: #fff;
-      background: var(--deep-teal);
-    }
-
-    .collab-project::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(5,25,29,.95),
-          rgba(5,25,29,.15)
-        );
-    }
-
-    .collab-project-content {
-      position: relative;
-      z-index: 1;
-
-      max-width: 560px;
-    }
-
-    .collab-project-label {
-      color: var(--gold);
-
-      font-size: .68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-    }
-
-    .collab-project h3 {
-      margin: 12px 0 10px;
-
-      font-family: "Lora", Georgia, serif;
-      font-size: 2.1rem;
-      line-height: 1;
-    }
-
-    .collab-project p {
-      margin: 0;
-
-      color: rgba(255,255,255,.72);
-      font-size: .82rem;
+      font-size: .85rem;
       line-height: 1.6;
     }
 
-
-    /* =========================================================
-       HOW COLLABORATION WORKS
-       ========================================================= */
-
-    .collab-process {
+    .collab-choice-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
 
-    .collab-process-step {
-      padding: 30px;
-
-      border-top: 2px solid var(--ink);
-      background: var(--paper);
+    .collab-choice {
+      position: relative;
+      display: block;
+      cursor: pointer;
     }
 
-    .collab-process-step > span {
+    .collab-choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .collab-choice-content {
+      min-height: 92px;
+      padding: 22px 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      transition:
+        border-color .25s var(--ease),
+        background .25s var(--ease),
+        transform .25s var(--ease);
+    }
+
+    .collab-choice-content::after {
+      content: "＋";
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+
+      border: 1px solid var(--line);
+      border-radius: 50%;
+
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1;
+    }
+
+    .collab-choice:hover .collab-choice-content {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+    }
+
+    .collab-choice input:checked + .collab-choice-content {
+      background: rgba(229, 165, 26, .10);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(229, 165, 26, .12);
+    }
+
+    .collab-choice input:checked + .collab-choice-content::after {
+      content: "✓";
+
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #1b1a16;
+      font-weight: 800;
+    }
+
+    .collab-choice-title {
       display: block;
 
-      color: var(--gold);
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
-    .collab-process-step h3 {
-      margin: 42px 0 12px;
+
+    /* =========================================================
+       INTAKE FORM
+       ========================================================= */
+
+    .collab-form-shell {
+      max-width: 1050px;
+      padding: 45px;
+
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+    }
+
+    .collab-form-header {
+      margin-bottom: 35px;
+    }
+
+    .collab-form-header h2 {
+      margin-bottom: 12px;
+    }
+
+    .collab-form-header p {
+      max-width: 700px;
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .collab-form-section {
+      padding: 35px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .collab-form-section:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .collab-form-section h3 {
+      margin: 0 0 22px;
 
       font-family: "Lora", Georgia, serif;
       font-size: 1.55rem;
     }
 
-    .collab-process-step p {
-      margin: 0;
+    .collab-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
+    .collab-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .collab-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .collab-field label {
+      color: var(--ink);
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .collab-field label span {
       color: var(--muted);
-      font-size: .8rem;
-      line-height: 1.65;
+      font-weight: 400;
     }
 
+    .collab-field input,
+    .collab-field select,
+    .collab-field textarea {
+      width: 100%;
+      padding: 14px 15px;
 
-    /* =========================================================
-       COLLABORATION PRINCIPLES
-       ========================================================= */
+      border: 1px solid var(--line);
+      border-radius: 12px;
 
-    .collab-principles {
-      background: var(--deep-teal);
-      color: #fff;
+      background: #fff;
+      color: var(--ink);
+
+      font: inherit;
+      font-size: .86rem;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
     }
 
-    .collab-principles-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 90px;
-      align-items: start;
+    .collab-field textarea {
+      min-height: 135px;
+      resize: vertical;
     }
 
-    .collab-principles h2 {
-      max-width: 600px;
+    .collab-field input:focus,
+    .collab-field select:focus,
+    .collab-field textarea:focus {
+      outline: none;
+      border-color: var(--deep-teal);
+      box-shadow: 0 0 0 3px rgba(13, 75, 75, .10);
     }
 
-    .collab-principles-copy {
-      color: rgba(255,255,255,.72);
-    }
-
-    .collab-principles-copy p {
-      margin: 0 0 25px;
-      line-height: 1.7;
-    }
-
-    .principle-list {
-      margin-top: 35px;
-
-      border-top: 1px solid rgba(255,255,255,.16);
-    }
-
-    .principle-item {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 16px;
-
-      padding: 20px 0;
-
-      border-bottom: 1px solid rgba(255,255,255,.16);
-    }
-
-    .principle-item > span {
-      color: var(--gold);
-
-      font-size: .72rem;
-      font-weight: 800;
-    }
-
-    .principle-item strong {
-      display: block;
-      margin-bottom: 5px;
-
-      color: #fff;
-      font-size: .9rem;
-    }
-
-    .principle-item p {
-      margin: 0;
-
-      color: rgba(255,255,255,.58);
-      font-size: .78rem;
+    .collab-field small {
+      color: var(--muted);
+      font-size: .7rem;
       line-height: 1.5;
     }
 
+    .collab-form-footer {
+      padding-top: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .collab-form-note {
+      max-width: 570px;
+
+      color: var(--muted);
+      font-size: .72rem;
+      line-height: 1.55;
+    }
+
+    .collab-form-note a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
 
     /* =========================================================
-       COMING SOON
+       WHAT HAPPENS NEXT
        ========================================================= */
 
-    .collab-coming-soon {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 50px;
-      align-items: center;
-
-      padding: 45px;
-
-      border: 1px solid var(--line);
-      border-radius: 28px;
-
+    .collab-next {
       background: var(--cream);
     }
 
-    .collab-coming-soon h2 {
+    .collab-next-header {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .collab-next-header h2 {
       margin-bottom: 15px;
     }
 
-    .collab-coming-soon p {
-      max-width: 720px;
+    .collab-next-header p {
       margin: 0;
 
       color: var(--muted);
       line-height: 1.7;
     }
 
-    .coming-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .collab-next-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
 
-      min-width: 130px;
-      padding: 12px 18px;
+    .collab-next-step {
+      min-height: 210px;
+      padding: 28px;
 
-      border-radius: 999px;
-      background: var(--gold);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
 
-      color: #1b1a16;
+    .collab-next-step > span {
+      display: block;
 
-      font-size: .68rem;
+      color: var(--gold);
+      font-size: .7rem;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
+    }
+
+    .collab-next-step h3 {
+      margin: 38px 0 10px;
+
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.05;
+    }
+
+    .collab-next-step p {
+      margin: 0;
+
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.55;
     }
 
 
     /* =========================================================
-       CTA
+       FINAL CTA
        ========================================================= */
 
     .collab-cta {
@@ -527,9 +530,7 @@
 
     @media (max-width: 900px) {
 
-      .collab-hero-grid,
-      .collab-intro,
-      .collab-principles-grid {
+      .collab-hero-grid {
         grid-template-columns: 1fr;
       }
 
@@ -549,16 +550,15 @@
         left: 15px;
       }
 
-      .collab-type-grid {
+      .collab-choice-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .collab-process {
+      .collab-next-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .collab-cta-inner,
-      .collab-coming-soon {
+      .collab-cta-inner {
         grid-template-columns: 1fr;
       }
 
@@ -566,7 +566,6 @@
         flex-direction: row;
         flex-wrap: wrap;
       }
-
     }
 
 
@@ -590,31 +589,31 @@
         border-radius: 24px 24px 80px 24px;
       }
 
-      .collab-intro-copy p:first-child {
-        font-size: 1.4rem;
-      }
-
-      .collab-type-grid,
-      .collab-project-grid,
-      .collab-process {
+      .collab-choice-grid,
+      .collab-next-grid,
+      .collab-form-grid {
         grid-template-columns: 1fr;
       }
 
-      .collab-project {
-        min-height: 300px;
+      .collab-form-shell {
+        padding: 28px 20px;
+        border-radius: 22px;
       }
 
-      .collab-coming-soon {
-        padding: 30px;
+      .collab-field.full {
+        grid-column: auto;
+      }
+
+      .collab-form-footer {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .collab-cta-actions {
         flex-direction: column;
         align-items: flex-start;
       }
-
     }
-
   </style>
 </head>
 
@@ -656,25 +655,25 @@
       </h1>
 
       <p class="collab-hero-copy">
-        CoWiTa welcomes people, creatives, organisations and
-        communities who want to turn ideas into meaningful
-        projects, experiences and opportunities for young people.
+        Bring a project, event, workshop, skill, resource or
+        community idea. Tell us what you are bringing and what
+        you need, and we can explore the next step together.
       </p>
 
       <div class="collab-hero-actions">
 
         <a
           class="btn btn-primary"
-          href="#collaboration"
+          href="#collaboration-form"
         >
-          Explore Collaboration
+          Start a Collaboration
         </a>
 
         <a
           class="btn btn-light"
           href="/contact/"
         >
-          Start a Conversation
+          Contact CoWiTa
         </a>
 
       </div>
@@ -692,13 +691,12 @@
       <div class="collab-hero-note">
 
         <strong>
-          Ideas become stronger together.
+          Bring the idea.
         </strong>
 
         <span>
-          Collaboration allows different skills,
-          perspectives and resources to create something
-          that none of us could build alone.
+          It could be a project, event, skill, resource,
+          connection or something entirely different.
         </span>
 
       </div>
@@ -711,200 +709,793 @@
 
 
 <!-- =========================================================
-     2. INTRODUCTION
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container collab-intro">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Collaboration at CoWiTa
-      </div>
-
-      <h2>
-        Not every idea needs a programme.
-        Sometimes it needs a partner.
-      </h2>
-
-    </div>
-
-
-    <div class="collab-intro-copy reveal">
-
-      <p>
-        We believe some of the most meaningful opportunities
-        begin with a simple idea and the willingness to build
-        it together.
-      </p>
-
-      <p>
-        You might have an idea for a workshop, creative project,
-        performance, campaign, community event, production or
-        learning experience. You may have a skill or resource
-        that could make an existing idea stronger.
-      </p>
-
-      <p>
-        Collaboration is about bringing those possibilities
-        together around a clear purpose: creating meaningful
-        experiences and opportunities for children and young people.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     3. WHAT CAN WE COLLABORATE ON?
+     2. COLLABORATION INTAKE
      ========================================================= -->
 
 <section
-  class="section collab-types"
-  id="collaboration"
+  class="section"
+  id="collaboration-form"
 >
 
   <div class="container">
 
-    <div class="collab-types-header reveal">
+    <div class="collab-form-intro reveal">
 
       <div class="section-label">
-        What we can build
+        Start here
       </div>
 
       <h2>
-        Collaboration can start almost anywhere.
+        Tell us what you want to build together.
       </h2>
 
       <p>
-        These are examples of the kinds of ideas that could
-        connect with CoWiTa's work. They are possibilities,
-        not existing programmes or promises of delivery.
+        You do not need to have everything figured out.
+        Share the idea, project, skill or resource you are
+        bringing and what you would like help with.
       </p>
 
     </div>
 
 
-    <div class="collab-type-grid">
+    <form
+      class="collab-form-shell reveal"
+      action="#"
+      method="post"
+    >
+
+      <!-- =====================================================
+           WHAT ARE YOU BRINGING?
+           ===================================================== -->
+
+      <div class="collab-selection-group">
+
+        <div class="collab-selection-heading">
+
+          <h3>
+            What are you bringing?
+          </h3>
+
+          <p>
+            Select one or more options.
+          </p>
+
+        </div>
 
 
-      <article class="collab-type-card reveal">
+        <div class="collab-choice-grid">
 
-        <span class="collab-type-number">
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="creative-project"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Creative project
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="event"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Event
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="workshop"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Workshop
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="community-initiative"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Community initiative
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="content-media"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Content / media
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="skills-expertise"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Skills / expertise
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="space"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Space
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="equipment-resources"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Equipment / resources
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="network-platform"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Network / platform
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="bringing[]"
+              value="other"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Other
+              </span>
+            </span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           WHAT DO YOU NEED?
+           ===================================================== -->
+
+      <div class="collab-selection-group">
+
+        <div class="collab-selection-heading">
+
+          <h3>
+            What do you need?
+          </h3>
+
+          <p>
+            Select one or more areas where collaboration could help.
+          </p>
+
+        </div>
+
+
+        <div class="collab-choice-grid">
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="collaborators"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Collaborators
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="creative-skills"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Creative skills
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="technical-skills"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Technical skills
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="space"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Space
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="equipment"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Equipment
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="participants"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Participants
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="expertise"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Expertise
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="network-connections"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Network / connections
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="resources"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Resources
+              </span>
+            </span>
+          </label>
+
+
+          <label class="collab-choice">
+            <input
+              type="checkbox"
+              name="needs[]"
+              value="other"
+            >
+
+            <span class="collab-choice-content">
+              <span class="collab-choice-title">
+                Other
+              </span>
+            </span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           CONTACT INFORMATION
+           ===================================================== -->
+
+      <div class="collab-form-section">
+
+        <h3>
+          About you
+        </h3>
+
+
+        <div class="collab-form-grid">
+
+          <div class="collab-field">
+
+            <label for="full-name">
+              Full name
+            </label>
+
+            <input
+              id="full-name"
+              name="full_name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your full name"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="organisation">
+              Organisation
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="organisation"
+              name="organisation"
+              type="text"
+              autocomplete="organization"
+              placeholder="Organisation or company"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="phone">
+              Phone
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder="Phone number"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="location">
+              Your location
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="location"
+              name="location"
+              type="text"
+              autocomplete="address-level2"
+              placeholder="City / area"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="website">
+              Website / social link
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="website"
+              name="website"
+              type="url"
+              placeholder="https://"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           COLLABORATION DETAILS
+           ===================================================== -->
+
+      <div class="collab-form-section">
+
+        <h3>
+          About the collaboration
+        </h3>
+
+
+        <div class="collab-form-grid">
+
+          <div class="collab-field full">
+
+            <label for="collaboration-title">
+              Collaboration title
+            </label>
+
+            <input
+              id="collaboration-title"
+              name="collaboration_title"
+              type="text"
+              placeholder="Give your idea a short name"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="collaboration-audience">
+              Who is it for?
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="collaboration-audience"
+              name="target_audience"
+              type="text"
+              placeholder="Who would participate or benefit?"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="expected-participants">
+              Expected participants / audience
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="expected-participants"
+              name="expected_participants"
+              type="text"
+              placeholder="Approximate number, if known"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="proposed-location">
+              Proposed location
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="proposed-location"
+              name="proposed_location"
+              type="text"
+              placeholder="Where could it happen?"
+            >
+
+          </div>
+
+
+          <div class="collab-field">
+
+            <label for="timeline">
+              Proposed timeline
+              <span>Optional</span>
+            </label>
+
+            <input
+              id="timeline"
+              name="proposed_timeline"
+              type="text"
+              placeholder="e.g. October–December 2026"
+            >
+
+          </div>
+
+
+          <div class="collab-field full">
+
+            <label for="description">
+              Tell us about the idea
+            </label>
+
+            <textarea
+              id="description"
+              name="description"
+              placeholder="What would you like to create, who is involved and what would you like the collaboration to achieve?"
+            ></textarea>
+
+          </div>
+
+
+          <div class="collab-field full">
+
+            <label for="links">
+              Relevant links
+              <span>Optional</span>
+            </label>
+
+            <textarea
+              id="links"
+              name="relevant_links"
+              placeholder="Portfolio, project page, social profile, reference material or other useful links"
+            ></textarea>
+
+            <small>
+              You can include more than one link.
+            </small>
+
+          </div>
+
+
+          <div class="collab-field full">
+
+            <label for="additional-information">
+              Anything else?
+              <span>Optional</span>
+            </label>
+
+            <textarea
+              id="additional-information"
+              name="additional_information"
+              placeholder="Add anything else you think CoWiTa should know."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           FORM FOOTER
+           ===================================================== -->
+
+      <div class="collab-form-footer">
+
+        <p class="collab-form-note">
+          Sharing an idea does not guarantee that CoWiTa will
+          accept, fund or deliver the proposed collaboration.
+          Each enquiry can be reviewed based on its context,
+          purpose and practical possibilities.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Submit Collaboration Idea
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     3. WHAT HAPPENS NEXT
+     ========================================================= -->
+
+<section class="section collab-next">
+
+  <div class="container">
+
+    <div class="collab-next-header reveal">
+
+      <div class="section-label">
+        What happens next
+      </div>
+
+      <h2>
+        A simple path from idea to conversation.
+      </h2>
+
+      <p>
+        Your submission gives CoWiTa enough context to
+        understand the idea and decide what the appropriate
+        next conversation or step might be.
+      </p>
+
+    </div>
+
+
+    <div class="collab-next-grid">
+
+      <article class="collab-next-step reveal">
+
+        <span>
           01
         </span>
 
         <h3>
-          Creative projects
+          Share the idea
         </h3>
 
         <p>
-          Develop a creative project where young people can
-          learn, create, participate and produce work together.
+          Tell us what you are bringing, what you need and
+          what you hope to create.
         </p>
 
       </article>
 
 
-      <article class="collab-type-card reveal">
+      <article class="collab-next-step reveal">
 
-        <span class="collab-type-number">
+        <span>
           02
         </span>
 
         <h3>
-          Workshops
+          CoWiTa reviews
         </h3>
 
         <p>
-          Design practical sessions around dance, music,
-          drawing, writing, acting, production or other
-          creative and professional skills.
+          We look at the information provided and consider
+          how it connects with CoWiTa's work.
         </p>
 
       </article>
 
 
-      <article class="collab-type-card reveal">
+      <article class="collab-next-step reveal">
 
-        <span class="collab-type-number">
+        <span>
           03
         </span>
 
         <h3>
-          Events
+          Start a conversation
         </h3>
 
         <p>
-          Create showcases, community events, exhibitions,
-          performances or experiences that give young people
-          a platform.
+          Where appropriate, we can discuss the idea,
+          people involved and possible requirements.
         </p>
 
       </article>
 
 
-      <article class="collab-type-card reveal">
+      <article class="collab-next-step reveal">
 
-        <span class="collab-type-number">
+        <span>
           04
         </span>
 
         <h3>
-          Content & media
+          Explore the next step
         </h3>
 
         <p>
-          Produce stories, films, campaigns, interviews,
-          digital content and other creative work that
-          amplifies young voices.
+          Together, we can determine whether there is a
+          practical way to move the idea forward.
         </p>
 
       </article>
-
-
-      <article class="collab-type-card reveal">
-
-        <span class="collab-type-number">
-          05
-        </span>
-
-        <h3>
-          Community initiatives
-        </h3>
-
-        <p>
-          Work with communities to create creative activities
-          that bring young people together around talent,
-          learning and participation.
-        </p>
-
-      </article>
-
-
-      <article class="collab-type-card reveal">
-
-        <span class="collab-type-number">
-          06
-        </span>
-
-        <h3>
-          New ideas
-        </h3>
-
-        <p>
-          If your idea does not fit a category, that is fine.
-          We are interested in exploring thoughtful ideas that
-          align with CoWiTa's purpose.
-        </p>
-
-      </article>
-
 
     </div>
 
@@ -914,417 +1505,7 @@
 
 
 <!-- =========================================================
-     4. EXAMPLE COLLABORATION DIRECTIONS
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Imagine the possibilities
-      </div>
-
-      <h2>
-        Collaboration should create something useful.
-      </h2>
-
-    </div>
-
-
-    <div class="collab-project-grid">
-
-
-      <article class="collab-project reveal">
-
-        <div class="collab-project-content">
-
-          <div class="collab-project-label">
-            Creative development
-          </div>
-
-          <h3>
-            A young dance crew creates its first production.
-          </h3>
-
-          <p>
-            A choreographer, videographer and community partner
-            could work with emerging dancers to develop,
-            document and showcase an original performance.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="collab-project reveal">
-
-        <div class="collab-project-content">
-
-          <div class="collab-project-label">
-            Skills & opportunity
-          </div>
-
-          <h3>
-            Young creatives learn how to turn skill into work.
-          </h3>
-
-          <p>
-            Creative professionals could collaborate with CoWiTa
-            to design a practical workshop connecting talent,
-            production skills, professional practice and
-            real-world opportunities.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="collab-project reveal">
-
-        <div class="collab-project-content">
-
-          <div class="collab-project-label">
-            Community
-          </div>
-
-          <h3>
-            A local creative space becomes a place to grow.
-          </h3>
-
-          <p>
-            A community organisation with space could work with
-            CoWiTa to create recurring creative activities for
-            children and young people.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <article class="collab-project reveal">
-
-        <div class="collab-project-content">
-
-          <div class="collab-project-label">
-            Storytelling
-          </div>
-
-          <h3>
-            Young voices tell their own stories.
-          </h3>
-
-          <p>
-            Creatives, media professionals and young participants
-            could collaborate on documentary, photography,
-            writing or digital storytelling projects.
-          </p>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     5. HOW COLLABORATION WORKS
-     ========================================================= -->
-
-<section class="section section-cream">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        A simple process
-      </div>
-
-      <h2>
-        Start with the idea.
-        Build from there.
-      </h2>
-
-      <p>
-        As CoWiTa's collaboration system develops, the process
-        will remain intentionally simple.
-      </p>
-
-    </div>
-
-
-    <div class="collab-process">
-
-
-      <div class="collab-process-step reveal">
-
-        <span>
-          01 — Share
-        </span>
-
-        <h3>
-          Bring the idea.
-        </h3>
-
-        <p>
-          Tell us what you are thinking, who it is for and
-          what you would like to create.
-        </p>
-
-      </div>
-
-
-      <div class="collab-process-step reveal">
-
-        <span>
-          02 — Explore
-        </span>
-
-        <h3>
-          Find the connection.
-        </h3>
-
-        <p>
-          We explore how the idea connects with CoWiTa's
-          purpose, creative work and young people.
-        </p>
-
-      </div>
-
-
-      <div class="collab-process-step reveal">
-
-        <span>
-          03 — Build
-        </span>
-
-        <h3>
-          Shape the project.
-        </h3>
-
-        <p>
-          Define the people, resources, responsibilities,
-          timeline and outcomes needed to make the idea work.
-        </p>
-
-      </div>
-
-
-      <div class="collab-process-step reveal">
-
-        <span>
-          04 — Create
-        </span>
-
-        <h3>
-          Make it happen.
-        </h3>
-
-        <p>
-          Work together to deliver the project, learn from
-          the process and create something meaningful.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     6. PRINCIPLES
-     ========================================================= -->
-
-<section class="section collab-principles">
-
-  <div class="container collab-principles-grid">
-
-    <div class="reveal">
-
-      <div class="section-label light">
-        What makes a good collaboration
-      </div>
-
-      <h2>
-        The project matters.
-        So does the way we build it.
-      </h2>
-
-    </div>
-
-
-    <div class="collab-principles-copy reveal">
-
-      <p>
-        CoWiTa is interested in collaborations that put
-        meaningful participation and development at the centre.
-      </p>
-
-      <p>
-        A strong collaboration should create value for the
-        young people involved, the communities around them
-        and the people bringing their expertise to the project.
-      </p>
-
-
-      <div class="principle-list">
-
-
-        <div class="principle-item">
-
-          <span>
-            01
-          </span>
-
-          <div>
-
-            <strong>
-              Purpose first
-            </strong>
-
-            <p>
-              The project should have a clear reason for existing
-              and a meaningful outcome.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="principle-item">
-
-          <span>
-            02
-          </span>
-
-          <div>
-
-            <strong>
-              Young people at the centre
-            </strong>
-
-            <p>
-              Young participants should be active contributors,
-              not simply an audience for the project.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="principle-item">
-
-          <span>
-            03
-          </span>
-
-          <div>
-
-            <strong>
-              Learn while creating
-            </strong>
-
-            <p>
-              Wherever possible, collaboration should build
-              practical skills alongside the creative output.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="principle-item">
-
-          <span>
-            04
-          </span>
-
-          <div>
-
-            <strong>
-              Shared responsibility
-            </strong>
-
-            <p>
-              Everyone should understand what they are bringing
-              and what they are responsible for.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     7. COMING SOON
-     ========================================================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="collab-coming-soon reveal">
-
-      <div>
-
-        <div class="section-label">
-          Collaboration system
-        </div>
-
-        <h2>
-          A dedicated collaboration portal is coming.
-        </h2>
-
-        <p>
-          Future versions of CoWiTa will make it easier to
-          submit project ideas, discover collaboration
-          opportunities, find creative contributors and track
-          collaborative initiatives.
-        </p>
-
-      </div>
-
-
-      <div class="coming-badge">
-        Coming Soon
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     8. CTA
+     4. FINAL CTA
      ========================================================= -->
 
 <section class="section collab-cta">
@@ -1334,13 +1515,13 @@
     <div>
 
       <h2>
-        Have something worth building together?
+        Not ready to submit an idea?
       </h2>
 
       <p>
-        We are open to conversations around creative projects,
-        learning experiences, community initiatives and ideas
-        that can create meaningful opportunities for young people.
+        You can explore the other ways to get involved or
+        contact CoWiTa directly if you would rather start
+        with a conversation.
       </p>
 
     </div>
@@ -1352,7 +1533,7 @@
         class="btn btn-dark"
         href="/contact/"
       >
-        Start a Conversation
+        Contact CoWiTa
       </a>
 
       <a

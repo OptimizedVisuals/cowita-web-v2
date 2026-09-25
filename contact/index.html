@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Get in touch with CoWiTa. Ask a question, share your talent, explore a collaboration, or start a conversation about youth development and opportunity."
+    content="Contact CoWiTa to ask a question, share your talent, explore learning, mentoring, collaboration, partnership or support."
   >
 
   <link rel="stylesheet" href="/css/styles.css">
@@ -16,225 +16,260 @@
   <style>
     /* =========================================================
        CONTACT PAGE
-       ========================================================= */
+       Action-focused contact page.
+       Page-specific styles only.
+    ========================================================= */
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .contact-hero {
-      padding: 115px 0 95px;
+      min-height: calc(100svh - 80px);
+
+      display: flex;
+      align-items: center;
+
+      padding: 70px 0;
+
       background: var(--deep-teal);
       color: #fff;
+
+      overflow: hidden;
     }
 
     .contact-hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 90px;
-      align-items: end;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    .contact-hero-copy .eyebrow {
+    .contact-hero-copy {
+      max-width: 800px;
+    }
+
+    .contact-hero .eyebrow {
+      margin-bottom: 20px;
       color: var(--gold);
-      margin-bottom: 22px;
     }
 
     .contact-hero h1 {
-      max-width: 850px;
-      margin: 0 0 28px;
+      max-width: 800px;
+
+      margin: 0 0 25px;
+
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(3.2rem, 7vw, 6.5rem);
-      line-height: 0.94;
+      line-height: .94;
       font-weight: 400;
-      letter-spacing: -0.05em;
+      letter-spacing: -.025em;
+
+      color: #fff;
     }
 
-    .contact-hero-copy p {
-      max-width: 680px;
+    .contact-hero-copy > p {
+      max-width: 650px;
+
       margin: 0;
-      color: rgba(255,255,255,0.75);
+
+      color: rgba(255,255,255,.76);
+
       font-size: 1.08rem;
-      line-height: 1.8;
-    }
-
-    .contact-hero-note {
-      padding-left: 28px;
-      border-left: 1px solid rgba(255,255,255,0.28);
-    }
-
-    .contact-hero-note strong {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .contact-hero-note p {
-      margin: 0;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.7;
-    }
-
-
-    /* ---------------------------------------------------------
-       CONTACT INTRO
-       --------------------------------------------------------- */
-
-    .contact-intro {
-      padding: 105px 0 90px;
-    }
-
-    .contact-intro-grid {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .contact-intro h2 {
-      max-width: 750px;
-      margin: 0 0 25px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 4.5vw, 4.3rem);
-      line-height: 1;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
-
-    .contact-intro-copy p {
-      max-width: 700px;
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.04rem;
-      line-height: 1.8;
-    }
-
-
-    /* ---------------------------------------------------------
-       CONTACT OPTIONS
-       --------------------------------------------------------- */
-
-    .contact-options {
-      padding: 95px 0;
-      background: var(--cream);
-    }
-
-    .contact-section-header {
-      max-width: 760px;
-      margin-bottom: 50px;
-    }
-
-    .contact-section-header h2 {
-      margin: 0 0 20px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      line-height: 1;
-      font-weight: 400;
-      letter-spacing: -0.035em;
-    }
-
-    .contact-section-header p {
-      margin: 0;
-      color: var(--muted);
       line-height: 1.75;
     }
 
-    .contact-options-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .contact-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 30px;
     }
 
-    .contact-option {
-      min-height: 285px;
-      padding: 32px;
+    .contact-hero-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+      padding: 12px 23px;
+
+      border-radius: 999px;
+
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .contact-hero-actions .btn-contact {
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: #1b1a16;
+    }
+
+    .contact-hero-actions .btn-contact:hover {
       background: #fff;
-      border: 1px solid var(--line);
-      transition:
-        transform 0.3s var(--ease),
-        box-shadow 0.3s var(--ease);
+      border-color: #fff;
+      color: var(--deep-teal);
     }
 
-    .contact-option:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
+    .contact-hero-actions .btn-explore {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.45);
+      color: #fff;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .contact-option-number {
-      display: block;
-      margin-bottom: 60px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+    .contact-hero-actions .btn-explore:hover {
+      background: rgba(255,255,255,.14);
+      border-color: #fff;
     }
 
-    .contact-option h3 {
-      margin: 0 0 12px;
+
+    /* =========================================================
+       QUICK CONTACT PANEL
+    ========================================================= */
+
+    .contact-hero-panel {
+      padding: 30px;
+
+      background: rgba(255,255,255,.055);
+
+      border: 1px solid rgba(255,255,255,.18);
+
+      border-radius: 20px;
+    }
+
+    .contact-hero-panel .section-label {
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+
+    .contact-hero-panel h2 {
+      margin: 0 0 22px;
+
+      color: #fff;
+
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.85rem;
+      font-size: 2rem;
       line-height: 1.05;
       font-weight: 400;
     }
 
-    .contact-option p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
+    .contact-hero-panel-list {
+      display: grid;
+      gap: 0;
+
+      border-top: 1px solid rgba(255,255,255,.14);
+    }
+
+    .contact-hero-panel-item {
+      padding: 17px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+
+    .contact-hero-panel-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #fff;
+
+      font-size: .8rem;
+    }
+
+    .contact-hero-panel-item span {
+      display: block;
+
+      color: rgba(255,255,255,.58);
+
+      font-size: .75rem;
+      line-height: 1.5;
     }
 
 
-    /* ---------------------------------------------------------
-       CONTACT AREA
-       --------------------------------------------------------- */
+    /* =========================================================
+       CONTACT FORM AREA
+    ========================================================= */
 
     .contact-main {
-      padding: 105px 0;
+      padding: clamp(52px, 5.5vw, 76px) 0;
+
+      background: var(--paper);
     }
 
     .contact-main-grid {
       display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
-      gap: 90px;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 80px;
       align-items: start;
+    }
+
+    .contact-details {
+      position: sticky;
+      top: 110px;
     }
 
     .contact-details h2,
     .contact-form-wrap h2 {
-      margin: 0 0 20px;
+      margin: 0 0 18px;
+
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.3rem, 4vw, 3.8rem);
-      line-height: 1;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: .98;
       font-weight: 400;
-      letter-spacing: -0.035em;
+      letter-spacing: -.015em;
     }
 
     .contact-details > p {
-      margin: 0 0 40px;
+      max-width: 500px;
+
+      margin: 0 0 35px;
+
       color: var(--muted);
+
       line-height: 1.75;
     }
+
+
+    /* =========================================================
+       CONTACT DETAILS
+    ========================================================= */
 
     .contact-detail-list {
       border-top: 1px solid var(--line);
     }
 
     .contact-detail {
-      padding: 23px 0;
+      padding: 20px 0;
+
       border-bottom: 1px solid var(--line);
     }
 
     .contact-detail-label {
       display: block;
-      margin-bottom: 7px;
+
+      margin-bottom: 6px;
+
       color: var(--deep-teal);
-      font-size: 0.73rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
 
     .contact-detail-value {
       color: var(--ink);
+
+      font-size: .9rem;
       line-height: 1.6;
     }
 
@@ -244,20 +279,26 @@
     }
 
 
-    /* ---------------------------------------------------------
+    /* =========================================================
        FORM
-       --------------------------------------------------------- */
+    ========================================================= */
 
     .contact-form-wrap {
       padding: 42px;
-      background: var(--cream);
+
+      background: #fff;
+
       border: 1px solid var(--line);
+      border-radius: 24px;
     }
 
     .contact-form-wrap > p {
-      max-width: 620px;
-      margin: 0 0 35px;
+      max-width: 650px;
+
+      margin: 0 0 32px;
+
       color: var(--muted);
+
       line-height: 1.7;
     }
 
@@ -279,192 +320,480 @@
 
     .contact-field label {
       color: var(--deep-teal);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     .contact-field input,
     .contact-field select,
     .contact-field textarea {
       width: 100%;
-      padding: 15px 16px;
-      border: 1px solid var(--line);
-      border-radius: 0;
+
+      padding: 14px 15px;
+
       background: #fff;
+
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
       color: var(--ink);
+
       font: inherit;
+      font-size: .88rem;
+
       outline: none;
+
       transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        border-color .2s ease,
+        box-shadow .2s ease;
     }
 
     .contact-field input:focus,
     .contact-field select:focus,
     .contact-field textarea:focus {
       border-color: var(--deep-teal);
-      box-shadow: 0 0 0 3px rgba(8, 37, 37, 0.07);
+
+      box-shadow:
+        0 0 0 3px rgba(8,37,37,.07);
     }
 
     .contact-field textarea {
-      min-height: 170px;
+      min-height: 180px;
       resize: vertical;
     }
 
     .contact-form-note {
-      margin: -3px 0 3px;
+      margin: -2px 0 0;
+
       color: var(--muted);
-      font-size: 0.85rem;
+
+      font-size: .72rem;
       line-height: 1.55;
     }
 
+    .contact-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
 
-    /* ---------------------------------------------------------
-       STARTING POINTS
-       --------------------------------------------------------- */
-
-    .contact-start {
-      padding: 100px 0;
-      background: var(--paper);
+      padding-top: 8px;
     }
 
-    .contact-start-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    .contact-form-actions .btn {
+      min-height: 46px;
     }
 
-    .contact-start-card {
-      padding: 42px;
-      border: 1px solid var(--line);
-      background: #fff;
+
+    /* =========================================================
+       ACTION PATHS
+    ========================================================= */
+
+    .contact-paths {
+      padding-block: clamp(52px, 5.5vw, 76px);
+
+      background: var(--cream);
     }
 
-    .contact-start-card .section-label {
-      margin-bottom: 25px;
+    .contact-section-header {
+      max-width: 720px;
+
+      margin-bottom: 38px;
     }
 
-    .contact-start-card h3 {
-      margin: 0 0 14px;
+    .contact-section-header h2 {
+      margin: 7px 0 16px;
+
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.1rem;
-      line-height: 1.05;
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      line-height: .98;
       font-weight: 400;
+      letter-spacing: -.015em;
     }
 
-    .contact-start-card p {
-      margin: 0 0 24px;
+    .contact-section-header p {
+      margin: 0;
+
       color: var(--muted);
+
       line-height: 1.7;
     }
 
+    .contact-path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
 
-    /* ---------------------------------------------------------
-       RESPONSE NOTE
-       --------------------------------------------------------- */
+    .contact-path {
+      display: flex;
+      flex-direction: column;
 
-    .contact-response {
-      padding: 100px 0;
+      min-height: 220px;
+
+      padding: 28px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+
+      text-decoration: none;
+      color: var(--ink);
+
+      transition:
+        transform .25s var(--ease),
+        box-shadow .25s var(--ease),
+        border-color .25s var(--ease);
+    }
+
+    .contact-path:hover {
+      transform: translateY(-4px);
+
+      border-color: rgba(13,75,75,.28);
+
+      box-shadow: var(--shadow);
+    }
+
+    .contact-path-number {
+      display: block;
+
+      margin-bottom: auto;
+
+      color: var(--muted);
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .contact-path h3 {
+      margin: 35px 0 10px;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .contact-path p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    .contact-path-arrow {
+      display: block;
+
+      margin-top: 22px;
+
+      color: var(--deep-teal);
+
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       WHAT HAPPENS NEXT
+    ========================================================= */
+
+    .contact-next {
+      padding-block: clamp(52px, 5.5vw, 76px);
+
+      background: var(--deep-teal);
+
+      color: #fff;
+    }
+
+    .contact-next-header {
+      max-width: 650px;
+
+      margin-bottom: 42px;
+    }
+
+    .contact-next-header .section-label {
+      color: var(--gold);
+    }
+
+    .contact-next-header h2 {
+      margin: 7px 0 0;
+
+      color: #fff;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      line-height: .98;
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+
+    .contact-next-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .contact-next-step {
+      padding: 25px 22px;
+
+      background: rgba(255,255,255,.055);
+
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .contact-next-step-number {
+      display: block;
+
+      margin-bottom: 35px;
+
+      color: var(--gold);
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .contact-next-step h3 {
+      margin: 0 0 9px;
+
+      color: #fff;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .contact-next-step p {
+      margin: 0;
+
+      color: rgba(255,255,255,.62);
+
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       FINAL ACTIONS
+    ========================================================= */
+
+    .contact-final {
+      padding-block: clamp(52px, 5.5vw, 76px);
+
       background: var(--gold);
     }
 
-    .contact-response-inner {
-      max-width: 900px;
+    .contact-final-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
     }
 
-    .contact-response h2 {
-      margin: 0 0 22px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.5rem, 5vw, 4.7rem);
-      line-height: 0.98;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
+    .contact-final h2 {
+      max-width: 800px;
 
-    .contact-response p {
-      max-width: 700px;
       margin: 0;
-      color: rgba(20, 38, 38, 0.72);
-      font-size: 1.04rem;
-      line-height: 1.8;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: .97;
+      font-weight: 400;
+      letter-spacing: -.035em;
+    }
+
+    .contact-final-copy {
+      max-width: 360px;
+    }
+
+    .contact-final-copy p {
+      margin: 0 0 20px;
+
+      color: rgba(27,26,22,.7);
+
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+    .contact-final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-final-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+      padding: 11px 21px;
+
+      border-radius: 999px;
+
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .contact-final-actions .btn-primary {
+      background: #1b1a16;
+      border: 1px solid #1b1a16;
+      color: var(--gold);
+    }
+
+    .contact-final-actions .btn-primary:hover {
+      background: var(--deep-teal);
+      border-color: var(--deep-teal);
+      color: #fff;
+    }
+
+    .contact-final-actions .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(27,26,22,.45);
+      color: #1b1a16;
+    }
+
+    .contact-final-actions .btn-outline:hover {
+      background: rgba(27,26,22,.08);
+      border-color: #1b1a16;
     }
 
 
-    /* ---------------------------------------------------------
+    /* =========================================================
        RESPONSIVE
-       --------------------------------------------------------- */
+    ========================================================= */
 
     @media (max-width: 1000px) {
+
+      .contact-hero {
+        min-height: auto;
+      }
+
       .contact-hero-grid,
-      .contact-intro-grid,
       .contact-main-grid {
         grid-template-columns: 1fr;
         gap: 50px;
       }
 
-      .contact-options-grid {
+      .contact-details {
+        position: static;
+      }
+
+      .contact-path-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-next-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-final-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
     }
 
+
     @media (max-width: 700px) {
+
       .contact-hero {
-        padding: 85px 0 70px;
+        padding: 75px 0 65px;
       }
 
-      .contact-intro,
-      .contact-options,
+      .contact-hero h1 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+      }
+
+      .contact-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-hero-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+
       .contact-main,
-      .contact-start,
-      .contact-response {
-        padding: 75px 0;
+      .contact-paths,
+      .contact-next,
+      .contact-final {
+        padding-block: 52px;
       }
 
-      .contact-options-grid,
-      .contact-start-grid,
       .contact-form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contact-form-wrap {
+        padding: 27px 20px;
+      }
+
+      .contact-path-grid,
+      .contact-next-grid {
         grid-template-columns: 1fr;
       }
 
-      .contact-option {
-        min-height: auto;
+      .contact-path {
+        min-height: 200px;
       }
 
-      .contact-option-number {
-        margin-bottom: 35px;
+      .contact-final h2 {
+        font-size: 3rem;
       }
 
-      .contact-form-wrap,
-      .contact-start-card {
-        padding: 28px;
+      .contact-final-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-final-actions .btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
 
   <!-- =========================================================
        HEADER
-       ========================================================= -->
+  ========================================================== -->
 
-<div id="site-header"></div>
+  <div id="site-header"></div>
 
 
   <main id="main-content">
 
+
     <!-- =======================================================
-         HERO
-         ======================================================= -->
+         1. HERO
+    ======================================================== -->
 
     <section class="contact-hero">
 
       <div class="container">
 
         <div class="contact-hero-grid">
+
 
           <div class="contact-hero-copy">
 
@@ -473,73 +802,71 @@
             </div>
 
             <h1>
-              Start a conversation.
+              Let’s talk.
             </h1>
 
             <p>
-              Whether you have a talent you want to develop, an idea you want
-              to explore, or a way you want to contribute, we would like to
-              hear from you.
+              Have a question, idea, opportunity or reason to connect?
+              Send us a message and tell us what you need.
             </p>
 
-          </div>
+            <div class="contact-hero-actions">
 
+              <a
+                href="#contact-form"
+                class="btn btn-contact"
+              >
+                Send a Message
+              </a>
 
-          <div class="contact-hero-note">
+              <a
+                href="#starting-points"
+                class="btn btn-explore"
+              >
+                Find Your Starting Point
+              </a>
 
-            <strong>
-              There is no wrong starting point.
-            </strong>
-
-            <p>
-              You do not need to know exactly what you need before reaching
-              out. Tell us where you are, what you are interested in, and what
-              you are hoping to do next.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         INTRO
-         ======================================================= -->
-
-    <section class="contact-intro">
-
-      <div class="container">
-
-        <div class="contact-intro-grid">
-
-          <div>
-            <div class="section-label">
-              LET'S CONNECT
             </div>
+
           </div>
 
-          <div class="contact-intro-copy">
+
+          <div class="contact-hero-panel">
+
+            <div class="section-label">
+              YOU CAN CONTACT US ABOUT
+            </div>
 
             <h2>
-              Good work often begins with a simple conversation.
+              Whatever brings you here.
             </h2>
 
-            <p>
-              CoWiTa brings together young people, mentors, creatives,
-              educators, organisations, partners and communities around one
-              shared idea: potential should have somewhere to go.
-            </p>
+            <div class="contact-hero-panel-list">
 
-            <p>
-              If you are wondering whether CoWiTa is the right place for your
-              idea, talent or organisation, reach out. We can start there.
-            </p>
+              <div class="contact-hero-panel-item">
+                <strong>Talent &amp; Learning</strong>
+                <span>Share your talent or ask about learning opportunities.</span>
+              </div>
+
+              <div class="contact-hero-panel-item">
+                <strong>Mentorship</strong>
+                <span>Ask about mentoring or becoming a mentor.</span>
+              </div>
+
+              <div class="contact-hero-panel-item">
+                <strong>Collaboration</strong>
+                <span>Bring an idea, project or creative initiative.</span>
+              </div>
+
+              <div class="contact-hero-panel-item">
+                <strong>Partnership &amp; Support</strong>
+                <span>Explore ways your organisation can work with CoWiTa.</span>
+              </div>
+
+            </div>
 
           </div>
+
 
         </div>
 
@@ -549,227 +876,34 @@
 
 
     <!-- =======================================================
-         CONTACT OPTIONS
-         ======================================================= -->
+         2. CONTACT FORM
+    ======================================================== -->
 
-    <section class="contact-options">
-
-      <div class="container">
-
-        <div class="contact-section-header">
-
-          <div class="section-label">
-            WHAT BRINGS YOU HERE?
-          </div>
-
-          <h2>
-            Choose your starting point.
-          </h2>
-
-          <p>
-            You can contact us directly, or take the route that best describes
-            what you want to do with CoWiTa.
-          </p>
-
-        </div>
-
-
-        <div class="contact-options-grid">
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              01
-            </span>
-
-            <h3>
-              I Have Talent
-            </h3>
-
-            <p>
-              You have something you are good at, passionate about, or want to
-              develop further.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="/get-involved/have-talent.html"
-            >
-              Tell us about it <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              02
-            </span>
-
-            <h3>
-              I Want to Learn
-            </h3>
-
-            <p>
-              You want to build a creative or practical skill and are looking
-              for a place to begin.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="/get-involved/want-to-learn.html"
-            >
-              Explore learning <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              03
-            </span>
-
-            <h3>
-              I Want to Mentor
-            </h3>
-
-            <p>
-              You have experience, knowledge or perspective that you would like
-              to share with a young person.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="/get-involved/mentor.html"
-            >
-              Explore mentoring <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              04
-            </span>
-
-            <h3>
-              I Want to Collaborate
-            </h3>
-
-            <p>
-              You have an idea for a project, workshop, production, event or
-              creative experience.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="/get-involved/collaborate.html"
-            >
-              Explore collaboration <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              05
-            </span>
-
-            <h3>
-              I Want to Partner
-            </h3>
-
-            <p>
-              You represent an organisation, institution or business interested
-              in building something longer-term with CoWiTa.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="/get-involved/partner.html"
-            >
-              Explore partnership <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="contact-option">
-
-            <span class="contact-option-number">
-              06
-            </span>
-
-            <h3>
-              Something Else
-            </h3>
-
-            <p>
-              Have a question, suggestion, introduction or idea that does not
-              fit the options above? Start a conversation anyway.
-            </p>
-
-            <br>
-
-            <a
-              class="opportunity-link"
-              href="#contact-form"
-            >
-              Send a message <span>→</span>
-            </a>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CONTACT DETAILS + FORM
-         ======================================================= -->
-
-    <section class="contact-main" id="contact-form">
+    <section
+      class="contact-main"
+      id="contact-form"
+    >
 
       <div class="container">
 
         <div class="contact-main-grid">
+
 
           <!-- CONTACT DETAILS -->
 
           <div class="contact-details">
 
             <div class="section-label">
-              REACH US
+              GET IN TOUCH
             </div>
 
             <h2>
-              Talk to CoWiTa.
+              Send us what you have.
             </h2>
 
             <p>
-              For general enquiries, collaboration ideas, partnership
-              conversations or questions about getting involved, use the
-              contact details below or send us a message.
+              Give us enough information to understand your enquiry.
+              It does not need to be a perfect message.
             </p>
 
 
@@ -821,7 +955,7 @@
                 </span>
 
                 <div class="contact-detail-value placeholder">
-                  CoWiTa social channels coming soon
+                  Social channels coming soon
                 </div>
 
               </div>
@@ -840,23 +974,30 @@
             </div>
 
             <h2>
-              What would you like to talk about?
+              What can we help with?
             </h2>
 
             <p>
-              Give us enough context to understand what you are reaching out
-              about. You do not need to write a perfect message.
+              Choose the option that best describes your reason for
+              getting in touch, then tell us a little more.
             </p>
 
 
-            <form class="contact-form">
+            <form
+              class="contact-form"
+              action="#"
+              method="post"
+            >
+
+
+              <!-- PERSONAL DETAILS -->
 
               <div class="contact-form-row">
 
                 <div class="contact-field">
 
                   <label for="name">
-                    Your name
+                    Full name *
                   </label>
 
                   <input
@@ -874,7 +1015,7 @@
                 <div class="contact-field">
 
                   <label for="email">
-                    Email address
+                    Email address *
                   </label>
 
                   <input
@@ -913,10 +1054,14 @@
                 <div class="contact-field">
 
                   <label for="interest">
-                    I am reaching out about
+                    I am contacting you about *
                   </label>
 
-                  <select id="interest" name="interest" required>
+                  <select
+                    id="interest"
+                    name="interest"
+                    required
+                  >
 
                     <option value="">
                       Select one
@@ -942,12 +1087,8 @@
                       Partnership
                     </option>
 
-                    <option value="opportunity">
-                      Finding an Opportunity
-                    </option>
-
-                    <option value="support">
-                      Supporting CoWiTa
+                    <option value="financial-support">
+                      Financial Support
                     </option>
 
                     <option value="general">
@@ -961,10 +1102,12 @@
               </div>
 
 
+              <!-- MESSAGE -->
+
               <div class="contact-field">
 
                 <label for="subject">
-                  Subject
+                  Subject *
                 </label>
 
                 <input
@@ -981,13 +1124,13 @@
               <div class="contact-field">
 
                 <label for="message">
-                  Your message
+                  Message *
                 </label>
 
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Tell us a little about what you have in mind..."
+                  placeholder="Tell us what you have in mind..."
                   required
                 ></textarea>
 
@@ -995,22 +1138,30 @@
 
 
               <p class="contact-form-note">
-                This form is currently a front-end placeholder. Connect it to
-                CoWiTa's chosen email or form service before publishing it as a
-                live submission form.
+                This form is currently prepared for future connection
+                to CoWiTa's chosen email or form service. Submitting it
+                does not currently send or store a message.
               </p>
 
 
-              <div>
+              <div class="contact-form-actions">
 
                 <button
                   class="btn btn-dark"
                   type="submit"
                 >
-                  Send message
+                  Send Message
                 </button>
 
+                <a
+                  class="btn btn-outline"
+                  href="/"
+                >
+                  Back to CoWiTa
+                </a>
+
               </div>
+
 
             </form>
 
@@ -1024,63 +1175,180 @@
 
 
     <!-- =======================================================
-         OTHER STARTING POINTS
-         ======================================================= -->
+         3. STARTING POINTS
+    ======================================================== -->
 
-    <section class="contact-start">
+    <section
+      class="contact-paths"
+      id="starting-points"
+    >
 
       <div class="container">
 
-        <div class="contact-start-grid">
+        <div class="contact-section-header">
 
-          <article class="contact-start-card">
+          <div class="section-label">
+            OTHER WAYS TO START
+          </div>
 
-            <div class="section-label">
-              LOOKING FOR OPPORTUNITY?
-            </div>
+          <h2>
+            Go directly where you need to go.
+          </h2>
+
+          <p>
+            If you already know what you are looking for, use the
+            relevant CoWiTa pathway instead of sending a general enquiry.
+          </p>
+
+        </div>
+
+
+        <div class="contact-path-grid">
+
+
+          <a
+            href="/get-involved/have-talent.html"
+            class="contact-path"
+          >
+
+            <span class="contact-path-number">
+              01
+            </span>
 
             <h3>
-              Find your next step.
+              I Have Talent
             </h3>
 
             <p>
-              Explore the opportunities currently available through CoWiTa and
-              see what is being built for the future.
+              Share what you can do and what you want to develop.
             </p>
 
-            <a
-              class="btn btn-dark"
-              href="/opportunities/"
-            >
-              Find Opportunity
-            </a>
+            <span class="contact-path-arrow">
+              Share your talent →
+            </span>
 
-          </article>
+          </a>
 
 
-          <article class="contact-start-card">
+          <a
+            href="/get-involved/want-to-learn.html"
+            class="contact-path"
+          >
 
-            <div class="section-label">
-              WANT TO SUPPORT?
-            </div>
+            <span class="contact-path-number">
+              02
+            </span>
 
             <h3>
-              Help create more possibilities.
+              I Want to Learn
             </h3>
 
             <p>
-              Support CoWiTa through resources, expertise, partnerships or
-              financial contribution.
+              Tell us what you want to learn and where you want to grow.
             </p>
 
-            <a
-              class="btn btn-dark"
-              href="/support/"
-            >
-              Support CoWiTa
-            </a>
+            <span class="contact-path-arrow">
+              Start learning →
+            </span>
 
-          </article>
+          </a>
+
+
+          <a
+            href="/get-involved/mentor.html"
+            class="contact-path"
+          >
+
+            <span class="contact-path-number">
+              03
+            </span>
+
+            <h3>
+              I Want to Mentor
+            </h3>
+
+            <p>
+              Share your experience and explore mentoring young people.
+            </p>
+
+            <span class="contact-path-arrow">
+              Explore mentoring →
+            </span>
+
+          </a>
+
+
+          <a
+            href="/get-involved/collaborate.html"
+            class="contact-path"
+          >
+
+            <span class="contact-path-number">
+              04
+            </span>
+
+            <h3>
+              I Want to Collaborate
+            </h3>
+
+            <p>
+              Bring an idea, project, workshop, event or creative initiative.
+            </p>
+
+            <span class="contact-path-arrow">
+              Start collaborating →
+            </span>
+
+          </a>
+
+
+          <a
+            href="/get-involved/partner.html"
+            class="contact-path"
+          >
+
+            <span class="contact-path-number">
+              05
+            </span>
+
+            <h3>
+              I Want to Partner
+            </h3>
+
+            <p>
+              Explore a broader relationship between your organisation and CoWiTa.
+            </p>
+
+            <span class="contact-path-arrow">
+              Start a partnership →
+            </span>
+
+          </a>
+
+
+          <a
+            href="/support/financial.html"
+            class="contact-path"
+          >
+
+            <span class="contact-path-number">
+              06
+            </span>
+
+            <h3>
+              I Want to Support
+            </h3>
+
+            <p>
+              Explore financial and other ways to contribute to the work.
+            </p>
+
+            <span class="contact-path-arrow">
+              Support CoWiTa →
+            </span>
+
+          </a>
+
 
         </div>
 
@@ -1090,28 +1358,98 @@
 
 
     <!-- =======================================================
-         CLOSING
-         ======================================================= -->
+         4. WHAT HAPPENS NEXT
+    ======================================================== -->
 
-    <section class="contact-response">
+    <section class="contact-next">
 
       <div class="container">
 
-        <div class="contact-response-inner">
+        <div class="contact-next-header">
 
           <div class="section-label">
-            ONE CONVERSATION CAN OPEN A DOOR
+            WHAT HAPPENS NEXT
           </div>
 
           <h2>
-            Tell us where you are. We can explore where you could go next.
+            Once you reach out, we take it from there.
           </h2>
 
-          <p>
-            CoWiTa is still growing, and not every pathway is available yet.
-            But every programme, relationship and opportunity starts with
-            people willing to begin the conversation.
-          </p>
+        </div>
+
+
+        <div class="contact-next-grid">
+
+
+          <article class="contact-next-step">
+
+            <span class="contact-next-step-number">
+              01
+            </span>
+
+            <h3>
+              You send
+            </h3>
+
+            <p>
+              Tell us who you are, what you need and what you are hoping to do.
+            </p>
+
+          </article>
+
+
+          <article class="contact-next-step">
+
+            <span class="contact-next-step-number">
+              02
+            </span>
+
+            <h3>
+              We review
+            </h3>
+
+            <p>
+              We look at your enquiry and identify the most relevant next step.
+            </p>
+
+          </article>
+
+
+          <article class="contact-next-step">
+
+            <span class="contact-next-step-number">
+              03
+            </span>
+
+            <h3>
+              We connect
+            </h3>
+
+            <p>
+              Where appropriate, we continue the conversation or connect you
+              with the relevant pathway.
+            </p>
+
+          </article>
+
+
+          <article class="contact-next-step">
+
+            <span class="contact-next-step-number">
+              04
+            </span>
+
+            <h3>
+              Next step
+            </h3>
+
+            <p>
+              We work out what can happen next based on your enquiry and what
+              is currently available.
+            </p>
+
+          </article>
+
 
         </div>
 
@@ -1119,14 +1457,64 @@
 
     </section>
 
+
+    <!-- =======================================================
+         5. FINAL ACTION
+    ======================================================== -->
+
+    <section class="contact-final">
+
+      <div class="container">
+
+        <div class="contact-final-grid">
+
+          <h2>
+            Ready to get in touch?
+          </h2>
+
+
+          <div class="contact-final-copy">
+
+            <p>
+              Send your message or go directly to the CoWiTa pathway
+              that matches what you want to do.
+            </p>
+
+            <div class="contact-final-actions">
+
+              <a
+                href="#contact-form"
+                class="btn btn-primary"
+              >
+                Send a Message
+              </a>
+
+              <a
+                href="/get-involved/"
+                class="btn btn-outline"
+              >
+                Get Involved
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
   </main>
 
 
   <!-- =========================================================
        FOOTER
-       ========================================================= -->
+  ========================================================== -->
 
-<div id="site-footer"></div>
+  <div id="site-footer"></div>
 
 
   <script src="/js/main.js" defer></script>

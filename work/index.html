@@ -66,25 +66,6 @@
 
         </div>
 
-        <div class="work-hero-visual">
-
-            <div class="hero-image-frame">
-                <img
-                    src="/assets/images/work-youth-creative-session.jpg"
-                    alt="Young people participating in a creative learning session"
-                >
-            </div>
-
-            <div class="work-hero-note">
-                <span class="note-number">01</span>
-                <div>
-                    <strong>Discover.</strong>
-                    <p>Develop. Create. Connect. Grow.</p>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 </section>
 
@@ -654,30 +635,41 @@
     --------------------------------------------------------- */
 
     .work-hero {
-        padding: 7rem 0 6rem;
-        background: var(--cream, #f4f0e7);
+        position: relative;
+        min-height: calc(100vh - var(--header-height));
+        display: flex;
+        align-items: center;
+        padding: 6rem 0;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(8, 40, 39, .94) 0%,
+                rgba(8, 40, 39, .78) 48%,
+                rgba(8, 40, 39, .34) 100%
+            ),
+            url("/assets/images/work-youth-creative-session.jpg")
+            center / cover no-repeat;
+        color: #fff;
         overflow: hidden;
     }
 
     .work-hero-grid {
-        display: grid;
-        grid-template-columns: 1.05fr .95fr;
-        gap: 5rem;
-        align-items: center;
+        position: relative;
+        z-index: 1;
     }
 
     .work-hero-copy {
         max-width: 720px;
     }
 
-    .work-hero h1 {
+    .work-hero.work-hero h1 {
         margin: 1rem 0 1.5rem;
         font-family: "Lora", Georgia, serif;
-        font-size: clamp(3.2rem, 6vw, 6.3rem);
-        line-height: .98;
+        font-size: clamp(3rem, 4.8vw, 5.5rem) !important;
+        line-height: 1.02;
         font-weight: 500;
-        letter-spacing: -0.055em;
-        color: var(--dark, #123c3a);
+        letter-spacing: -0.015em;
+        color: #fff;
     }
 
     .work-hero h1 span {
@@ -690,7 +682,7 @@
         margin: 0;
         font-size: 1.18rem;
         line-height: 1.8;
-        color: var(--muted, #5d6967);
+        color: rgba(255,255,255,.82);
     }
 
     .hero-actions {
@@ -702,63 +694,15 @@
 
     .btn-outline {
         border: 1px solid rgba(18, 60, 58, .35);
-        color: var(--dark, #123c3a);
+        color: #fff;
         background: transparent;
+        border-color: rgba(255,255,255,.5);
     }
 
     .btn-outline:hover {
-        background: var(--dark, #123c3a);
-        color: white;
+        background: #fff;
+        color: var(--dark, #123c3a);
     }
-
-    .work-hero-visual {
-        position: relative;
-    }
-
-    .hero-image-frame {
-        height: 590px;
-        overflow: hidden;
-        border-radius: 48% 48% 8px 8px;
-        background: #d8d1c4;
-    }
-
-    .hero-image-frame img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-    }
-
-    .work-hero-note {
-        position: absolute;
-        left: -2rem;
-        bottom: 2rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        max-width: 280px;
-        padding: 1.25rem 1.5rem;
-        background: var(--gold, #b98b3d);
-        color: white;
-        box-shadow: 0 20px 45px rgba(0,0,0,.16);
-    }
-
-    .note-number {
-        font-family: "Lora", Georgia, serif;
-        font-size: 2rem;
-    }
-
-    .work-hero-note strong {
-        display: block;
-        font-size: .9rem;
-    }
-
-    .work-hero-note p {
-        margin: .15rem 0 0;
-        font-size: .8rem;
-        opacity: .88;
-    }
-
 
     /* ---------------------------------------------------------
        INTRO
@@ -1288,6 +1232,19 @@
 
     .beyond-content .btn {
         margin-top: 1rem;
+        border-radius: 999px;
+        padding-inline: 1.35rem;
+        font-weight: 700;
+        background: var(--deep-teal);
+        color: #fff;
+        border-color: var(--deep-teal);
+        box-shadow: 0 10px 25px rgba(8, 59, 59, .18);
+    }
+
+    .beyond-content .btn:hover {
+        background: var(--deep-teal-2);
+        border-color: var(--deep-teal-2);
+        color: #fff;
     }
 
 
@@ -1425,10 +1382,6 @@
             padding-top: 5rem;
         }
 
-        .work-hero-visual {
-            max-width: 650px;
-        }
-
         .pathways-grid {
             grid-template-columns: 1fr;
         }
@@ -1514,15 +1467,6 @@
 
         .work-hero h1 {
             font-size: clamp(2.8rem, 14vw, 4.2rem);
-        }
-
-        .hero-image-frame {
-            height: 430px;
-        }
-
-        .work-hero-note {
-            left: 1rem;
-            bottom: 1rem;
         }
 
         .discipline-cards {

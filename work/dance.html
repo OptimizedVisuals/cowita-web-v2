@@ -46,10 +46,12 @@
       z-index: 1;
     }
 
-    .dance-hero-image {
+    .dance-hero.dance-hero .dance-hero-image {
       position: absolute;
       inset: 0;
+      height: 100%;
       z-index: 0;
+      max-height: none !important;
     }
 
     .dance-hero-image img {
@@ -111,6 +113,20 @@
 
     .dance-hero-actions .btn-primary:hover {
       background: #f0bb38;
+    }
+
+    .dance-hero-actions .btn-outline {
+      border-color: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .dance-hero-actions .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,.2);
+      color: #fff;
     }
 
     .dance-hero-side {
@@ -687,7 +703,7 @@
     <div class="dance-hero-content reveal">
 
       <div class="eyebrow">
-        Our Work · Dance
+        Pulse Program · Dance
       </div>
 
       <h1>
@@ -707,7 +723,7 @@
           class="btn btn-primary"
           href="/get-involved/have-talent.html"
         >
-          I Have Talent
+          I Can Dance
         </a>
 
         <a

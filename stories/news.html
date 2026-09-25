@@ -200,6 +200,12 @@
             padding-top: 70px;
         }
 
+        @media (max-width: 650px) {
+            .featured-news {
+                padding-top: 52px;
+            }
+        }
+
         .featured-news-card {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -278,7 +284,7 @@
         ========================================================= */
 
         .news-categories {
-            padding-top: 100px;
+            padding-top: clamp(52px, 5.5vw, 76px);
         }
 
         .news-category-grid {
@@ -332,7 +338,7 @@
         ========================================================= */
 
         .updates-section {
-            padding-top: 110px;
+            padding-top: clamp(52px, 5.5vw, 76px);
         }
 
         .updates-header {
@@ -436,7 +442,7 @@
         ========================================================= */
 
         .news-coming-soon {
-            padding-top: 110px;
+            padding-top: clamp(52px, 5.5vw, 76px);
         }
 
         .coming-soon-panel {
@@ -501,8 +507,7 @@
         ========================================================= */
 
         .news-cta {
-            padding-top: 110px;
-            padding-bottom: 120px;
+            padding-block: clamp(52px, 5.5vw, 76px);
         }
 
         .news-cta-inner {

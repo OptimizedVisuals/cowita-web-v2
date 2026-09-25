@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>I Have Talent | CoWiTa</title>
+
   <meta
     name="description"
-    content="Have a talent you want to develop? CoWiTa helps young people turn creative ability into skills, confidence, opportunity and purpose."
+    content="Have a talent you want to develop? Tell CoWiTa what you do, what you want to learn and where you want your talent to take you."
   >
 
   <link rel="stylesheet" href="/css/styles.css">
@@ -21,11 +22,16 @@
     .talent-hero {
       position: relative;
       overflow: hidden;
-      min-height: 78vh;
+      min-height: 72vh;
       display: flex;
       align-items: center;
       background:
-        linear-gradient(105deg, rgba(8, 48, 47, 0.97) 0%, rgba(8, 48, 47, 0.90) 48%, rgba(8, 48, 47, 0.52) 100%),
+        linear-gradient(
+          105deg,
+          rgba(8, 48, 47, 0.97) 0%,
+          rgba(8, 48, 47, 0.90) 48%,
+          rgba(8, 48, 47, 0.48) 100%
+        ),
         url("/assets/images/cowita-have-talent-hero.jpg") center / cover no-repeat;
       color: var(--cream);
     }
@@ -61,7 +67,7 @@
 
     .talent-hero-content {
       max-width: 760px;
-      padding: 110px 0 100px;
+      padding: 110px 0 95px;
     }
 
     .talent-hero .eyebrow {
@@ -74,7 +80,7 @@
       margin: 0 0 26px;
       font-size: clamp(3rem, 7vw, 6.5rem);
       line-height: 0.94;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.015em;
       color: var(--cream);
     }
 
@@ -109,252 +115,395 @@
       backdrop-filter: blur(8px);
     }
 
-    .talent-intro {
-      padding: 100px 0;
+
+    /* =========================================================
+       TALENT CHOICES
+       ========================================================= */
+
+    .talent-choice-section {
+      padding: clamp(52px, 5.5vw, 76px) 0;
+      background: var(--cream);
     }
 
-    .talent-intro-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 80px;
-      align-items: start;
+    .talent-choice-header {
+      max-width: 760px;
+      margin-bottom: 46px;
     }
 
-    .talent-intro h2 {
-      max-width: 600px;
-      margin: 0;
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+    .talent-choice-header h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.015em;
       color: var(--deep-teal);
     }
 
-    .talent-intro-copy {
+    .talent-choice-header p {
+      margin: 0;
       max-width: 680px;
-    }
-
-    .talent-intro-copy p {
-      margin: 0 0 22px;
       color: var(--muted);
+      line-height: 1.8;
       font-size: 1.05rem;
-      line-height: 1.85;
     }
 
-    .talent-intro-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .discipline-section {
-      padding: 105px 0;
-      background: var(--paper);
-    }
-
-    .discipline-grid {
+    .talent-choice-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-top: 48px;
+      gap: 14px;
     }
 
-    .discipline-card {
+    .talent-choice {
       position: relative;
-      min-height: 250px;
-      padding: 28px 24px;
+      min-height: 145px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      border-radius: 4px;
-      background: var(--deep-teal);
-      color: var(--cream);
-      text-decoration: none;
+      align-items: flex-end;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      cursor: pointer;
       transition:
-        transform 0.35s var(--ease),
-        box-shadow 0.35s var(--ease);
+        transform 0.3s var(--ease),
+        border-color 0.3s var(--ease),
+        background 0.3s var(--ease),
+        box-shadow 0.3s var(--ease);
     }
 
-    .discipline-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to top,
-          rgba(4, 26, 25, 0.94),
-          rgba(4, 26, 25, 0.18)
-        ),
-        var(--discipline-image) center / cover no-repeat;
-      transition: transform 0.5s var(--ease);
-    }
-
-    .discipline-card:hover {
-      transform: translateY(-7px);
+    .talent-choice:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
-    .discipline-card:hover::before {
-      transform: scale(1.06);
-    }
-
-    .discipline-card > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .discipline-number {
+    .talent-choice input {
       position: absolute;
-      top: 20px;
-      left: 22px;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .talent-choice-content {
+      display: block;
+      width: 100%;
+    }
+
+    .talent-choice-number {
+      display: block;
+      margin-bottom: 24px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       color: var(--gold);
     }
 
-    .discipline-card h3 {
-      margin: 0 0 7px;
-      font-size: 1.45rem;
+    .talent-choice strong {
+      display: block;
+      color: var(--deep-teal);
+      font-size: 1.2rem;
+    }
+
+    .talent-choice:has(input:checked) {
+      background: var(--deep-teal);
+      border-color: var(--deep-teal);
+      box-shadow: var(--shadow);
+    }
+
+    .talent-choice:has(input:checked) .talent-choice-number {
+      color: var(--gold);
+    }
+
+    .talent-choice:has(input:checked) strong {
       color: var(--cream);
     }
 
-    .discipline-card p {
-      margin: 0;
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: rgba(255, 248, 235, 0.72);
+
+    /* =========================================================
+       TALENT FORM
+       ========================================================= */
+
+    .talent-form-section {
+      padding: clamp(52px, 5.5vw, 76px) 0;
+      background: var(--paper);
     }
 
-    .journey-section {
-      padding: 110px 0;
-      background: var(--cream);
+    .talent-form-header {
+      max-width: 760px;
+      margin-bottom: 55px;
     }
 
-    .journey-header {
-      max-width: 720px;
-      margin-bottom: 60px;
-    }
-
-    .journey-header h2 {
+    .talent-form-header h2 {
       margin: 0 0 18px;
-      font-size: clamp(2.3rem, 4.5vw, 4.4rem);
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
       line-height: 1;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.015em;
       color: var(--deep-teal);
     }
 
-    .journey-header p {
+    .talent-form-header p {
       margin: 0;
       color: var(--muted);
       line-height: 1.8;
-      font-size: 1.04rem;
+      font-size: 1.05rem;
     }
 
-    .journey-steps {
+    .talent-form {
+      max-width: 1000px;
+      padding: 46px;
+      border: 1px solid var(--line);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+
+    .talent-form-section-title {
+      margin: 0 0 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--deep-teal);
+      font-size: 1.35rem;
+    }
+
+    .talent-form-group {
+      margin-bottom: 42px;
+    }
+
+    .talent-form-group:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .talent-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .talent-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .talent-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .talent-field label,
+    .talent-field legend {
+      color: var(--deep-teal);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .talent-field label span,
+    .talent-field legend span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .talent-field input,
+    .talent-field select,
+    .talent-field textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: #fffdf8;
+      color: var(--deep-teal);
+      font: inherit;
+      outline: none;
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .talent-field input,
+    .talent-field select {
+      min-height: 50px;
+    }
+
+    .talent-field textarea {
+      min-height: 135px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    .talent-field input:focus,
+    .talent-field select:focus,
+    .talent-field textarea:focus {
+      border-color: var(--deep-teal);
+      box-shadow: 0 0 0 3px rgba(8, 48, 47, 0.08);
+    }
+
+    .talent-fieldset {
+      min-width: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .talent-fieldset legend {
+      margin-bottom: 13px;
+    }
+
+    .talent-radio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
+      gap: 10px;
+    }
+
+    .talent-radio-option {
+      position: relative;
+    }
+
+    .talent-radio-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .talent-radio-option label {
+      display: flex;
+      align-items: center;
+      min-height: 50px;
+      padding: 12px 14px;
       border: 1px solid var(--line);
+      border-radius: 3px;
+      background: #fffdf8;
+      cursor: pointer;
+      color: var(--deep-teal);
+      font-size: 0.9rem;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .journey-step {
-      min-height: 280px;
-      padding: 36px 32px;
-      background: var(--cream);
+    .talent-radio-option label:hover {
+      border-color: var(--deep-teal);
     }
 
-    .journey-step-number {
+    .talent-radio-option input:checked + label {
+      background: var(--deep-teal);
+      border-color: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .talent-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .talent-consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+      accent-color: var(--deep-teal);
+    }
+
+    .talent-consent label {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .talent-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .talent-form-actions .btn-primary {
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .talent-form-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       WHAT HAPPENS NEXT
+       ========================================================= */
+
+    .talent-process-section {
+      padding: clamp(52px, 5.5vw, 76px) 0;
+      background: var(--deep-teal);
+      color: var(--cream);
+    }
+
+    .talent-process-header {
+      max-width: 720px;
+      margin-bottom: 58px;
+    }
+
+    .talent-process-header h2 {
+      margin: 0 0 18px;
+      color: var(--cream);
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.015em;
+    }
+
+    .talent-process-header p {
+      margin: 0;
+      color: rgba(255, 248, 235, 0.72);
+      line-height: 1.8;
+    }
+
+    .talent-process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .talent-process-step {
+      min-height: 260px;
+      padding: 32px;
+      background: var(--deep-teal);
+    }
+
+    .talent-process-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 28px;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 34px;
       border-radius: 50%;
-      background: var(--deep-teal);
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .journey-step h3 {
-      margin: 0 0 12px;
+      background: var(--gold);
       color: var(--deep-teal);
-      font-size: 1.45rem;
-    }
-
-    .journey-step p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .talent-expect-section {
-      padding: 110px 0;
-      background: var(--deep-teal);
-      color: var(--cream);
-    }
-
-    .expect-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .expect-grid h2 {
-      margin: 0;
-      font-size: clamp(2.3rem, 4vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
-      color: var(--cream);
-    }
-
-    .expect-list {
-      display: grid;
-      gap: 0;
-    }
-
-    .expect-item {
-      display: grid;
-      grid-template-columns: 50px 1fr;
-      gap: 22px;
-      padding: 25px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .expect-item:last-child {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .expect-icon {
-      color: var(--gold);
-      font-size: 1.2rem;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
-    .expect-item h3 {
-      margin: 0 0 7px;
+    .talent-process-step h3 {
+      margin: 0 0 12px;
       color: var(--cream);
-      font-size: 1.2rem;
+      font-size: 1.35rem;
     }
 
-    .expect-item p {
+    .talent-process-step p {
       margin: 0;
       color: rgba(255, 248, 235, 0.68);
       line-height: 1.7;
+      font-size: 0.95rem;
     }
 
-    .talent-note {
-      margin-top: 60px;
-      padding: 25px 30px;
-      border-left: 3px solid var(--gold);
-      background: rgba(255, 255, 255, 0.05);
-      color: rgba(255, 248, 235, 0.78);
-      line-height: 1.75;
-    }
+
+    /* =========================================================
+       FINAL CTA
+       ========================================================= */
 
     .talent-cta {
-      padding: 105px 0;
+      padding: clamp(52px, 5.5vw, 76px) 0;
       background: var(--gold);
       color: var(--deep-teal);
       text-align: center;
@@ -369,7 +518,7 @@
       margin: 0 0 18px;
       font-size: clamp(2.4rem, 5vw, 5rem);
       line-height: 0.98;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.015em;
       color: var(--deep-teal);
     }
 
@@ -394,22 +543,16 @@
       color: var(--cream);
     }
 
-    .coming-soon-label {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 6px 10px;
-      border: 1px solid rgba(8, 48, 47, 0.2);
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+
+    /* =========================================================
+       ANIMATION
+       ========================================================= */
 
     @keyframes talentOrbit {
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
@@ -419,30 +562,41 @@
       from {
         transform: rotate(360deg);
       }
+
       to {
         transform: rotate(0deg);
       }
     }
 
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
     @media (max-width: 1000px) {
-      .discipline-grid {
+
+      .talent-choice-grid {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .talent-intro-grid,
-      .expect-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
+      .talent-process-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .journey-steps {
-        grid-template-columns: 1fr;
+      .talent-radio-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
     @media (max-width: 680px) {
+
       .talent-hero {
-        min-height: 82vh;
+        min-height: 78vh;
       }
 
       .talent-hero-content {
@@ -453,53 +607,83 @@
         font-size: clamp(2.8rem, 15vw, 4.8rem);
       }
 
-      .discipline-grid {
+      .talent-choice-section,
+      .talent-form-section,
+      .talent-process-section,
+      .talent-cta {
+        padding-block: 52px;
+      }
+
+      .talent-choice-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .discipline-card {
-        min-height: 220px;
+      .talent-choice {
+        min-height: 125px;
       }
 
-      .talent-intro,
-      .discipline-section,
-      .journey-section,
-      .talent-expect-section,
-      .talent-cta {
-        padding: 75px 0;
+      .talent-form {
+        padding: 28px 20px;
+      }
+
+      .talent-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talent-field.full {
+        grid-column: auto;
+      }
+
+      .talent-radio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .talent-process-grid {
+        grid-template-columns: 1fr;
       }
     }
 
+
     @media (max-width: 480px) {
-      .discipline-grid {
+
+      .talent-choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talent-radio-grid {
         grid-template-columns: 1fr;
       }
 
       .talent-hero-actions,
-      .talent-cta-actions {
+      .talent-cta-actions,
+      .talent-form-actions {
         flex-direction: column;
         align-items: stretch;
       }
 
       .talent-hero-actions .btn,
-      .talent-cta-actions .btn {
+      .talent-cta-actions .btn,
+      .talent-form-actions .btn {
+        width: 100%;
         text-align: center;
       }
     }
 
+
     @media (prefers-reduced-motion: reduce) {
+
       .talent-hero::before,
       .talent-hero::after {
         animation: none;
       }
 
-      .discipline-card,
-      .discipline-card::before {
+      .talent-choice {
         transition: none;
       }
     }
   </style>
 </head>
+
 
 <body>
 
@@ -519,73 +703,37 @@
     <section class="talent-hero">
       <div class="container">
 
-          <div class="talent-hero-content">
+        <div class="talent-hero-content">
 
           <p class="eyebrow">I HAVE TALENT</p>
 
           <h1>
-            You already have<br>
+            You already have
             <span>something.</span>
           </h1>
 
           <p class="talent-hero-copy">
-            Maybe you dance. Maybe you draw, write, act or make music.
-            Maybe you are still figuring out exactly what your thing is.
-            CoWiTa starts there — with what you can already do, and the
-            potential to take it further.
+            Maybe you dance, draw, write, act or make music.
+            Maybe you are still discovering what your thing is.
+            Tell us where your talent is today and what you would
+            like to develop next.
           </p>
 
           <div class="talent-hero-actions">
-            <a class="btn btn-primary" href="/contact/">
+
+            <a
+              class="btn btn-primary"
+              href="#talent-form"
+            >
               Tell Us About Your Talent
             </a>
 
-            <a class="btn btn-dark" href="/work/">
+            <a
+              class="btn btn-dark"
+              href="/work/"
+            >
               Explore Our Work
             </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =======================================================
-         INTRO
-         ======================================================= -->
-    <section class="talent-intro section">
-      <div class="container">
-
-        <div class="talent-intro-grid">
-
-          <div>
-            <p class="section-label">START WHERE YOU ARE</p>
-
-            <h2>
-              Your talent does not have to be perfect to matter.
-            </h2>
-          </div>
-
-          <div class="talent-intro-copy">
-
-            <p>
-              A talent can begin as something you do in your free time,
-              something your friends keep asking you to do, or something
-              you have never really considered a talent at all.
-            </p>
-
-            <p>
-              What matters is that there is something worth developing.
-              CoWiTa is built around the idea that young people should
-              have opportunities to identify their strengths, build their
-              abilities and discover where those abilities can take them.
-            </p>
-
-            <p>
-              You do not need to arrive with a finished portfolio,
-              professional experience or a clear career plan. You need
-              curiosity, commitment and a willingness to grow.
-            </p>
 
           </div>
 
@@ -596,274 +744,707 @@
 
 
     <!-- =======================================================
-         CREATIVE DISCIPLINES
+         TALENT CHOICES
          ======================================================= -->
-    <section class="discipline-section section">
+    <section class="talent-choice-section section">
+
       <div class="container">
 
-        <div class="section-header">
-          <p class="section-label">CREATIVE DEVELOPMENT</p>
+        <div class="talent-choice-header">
+
+          <p class="section-label">START WITH YOUR TALENT</p>
 
           <h2>
-            What do you love creating?
+            What do you love doing?
           </h2>
 
           <p>
-            Our creative pathways are designed to give young people
-            space to develop their ability, learn from others and
-            begin building something meaningful from their talent.
+            Choose the area that best describes what you already do.
+            If your talent does not fit one of these, choose Other
+            and tell us more in the form.
           </p>
+
         </div>
 
 
-        <div class="discipline-grid">
+        <div class="talent-choice-grid">
 
-          <a
-            class="discipline-card"
-            href="/work/dance.html"
-            style="--discipline-image: url('/assets/images/cowita-dance.jpg');"
-          >
-            <span class="discipline-number">01</span>
-            <h3>Dance</h3>
-            <p>Movement, expression, discipline and performance.</p>
-          </a>
+          <label class="talent-choice">
 
-          <a
-            class="discipline-card"
-            href="/work/music.html"
-            style="--discipline-image: url('/assets/images/cowita-music.jpg');"
-          >
-            <span class="discipline-number">02</span>
-            <h3>Music</h3>
-            <p>Find your sound and develop your creative voice.</p>
-          </a>
+            <input
+              type="radio"
+              name="talent_preview"
+              value="dance"
+              form="talent-form"
+            >
 
-          <a
-            class="discipline-card"
-            href="/work/drawing.html"
-            style="--discipline-image: url('/assets/images/cowita-drawing.jpg');"
-          >
-            <span class="discipline-number">03</span>
-            <h3>Drawing</h3>
-            <p>Turn observation, imagination and ideas into visual work.</p>
-          </a>
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">01</span>
+              <strong>Dance</strong>
+            </span>
 
-          <a
-            class="discipline-card"
-            href="/work/writing.html"
-            style="--discipline-image: url('/assets/images/cowita-writing.jpg');"
-          >
-            <span class="discipline-number">04</span>
-            <h3>Writing</h3>
-            <p>Develop stories, ideas and a voice worth hearing.</p>
-          </a>
+          </label>
 
-          <a
-            class="discipline-card"
-            href="/work/acting.html"
-            style="--discipline-image: url('/assets/images/cowita-acting.jpg');"
-          >
-            <span class="discipline-number">05</span>
-            <h3>Acting</h3>
-            <p>Explore character, storytelling, confidence and performance.</p>
-          </a>
+
+          <label class="talent-choice">
+
+            <input
+              type="radio"
+              name="talent_preview"
+              value="acting"
+              form="talent-form"
+            >
+
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">02</span>
+              <strong>Acting</strong>
+            </span>
+
+          </label>
+
+
+          <label class="talent-choice">
+
+            <input
+              type="radio"
+              name="talent_preview"
+              value="drawing"
+              form="talent-form"
+            >
+
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">03</span>
+              <strong>Drawing</strong>
+            </span>
+
+          </label>
+
+
+          <label class="talent-choice">
+
+            <input
+              type="radio"
+              name="talent_preview"
+              value="music"
+              form="talent-form"
+            >
+
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">04</span>
+              <strong>Music</strong>
+            </span>
+
+          </label>
+
+
+          <label class="talent-choice">
+
+            <input
+              type="radio"
+              name="talent_preview"
+              value="writing"
+              form="talent-form"
+            >
+
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">05</span>
+              <strong>Writing</strong>
+            </span>
+
+          </label>
+
+
+          <label class="talent-choice">
+
+            <input
+              type="radio"
+              name="talent_preview"
+              value="other"
+              form="talent-form"
+            >
+
+            <span class="talent-choice-content">
+              <span class="talent-choice-number">06</span>
+              <strong>Other</strong>
+            </span>
+
+          </label>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =======================================================
-         THE JOURNEY
+         TALENT INTAKE FORM
          ======================================================= -->
-    <section class="journey-section section">
+    <section
+      class="talent-form-section section"
+      id="talent-form"
+    >
+
       <div class="container">
 
-        <div class="journey-header">
-          <p class="section-label">WHAT DEVELOPMENT CAN LOOK LIKE</p>
+        <div class="talent-form-header">
+
+          <p class="section-label">TELL US MORE</p>
 
           <h2>
-            Talent is only the beginning.
+            What are you ready to develop?
           </h2>
 
           <p>
-            CoWiTa's approach is not simply about finding what someone
-            is good at. It is about creating the conditions for that
-            ability to grow into something useful, purposeful and
-            sustainable.
+            This is an expression of interest, not a test or audition.
+            Give us enough information to understand what you do,
+            where you are now and what you would like to explore.
           </p>
-        </div>
-
-
-        <div class="journey-steps">
-
-          <article class="journey-step">
-            <span class="journey-step-number">01</span>
-
-            <h3>Identify</h3>
-
-            <p>
-              Recognise the ability, interest or creative instinct that
-              is already there — even when it is still rough.
-            </p>
-          </article>
-
-          <article class="journey-step">
-            <span class="journey-step-number">02</span>
-
-            <h3>Develop</h3>
-
-            <p>
-              Build technique, discipline, confidence and practical
-              skills through learning, practice and mentorship.
-            </p>
-          </article>
-
-          <article class="journey-step">
-            <span class="journey-step-number">03</span>
-
-            <h3>Create</h3>
-
-            <p>
-              Put your growing ability into practice by making work,
-              performing, experimenting and solving real problems.
-            </p>
-          </article>
 
         </div>
+
+
+        <form
+          class="talent-form"
+          id="talent-intake-form"
+          method="post"
+        >
+
+          <!-- =================================================
+               YOUR DETAILS
+               ================================================= -->
+          <div class="talent-form-group">
+
+            <h3 class="talent-form-section-title">
+              Your details
+            </h3>
+
+            <div class="talent-form-grid">
+
+              <div class="talent-field">
+
+                <label for="full-name">
+                  Full name
+                </label>
+
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full_name"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="age">
+                  Age / age range
+                </label>
+
+                <input
+                  type="text"
+                  id="age"
+                  name="age"
+                  placeholder="e.g. 17 or 16–18"
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="email">
+                  Email address
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="phone">
+                  Phone number <span>(optional)</span>
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                >
+
+              </div>
+
+
+              <div class="talent-field full">
+
+                <label for="location">
+                  Location
+                </label>
+
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Town / city / county"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               YOUR TALENT
+               ================================================= -->
+          <div class="talent-form-group">
+
+            <h3 class="talent-form-section-title">
+              Your talent
+            </h3>
+
+            <div class="talent-form-grid">
+
+              <fieldset class="talent-field talent-fieldset full">
+
+                <legend>
+                  Main creative area
+                </legend>
+
+                <div class="talent-radio-grid">
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-dance"
+                      name="discipline"
+                      value="dance"
+                      required
+                    >
+                    <label for="discipline-dance">Dance</label>
+                  </div>
+
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-acting"
+                      name="discipline"
+                      value="acting"
+                    >
+                    <label for="discipline-acting">Acting</label>
+                  </div>
+
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-drawing"
+                      name="discipline"
+                      value="drawing"
+                    >
+                    <label for="discipline-drawing">Drawing</label>
+                  </div>
+
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-music"
+                      name="discipline"
+                      value="music"
+                    >
+                    <label for="discipline-music">Music</label>
+                  </div>
+
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-writing"
+                      name="discipline"
+                      value="writing"
+                    >
+                    <label for="discipline-writing">Writing</label>
+                  </div>
+
+
+                  <div class="talent-radio-option">
+                    <input
+                      type="radio"
+                      id="discipline-other"
+                      name="discipline"
+                      value="other"
+                    >
+                    <label for="discipline-other">Other</label>
+                  </div>
+
+                </div>
+
+              </fieldset>
+
+
+              <div class="talent-field">
+
+                <label for="specific-talent">
+                  Specific talent / skill
+                </label>
+
+                <input
+                  type="text"
+                  id="specific-talent"
+                  name="specific_talent"
+                  placeholder="e.g. Hip-hop dance, songwriting, illustration"
+                  required
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="experience">
+                  Current experience level
+                </label>
+
+                <select
+                  id="experience"
+                  name="experience_level"
+                >
+                  <option value="">Select one</option>
+                  <option value="just-starting">Just starting</option>
+                  <option value="developing">Developing</option>
+                  <option value="experienced">Experienced</option>
+                  <option value="advanced">Advanced</option>
+                  <option value="professional">Professional</option>
+                </select>
+
+              </div>
+
+
+              <div class="talent-field full">
+
+                <label for="talent-description">
+                  Tell us about your talent
+                </label>
+
+                <textarea
+                  id="talent-description"
+                  name="talent_description"
+                  placeholder="What do you create, perform or enjoy doing?"
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="portfolio">
+                  Portfolio / social link <span>(optional)</span>
+                </label>
+
+                <input
+                  type="url"
+                  id="portfolio"
+                  name="portfolio"
+                  placeholder="https://"
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="goals">
+                  What would you like to develop?
+                </label>
+
+                <input
+                  type="text"
+                  id="goals"
+                  name="development_goal"
+                  placeholder="e.g. Technique, confidence, performance"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               AVAILABILITY & GOALS
+               ================================================= -->
+          <div class="talent-form-group">
+
+            <h3 class="talent-form-section-title">
+              Your next step
+            </h3>
+
+            <div class="talent-form-grid">
+
+              <div class="talent-field">
+
+                <label for="availability">
+                  Availability
+                </label>
+
+                <input
+                  type="text"
+                  id="availability"
+                  name="availability"
+                  placeholder="e.g. Weekends, after school, evenings"
+                >
+
+              </div>
+
+
+              <div class="talent-field">
+
+                <label for="preferred-format">
+                  Preferred way to participate
+                </label>
+
+                <select
+                  id="preferred-format"
+                  name="preferred_format"
+                >
+                  <option value="">Select one</option>
+                  <option value="in-person">In person</option>
+                  <option value="online">Online</option>
+                  <option value="either">Either</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+
+              </div>
+
+
+              <div class="talent-field full">
+
+                <label for="other-information">
+                  Anything else you would like us to know?
+                  <span>(optional)</span>
+                </label>
+
+                <textarea
+                  id="other-information"
+                  name="other_information"
+                  placeholder="Tell us anything else that may help us understand what you are looking for."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               CONSENT
+               ================================================= -->
+          <div class="talent-consent">
+
+            <input
+              type="checkbox"
+              id="talent-consent"
+              name="consent"
+              value="yes"
+              required
+            >
+
+            <label for="talent-consent">
+              I confirm that the information I have provided is
+              accurate and I am happy for CoWiTa to use it to
+              understand my interest and contact me about relevant
+              opportunities.
+            </label>
+
+          </div>
+
+
+          <!-- =================================================
+               SUBMIT
+               ================================================= -->
+          <div class="talent-form-actions">
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Submit My Talent
+            </button>
+
+            <p class="talent-form-note">
+              CoWiTa will review your information and use it to
+              understand how we may connect you with relevant
+              learning, mentorship or creative opportunities.
+            </p>
+
+          </div>
+
+        </form>
 
       </div>
+
     </section>
 
 
     <!-- =======================================================
-         WHAT TO EXPECT
+         WHAT HAPPENS NEXT
          ======================================================= -->
-    <section class="talent-expect-section section">
+    <section class="talent-process-section section">
+
       <div class="container">
 
-        <div class="expect-grid">
+        <div class="talent-process-header">
 
-          <div>
-            <p class="section-label">COME AS YOU ARE</p>
+          <p class="section-label">WHAT HAPPENS NEXT</p>
 
-            <h2>
-              You don't need to have it all figured out.
-            </h2>
-          </div>
+          <h2>
+            From telling us about your talent to finding your next step.
+          </h2>
 
-
-          <div class="expect-list">
-
-            <article class="expect-item">
-              <div class="expect-icon">01</div>
-
-              <div>
-                <h3>Bring what you can do</h3>
-
-                <p>
-                  Your current ability is enough to start the
-                  conversation. You do not need to be an expert.
-                </p>
-              </div>
-            </article>
-
-            <article class="expect-item">
-              <div class="expect-icon">02</div>
-
-              <div>
-                <h3>Be ready to learn</h3>
-
-                <p>
-                  Development takes practice. CoWiTa is interested
-                  in potential and commitment, not just polished results.
-                </p>
-              </div>
-            </article>
-
-            <article class="expect-item">
-              <div class="expect-icon">03</div>
-
-              <div>
-                <h3>Build beyond the talent</h3>
-
-                <p>
-                  Creative ability can be a starting point for wider
-                  skills, confidence, collaboration and opportunity.
-                </p>
-              </div>
-            </article>
-
-            <article class="expect-item">
-              <div class="expect-icon">04</div>
-
-              <div>
-                <h3>Discover where it can take you</h3>
-
-                <p>
-                  As CoWiTa's programmes develop, participants will be
-                  connected to pathways for learning, mentorship,
-                  collaboration and opportunity.
-                </p>
-              </div>
-            </article>
-
-          </div>
+          <p>
+            Sharing your information is the starting point. The next
+            step depends on your interests, availability and the
+            opportunities available through CoWiTa.
+          </p>
 
         </div>
 
 
-        <div class="talent-note">
-          <strong>Programme applications:</strong>
-          CoWiTa's participant application and talent-registration
-          system is currently coming soon. If you want to express
-          interest or tell us about your talent, use the contact
-          pathway below so we can hear from you as the programme
-          develops.
+        <div class="talent-process-grid">
+
+          <article class="talent-process-step">
+
+            <span class="talent-process-number">
+              01
+            </span>
+
+            <h3>Submit</h3>
+
+            <p>
+              Tell us what you do, what you want to develop and
+              where you are currently at.
+            </p>
+
+          </article>
+
+
+          <article class="talent-process-step">
+
+            <span class="talent-process-number">
+              02
+            </span>
+
+            <h3>Review</h3>
+
+            <p>
+              We review the information you provide and consider
+              how it connects with CoWiTa's activities.
+            </p>
+
+          </article>
+
+
+          <article class="talent-process-step">
+
+            <span class="talent-process-number">
+              03
+            </span>
+
+            <h3>Connect</h3>
+
+            <p>
+              Where there is a relevant opportunity, we can
+              continue the conversation with you.
+            </p>
+
+          </article>
+
+
+          <article class="talent-process-step">
+
+            <span class="talent-process-number">
+              04
+            </span>
+
+            <h3>Grow</h3>
+
+            <p>
+              Your talent can become a starting point for learning,
+              mentorship, collaboration and opportunity.
+            </p>
+
+          </article>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =======================================================
-         CTA
+         FINAL CTA
          ======================================================= -->
     <section class="talent-cta section">
+
       <div class="container">
 
         <div class="talent-cta-inner">
 
-          <p class="section-label">YOUR NEXT STEP</p>
+          <p class="section-label">
+            YOUR NEXT STEP
+          </p>
 
           <h2>
-            Let your talent become the beginning of something bigger.
+            Your talent is worth developing.
           </h2>
 
           <p>
-            Tell us what you do, what you are learning, or what you
-            would love to develop. The formal application pathway is
-            coming soon, but the conversation can start now.
+            You do not need to have everything figured out.
+            Start by telling us what you can do and what you would
+            like to explore next.
           </p>
 
           <div class="talent-cta-actions">
-            <a class="btn btn-dark" href="/contact/">
+
+            <a
+              class="btn btn-dark"
+              href="#talent-form"
+            >
               Tell Us About Your Talent
             </a>
 
-            <a class="btn btn-dark" href="/get-involved/">
+            <a
+              class="btn btn-dark"
+              href="/get-involved/"
+            >
               Explore Ways to Get Involved
             </a>
-          </div>
 
-          <span class="coming-soon-label">
-            Participant registration — Coming Soon
-          </span>
+          </div>
 
         </div>
 
       </div>
+
     </section>
 
   </main>

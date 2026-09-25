@@ -85,7 +85,7 @@
 
   --gutter: clamp(20px, 4vw, 64px);
 
-  --section-space: clamp(80px, 10vw, 150px);
+  --section-space: clamp(52px, 5.5vw, 76px);
 
   --header-height: 57px;
   --header-z: 5000;
@@ -279,7 +279,7 @@ h4 {
 }
 
 .section-tight {
-  padding-block: clamp(55px, 7vw, 95px);
+  padding-block: clamp(55px, 5.5vw, 76px);
 }
 
 .section-small {
@@ -933,6 +933,14 @@ h4 {
     max-height: calc(100vh - var(--header-height) - 112px) !important;
   }
 
+  section.why-page-hero .why-hero-image {
+    max-height: none !important;
+  }
+
+  section.why-page-hero.why-page-hero h1 {
+    font-size: clamp(3rem, 4.8vw, 5.5rem) !important;
+  }
+
   section[class$="-hero"] h1 {
     font-size: clamp(3rem, 5.8vw, 6.5rem) !important;
     line-height: 1.02 !important;
@@ -952,6 +960,24 @@ h4 {
     margin-top: 24px !important;
   }
 
+}
+
+
+/* ============================================================
+   10B. SERIF TYPE TRACKING
+   ============================================================ */
+
+h1,
+h2,
+h3,
+.display {
+  letter-spacing: -.015em !important;
+}
+
+.quote cite,
+[class*="caption"] strong,
+[class*="caption"] span {
+  letter-spacing: .02em;
 }
 
 
@@ -2476,7 +2502,7 @@ h4 {
 
   :root {
     --gutter: 20px;
-    --section-space: 75px;
+    --section-space: 52px;
   }
 
   html {
