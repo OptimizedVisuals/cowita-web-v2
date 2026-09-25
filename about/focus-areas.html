@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore the five focus areas that shape CoWiTa's work with children, young people and communities."
+  >
+
+  <meta name="theme-color" content="#0d4b4b">
+
+  <title>CoWiTa Focus Areas — Where We Focus</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    .focus-hero {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--deep-teal);
+      color: #fff;
+      padding: 150px 0 90px;
+    }
+
+    .focus-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 78% 20%,
+          rgba(229,165,26,.20),
+          transparent 25%
+        ),
+        linear-gradient(
+          115deg,
+          rgba(5,28,32,.98),
+          rgba(13,75,75,.86)
+        );
+    }
+
+    .focus-hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -220px;
+      bottom: -270px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+    }
+
+    .focus-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr .7fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .focus-hero-content {
+      max-width: 800px;
+    }
+
+    .focus-hero h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .focus-hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .focus-hero-intro {
+      max-width: 650px;
+      margin: 30px 0 0;
+      color: rgba(255,255,255,.76);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .focus-hero-visual {
+      position: relative;
+      min-height: 470px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .focus-orbit {
+      position: relative;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+    }
+
+    .focus-orbit::before,
+    .focus-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 35px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+    }
+
+    .focus-orbit::after {
+      inset: 105px;
+      border-color: rgba(229,165,26,.30);
+    }
+
+    .focus-orbit-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 145px;
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--gold);
+      color: #1b1a16;
+      text-align: center;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.1;
+      box-shadow: 0 20px 55px rgba(0,0,0,.24);
+    }
+
+    .focus-orbit-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px;
+      height: 90px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.86);
+      text-align: center;
+      font-size: .66rem;
+      font-weight: 700;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .focus-orbit-label.one {
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .focus-orbit-label.two {
+      top: 78px;
+      right: -20px;
+    }
+
+    .focus-orbit-label.three {
+      bottom: 30px;
+      right: 12px;
+    }
+
+    .focus-orbit-label.four {
+      bottom: 30px;
+      left: 12px;
+    }
+
+    .focus-orbit-label.five {
+      top: 78px;
+      left: -20px;
+    }
+
+    .focus-introduction {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .focus-introduction-title {
+      position: sticky;
+      top: 120px;
+    }
+
+    .focus-introduction-copy {
+      max-width: 760px;
+    }
+
+    .focus-introduction-copy .lead {
+      margin: 0 0 28px;
+      color: var(--ink);
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    .focus-introduction-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .focus-introduction-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .areas-section {
+      background: var(--cream);
+    }
+
+    .areas-header {
+      max-width: 850px;
+      margin-bottom: 60px;
+    }
+
+    .areas-header h2 {
+      margin: 0 0 20px;
+    }
+
+    .areas-header p {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .area {
+      position: relative;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 45px;
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .area:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .area-number {
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .area-content {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .area-title {
+      max-width: 520px;
+    }
+
+    .area-title h3 {
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .area-copy {
+      max-width: 600px;
+    }
+
+    .area-copy p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .area-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .area-list li {
+      position: relative;
+      padding-left: 19px;
+      color: var(--ink);
+      font-size: .82rem;
+      line-height: 1.55;
+    }
+
+    .area-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .connection-section {
+      background: var(--deep-teal);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .connection-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .connection-statement {
+      max-width: 700px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .connection-statement span {
+      color: var(--gold);
+    }
+
+    .connection-copy {
+      max-width: 600px;
+    }
+
+    .connection-copy p {
+      margin: 0 0 24px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+    }
+
+    .connection-list {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+
+    .connection-item {
+      display: grid;
+      grid-template-columns: 45px 1fr;
+      gap: 15px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .connection-item-number {
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .connection-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .9rem;
+    }
+
+    .connection-item span {
+      color: rgba(255,255,255,.58);
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
+    .focus-closing {
+      background: var(--paper);
+    }
+
+    .focus-closing-inner {
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .focus-closing-inner h2 {
+      margin: 0 0 25px;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .focus-closing-inner p {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .focus-closing-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 950px) {
+      .focus-hero-grid,
+      .focus-introduction,
+      .connection-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-hero-visual {
+        min-height: 420px;
+      }
+
+      .focus-introduction-title {
+        position: static;
+      }
+
+      .area-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .focus-hero {
+        min-height: auto;
+        padding: 130px 0 60px;
+      }
+
+      .focus-hero h1 {
+        font-size: clamp(3.1rem, 15vw, 5rem);
+      }
+
+      .focus-hero-intro {
+        font-size: .98rem;
+      }
+
+      .focus-hero-visual {
+        min-height: 330px;
+      }
+
+      .focus-orbit {
+        width: 300px;
+        height: 300px;
+      }
+
+      .focus-orbit-core {
+        width: 115px;
+        height: 115px;
+        font-size: 1rem;
+      }
+
+      .focus-orbit-label {
+        width: 72px;
+        height: 72px;
+        font-size: .55rem;
+      }
+
+      .focus-orbit-label.one {
+        top: -10px;
+      }
+
+      .focus-orbit-label.two {
+        right: -8px;
+      }
+
+      .focus-orbit-label.three {
+        right: 8px;
+        bottom: 12px;
+      }
+
+      .focus-orbit-label.four {
+        left: 8px;
+        bottom: 12px;
+      }
+
+      .focus-orbit-label.five {
+        left: -8px;
+      }
+
+      .area {
+        grid-template-columns: 45px 1fr;
+        gap: 20px;
+        padding: 32px 0;
+      }
+
+      .area-content {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .area-title h3 {
+        font-size: 2.2rem;
+      }
+
+      .area-list {
+        grid-template-columns: 1fr;
+      }
+
+      .connection-statement {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a
+    class="skip-link"
+    href="#main-content"
+  >
+    Skip to content
+  </a>
+
+  <div id="site-header"></div>
+
+  <main id="main-content">
+
+    <!-- =======================================================
+         1. HERO
+         ======================================================= -->
+
+    <section class="focus-hero">
+
+      <div class="container focus-hero-grid">
+
+        <div class="focus-hero-content reveal">
+
+          <h1>
+            Where we
+            <em>focus.</em>
+          </h1>
+
+          <p class="focus-hero-intro">
+            CoWiTa works across the issues that shape the lives,
+            opportunities and futures of children, young people
+            and communities.
+          </p>
+
+        </div>
+
+        <div class="focus-hero-visual reveal">
+
+          <div class="focus-orbit">
+
+            <div class="focus-orbit-core">
+              Possibility
+            </div>
+
+            <div class="focus-orbit-label one">
+              Youth
+            </div>
+
+            <div class="focus-orbit-label two">
+              Inclusion
+            </div>
+
+            <div class="focus-orbit-label three">
+              Gender
+            </div>
+
+            <div class="focus-orbit-label four">
+              Climate
+            </div>
+
+            <div class="focus-orbit-label five">
+              Education
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         2. INTRODUCTION
+         ======================================================= -->
+
+    <section class="section">
+
+      <div class="container focus-introduction">
+
+        <div class="focus-introduction-title reveal">
+
+          <div class="section-label">
+            Why these areas?
+          </div>
+
+          <h2>
+            The work is connected.
+          </h2>
+
+        </div>
+
+        <div class="focus-introduction-copy reveal">
+
+          <p class="lead">
+            Young people's lives do not fit neatly into
+            separate programme categories.
+          </p>
+
+          <p>
+            A young person may be developing a creative talent
+            while facing barriers to education. They may be
+            navigating questions of identity, gender, disability,
+            economic opportunity or their changing environment
+            at the same time.
+          </p>
+
+          <p>
+            That is why CoWiTa's work extends beyond talent
+            development alone. We focus on the conditions that
+            allow children and young people to participate,
+            develop their abilities, access opportunities and
+            contribute to the communities around them.
+          </p>
+
+          <p>
+            These five focus areas give shape to that work.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         3. THE FIVE FOCUS AREAS
+         ======================================================= -->
+
+    <section class="section areas-section">
+
+      <div class="container">
+
+        <div class="areas-header reveal">
+
+          <div class="section-label">
+            Our focus areas
+          </div>
+
+          <h2>
+            Five areas where possibility
+            meets action.
+          </h2>
+
+          <p>
+            Each area represents a space where CoWiTa can support
+            development, participation, protection, inclusion and
+            access to opportunity.
+          </p>
+
+        </div>
+
+        <article class="area reveal">
+
+          <div class="area-number">
+            01
+          </div>
+
+          <div class="area-content">
+
+            <div class="area-title">
+              <h3>
+                Children &amp;
+                Youth Empowerment
+              </h3>
+            </div>
+
+            <div class="area-copy">
+
+              <p>
+                We support children and young people to recognise
+                their abilities, build confidence, develop practical
+                skills and take meaningful roles in shaping their
+                own futures and communities.
+              </p>
+
+              <ul class="area-list">
+                <li>Talent development and creative arts</li>
+                <li>Life skills and leadership</li>
+                <li>Mentorship and personal development</li>
+                <li>Entrepreneurship and employability</li>
+                <li>Youth participation and community leadership</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="area reveal">
+
+          <div class="area-number">
+            02
+          </div>
+
+          <div class="area-content">
+
+            <div class="area-title">
+              <h3>
+                Disability
+                Inclusion
+              </h3>
+            </div>
+
+            <div class="area-copy">
+
+              <p>
+                We work toward environments where children and
+                young people with disabilities can participate,
+                develop their abilities and access opportunities
+                without unnecessary barriers.
+              </p>
+
+              <ul class="area-list">
+                <li>Inclusive education and talent development</li>
+                <li>Accessibility and participation</li>
+                <li>Skills development for persons with disabilities</li>
+                <li>Disability rights and awareness</li>
+                <li>Inclusive community programmes</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="area reveal">
+
+          <div class="area-number">
+            03
+          </div>
+
+          <div class="area-content">
+
+            <div class="area-title">
+              <h3>
+                Gender Equality
+                &amp; GBV Prevention
+              </h3>
+            </div>
+
+            <div class="area-copy">
+
+              <p>
+                We support work that promotes equality, strengthens
+                protection and creates safer environments where
+                children, girls and young people can participate
+                and thrive.
+              </p>
+
+              <ul class="area-list">
+                <li>Gender equality and empowerment</li>
+                <li>GBV prevention and awareness</li>
+                <li>Protection of children, girls and young people</li>
+                <li>Positive gender norms</li>
+                <li>Safe spaces and community education</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="area reveal">
+
+          <div class="area-number">
+            04
+          </div>
+
+          <div class="area-content">
+
+            <div class="area-title">
+              <h3>
+                Climate Justice
+                &amp; Environmental Action
+              </h3>
+            </div>
+
+            <div class="area-copy">
+
+              <p>
+                We create space for children and young people to
+                understand environmental challenges, participate
+                in climate action and use creativity as a tool for
+                environmental advocacy.
+              </p>
+
+              <ul class="area-list">
+                <li>Climate education and awareness</li>
+                <li>Youth-led climate action</li>
+                <li>Environmental conservation</li>
+                <li>Climate resilience</li>
+                <li>Creative approaches to environmental advocacy</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <article class="area reveal">
+
+          <div class="area-number">
+            05
+          </div>
+
+          <div class="area-content">
+
+            <div class="area-title">
+              <h3>
+                Access to Education
+                &amp; Skills Development
+              </h3>
+            </div>
+
+            <div class="area-copy">
+
+              <p>
+                We support pathways that help children and young
+                people access learning, develop practical and
+                digital skills and navigate barriers that can limit
+                their educational and professional opportunities.
+              </p>
+
+              <ul class="area-list">
+                <li>Supporting access to quality education</li>
+                <li>Creative and alternative learning opportunities</li>
+                <li>Digital and practical skills</li>
+                <li>Career guidance and mentorship</li>
+                <li>Supporting children and youth facing barriers to education</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         4. THE CONNECTION
+         ======================================================= -->
+
+    <section class="section connection-section">
+
+      <div class="container connection-layout">
+
+        <div class="connection-statement reveal">
+
+          These areas are
+          <span>connected.</span>
+
+        </div>
+
+        <div class="connection-copy reveal">
+
+          <p>
+            A focus on youth empowerment can create stronger
+            community leadership. Inclusive education can open
+            pathways for talent to develop. Gender equality can
+            strengthen participation and safety. Climate action
+            can become a space for learning, creativity and
+            leadership.
+          </p>
+
+          <p>
+            The focus areas therefore work together rather than
+            existing as isolated programmes.
+          </p>
+
+          <div class="connection-list">
+
+            <div class="connection-item">
+
+              <div class="connection-item-number">
+                01
+              </div>
+
+              <div>
+                <strong>Participation</strong>
+
+                <span>
+                  Creating space for young people to contribute,
+                  lead and shape what happens around them.
+                </span>
+              </div>
+
+            </div>
+
+            <div class="connection-item">
+
+              <div class="connection-item-number">
+                02
+              </div>
+
+              <div>
+                <strong>Development</strong>
+
+                <span>
+                  Building skills, confidence, knowledge and
+                  creative ability over time.
+                </span>
+              </div>
+
+            </div>
+
+            <div class="connection-item">
+
+              <div class="connection-item-number">
+                03
+              </div>
+
+              <div>
+                <strong>Opportunity</strong>
+
+                <span>
+                  Connecting learning and development to real
+                  experiences, networks and possibilities.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         5. CLOSING
+         ======================================================= -->
+
+    <section class="section focus-closing">
+
+      <div class="container">
+
+        <div class="focus-closing-inner reveal">
+
+          <div class="section-label">
+            Discover CoWiTa
+          </div>
+
+          <h2>
+            The focus areas show
+            where we work.
+          </h2>
+
+          <p>
+            But understanding CoWiTa also means understanding
+            why the organisation exists, what it believes and
+            how it turns those beliefs into pathways for young
+            people.
+          </p>
+
+          <div class="focus-closing-actions">
+
+            <a
+              class="btn btn-primary"
+              href="/about/"
+            >
+              About CoWiTa
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>
