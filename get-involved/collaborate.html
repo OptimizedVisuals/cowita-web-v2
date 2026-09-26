@@ -17,6 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/config.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
 
   <style>
     /* =========================================================
@@ -740,8 +742,9 @@
 
     <form
       class="collab-form-shell reveal"
-      action="#"
       method="post"
+      data-cowita-form
+      data-form-type="collaborate"
     >
 
       <!-- =====================================================
@@ -1373,6 +1376,21 @@
            ===================================================== -->
 
       <div class="collab-form-footer">
+
+        <!-- SPAM PROTECTION (hidden from humans) -->
+        <div
+          style="position:absolute;left:-9999px;top:-9999px;"
+          aria-hidden="true"
+        >
+          <label>Leave this field empty
+            <input
+              type="text"
+              name="honeypot"
+              tabindex="-1"
+              autocomplete="off"
+            >
+          </label>
+        </div>
 
         <p class="collab-form-note">
           Sharing an idea does not guarantee that CoWiTa will

@@ -12,6 +12,8 @@
   >
 
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/config.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
 
   <style>
     /* =========================================================
@@ -985,8 +987,9 @@
 
             <form
               class="contact-form"
-              action="#"
               method="post"
+              data-cowita-form
+              data-form-type="contact"
             >
 
 
@@ -1137,10 +1140,25 @@
               </div>
 
 
+              <!-- SPAM PROTECTION (hidden from humans) -->
+              <div
+                style="position:absolute;left:-9999px;top:-9999px;"
+                aria-hidden="true"
+              >
+                <label>Leave this field empty
+                  <input
+                    type="text"
+                    name="honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                  >
+                </label>
+              </div>
+
+
               <p class="contact-form-note">
-                This form is currently prepared for future connection
-                to CoWiTa's chosen email or form service. Submitting it
-                does not currently send or store a message.
+                You will receive a confirmation email once your message
+                has been sent to the CoWiTa team.
               </p>
 
 

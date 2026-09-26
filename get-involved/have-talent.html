@@ -12,6 +12,8 @@
   >
 
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/config.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
   <script src="/js/main.js" defer></script>
 
   <style>
@@ -908,6 +910,8 @@
           class="talent-form"
           id="talent-intake-form"
           method="post"
+          data-cowita-form
+          data-form-type="talent"
         >
 
           <!-- =================================================
@@ -1274,6 +1278,24 @@
               opportunities.
             </label>
 
+          </div>
+
+
+          <!-- =================================================
+               SPAM PROTECTION (hidden from humans)
+               ================================================= -->
+          <div
+            style="position:absolute;left:-9999px;top:-9999px;"
+            aria-hidden="true"
+          >
+            <label>Leave this field empty
+              <input
+                type="text"
+                name="honeypot"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </label>
           </div>
 
 
